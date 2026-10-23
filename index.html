@@ -28,12 +28,12 @@
 
     <!-- Draw screen -->
     <main class="screen" id="drawScreen">
-      <p class="prompt" id="prompt">Draw anything. Its lines pick the record.</p>
+      <p class="prompt" id="prompt">Draw Something, Music Follows</p>
 
       <div class="paper-wrap">
         <div class="paper" id="paper">
           <canvas id="canvas" aria-label="Drawing canvas. Draw with your finger, pen or mouse."></canvas>
-          <p class="hint" id="hint">draw here</p>
+          <p class="hint" id="hint">paper</p>
         </div>
       </div>
 
@@ -54,7 +54,7 @@
       </div>
 
       <button class="submit" id="submitBtn" disabled>
-        <span>Find my record</span>
+        <span>Asscociate Music</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
     </main>
@@ -64,7 +64,7 @@
       <div class="reading">
         <img class="thumb" id="thumb" alt="Your drawing">
         <div>
-          <p class="label">The lines read as</p>
+          <p class="label">youve drawn a(n) </p>
           <h2 class="motif" id="motif">—</h2>
           <p class="traits" id="traits"></p>
         </div>
@@ -77,14 +77,14 @@
       <div class="release" id="release">
         <div class="loading" id="loading">
           <span class="pen-line"></span>
-          <p>Flipping through the crates…</p>
+          <p>searching sounds...</p>
         </div>
       </div>
 
       <div class="actions">
         <button class="submit ghost" id="againBtn">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20c3-1 4-4 7-9s5-6 9-7"/></svg>
-          <span>Draw another</span>
+          <span>Draw again</span>
         </button>
       </div>
     </section>
