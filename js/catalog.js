@@ -40,7 +40,7 @@ export const RELATED = {
   abstract: ['scribble'],
 };
 
-// Spotify artist genre text → Linework genre. Order matters: more specific first.
+// Genre/tag text (MusicBrainz tags, or Spotify genres in older catalogs) → Linework genre. Order matters: more specific first.
 const GENRE_RULES = [
   [/drum and bass|drum & bass|\bdnb\b|jungle|liquid funk/, 'drum and bass'],
   [/trip hop|trip-hop/, 'trip hop'],
@@ -58,6 +58,10 @@ const GENRE_RULES = [
   [/disco/, 'disco'],
   [/synthpop|synth-pop|synthwave|electropop|electroclash/, 'synthpop'],
   [/new wave/, 'new wave'],
+  [/dance-pop|europop|electro-?pop/, 'synthpop'],
+  [/\bdance\b|\bedm\b|electro house|eurodance/, 'house'],
+  [/progressive rock|\bprog\b|art rock/, 'psychedelic rock'],
+  [/post-rock|post rock/, 'ambient'],
   [/krautrock|kosmische|motorik/, 'krautrock'],
   [/psych/, 'psychedelic rock'],
   [/ambient|drone|new age|space music/, 'ambient'],
@@ -73,19 +77,23 @@ const GENRE_RULES = [
   [/country|americana|bluegrass|honky/, 'country'],
   [/hip hop|hip-hop|\brap\b|trap|drill|grime|boom bap/, 'hip hop'],
   [/lo-fi|lofi|bedroom/, 'lo-fi'],
-  [/singer-songwriter/, 'singer-songwriter'],
+  [/singer.?songwriter/, 'singer-songwriter'],
   [/folk/, 'folk'],
   [/\bidm\b|electronica|downtempo|glitch|chillwave|leftfield/, 'electronica'],
   [/experimental|avant|free improvisation|musique concrete/, 'experimental'],
-  [/indie|alternative|rock|britpop|pop/, 'indie rock'],
+  // Catch-alls: count for less, so a specific tag ("shoegaze") beats a common one ("rock").
+  [/electronic/, 'electronica', 0.35],
+  [/indie|alternative|rock|britpop|pop/, 'indie rock', 0.35],
 ];
 
+// Accepts plain strings or { name, count } tags; tags with more votes count for more.
 export function genreFromArtistGenres(list) {
   const votes = new Map();
   for (const raw of list || []) {
-    const g = String(raw).toLowerCase();
+    const g = String(typeof raw === 'string' ? raw : raw?.name || '').toLowerCase();
+    const weight = typeof raw === 'string' ? 1 : Math.sqrt(Math.max(1, Number(raw?.count) || 1));
     const idx = GENRE_RULES.findIndex(([re]) => re.test(g));
-    if (idx >= 0) votes.set(idx, (votes.get(idx) || 0) + 1);
+    if (idx >= 0) votes.set(idx, (votes.get(idx) || 0) + weight * (GENRE_RULES[idx][2] ?? 1));
   }
   if (!votes.size) return null;
   // Most votes wins; ties go to the more specific rule.

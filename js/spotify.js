@@ -162,7 +162,10 @@ export async function api(path, params = {}, { onWait } = {}) {
     if (res.status === 403) throw new Error('Spotify refused the request. In development mode your Spotify account must be added to the app’s user list, and the app owner needs Premium.');
     if (res.status === 429) {
       const wait = Number(res.headers.get('Retry-After')) || 5;
-      if (attempt >= 4 || wait > 120) throw new Error(`Spotify rate limit reached. Try again in ${Math.ceil(wait / 60)} min.`);
+      if (attempt >= 4 || wait > 120) {
+        const when = wait >= 5400 ? `${Math.round(wait / 3600)} hours` : `${Math.ceil(wait / 60)} min`;
+        throw new Error(`Spotify’s limit for your developer account is used up. Try again in about ${when}. (Making a new Spotify app won’t help: all your apps share one limit.)`);
+      }
       onWait?.(wait);
       await sleep(wait * 1000 + 250);
       continue;

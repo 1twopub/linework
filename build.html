@@ -47,6 +47,7 @@
         <span>Playlist link</span>
         <input id="playlistInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://open.spotify.com/playlist/…" inputmode="url">
       </label>
+      <p class="small muted">Spotify is only used to read the playlist (one request per 50 tracks). Genres come from <a href="https://musicbrainz.org" target="_blank" rel="noopener">MusicBrainz</a>, one artist per second, so a large playlist takes a few minutes. Lookups are remembered, so if you close the page, building again picks up where it left off.</p>
       <label class="check"><input type="checkbox" id="keepEdits" checked> Keep my hand edits for records already in the catalog</label>
       <button class="submit small-btn" id="buildBtn" disabled>Build catalog</button>
       <div class="progress" id="progress" hidden>
@@ -54,12 +55,13 @@
         <p class="small" id="progressText"></p>
       </div>
       <p class="small error" id="buildError" hidden></p>
+      <p class="small note" id="buildNote" hidden></p>
     </section>
 
     <!-- 3. Review -->
     <section class="panel" id="reviewPanel" hidden>
       <h2><span class="num">3</span> Review the tags</h2>
-      <p class="small">Linework matches a drawing’s <strong>motif</strong> (found in titles) and its <strong>linework</strong> (set by genre). Fix anything that looks off; your changes are saved in this browser as you go.</p>
+      <p class="small">Linework matches a drawing’s <strong>motif</strong> (found in titles) and its <strong>linework</strong> (set by genre, from MusicBrainz tags). Fix anything that looks off; your changes are saved in this browser as you go.</p>
       <div class="stats" id="stats"></div>
       <div class="coverage" id="coverage"></div>
       <div class="filters" role="tablist" aria-label="Filter records">

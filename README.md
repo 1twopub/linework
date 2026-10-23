@@ -27,9 +27,11 @@ All of this is in `js/analyze.js` (drawing analysis) and `js/mapping.js` (keywor
 2. Open `https://<username>.github.io/<repo>/build.html`, paste your Client ID and log in.
 3. Paste a playlist link and press **Build catalog**. The playlist must be **yours** (or one you collaborate on): since February 2026 Spotify only lets development-mode apps read the tracks of those. To use someone else's playlist, select all its tracks in Spotify and add them to a new playlist of your own.
 4. Review the tags. Each record gets:
-   - **motifs** found in its album title, the playlist track titles and the album's tracklist ("Here Comes the Sun" → sun, "Rain on Glass" → rain). Records with no motif are still matched on linework.
-   - a **genre** from Spotify's genres for the artist, which places the record in linework space (jagged + fast drawings → punk, slow flowing ones → ambient…). Spotify leaves many artists without genres; set those by hand with the "Needs genre" filter.
+   - **motifs** found in its album title and the track titles on your playlist ("Here Comes the Sun" → sun, "Rain on Glass" → rain). Records with no motif are still matched on linework.
+   - a **genre** from the artist's tags on [MusicBrainz](https://musicbrainz.org), the free open music database, which places the record in linework space (jagged + fast drawings → punk, slow flowing ones → ambient…). Specific tags win over broad ones, so "shoegaze" beats "rock". Artists MusicBrainz doesn't know end up without a genre; set those by hand with the "Needs genre" filter.
    Edits are saved in your browser as you go, and kept when you rebuild (unless you untick *Keep my hand edits*).
+
+   **Speed and limits.** Spotify is used only to read the playlist: one request per 50 tracks, so a 300-track playlist costs about 7 requests. MusicBrainz allows about one request per second, so genres take roughly one second per artist (about 5 minutes for 300 artists). Lookups are remembered in your browser, so a rebuild, or a build interrupted by closing the page, only looks up artists it hasn't seen.
 5. **Preview in app** opens the app using your draft, without publishing.
 6. **Download catalog.json**, add it to the repo root next to `index.html`, and push. The live site switches to catalog mode for everyone.
 
@@ -88,6 +90,7 @@ catalog.json             your catalog (you add this; not included)
 js/app.js                canvas, screens, settings
 js/build.js              catalog builder logic
 js/catalog.js            title motifs, genre mapping, drawing → record matching
+js/musicbrainz.js        MusicBrainz genre lookups (throttled and cached)
 js/analyze.js            stroke geometry, motif detection, linework features
 js/mapping.js            motif keywords, genre profiles, search plan
 js/spotify.js            PKCE login, token refresh, search

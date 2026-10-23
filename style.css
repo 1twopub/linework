@@ -247,3 +247,4 @@ button.tag { cursor: pointer; }
 .rec-edit select { min-height: 32px; border-radius: 999px; border: 1px solid var(--rule); background: var(--paper); color: #141311; font: 400 13px var(--sans); padding: 0 8px; max-width: 100%; }
 .error:empty { display: none; }
 .preview-banner { margin: 0; font: 500 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.note { margin: 0; padding: 10px 12px; border-radius: 10px; background: var(--bg); border: 1px dashed var(--ink-3); color: var(--ink-2); }

@@ -1,14 +1,14 @@
-// Linework — catalog builder. Reads a Spotify playlist and writes catalog.json.
+// Linework — catalog builder. Reads a Spotify playlist, adds MusicBrainz genre tags, and writes catalog.json.
 
 import * as spotify from './spotify.js';
 import { GENRES } from './mapping.js';
 import { MOTIF_LABELS } from './analyze.js';
 import { MOTIFS, genreFromArtistGenres, motifsFromText, profileFor, loadCatalog } from './catalog.js';
+import * as mb from './musicbrainz.js';
 
 const $ = (id) => document.getElementById(id);
 const DRAFT_KEY = 'linework.draftCatalog';
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const GENRE_NAMES = GENRES.map((g) => g.g).sort();
 
 let catalog = null;
@@ -56,52 +56,41 @@ function progress(done, total, text) {
   $('progressText').textContent = text;
 }
 
-// Runs `fn` over `items`, two at a time with a short gap, to stay well inside Spotify's rate limits.
-async function pool(items, fn, onEach) {
-  let i = 0;
-  let done = 0;
-  async function worker() {
-    while (i < items.length) {
-      const item = items[i++];
-      await fn(item);
-      done++;
-      onEach(done);
-      await sleep(120);
-    }
-  }
-  await Promise.all([worker(), worker()]);
-}
-
 function pickImage(images) {
   if (!images?.length) return '';
   const sorted = [...images].sort((a, b) => (a.width || 0) - (b.width || 0));
   return (sorted.find((im) => (im.width || 0) >= 280) || sorted[sorted.length - 1]).url;
 }
 
+function duration(sec) {
+  if (sec < 60) return `${Math.max(1, Math.round(sec))}s`;
+  return `${Math.round(sec / 60)} min`;
+}
+
 async function build() {
   const id = spotify.parsePlaylistId($('playlistInput').value);
   $('buildError').hidden = true;
+  $('buildNote').hidden = true;
   if (!id) { showError('That doesn’t look like a Spotify playlist link.'); return; }
   $('buildBtn').disabled = true;
-  const onWait = (s) => progress(0, 1, `Spotify asked us to slow down. Waiting ${s}s…`);
+  const onWait = (s) => progress(0, 1, `Spotify asked us to slow down. Waiting ${duration(s)}…`);
 
   try {
-    progress(0, 1, 'Reading the playlist…');
-    const [me, meta] = await Promise.all([spotify.api('/me'), spotify.api(`/playlists/${id}`)]);
+    // 1. Read the playlist from Spotify. This is the only Spotify step: one call for the name,
+    //    then one call per 50 tracks. Each track already carries its album's title, artists, cover and date.
+    progress(0, 1, 'Reading the playlist from Spotify…');
+    const meta = await spotify.api(`/playlists/${id}`, {}, { onWait });
+    const owner = meta.owner?.display_name ? ` (owner: ${meta.owner.display_name})` : '';
+    const notYours = `Spotify won’t share the tracks of “${meta.name}”${owner}. This app can only read playlists you own or collaborate on. Copy its tracks into a playlist of yours and use that link.`;
 
-    // 1. Playlist entries (the endpoint is /items since Feb 2026; each entry's track is under `item`).
     const entries = [];
     const total = meta.items?.total ?? meta.tracks?.total ?? 0;
-    for (let offset = 0; offset < 5000;) {
+    for (let offset = 0; offset < 10000;) {
       let page;
       try {
         page = await spotify.api(`/playlists/${id}/items`, { limit: '50', offset: String(offset) }, { onWait });
       } catch (err) {
-        if (err.status === 404 || /refused/.test(err.message)) {
-          throw new Error(meta.owner?.id !== me.id
-            ? `“${meta.name}” belongs to ${meta.owner?.display_name || 'someone else'}. Spotify only lets this app read playlists you own or collaborate on. Copy its tracks into a playlist of yours and use that link.`
-            : err.message);
-        }
+        if (err.status === 404 || /refused/.test(err.message)) throw new Error(notYours);
         throw err;
       }
       const items = page.items || [];
@@ -110,48 +99,51 @@ async function build() {
       if (!page.next || !items.length) break;
       offset += items.length;
     }
-    if (!entries.length) {
-      throw new Error(meta.owner?.id !== me.id
-        ? `Spotify returned no tracks for “${meta.name}”. It belongs to ${meta.owner?.display_name || 'someone else'}; copy its tracks into a playlist of yours and use that link.`
-        : 'This playlist has no tracks.');
-    }
+    if (!entries.length) throw new Error(total ? notYours : 'This playlist has no tracks.');
 
     // 2. Group tracks by album.
     const albums = new Map();
     for (const e of entries) {
       const t = e.item || e.track;
       if (!t || t.type !== 'track' || t.is_local || !t.album?.id) continue;
-      if (!albums.has(t.album.id)) albums.set(t.album.id, { id: t.album.id, picked: [] });
+      if (!albums.has(t.album.id)) albums.set(t.album.id, { album: t.album, picked: [] });
       albums.get(t.album.id).picked.push(t.name);
     }
     if (!albums.size) throw new Error('No Spotify tracks found (local files and podcasts are skipped).');
-
-    // 3. Full album details (title, artists, tracklist). Batch endpoints were removed, so one call each.
     const list = [...albums.values()];
-    await pool(list, async (a) => {
-      try { a.full = await spotify.api(`/albums/${a.id}`, {}, { onWait }); } catch (err) { if (err.status !== 404) throw err; }
-    }, (n) => progress(n, list.length, `Album details ${n} of ${list.length}…`));
 
-    // 4. Artist genres.
-    const artistIds = [...new Set(list.flatMap((a) => (a.full?.artists || []).map((x) => x.id)).filter(Boolean))];
-    const genresByArtist = new Map();
-    await pool(artistIds, async (aid) => {
-      try { genresByArtist.set(aid, (await spotify.api(`/artists/${aid}`, {}, { onWait })).genres || []); }
-      catch (err) { if (err.status !== 404) throw err; }
-    }, (n) => progress(n, artistIds.length, `Artist genres ${n} of ${artistIds.length}…`));
+    // 3. Genre tags from MusicBrainz, one lookup per artist (cached, so rebuilds are quick).
+    const artists = new Map(); // normalized name -> { name, albumName }
+    for (const a of list) {
+      const name = a.album.artists?.[0]?.name;
+      const key = mb.normalize(name);
+      if (key && !artists.has(key)) artists.set(key, { name, albumName: a.album.name });
+    }
+    const queue = [...artists.values()];
+    const tagsByArtist = new Map();
+    let mbFailed = false;
+    let done = 0;
+    for (const art of queue) {
+      const left = queue.slice(done).filter((x) => !mb.isCached(x.name)).length;
+      progress(done, queue.length, `Genres from MusicBrainz: ${done} of ${queue.length} artists${left > 1 ? ` · about ${duration(left * 1.2)} left` : ''}…`);
+      try {
+        tagsByArtist.set(mb.normalize(art.name), await mb.artistTags(art.name, art.albumName));
+      } catch (err) {
+        if (err instanceof mb.MBUnreachable) { mbFailed = true; break; }
+        throw err;
+      }
+      done++;
+    }
 
-    // 5. Tag each release.
+    // 4. Tag each release.
     const previous = new Map(($('keepEdits').checked ? catalog?.releases || [] : []).map((r) => [r.id, r]));
     const releases = [];
-    for (const a of list) {
-      const al = a.full;
-      if (!al) continue;
-      const artistGenres = [...new Set((al.artists || []).flatMap((x) => genresByArtist.get(x.id) || []))];
-      const genre = genreFromArtistGenres(artistGenres);
+    for (const { album: al, picked } of list) {
+      const tags = tagsByArtist.get(mb.normalize(al.artists?.[0]?.name))?.tags || [];
+      const genre = genreFromArtistGenres(tags);
       const motifs = motifsFromText([
         { text: al.name, weight: 3 },
-        ...a.picked.map((text) => ({ text, weight: 2 })),
-        ...(al.tracks?.items || []).map((t) => ({ text: t.name, weight: 1 })),
+        ...picked.map((text) => ({ text, weight: 2 })),
       ]);
       const rec = {
         id: al.id,
@@ -161,7 +153,7 @@ async function build() {
         type: al.album_type || 'album',
         image: pickImage(al.images),
         url: al.external_urls?.spotify || `https://open.spotify.com/album/${al.id}`,
-        artistGenres,
+        tags: tags.slice(0, 6).map((t) => t.name),
         genre,
         motifs,
         profile: profileFor(genre, al.id),
@@ -173,13 +165,17 @@ async function build() {
     }
 
     catalog = {
-      version: 1,
+      version: 2,
       source: { type: 'spotify-playlist', id, name: meta.name, url: meta.external_urls?.spotify || `https://open.spotify.com/playlist/${id}` },
+      genres: 'musicbrainz',
       built: new Date().toISOString(),
       releases,
     };
     saveDraft();
     progress(1, 1, `Done: ${releases.length} records from “${meta.name}”.`);
+    if (mbFailed) {
+      showNote(`MusicBrainz couldn’t be reached, so ${done ? 'some records have' : 'records have'} no genre yet. Build again later to fill them in (finished lookups are remembered), or set genres by hand with the “Needs genre” filter.`);
+    }
     render();
     $('reviewPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
   } catch (err) {
@@ -189,6 +185,11 @@ async function build() {
   } finally {
     $('buildBtn').disabled = !spotify.isLoggedIn();
   }
+}
+
+function showNote(msg) {
+  $('buildNote').textContent = msg;
+  $('buildNote').hidden = false;
 }
 
 function showError(msg) {
@@ -234,7 +235,7 @@ function render() {
       <div class="rec-body">
         <p class="rec-title"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a></p>
         <p class="rec-meta">${esc(r.artists)}${r.year ? ` · ${esc(r.year)}` : ''}${r.edited ? ' · <em>edited</em>' : ''}</p>
-        ${r.artistGenres?.length ? `<p class="rec-genres" title="Spotify’s genres for the artist">${esc(r.artistGenres.slice(0, 4).join(', '))}</p>` : ''}
+        ${(r.tags || r.artistGenres)?.length ? `<p class="rec-genres" title="${r.tags ? 'MusicBrainz tags for the artist' : 'Spotify’s genres for the artist'}">${esc((r.tags || r.artistGenres).slice(0, 4).join(', '))}</p>` : ''}
         <div class="rec-edit">
           <select class="genre" aria-label="Genre for ${esc(r.name)}">${genreOptions(r.genre)}</select>
           ${motifs.map(([m, why]) => `<button class="tag on" data-remove="${esc(m)}" title="From “${esc(why)}”. Tap to remove.">${esc(m)} ×</button>`).join('')}
