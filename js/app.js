@@ -181,7 +181,8 @@ function noticeHtml({ message, action, actionId, link, error }) {
 }
 
 function releaseHtml(r) {
-  const kind = (r.kind || r.type) === 'single' ? 'Single' : (r.kind || r.type) === 'compilation' ? 'Compilation' : 'Album';
+  const t = r.kind || r.type;
+  const kind = t === 'single' ? 'Single' : t === 'compilation' ? 'Compilation' : t ? 'Album' : '';
   return `<article class="card">
     <div class="card-head">
       ${r.image ? `<img class="cover" src="${esc(r.image)}" alt="Cover of ${esc(r.name)}">` : '<div class="cover"></div>'}
@@ -189,7 +190,7 @@ function releaseHtml(r) {
         <p class="label">Your record</p>
         <h3>${esc(r.name)}</h3>
         <p class="artist">${esc(r.artists)}</p>
-        <p class="meta">${esc(kind)}${r.year ? ` · ${esc(r.year)}` : ''}</p>
+        <p class="meta">${[kind, r.year].filter(Boolean).map(esc).join(' · ')}</p>
       </div>
     </div>
     <iframe class="embed" title="Spotify player for ${esc(r.name)}" src="https://open.spotify.com/embed/album/${encodeURIComponent(r.id)}?utm_source=generator"
@@ -203,9 +204,10 @@ function catalogWhy(r, a) {
   const parts = [];
   if (r.via) {
     const shape = (MOTIF_LABELS[r.via.motif] || r.via.motif).toLowerCase();
-    parts.push(r.via.text && r.via.text !== 'added by hand'
-      ? `“${esc(r.via.text)}” ${r.via.motif === a.motif ? 'echoes' : 'is close to'} your drawing (${esc(shape)})`
-      : `Tagged as ${esc(shape)}`);
+    const verb = r.via.motif === a.motif ? 'echoes' : 'is close to';
+    if (!r.via.text || r.via.text === 'added by hand') parts.push(`Tagged as ${esc(shape)}`);
+    else if (r.via.text === r.name) parts.push(`The title ${verb} your drawing (${esc(shape)})`);
+    else parts.push(`The track “${esc(r.via.text)}” ${verb} your drawing (${esc(shape)})`);
   }
   if (r.genre) parts.push(`${parts.length ? 'and its' : 'Its'} ${esc(r.genre)} sound sits closest to how your lines move`);
   else if (!parts.length) parts.push('Closest record to how your lines move');

@@ -39,6 +39,10 @@ To update the catalog later, add records to the playlist and build again. A play
 
 How matching works: an exact motif match counts most, a related motif (a sun drawing → a "moon" record) a little, and among those the record whose genre profile is closest to the drawing's linework wins. The pick is deterministic, so the same drawing always gives the same record.
 
+### The included catalog
+
+`catalog.json` holds 635 releases from the *Reflecting* playlist, built from a CSV export of it. Genres were assigned by hand from the artists. 55 records whose genre is a low-confidence guess carry `"genreGuess": true`; in the builder, the **Unsure genre** filter lists them for checking. Rebuilding from the playlist in the builder keeps these genres for any artist MusicBrainz has no tags for.
+
 ## Deploy to GitHub Pages
 
 1. Create a repository and push the contents of this folder to the `main` branch (the files should sit at the repo root).

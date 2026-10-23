@@ -64,6 +64,14 @@ export const GENRES = [
   { g: 'experimental', p: { energy: 0.5, angularity: 0.5, curvature: 0.5, density: 0.5, chaos: 0.75, symmetry: 0.1 }, y: [1960, 2026] },
   { g: 'electronica', p: { energy: 0.55, angularity: 0.4, curvature: 0.55, density: 0.4, chaos: 0.3, height: 0.75, symmetry: 0.7 }, y: [1992, 2026] },
   { g: 'gospel', p: { energy: 0.55, angularity: 0.2, curvature: 0.6, density: 0.5, chaos: 0.2, height: 0.95, symmetry: 0.85 }, y: [1955, 2026] },
+  // Finer splits for rap and its neighbours.
+  { g: 'trap', p: { energy: 0.75, angularity: 0.7, curvature: 0.3, density: 0.7, chaos: 0.45, height: 0.25, symmetry: 0.6 }, y: [2005, 2026] },
+  { g: 'cloud rap', p: { energy: 0.35, angularity: 0.25, curvature: 0.75, density: 0.3, chaos: 0.45, height: 0.85, symmetry: 0.4 }, y: [2010, 2026] },
+  { g: 'drill', p: { energy: 0.7, angularity: 0.9, curvature: 0.15, density: 0.65, chaos: 0.5, height: 0.15, symmetry: 0.5 }, y: [2012, 2026] },
+  { g: 'grime', p: { energy: 0.95, angularity: 0.8, curvature: 0.2, density: 0.5, chaos: 0.7, height: 0.45, symmetry: 0.35 }, y: [2002, 2026] },
+  { g: 'r&b', p: { energy: 0.3, angularity: 0.15, curvature: 0.85, density: 0.4, chaos: 0.15, height: 0.6, symmetry: 0.75 }, y: [1988, 2026] },
+  { g: 'dancehall', p: { energy: 0.75, angularity: 0.5, curvature: 0.5, density: 0.45, chaos: 0.45, height: 0.4, symmetry: 0.7 }, y: [1980, 2026] },
+  { g: 'latin', p: { energy: 0.7, angularity: 0.35, curvature: 0.7, density: 0.55, chaos: 0.35, height: 0.5, symmetry: 0.75 }, y: [1960, 2026] },
 ];
 
 // Small seeded random generator, so the same drawing always maps to the same release.

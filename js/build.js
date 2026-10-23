@@ -161,6 +161,7 @@ async function build() {
       };
       const prev = previous.get(rec.id);
       if (prev?.edited) Object.assign(rec, { genre: prev.genre, motifs: prev.motifs, profile: prev.profile, edited: true });
+      else if (!rec.genre && prev?.genre) Object.assign(rec, { genre: prev.genre, profile: prev.profile, ...(prev.genreGuess ? { genreGuess: true } : {}) });
       releases.push(rec);
     }
 
@@ -224,6 +225,7 @@ function render() {
   document.querySelectorAll('.filters .chip').forEach((c) => c.classList.toggle('on', c.dataset.filter === filter));
   const shown = rs.filter((r) => filter === 'all'
     || (filter === 'nogenre' && !r.genre)
+    || (filter === 'guess' && r.genreGuess)
     || (filter === 'nomotif' && !Object.keys(r.motifs || {}).length));
 
   const genreOptions = (sel) => `<option value="">unknown</option>${GENRE_NAMES.map((g) => `<option${g === sel ? ' selected' : ''}>${esc(g)}</option>`).join('')}`;
@@ -234,7 +236,7 @@ function render() {
       ${r.image ? `<img src="${esc(r.image)}" alt="" loading="lazy">` : '<div class="noimg"></div>'}
       <div class="rec-body">
         <p class="rec-title"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a></p>
-        <p class="rec-meta">${esc(r.artists)}${r.year ? ` · ${esc(r.year)}` : ''}${r.edited ? ' · <em>edited</em>' : ''}</p>
+        <p class="rec-meta">${esc(r.artists)}${r.year ? ` · ${esc(r.year)}` : ''}${r.edited ? ' · <em>edited</em>' : ''}${r.genreGuess ? ' · <em>genre is a guess</em>' : ''}</p>
         ${(r.tags || r.artistGenres)?.length ? `<p class="rec-genres" title="${r.tags ? 'MusicBrainz tags for the artist' : 'Spotify’s genres for the artist'}">${esc((r.tags || r.artistGenres).slice(0, 4).join(', '))}</p>` : ''}
         <div class="rec-edit">
           <select class="genre" aria-label="Genre for ${esc(r.name)}">${genreOptions(r.genre)}</select>
@@ -257,6 +259,7 @@ $('records').addEventListener('change', (e) => {
   if (e.target.classList.contains('genre')) {
     rec.genre = e.target.value || null;
     rec.profile = profileFor(rec.genre, rec.id);
+    delete rec.genreGuess;
   } else if (e.target.classList.contains('addmotif') && e.target.value) {
     rec.motifs = { ...(rec.motifs || {}), [e.target.value]: 'added by hand' };
   } else return;
