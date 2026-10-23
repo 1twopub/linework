@@ -1,0 +1,12 @@
+{
+  "name": "Linework",
+  "short_name": "Linework",
+  "description": "Draw in black ink; get the Spotify release that matches your lines.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f3efe6",
+  "theme_color": "#f3efe6",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
