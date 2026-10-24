@@ -6,10 +6,10 @@ A static site: no build step, no server, no dependencies. It runs from GitHub Pa
 
 ## How a drawing becomes a record
 
-1. **Content (the motif).** Each stroke is classified (circle, spiral, star, zigzag, wave, peak, line, scribble, dot…), then the whole drawing is read as a motif: a face, a sun, rain, a grid, a horizon, a field of dots, and so on. The motif picks the search keyword, e.g. a spiral searches for *spiral*, *vertigo*, *galaxy*, *hypnotic*.
+1. **Content (the motif).** Each stroke is classified (circle, spiral, star, zigzag, wave, peak, line, box, heart, crescent, almond, cloud, flower, bird, arrow, scribble, dot…), then the whole drawing is read as one of 27 motifs: a face, sun, circle, spiral, star, grid, rainfall, field of dots, zigzag, peak, wave, loops, horizon, single line, scribble, heart, house, flower, crescent moon, eye, cross, box, arrow, stick figure, bird, cloud, or an abstraction. The motif picks the search keyword, e.g. a spiral searches for *spiral*, *vertigo*, *galaxy*, *hypnotic*.
 2. **Linework (the character).** Seven measurements, each 0–1:
    speed of drawing, angularity (corners), curvature, ink density, chaos (strokes, jitter, crossings), lift (how high on the page), and symmetry.
-   These are matched against profiles for 36 genres (jagged + fast + dense → punk or metal; slow, flowing, sparse → ambient or bossa nova) and choose an era.
+   These are matched against profiles for 44 genres (including trap, cloud rap, drill, grime, R&B, dancehall, Latin and comedy) (jagged + fast + dense → punk or metal; slow, flowing, sparse → ambient or bossa nova) and choose an era.
 3. **Search.** Linework searches Spotify for tracks matching the keyword, genre and decade, and loosens the search step by step if nothing comes back. The release is the album the matching track belongs to.
 4. **Deterministic.** The same drawing always gives the same record; a slightly different one usually gives a different record.
 
@@ -39,9 +39,12 @@ To update the catalog later, add records to the playlist and build again. A play
 
 How matching works: an exact motif match counts most, a related motif (a sun drawing → a "moon" record) a little, and among those the record whose genre profile is closest to the drawing's linework wins. The pick is deterministic, so the same drawing always gives the same record.
 
-### The included catalog
+### The included catalogs
 
-`catalog.json` holds 635 releases from the *Reflecting* playlist, built from a CSV export of it. Genres were assigned by hand from the artists. 55 records whose genre is a low-confidence guess carry `"genreGuess": true`; in the builder, the **Unsure genre** filter lists them for checking. Rebuilding from the playlist in the builder keeps these genres for any artist MusicBrainz has no tags for.
+- `catalog.json` (live): 1,820 releases from the *Lovers Rock* playlist, built from a CSV export.
+- `catalog-reflecting.json` (spare): 635 releases from the *Reflecting* playlist. To use it, rename it to `catalog.json`.
+
+Genres were assigned by hand from the artists. Records whose genre is a low-confidence guess carry `"genreGuess": true`; in the builder, the **Unsure genre** filter lists them for checking. Rebuilding from the playlist in the builder keeps these genres for any artist MusicBrainz has no tags for.
 
 ## Deploy to GitHub Pages
 
