@@ -3,6 +3,8 @@ import { plan, searchUrl } from './mapping.js';
 import * as spotify from './spotify.js';
 import { matchRelease, loadCatalog } from './catalog.js';
 import { MOTIF_LABELS } from './analyze.js';
+import { encodeDrawing, decodeDrawing, drawingSvg } from './share.js';
+import { POST_URL, TURNSTILE_SITEKEY } from '../config.js';
 
 const $ = (id) => document.getElementById(id);
 const els = {
@@ -23,6 +25,8 @@ let activePointer = null;
 let penSize = 0.013;
 let cssSize = 0;
 let catalog = null; // set when catalog.json (or a builder preview) is available
+let lastPost = null; // the drawing + record on the result screen, ready to post
+let preview = false;
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -197,6 +201,7 @@ function releaseHtml(r) {
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     <p class="why">${r.whyHtml}</p>
     <a class="submit accent" href="${esc(r.url)}" target="_blank" rel="noopener">Open in Spotify</a>
+    ${r.postable ? '<button class="submit ghost" id="postBtn" type="button">Post to the feed</button>' : ''}
   </article>`;
 }
 
@@ -216,14 +221,25 @@ function catalogWhy(r, a) {
 
 async function submit() {
   if (!strokes.length) return;
-  const a = analyze(strokes);
+  // In catalog mode the drawing is matched exactly as it will be stored, so a post
+  // shows the same record the person saw here (the feed recomputes it from the stored code).
+  let code = null;
+  let used = strokes;
+  if (catalog) {
+    code = encodeDrawing(strokes);
+    if (code) used = decodeDrawing(code);
+  }
+  const a = analyze(used);
   const p = plan(a);
   renderReading(a, p);
   show('result');
 
   if (catalog) {
     const r = matchRelease(a, catalog);
-    els.release.innerHTML = r ? releaseHtml({ ...r, whyHtml: catalogWhy(r, a) }) : noticeHtml({ message: 'The catalog is empty.' });
+    const postable = !!(r && code && POST_URL && !preview);
+    lastPost = postable ? { code, strokes: used, motif: a.motif, motifLabel: a.motifLabel, traits: a.traits, release: r } : null;
+    els.release.innerHTML = r ? releaseHtml({ ...r, whyHtml: catalogWhy(r, a), postable }) : noticeHtml({ message: 'The catalog is empty.' });
+    $('postBtn')?.addEventListener('click', openPost);
     return;
   }
 
@@ -299,7 +315,7 @@ els.copy.addEventListener('click', async () => {
   syncButtons();
 
   // Catalog mode: a builder preview (index.html?preview), else catalog.json next to this page.
-  const preview = new URLSearchParams(location.search).has('preview');
+  preview = new URLSearchParams(location.search).has('preview');
   if (preview) {
     try { catalog = JSON.parse(localStorage.getItem('linework.draftCatalog') || 'null'); } catch { catalog = null; }
     if (!catalog?.releases?.length) catalog = null;
@@ -307,6 +323,7 @@ els.copy.addEventListener('click', async () => {
   if (!catalog) catalog = await loadCatalog();
   if (catalog) {
     els.settingsBtn.hidden = true; // no Spotify login needed
+    $('feedLink').hidden = preview;
     if (preview) {
       els.prompt.insertAdjacentHTML('beforebegin', `<p class="preview-banner">Preview: ${catalog.releases.length} records from your builder draft</p>`);
     }
@@ -328,3 +345,95 @@ els.copy.addEventListener('click', async () => {
     submit();
   }
 })();
+
+// ---------- Posting to the feed ----------
+
+const post = {
+  sheet: $('postSheet'), body: $('postBody'), done: $('postDone'), caption: $('postCaption'),
+  error: $('postError'), send: $('postSend'), box: $('turnstileBox'),
+};
+let turnstileToken = '';
+let turnstileWidget = null;
+
+function loadTurnstile() {
+  if (!TURNSTILE_SITEKEY) return Promise.resolve(null);
+  if (window.turnstile) return Promise.resolve(window.turnstile);
+  return new Promise((resolve) => {
+    const s = document.createElement('script');
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+    s.async = true;
+    s.onload = () => resolve(window.turnstile || null);
+    s.onerror = () => resolve(null);
+    document.head.appendChild(s);
+  });
+}
+
+async function openPost() {
+  if (!lastPost) return;
+  $('postDrawing').innerHTML = drawingSvg(lastPost.strokes, 120);
+  $('postMotif').textContent = lastPost.motifLabel;
+  $('postRecord').innerHTML = `<b>${esc(lastPost.release.name)}</b><br>${esc(lastPost.release.artists)}`;
+  post.caption.value = '';
+  post.error.hidden = true;
+  post.body.hidden = false;
+  post.done.hidden = true;
+  post.send.disabled = false;
+  post.send.textContent = 'Post anonymously';
+  post.sheet.showModal();
+  const ts = await loadTurnstile();
+  if (ts && turnstileWidget === null) {
+    turnstileWidget = ts.render(post.box, { sitekey: TURNSTILE_SITEKEY, callback: (t) => { turnstileToken = t; } });
+  } else if (ts && turnstileWidget !== null) {
+    ts.reset(turnstileWidget);
+    turnstileToken = '';
+  }
+}
+
+function rememberPending(entry) {
+  try {
+    const list = JSON.parse(localStorage.getItem('linework.pending') || '[]');
+    list.unshift(entry);
+    localStorage.setItem('linework.pending', JSON.stringify(list.slice(0, 20)));
+  } catch { /* storage unavailable: the post still goes through */ }
+}
+
+post.send.addEventListener('click', async () => {
+  if (!lastPost) return;
+  if (TURNSTILE_SITEKEY && !turnstileToken) {
+    post.error.textContent = 'Please complete the check above first.';
+    post.error.hidden = false;
+    return;
+  }
+  post.send.disabled = true;
+  post.send.textContent = 'Posting…';
+  post.error.hidden = true;
+  const caption = post.caption.value.trim().slice(0, 140);
+  try {
+    const res = await fetch(POST_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: lastPost.code, caption, turnstile: turnstileToken }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.ok) throw new Error(data.error || `Posting failed (${res.status}).`);
+    rememberPending({
+      n: data.number, at: new Date().toISOString(), code: lastPost.code, caption,
+      motif: lastPost.motif, motifLabel: lastPost.motifLabel, traits: lastPost.traits,
+      release: (({ id, name, artists, year, image, url }) => ({ id, name, artists, year, image, url }))(lastPost.release),
+      pending: true,
+    });
+    lastPost = null;
+    $('postBtn')?.remove();
+    post.body.hidden = true;
+    post.done.hidden = false;
+  } catch (err) {
+    post.error.textContent = err.message || 'Posting failed. Check your connection and try again.';
+    post.error.hidden = false;
+    post.send.disabled = false;
+    post.send.textContent = 'Post anonymously';
+    if (window.turnstile && turnstileWidget !== null) { window.turnstile.reset(turnstileWidget); turnstileToken = ''; }
+  }
+});
+$('postCancel').addEventListener('click', () => post.sheet.close());
+$('postClose').addEventListener('click', () => post.sheet.close());
+post.sheet.addEventListener('click', (e) => { if (e.target === post.sheet) post.sheet.close(); });

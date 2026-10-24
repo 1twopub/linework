@@ -8,9 +8,9 @@ export const MOTIFS = Object.keys(MOTIF_LABELS);
 
 // Words in titles that suggest each motif. Matched as whole words, case-insensitive.
 export const MOTIF_PATTERNS = {
-  face: ['face[sd]?', 'portraits?', 'smil(e|es|ing)', 'eyes?', 'lips', 'mouth', 'mirror', 'strangers?', 'self', 'head'],
+  face: ['face[sd]?', 'portraits?', 'smil(e|es|ing)', 'lips', 'mouth', 'mirror', 'strangers?', 'head'],
   sun: ['sun(s|ny|shine|set|sets|rise|light|burn|beam|flower)?', 'solar', 'summer(time)?', 'golden', 'daylight', 'dawn', 'heat'],
-  circle: ['circles?', 'moon(s|light|lit)?', 'orbit(s|al)?', 'halo', 'round', 'eclipse', 'ring(s)?', 'zero', 'wheel(s)?', 'loop'],
+  circle: ['circles?', 'orbit(s|al)?', 'halo', 'round', 'eclipse', 'ring(s)?', 'zero', 'wheel(s)?', 'loop'],
   spiral: ['spiral(s|ing)?', 'vertigo', 'dizzy', 'whirl(pool|wind)?', 'galax(y|ies)', 'hypnoti[cz]e?', 'vortex', 'swirl', 'tornado', 'cyclone'],
   star: ['stars?', 'starlight', 'starry', 'constellations?', 'supernova', 'comets?', 'cosmic', 'shine', 'twinkle', 'astral'],
   grid: ['city', 'cities', 'grids?', 'windows?', 'blocks?', 'systems?', 'patterns?', 'streets?', 'metropolis', 'building(s)?', 'architecture'],
@@ -18,11 +18,22 @@ export const MOTIF_PATTERNS = {
   dots: ['dots?', 'confetti', 'pixels?', 'freckles', 'fireflies', 'static', 'snow(fall|flakes?)?', 'dust', 'stardust', 'sparkles?', 'bubbles'],
   zigzag: ['electric(ity)?', 'lightning', 'voltage', 'shocks?', 'sparks?', 'zig ?zag', 'bolt', 'thunderbolt', 'jolt'],
   mountain: ['mountains?', 'peaks?', 'summit', 'pyramids?', 'altitude', 'cliffs?', 'hills?', 'high(er|est)?', 'climb(ing)?', 'volcano'],
-  wave: ['waves?', 'ocean(s)?', 'sea', 'tides?', 'surf(ing)?', 'current(s)?', 'drift(ing)?', 'water', 'river(s)?', 'flow(ing)?'],
+  wave: ['waves?', 'ocean(s)?', 'sea', 'tides?', 'surf(ing)?', 'current(s)?', 'drift(ing)?', 'water', 'river(s)?'],
   loops: ['loops?', 'tangled?', 'knots?', 'ribbons?', 'swirls?', 'twist(ed)?', 'circus', 'roller ?coaster', 'curls?', 'lasso'],
   horizon: ['horizons?', 'skylines?', 'distance', 'shore(line)?', 'plains', 'desert', 'landscape', 'fields?', 'prairie', 'flatland', 'sky'],
-  line: ['lines?', 'straight', 'arrows?', 'directions?', 'paths?', 'roads?', 'highway', 'one way', 'rails?', 'wire'],
+  line: ['lines?', 'straight', 'paths?', 'roads?', 'highway', 'one way', 'rails?', 'wire'],
   scribble: ['chaos', 'chaotic', 'noise', 'scribble', 'mess(y)?', 'riot', 'frenzy', 'madness', 'crazy', 'wild', 'havoc'],
+  heart: ['hearts?', 'heartbreak(er)?', 'heartache', 'love(s|r|rs|ly|sick)?', 'loving', 'valentines?', 'romance', 'romantic', 'kiss(es|ing|ed)?', 'darling', 'sweetheart', 'adore'],
+  house: ['house', 'home(s|coming|sick)?', 'roof(top)?', 'doors?', 'doorstep', 'apartment', 'kitchen', 'bedroom', 'rooms?', 'crib', 'castle', 'mansion', 'cabin', 'palace'],
+  flower: ['flowers?', 'roses?', 'bloom(s|ing)?', 'blossom(s|ing)?', 'gardens?', 'daisy', 'daisies', 'lily', 'lilies', 'tulips?', 'orchids?', 'petals?', 'sunflowers?', 'lotus', 'violets?', 'jasmine', 'bouquet', 'floral'],
+  moon: ['moon(s|light|lit|shine|beam|walk)?', 'lunar', 'crescent', 'luna'],
+  eye: ['eyes?', 'eyed', 'eyelids?', 'visions?', 'gaze', 'stare', 'sight', 'blind', 'iris', 'watching', 'glance'],
+  cross: ['cross(es|ed|ing|roads)?', 'church', 'pray(er|ers|ing)?', 'jesus', 'christ', 'holy', 'faith', 'amen', 'saints?', 'crucifix', 'calvary', 'hallelujah'],
+  box: ['box(es|ed)?', 'squares?', 'cubes?', 'cages?', 'caged', 'prison', 'jail', 'locked', 'frames?', 'package', 'crates?', 'trapped'],
+  arrow: ['arrows?', 'directions?', 'forward', 'onwards?', 'targets?', 'aim(ing)?', 'pointing', 'compass', 'bullseye'],
+  figure: ['man', 'men', 'woman', 'women', 'girls?', 'boys?', 'person', 'people', 'bod(y|ies)', 'human', 'child(ren)?', 'lady', 'ladies', 'dancers?', 'gentlem[ae]n'],
+  bird: ['birds?', 'birdsong', 'wings?', 'fly(ing)?', 'flight', 'feathers?', 'doves?', 'crows?', 'eagles?', 'sparrows?', 'swallows?', 'raven', 'robins?', 'pigeons?', 'owls?', 'hawks?', 'blackbird', 'songbird', 'swans?', 'nest', 'soar(ing)?', 'canary'],
+  cloud: ['clouds?', 'cloudy', 'cloud nine', 'fog(gy)?', 'mist(y)?', 'haze', 'hazy', 'smok(e|ey|y|in|ing)', 'vapou?rs?', 'overcast', 'steam'],
   abstract: ['shapes?', 'forms?', 'abstract(ion)?', 'gestures?', 'figures?', 'sketch(es)?', 'drawings?', 'lines and', 'colou?rs?', 'art'],
 };
 
@@ -32,16 +43,21 @@ const MOTIF_RE = Object.fromEntries(
 
 // Drawings that look alike share some credit.
 export const RELATED = {
-  face: ['circle', 'sun'], sun: ['circle', 'star', 'face'], circle: ['sun', 'spiral', 'face', 'loops'],
-  spiral: ['loops', 'circle', 'wave'], star: ['sun', 'zigzag', 'dots'], grid: ['line', 'horizon'],
-  rain: ['line', 'dots', 'wave'], dots: ['rain', 'star', 'scribble'], zigzag: ['mountain', 'star', 'scribble'],
-  mountain: ['zigzag', 'horizon'], wave: ['horizon', 'loops', 'rain'], loops: ['spiral', 'scribble', 'wave'],
-  horizon: ['line', 'wave', 'mountain'], line: ['horizon', 'grid', 'rain'], scribble: ['loops', 'zigzag', 'abstract'],
+  face: ['eye', 'figure', 'circle'], sun: ['circle', 'flower', 'star'], circle: ['moon', 'sun', 'eye', 'spiral'],
+  spiral: ['loops', 'circle', 'wave'], star: ['sun', 'cross', 'moon'], grid: ['box', 'line', 'house'],
+  rain: ['cloud', 'line', 'dots'], dots: ['rain', 'star', 'scribble'], zigzag: ['mountain', 'arrow', 'scribble'],
+  mountain: ['zigzag', 'house', 'horizon'], wave: ['horizon', 'bird', 'loops'], loops: ['spiral', 'cloud', 'scribble'],
+  horizon: ['line', 'wave', 'mountain'], line: ['arrow', 'horizon', 'grid'], scribble: ['loops', 'zigzag', 'abstract'],
+  heart: ['face', 'flower', 'circle'], house: ['box', 'mountain', 'grid'], flower: ['sun', 'heart', 'star'],
+  moon: ['circle', 'star', 'cloud'], eye: ['face', 'circle', 'moon'], cross: ['star', 'grid', 'line'],
+  box: ['grid', 'house', 'line'], arrow: ['line', 'zigzag'], figure: ['face', 'line'],
+  bird: ['wave', 'cloud', 'zigzag'], cloud: ['rain', 'loops', 'moon'],
   abstract: ['scribble'],
 };
 
 // Genre/tag text (MusicBrainz tags, or Spotify genres in older catalogs) → Linework genre. Order matters: more specific first.
 const GENRE_RULES = [
+  [/comedy|stand-?up|humou?r|parody|novelty|spoken comedy/, 'comedy'],
   [/drum and bass|drum & bass|\bdnb\b|jungle|liquid funk/, 'drum and bass'],
   [/trip hop|trip-hop/, 'trip hop'],
   [/dream pop|ethereal/, 'dream pop'],
@@ -108,14 +124,24 @@ export function genreFromArtistGenres(list) {
   return GENRE_RULES[idx][1];
 }
 
+// Removes credits and edition notes so names don't count: "White (feat. Frank Ocean)" isn't about the sea.
+export function cleanTitle(text) {
+  return String(text || '')
+    .replace(/\s*[([][^)\]]*\b(feat|ft|with|remix|mix|prod|compiled|version|remaster(ed)?|edition|live|bonus|deluxe|instrumental|edit|demo|explicit|clean|hosted|chopped|screwed|presents?)\b[^)\]]*[)\]]/gi, ' ')
+    .replace(/\s+-\s+[^-]*\b(remaster(ed)?|live|version|mix|remix|edit|demo|instrumental|mono|stereo|single|bonus)\b.*$/i, '')
+    .replace(/\s(feat\.?|ft\.|featuring)\s.*$/i, '')
+    .replace(/\b(sun ra|pop smoke|frank ocean|box set|gilles peterson presents)\b/gi, ' ');
+}
+
 // Finds motifs in titles. `texts` is [{ text, weight }]. Returns { motif: matchedTitle }, strongest first.
 export function motifsFromText(texts) {
   const scores = {};
   const where = {};
   for (const { text, weight } of texts) {
     if (!text) continue;
+    const clean = cleanTitle(text);
     for (const [m, re] of Object.entries(MOTIF_RE)) {
-      if (re.test(text)) {
+      if (re.test(clean)) {
         scores[m] = (scores[m] || 0) + weight;
         if (!where[m] || weight > where[m].weight) where[m] = { text, weight };
       }

@@ -6,9 +6,9 @@ import { DIMS } from './analyze.js';
 
 // Keywords searched in track and album titles, one list per motif.
 export const MOTIF_WORDS = {
-  face: ['face', 'portrait', 'smile', 'eyes', 'stranger', 'mirror'],
+  face: ['face', 'portrait', 'smile', 'mirror', 'stranger', 'lips'],
   sun: ['sun', 'sunshine', 'daylight', 'solar', 'summer', 'golden'],
-  circle: ['circle', 'moon', 'orbit', 'halo', 'round', 'eclipse'],
+  circle: ['circle', 'orbit', 'halo', 'round', 'eclipse', 'ring'],
   spiral: ['spiral', 'vertigo', 'dizzy', 'whirlpool', 'galaxy', 'hypnotic'],
   star: ['star', 'stars', 'starlight', 'constellation', 'supernova', 'comet'],
   grid: ['city', 'grid', 'window', 'blocks', 'system', 'pattern'],
@@ -19,8 +19,19 @@ export const MOTIF_WORDS = {
   wave: ['wave', 'ocean', 'tide', 'surf', 'current', 'drift'],
   loops: ['loop', 'loops', 'tangled', 'knot', 'ribbon', 'swirl'],
   horizon: ['horizon', 'skyline', 'distance', 'shoreline', 'level', 'plains'],
-  line: ['line', 'straight', 'arrow', 'direction', 'path', 'one way'],
+  line: ['line', 'straight', 'path', 'road', 'one way', 'wire'],
   scribble: ['chaos', 'noise', 'scribble', 'mess', 'riot', 'frenzy'],
+  heart: ['heart', 'love', 'lovers', 'valentine', 'kiss', 'sweetheart'],
+  house: ['house', 'home', 'room', 'door', 'castle', 'roof'],
+  flower: ['flower', 'rose', 'bloom', 'garden', 'blossom', 'daisy'],
+  moon: ['moon', 'moonlight', 'lunar', 'crescent', 'midnight', 'night'],
+  eye: ['eyes', 'vision', 'gaze', 'sight', 'watching', 'blind'],
+  cross: ['cross', 'crossroads', 'church', 'prayer', 'holy', 'faith'],
+  box: ['box', 'square', 'cube', 'cage', 'frame', 'prison'],
+  arrow: ['arrow', 'direction', 'forward', 'target', 'compass', 'aim'],
+  figure: ['man', 'woman', 'girl', 'boy', 'people', 'body'],
+  bird: ['bird', 'wings', 'fly', 'feather', 'dove', 'raven'],
+  cloud: ['cloud', 'clouds', 'fog', 'mist', 'haze', 'smoke'],
   abstract: ['shape', 'form', 'abstract', 'gesture', 'figure', 'sketch'],
 };
 
@@ -72,6 +83,8 @@ export const GENRES = [
   { g: 'r&b', p: { energy: 0.3, angularity: 0.15, curvature: 0.85, density: 0.4, chaos: 0.15, height: 0.6, symmetry: 0.75 }, y: [1988, 2026] },
   { g: 'dancehall', p: { energy: 0.75, angularity: 0.5, curvature: 0.5, density: 0.45, chaos: 0.45, height: 0.4, symmetry: 0.7 }, y: [1980, 2026] },
   { g: 'latin', p: { energy: 0.7, angularity: 0.35, curvature: 0.7, density: 0.55, chaos: 0.35, height: 0.5, symmetry: 0.75 }, y: [1960, 2026] },
+  // Stand-up and comic records: bouncy, loose, all over the page.
+  { g: 'comedy', p: { energy: 0.55, angularity: 0.45, curvature: 0.6, density: 0.3, chaos: 0.8, height: 0.6, symmetry: 0.2 }, y: [1955, 2026] },
 ];
 
 // Small seeded random generator, so the same drawing always maps to the same release.
