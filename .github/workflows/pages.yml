@@ -1,0 +1,49 @@
+# Builds the feed from post issues and deploys the site to GitHub Pages.
+# Runs on every push to main, and whenever a post issue is opened, edited, closed or deleted.
+# In the repo: Settings → Pages → Build and deployment → Source: "GitHub Actions".
+name: Build feed and deploy
+
+on:
+  push:
+    branches: [main]
+  issues:
+    types: [opened, edited, closed, reopened, deleted, labeled, unlabeled]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+  pages: write
+  id-token: write
+
+# A newer run already includes every post, so older queued runs can be dropped.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    # For issue events, only react to Linework posts (marked in the issue text by the relay).
+    if: github.event_name != 'issues' || contains(github.event.issue.body, 'linework-post')
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build feed.json from post issues
+        run: node scripts/build-feed.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Only issues filed by this account count as posts (the account whose token the relay uses).
+          # Defaults to the repo owner; set a repository variable FEED_AUTHOR to change it.
+          FEED_AUTHOR: ${{ vars.FEED_AUTHOR }}
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
