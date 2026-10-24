@@ -6,6 +6,6 @@ export const CLIENT_ID = '';
 // Anonymous posting to the feed (see README → "The feed").
 // POST_URL: your Cloudflare Worker's address, e.g. 'https://linework-relay.yourname.workers.dev'.
 // Leave empty to hide the Post button (the feed page still shows existing posts).
-export const POST_URL = 'lineworker.ezekielpaints.workers.dev';
+export const POST_URL = 'https://lineworker.ezekielpaints.workers.dev';
 // Optional Cloudflare Turnstile site key. Set it together with TURNSTILE_SECRET on the Worker.
 export const TURNSTILE_SITEKEY = '';
