@@ -1,4 +1,6 @@
-// Builds feed.json from the repo's open "linework-post" issues. Run by .github/workflows/pages.yml.
+// Builds feed.json from the repo's open post issues. Run by .github/workflows/pages.yml.
+// A post is recognised by the <!-- linework-post --> marker the relay writes into every issue
+// (GitHub drops labels when the token can only manage issues, so labels aren't relied on).
 //
 // Issues are the database: the relay files one per post, closing one removes it.
 // Every post's match is recomputed here from the drawing itself, so a tampered issue
@@ -26,11 +28,11 @@ if (!repo) { console.error('GITHUB_REPOSITORY is not set'); process.exit(1); }
 async function listIssues() {
   const out = [];
   for (let page = 1; out.length < max * 2 && page <= 10; page++) {
-    const url = `${api}/repos/${repo}/issues?state=open&labels=linework-post&per_page=100&page=${page}&sort=created&direction=desc`;
+    const url = `${api}/repos/${repo}/issues?state=open&per_page=100&page=${page}&sort=created&direction=desc${author ? `&creator=${encodeURIComponent(author)}` : ''}`;
     const res = await fetch(url, { headers: { Accept: 'application/vnd.github+json', 'User-Agent': 'linework-feed', ...(token ? { Authorization: `Bearer ${token}` } : {}) } });
     if (!res.ok) throw new Error(`GitHub API ${res.status}: ${await res.text()}`);
     const batch = await res.json();
-    out.push(...batch.filter((i) => !i.pull_request));
+    out.push(...batch.filter((i) => !i.pull_request && (i.body || '').includes('<!-- linework-post -->')));
     if (batch.length < 100) break;
   }
   return out;
