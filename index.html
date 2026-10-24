@@ -21,19 +21,25 @@
   <div class="app" id="app">
     <header class="top">
       <h1 class="wordmark">Line<em>work</em></h1>
+      <div class="top-actions">
+      <a class="feed-link" id="feedLink" href="feed.html" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>
+        <span>Feed</span>
+      </a>
       <button class="icon-btn" id="settingsBtn" aria-label="Settings">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg>
       </button>
+      </div>
     </header>
 
     <!-- Draw screen -->
     <main class="screen" id="drawScreen">
-      <p class="prompt" id="prompt">Draw Something. Music Follows.</p>
+      <p class="prompt" id="prompt">Draw anything. Its lines pick the record.</p>
 
       <div class="paper-wrap">
         <div class="paper" id="paper">
           <canvas id="canvas" aria-label="Drawing canvas. Draw with your finger, pen or mouse."></canvas>
-          <p class="hint" id="hint">paper</p>
+          <p class="hint" id="hint">draw here</p>
         </div>
       </div>
 
@@ -54,7 +60,7 @@
       </div>
 
       <button class="submit" id="submitBtn" disabled>
-        <span>Associate Music</span>
+        <span>Find my record</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
     </main>
@@ -77,14 +83,14 @@
       <div class="release" id="release">
         <div class="loading" id="loading">
           <span class="pen-line"></span>
-          <p>Associating lines</p>
+          <p>Flipping through the crates…</p>
         </div>
       </div>
 
       <div class="actions">
         <button class="submit ghost" id="againBtn">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20c3-1 4-4 7-9s5-6 9-7"/></svg>
-          <span>Draw Again</span>
+          <span>Draw another</span>
         </button>
       </div>
     </section>
@@ -117,6 +123,39 @@
       </div>
       <p class="small muted">Without a Client ID, Linework still reads your drawing and opens a matching Spotify search.</p>
     </form>
+  </dialog>
+
+  <!-- Post to the feed -->
+  <dialog class="sheet" id="postSheet" aria-labelledby="postTitle">
+    <div class="sheet-body" id="postBody">
+      <h2 id="postTitle">Post to the feed</h2>
+      <div class="post-preview">
+        <div class="post-drawing" id="postDrawing"></div>
+        <div class="post-meta">
+          <p class="label" id="postMotif"></p>
+          <p class="post-record" id="postRecord"></p>
+        </div>
+      </div>
+      <label class="field">
+        <span>Caption (optional)</span>
+        <input id="postCaption" maxlength="140" autocomplete="off" placeholder="Say something about it">
+      </label>
+      <div id="turnstileBox"></div>
+      <p class="small muted">Posts are anonymous: no name, no account. Anyone can see the feed.</p>
+      <p class="small error" id="postError" hidden></p>
+      <div class="sheet-actions">
+        <button type="button" class="chip" id="postCancel">Cancel</button>
+        <button type="button" class="submit small-btn" id="postSend">Post anonymously</button>
+      </div>
+    </div>
+    <div class="sheet-body" id="postDone" hidden>
+      <h2>Posted</h2>
+      <p>Your drawing will appear in the feed in a minute or two.</p>
+      <div class="sheet-actions">
+        <button type="button" class="chip" id="postClose">Close</button>
+        <a class="submit small-btn" href="feed.html">See the feed</a>
+      </div>
+    </div>
   </dialog>
 
   <script type="module" src="js/app.js"></script>

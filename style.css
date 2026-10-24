@@ -248,3 +248,59 @@ button.tag { cursor: pointer; }
 .error:empty { display: none; }
 .preview-banner { margin: 0; font: 500 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
 .note { margin: 0; padding: 10px 12px; border-radius: 10px; background: var(--bg); border: 1px dashed var(--ink-3); color: var(--ink-2); }
+
+/* ---------- Feed link, post sheet ---------- */
+.top-actions { display: flex; align-items: center; gap: 4px; }
+.feed-link {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px 0 10px;
+  border-radius: 999px; border: 1px solid var(--rule); background: var(--surface);
+  color: var(--ink); text-decoration: none; font: 500 14px var(--sans);
+}
+.feed-link svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.feed-link:active { background: var(--rule); }
+.wordmark a { color: inherit; text-decoration: none; }
+.card .submit.ghost { margin: 0; min-height: 50px; }
+.post-preview { display: flex; gap: 14px; align-items: center; }
+.post-drawing { width: 96px; height: 96px; flex: none; border-radius: 12px; background: var(--paper); box-shadow: var(--shadow); overflow: hidden; }
+.post-drawing svg, .post-art svg { width: 100%; height: 100%; display: block; }
+.post-meta { min-width: 0; }
+.post-record { margin: 4px 0 0; font-size: 15px; line-height: 1.35; overflow-wrap: anywhere; }
+#turnstileBox:empty { display: none; }
+a.submit.small-btn { display: inline-flex; text-decoration: none; }
+
+/* ---------- Feed page ---------- */
+.feed-app { gap: 14px; }
+.feed-head h2 { margin: 6px 0 0; font: 400 34px/1.05 var(--serif); }
+.feed-sub { margin: 4px 0 0; font: italic 400 18px/1.25 var(--serif); color: var(--ink-2); }
+.feed { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.post {
+  display: grid; grid-template-columns: 112px 1fr; gap: 14px; align-items: start;
+  padding: 12px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--rule);
+  animation: rise .35s ease both;
+}
+.post.pending { border-style: dashed; }
+.post-art { width: 112px; height: 112px; border-radius: 12px; background: var(--paper); overflow: hidden; box-shadow: 0 1px 0 rgba(20, 19, 17, .06); }
+.post-info { min-width: 0; display: grid; gap: 6px; }
+.post-info .label { margin: 2px 0 0; }
+.badge { color: var(--accent); }
+.post-caption { margin: 0; font: italic 400 19px/1.25 var(--serif); overflow-wrap: anywhere; }
+.post-rec {
+  display: grid; grid-template-columns: 40px 1fr; gap: 10px; align-items: center;
+  color: var(--ink); text-decoration: none; font-size: 13px; line-height: 1.3;
+  padding: 6px; margin: 0 -6px; border-radius: 10px;
+}
+.post-rec:active { background: var(--rule); }
+.post-rec img, .post-rec .noimg { width: 40px; height: 40px; border-radius: 4px; object-fit: cover; background: var(--rule); display: block; }
+.post-rec b { font-weight: 600; font-size: 14px; }
+.post-rec span { min-width: 0; overflow-wrap: anywhere; }
+.post-time { margin: 0; font: 400 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+.feed-empty { display: grid; gap: 14px; justify-items: center; padding: 40px 0; text-align: center; color: var(--ink-2); font: italic 20px var(--serif); }
+.feed-empty p { margin: 0; }
+.feed-empty .submit { width: auto; padding: 0 28px; margin: 0; }
+#more { margin-top: 4px; }
+@media (min-width: 640px) {
+  .feed-app { max-width: 760px; }
+  .feed { grid-template-columns: 1fr 1fr; }
+  .post { grid-template-columns: 1fr; }
+  .post-art { width: 100%; height: auto; aspect-ratio: 1; }
+}
