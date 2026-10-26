@@ -1,4 +1,9 @@
-// Linework relay — a Cloudflare Worker that turns anonymous posts into GitHub issues.
+// Linework relay — a Cloudflare Worker that turns anonymous posts into GitHub issues,
+// and keeps each post's like count (a hidden counter in its issue).
+//
+// Routes:  POST /        new post          { code, caption, turnstile }
+//          POST /like    like or unlike    { n, undo }
+//          GET  /likes   current counts    → { likes: { "<issue number>": count } }
 //
 // It holds the only secret (a GitHub token) so the public site never has to.
 // It stores nothing itself: each post becomes an issue in your repo, and a GitHub Action
@@ -10,11 +15,16 @@
 //                     several allowed, separated by commas, e.g. for testing locally)
 //   GITHUB_TOKEN      fine-grained token, this repo only, "Issues: Read and write"   (secret)
 //   TURNSTILE_SECRET  optional, enables Cloudflare Turnstile bot checks              (secret)
+//   FEED_AUTHOR       optional: the GitHub login that owns the token, if not the repo owner
 
 const MAX_CODE = 20000;
 const MAX_CAPTION = 140;
-const LIMIT = { posts: 5, windowMs: 10 * 60 * 1000 }; // per visitor, best effort (per Worker instance)
+const LIMIT = { posts: 5, likes: 60, windowMs: 10 * 60 * 1000 }; // per visitor, best effort (per Worker instance)
 const recent = new Map();
+const recentLikes = new Map();
+const likedBy = new Map(); // visitor+post → time, so one visitor can't like the same post over and over
+const LIKES_RE = /<!-- linework-likes:(\d+) -->/;
+const GH = 'https://api.github.com';
 
 // Forgiving about stray spaces, a trailing slash, letter case, or a pasted path.
 const normOrigin = (s) => {
@@ -27,7 +37,7 @@ const isAllowed = (env, origin) => allowedOrigins(env).includes(normOrigin(origi
 function cors(env, origin) {
   return {
     'Access-Control-Allow-Origin': isAllowed(env, origin) ? origin : (allowedOrigins(env)[0] || 'null'),
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Max-Age': '86400',
     Vary: 'Origin',
@@ -70,20 +80,87 @@ function cleanCaption(text) {
 
 const b64url = (s) => btoa(String.fromCharCode(...new TextEncoder().encode(s))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 
-function rateLimited(key) {
+function rateLimited(key, map = recent, max = LIMIT.posts) {
   const now = Date.now();
-  const list = (recent.get(key) || []).filter((t) => now - t < LIMIT.windowMs);
-  if (list.length >= LIMIT.posts) { recent.set(key, list); return true; }
+  const list = (map.get(key) || []).filter((t) => now - t < LIMIT.windowMs);
+  if (list.length >= max) { map.set(key, list); return true; }
   list.push(now);
-  recent.set(key, list);
-  if (recent.size > 5000) recent.clear();
+  map.set(key, list);
+  if (map.size > 5000) map.clear();
   return false;
 }
 
+function gh(env, path, init = {}) {
+  return fetch(`${GH}${path}`, {
+    ...init,
+    headers: {
+      Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      Accept: 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+      'User-Agent': 'linework-relay',
+      'Content-Type': 'application/json',
+      ...(init.headers || {}),
+    },
+  });
+}
+
+const feedAuthor = (env) => String(env.FEED_AUTHOR || env.GITHUB_REPO.split('/')[0]).toLowerCase();
+const likesIn = (body) => Number((body || '').match(LIKES_RE)?.[1] || 0);
+
+// Like counts for every open post, from one or a few GitHub calls, cached briefly.
+async function likeCounts(env, ctx) {
+  const cache = caches.default;
+  const key = new Request(`https://linework-relay.cache/likes/${env.GITHUB_REPO}`);
+  const hit = await cache.match(key);
+  if (hit) return hit.json();
+  const likes = {};
+  for (let page = 1; page <= 5; page++) {
+    const res = await gh(env, `/repos/${env.GITHUB_REPO}/issues?state=open&creator=${encodeURIComponent(feedAuthor(env))}&per_page=100&page=${page}`);
+    if (!res.ok) throw new Error(`GitHub ${res.status}`);
+    const batch = await res.json();
+    for (const i of batch) if ((i.body || '').includes('<!-- linework-post -->')) likes[i.number] = likesIn(i.body);
+    if (batch.length < 100) break;
+  }
+  const out = { likes };
+  const put = cache.put(key, new Response(JSON.stringify(out), { headers: { 'Cache-Control': 'max-age=20' } }));
+  if (ctx?.waitUntil) ctx.waitUntil(put); else await put;
+  return out;
+}
+
+async function forgetCachedCounts(env) {
+  try { await caches.default.delete(new Request(`https://linework-relay.cache/likes/${env.GITHUB_REPO}`)); } catch { /* ignore */ }
+}
+
+async function like(env, n, undo) {
+  const res = await gh(env, `/repos/${env.GITHUB_REPO}/issues/${n}`);
+  if (res.status === 404) return { status: 404, body: { error: 'That post doesn’t exist.' } };
+  if (!res.ok) return { status: 502, body: { error: 'Couldn’t reach GitHub. Try again later.' } };
+  const issue = await res.json();
+  const body = issue.body || '';
+  if (issue.state !== 'open' || !body.includes('<!-- linework-post -->') || issue.user?.login?.toLowerCase() !== feedAuthor(env)) {
+    return { status: 404, body: { error: 'That post isn’t in the feed.' } };
+  }
+  const likes = Math.max(0, likesIn(body) + (undo ? -1 : 1));
+  const marker = `<!-- linework-likes:${likes} -->`;
+  const next = LIKES_RE.test(body) ? body.replace(LIKES_RE, marker) : `${body}\n${marker}`;
+  const upd = await gh(env, `/repos/${env.GITHUB_REPO}/issues/${n}`, { method: 'PATCH', body: JSON.stringify({ body: next }) });
+  if (!upd.ok) return { status: 502, body: { error: 'Liking failed on GitHub’s side. Try again later.' } };
+  await forgetCachedCounts(env);
+  return { status: 200, body: { ok: true, likes } };
+}
+
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const origin = request.headers.get('Origin') || '';
+    const path = new URL(request.url).pathname.replace(/\/+$/, '') || '/';
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors(env, origin) });
+
+    // Like counts: readable by anyone (they're public anyway), cached for a few seconds.
+    if (request.method === 'GET' && path === '/likes') {
+      if (!env.GITHUB_TOKEN || !env.GITHUB_REPO) return reply(env, origin, 500, { error: 'The relay is not configured yet.' });
+      try { return reply(env, origin, 200, await likeCounts(env, ctx)); }
+      catch { return reply(env, origin, 502, { error: 'Couldn’t reach GitHub.' }); }
+    }
     if (request.method !== 'POST') return reply(env, origin, 405, { error: 'Use POST.' });
     if (!isAllowed(env, origin)) {
       return reply(env, origin, 403, { error: `Posts are only accepted from the Linework site. This request came from “${origin || 'unknown'}”; set ALLOWED_ORIGIN on the Worker to exactly that.` });
@@ -94,10 +171,27 @@ export default {
     const ip = request.headers.get('CF-Connecting-IP') || '';
     const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(ip));
     const key = btoa(String.fromCharCode(...new Uint8Array(digest).slice(0, 12)));
-    if (rateLimited(key)) return reply(env, origin, 429, { error: 'Too many posts. Try again in a few minutes.' });
-
     let data;
     try { data = await request.json(); } catch { return reply(env, origin, 400, { error: 'Bad request.' }); }
+
+    if (path === '/like') {
+      const n = Number(data.n);
+      if (!Number.isInteger(n) || n < 1) return reply(env, origin, 400, { error: 'Bad request.' });
+      if (rateLimited(key, recentLikes, LIMIT.likes)) return reply(env, origin, 429, { error: 'Too many likes. Try again in a few minutes.' });
+      // One like per post per visitor (best effort, in memory): repeats are ignored, an unlike clears it.
+      const once = `${key}:${n}`;
+      if (!data.undo && likedBy.has(once)) return reply(env, origin, 200, { ok: true, repeat: true });
+      // Only the visitor who gave a like can take it back, so nobody can drag other people's counts down.
+      if (data.undo && !likedBy.has(once)) return reply(env, origin, 200, { ok: true, ignored: true });
+      const out = await like(env, n, !!data.undo);
+      if (out.status === 200) {
+        if (data.undo) likedBy.delete(once); else likedBy.set(once, Date.now());
+        if (likedBy.size > 20000) likedBy.clear();
+      }
+      return reply(env, origin, out.status, out.body);
+    }
+    if (path !== '/' && path !== '/post') return reply(env, origin, 404, { error: 'Not found.' });
+    if (rateLimited(key)) return reply(env, origin, 429, { error: 'Too many posts. Try again in a few minutes.' });
     if (!validCode(data.code)) return reply(env, origin, 400, { error: 'That drawing could not be read.' });
     const caption = cleanCaption(data.caption);
     if (caption === null) return reply(env, origin, 400, { error: 'Captions can’t include links.' });
@@ -126,19 +220,12 @@ export default {
       '```',
     ].join('\n');
 
-    const gh = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/issues`, {
+    const created = await gh(env, `/repos/${env.GITHUB_REPO}/issues`, {
       method: 'POST',
-      headers: {
-        Authorization: `Bearer ${env.GITHUB_TOKEN}`,
-        Accept: 'application/vnd.github+json',
-        'X-GitHub-Api-Version': '2022-11-28',
-        'User-Agent': 'linework-relay',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ title: `Drawing${shown ? `: ${shown.slice(0, 60)}` : ''}`, body, labels: ['linework-post'] }),
+      body: JSON.stringify({ title: `Drawing${shown ? `: ${shown.slice(0, 60)}` : ''}`, body: `${body}\n<!-- linework-likes:0 -->`, labels: ['linework-post'] }),
     });
-    if (!gh.ok) return reply(env, origin, 502, { error: 'Posting failed on GitHub’s side. Try again later.' });
-    const issue = await gh.json();
+    if (!created.ok) return reply(env, origin, 502, { error: 'Posting failed on GitHub’s side. Try again later.' });
+    const issue = await created.json();
     return reply(env, origin, 201, { ok: true, number: issue.number });
   },
 };

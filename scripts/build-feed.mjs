@@ -67,6 +67,7 @@ for (const issue of issues) {
       at: issue.created_at,
       code,
       caption: captionOf(body),
+      likes: Number(body.match(/<!-- linework-likes:(\d+) -->/)?.[1] || 0),
       motif: a.motif,
       motifLabel: a.motifLabel,
       traits: a.traits,

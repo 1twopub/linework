@@ -306,3 +306,19 @@ a.submit.small-btn { display: inline-flex; text-decoration: none; }
 }
 .tag.hint { background: transparent; border-style: dashed; color: var(--ink-2); }
 .stats { grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); }
+
+/* ---------- Likes ---------- */
+.post-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.like {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 40px; min-width: 44px; padding: 0 12px;
+  border-radius: 999px; border: 1px solid var(--rule); background: transparent; color: var(--ink-2);
+  font: 500 13px var(--mono); cursor: pointer; margin-right: -4px;
+}
+.like svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; }
+.like.on { color: var(--accent); border-color: var(--accent); }
+.like.on svg { fill: currentColor; }
+.like:disabled { opacity: .7; cursor: default; }
+.like:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.like-count:empty { display: none; }
+.like.pop svg { animation: pop .35s ease; }
+@keyframes pop { 40% { transform: scale(1.35); } }
