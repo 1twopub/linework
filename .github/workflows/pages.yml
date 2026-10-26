@@ -7,7 +7,8 @@ on:
   push:
     branches: [main]
   issues:
-    types: [opened, edited, closed, reopened, deleted, labeled, unlabeled]
+    # Not "edited": a like edits the issue, and like counts are served live by the relay.
+    types: [opened, closed, reopened, deleted]
   workflow_dispatch:
 
 permissions:
