@@ -6,7 +6,7 @@
   "file": "2a10b040-reflecting.csv"
  },
  "genres": "assigned by Claude from the artists (entries with genreGuess: true are low-confidence)",
- "built": "2026-10-26T06:09:33.356Z",
+ "built": "2026-10-26T06:28:10.100Z",
  "releases": [
   {
    "id": "5pgSLDET4rMkAok3X4k0wP",
@@ -19,6 +19,11 @@
    "tags": [],
    "genre": "grime",
    "motifs": {},
+   "hints": {
+    "note": "Microphone Champion",
+    "star": "Microphone Champion",
+    "eye": "Reflecting"
+   },
    "profile": {
     "energy": 0.931,
     "angularity": 0.848,
@@ -42,6 +47,9 @@
    "genre": "hip hop",
    "motifs": {
     "clock": "Once Upon A Time In The Projects"
+   },
+   "hints": {
+    "grid": "Once Upon A Time In The Projects"
    },
    "profile": {
     "energy": 0.612,
@@ -67,6 +75,7 @@
    "motifs": {
     "cross": "When I Get To Heaven - Remastered"
    },
+   "hints": {},
    "profile": {
     "energy": 0.64,
     "angularity": 0.631,
@@ -88,7 +97,14 @@
    "url": "https://open.spotify.com/album/6hLMCpmHQMm7UrYLyVgoqA",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "bubble": "The Truth"
+   },
+   "hints": {
+    "cloud": "Remember Them Days",
+    "sun": "Remember Them Days",
+    "clock": "Remember Them Days"
+   },
    "profile": {
     "energy": 0.66,
     "angularity": 0.705,
@@ -113,6 +129,9 @@
    "motifs": {
     "money": "Money, Power & Respect",
     "heart": "All for the Love"
+   },
+   "hints": {
+    "zigzag": "Money, Power & Respect"
    },
    "profile": {
     "energy": 0.62,
@@ -140,6 +159,7 @@
     "abstract": "In color",
     "mountain": "Aces High"
    },
+   "hints": {},
    "profile": {
     "energy": 0.33,
     "angularity": 0.269,
@@ -164,6 +184,11 @@
    "motifs": {
     "skull": "Life After Death (2014 Remastered Edition)",
     "horizon": "Sky's the Limit (feat. 112) - 2014 Remaster"
+   },
+   "hints": {
+    "flower": "Life After Death (2014 Remastered Edition)",
+    "clock": "Life After Death (2014 Remastered Edition)",
+    "line": "Sky's the Limit (feat. 112) - 2014 Remaster"
    },
    "profile": {
     "energy": 0.651,
@@ -190,6 +215,10 @@
     "money": "Young Rich N*ggas",
     "figure": "Bakers Man"
    },
+   "hints": {
+    "clock": "Young Rich N*ggas",
+    "star": "Rich Then Famous (Intro)"
+   },
    "profile": {
     "energy": 0.69,
     "angularity": 0.742,
@@ -212,6 +241,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "drop": "Lean Like Dis"
+   },
    "profile": {
     "energy": 0.802,
     "angularity": 0.706,
@@ -237,6 +269,9 @@
     "clock": "Forever",
     "star": "Born Stars"
    },
+   "hints": {
+    "dots": "Born Stars"
+   },
    "profile": {
     "energy": 0.316,
     "angularity": 0.257,
@@ -261,6 +296,7 @@
    "motifs": {
     "money": "Throwin' Bands Thursday"
    },
+   "hints": {},
    "profile": {
     "energy": 0.304,
     "angularity": 0.299,
@@ -283,6 +319,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "screen": "Regular show"
+   },
    "profile": {
     "energy": 0.372,
     "angularity": 0.21,
@@ -305,6 +344,11 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "note": "Green Album",
+    "flower": "Green Album",
+    "money": "Green Album"
+   },
    "profile": {
     "energy": 0.732,
     "angularity": 0.673,
@@ -330,6 +374,10 @@
    "motifs": {
     "skull": "trap or die"
    },
+   "hints": {
+    "mountain": "no ceilings",
+    "house": "trap or die"
+   },
    "profile": {
     "energy": 0.297,
     "angularity": 0.218,
@@ -354,6 +402,7 @@
    "motifs": {
     "skull": "Back From The Dead 3"
    },
+   "hints": {},
    "profile": {
     "energy": 0.711,
     "angularity": 0.857,
@@ -376,6 +425,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "money": "52"
+   },
    "profile": {
     "energy": 0.291,
     "angularity": 0.274,
@@ -398,6 +450,9 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "cloud": "The Stoned Immaculate (Deluxe Edition)"
+   },
    "profile": {
     "energy": 0.677,
     "angularity": 0.613,
@@ -422,6 +477,9 @@
    "motifs": {
     "globe": "Jet World Order 2"
    },
+   "hints": {
+    "bird": "Jet World Order 2"
+   },
    "profile": {
     "energy": 0.705,
     "angularity": 0.626,
@@ -445,6 +503,9 @@
    "genre": "lo-fi",
    "motifs": {
     "heart": "Silly Love"
+   },
+   "hints": {
+    "scribble": "Silly Love"
    },
    "profile": {
     "energy": 0.35,
@@ -471,6 +532,9 @@
     "cross": "Angel's Pulse",
     "clock": "Seven Hours Part 1"
    },
+   "hints": {
+    "moon": "Dark & Handsome"
+   },
    "profile": {
     "energy": 0.261,
     "angularity": 0.197,
@@ -495,6 +559,11 @@
    "motifs": {
     "crown": "Queen Bitch"
    },
+   "hints": {
+    "mountain": "Hard Core",
+    "figure": "Queen Bitch",
+    "drop": "Drugs"
+   },
    "profile": {
     "energy": 0.707,
     "angularity": 0.671,
@@ -517,6 +586,9 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {
+    "scribble": "MORT Freestyle"
+   },
    "profile": {
     "energy": 0.444,
     "angularity": 0.533,
@@ -539,6 +611,9 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "circle": "Operation: Doomsday (Complete)"
+   },
    "profile": {
     "energy": 0.617,
     "angularity": 0.704,
@@ -561,6 +636,9 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {
+    "skull": "TROLL"
+   },
    "profile": {
     "energy": 0.444,
     "angularity": 0.551,
@@ -583,6 +661,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "bird": "Fox 5 (feat. Gunna)"
+   },
    "profile": {
     "energy": 0.743,
     "angularity": 0.742,
@@ -609,6 +690,11 @@
     "line": "Border Line",
     "wave": "Ocean Bed"
    },
+   "hints": {
+    "arrow": "6 Feet Beneath The Moon",
+    "globe": "Foreign 2",
+    "mountain": "Ceiling"
+   },
    "profile": {
     "energy": 0.677,
     "angularity": 0.783,
@@ -631,6 +717,10 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "clock": "Late Registration",
+    "arrow": "Wake Up Mr. West"
+   },
    "profile": {
     "energy": 0.618,
     "angularity": 0.594,
@@ -653,6 +743,10 @@
    "tags": [],
    "genre": "funk",
    "motifs": {},
+   "hints": {
+    "wave": "Lovebyrds (Smooth And Easy)",
+    "grid": "A Heavy Town"
+   },
    "profile": {
     "energy": 0.648,
     "angularity": 0.596,
@@ -677,6 +771,10 @@
    "motifs": {
     "heart": "Speakerboxxx/The Love Below"
    },
+   "hints": {
+    "flower": "A Life In The Day of Benjamin Andre (Incomplete)",
+    "sun": "A Life In The Day of Benjamin Andre (Incomplete)"
+   },
    "profile": {
     "energy": 0.675,
     "angularity": 0.672,
@@ -699,7 +797,11 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "crown": "King Of Rock (Expanded Edition)"
+    "crown": "King Of Rock (Expanded Edition)",
+    "bubble": "You Talk Too Much"
+   },
+   "hints": {
+    "note": "King Of Rock (Expanded Edition)"
    },
    "profile": {
     "energy": 0.606,
@@ -723,6 +825,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.621,
     "angularity": 0.691,
@@ -748,6 +851,9 @@
     "note": "Songs in the Key of Z, Vol. 4: The Curious Universe of Outsider Music",
     "globe": "Songs in the Key of Z, Vol. 4: The Curious Universe of Outsider Music"
    },
+   "hints": {
+    "box": "Songs in the Key of Z, Vol. 4: The Curious Universe of Outsider Music"
+   },
    "profile": {
     "energy": 0.452,
     "angularity": 0.539,
@@ -769,7 +875,12 @@
    "url": "https://open.spotify.com/album/2vmitZHxBm1P4DVXWZpIOK",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "bubble": "Numbers Tell a Different Story"
+   },
+   "hints": {
+    "phone": "Numbers Tell a Different Story"
+   },
    "profile": {
     "energy": 0.742,
     "angularity": 0.714,
@@ -796,6 +907,9 @@
     "diamond": "ICE BOY",
     "note": "Revenge Song"
    },
+   "hints": {
+    "box": "Something Safe"
+   },
    "profile": {
     "energy": 0.26,
     "angularity": 0.127,
@@ -820,6 +934,9 @@
    "motifs": {
     "abstract": "Different Colors (feat. Lil Yachty)"
    },
+   "hints": {
+    "box": "Yung Bans Vol. 4"
+   },
    "profile": {
     "energy": 0.291,
     "angularity": 0.218,
@@ -842,6 +959,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "box": "Dresser"
+   },
    "profile": {
     "energy": 0.399,
     "angularity": 0.242,
@@ -868,6 +988,10 @@
     "heart": "Kiss My Super Bowl Ring",
     "car": "AMPM Truck"
    },
+   "hints": {
+    "star": "Kiss My Super Bowl Ring",
+    "house": "Clench To Stay Awake"
+   },
    "profile": {
     "energy": 0.938,
     "angularity": 0.878,
@@ -890,6 +1014,9 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {
+    "skull": "OBLIVION"
+   },
    "profile": {
     "energy": 0.487,
     "angularity": 0.548,
@@ -912,6 +1039,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "mountain": "Lil Big Pac"
+   },
    "profile": {
     "energy": 0.763,
     "angularity": 0.727,
@@ -936,6 +1066,7 @@
    "motifs": {
     "cloud": "Purple Haze"
    },
+   "hints": {},
    "profile": {
     "energy": 0.706,
     "angularity": 0.671,
@@ -961,6 +1092,11 @@
     "screen": "Tim's Bio: From The Motion Picture - Life From Da Bassment",
     "flame": "John Blaze"
    },
+   "hints": {
+    "arrow": "Tim's Bio: From The Motion Picture - Life From Da Bassment",
+    "flower": "Tim's Bio: From The Motion Picture - Life From Da Bassment",
+    "figure": "John Blaze"
+   },
    "profile": {
     "energy": 0.665,
     "angularity": 0.636,
@@ -983,6 +1119,11 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {},
+   "hints": {
+    "money": "100% Ginuwine",
+    "circle": "None Of Ur Friends Business",
+    "figure": "None Of Ur Friends Business"
+   },
    "profile": {
     "energy": 0.318,
     "angularity": 0.184,
@@ -1005,6 +1146,9 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "eye": "Sentry (feat. MIKE)"
+   },
    "profile": {
     "energy": 0.6,
     "angularity": 0.704,
@@ -1030,6 +1174,11 @@
     "mountain": "Love On A Mountain Top",
     "heart": "Love On A Mountain Top"
    },
+   "hints": {
+    "line": "A Slice Of English Toast",
+    "note": "Black Rock Possee",
+    "moon": "Black Rock Possee"
+   },
    "profile": {
     "energy": 0.455,
     "angularity": 0.353,
@@ -1053,6 +1202,10 @@
    "genre": "funk",
    "motifs": {
     "line": "Santa Claus Go Straight To The Ghetto"
+   },
+   "hints": {
+    "star": "A Soulful Christmas",
+    "grid": "Santa Claus Go Straight To The Ghetto"
    },
    "profile": {
     "energy": 0.748,
@@ -1078,6 +1231,7 @@
    "motifs": {
     "sun": "Every Summer"
    },
+   "hints": {},
    "profile": {
     "energy": 0.317,
     "angularity": 0.212,
@@ -1100,6 +1254,11 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "cloud": "I Gotta Find Peace of Mind - Live",
+    "cross": "I Gotta Find Peace of Mind - Live",
+    "spiral": "Mystery of Iniquity - Live"
+   },
    "profile": {
     "energy": 0.64,
     "angularity": 0.661,
@@ -1124,6 +1283,7 @@
    "motifs": {
     "grid": "Paint the City"
    },
+   "hints": {},
    "profile": {
     "energy": 0.319,
     "angularity": 0.227,
@@ -1147,6 +1307,11 @@
    "genre": "trap",
    "motifs": {
     "globe": "World War 3 (Lean)"
+   },
+   "hints": {
+    "drop": "World War 3 (Lean)",
+    "skull": "World War 3 (Lean)",
+    "spiral": "Confused (feat. Future)"
    },
    "profile": {
     "energy": 0.794,
@@ -1172,6 +1337,7 @@
    "motifs": {
     "face": "Off Your Face"
    },
+   "hints": {},
    "profile": {
     "energy": 0.401,
     "angularity": 0.196,
@@ -1194,6 +1360,9 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "box": "Hi-teknology - Volume 2"
+   },
    "profile": {
     "energy": 0.644,
     "angularity": 0.617,
@@ -1216,6 +1385,9 @@
    "tags": [],
    "genre": "post-punk",
    "motifs": {},
+   "hints": {
+    "wave": "Seahorse"
+   },
    "profile": {
     "energy": 0.676,
     "angularity": 0.859,
@@ -1240,6 +1412,7 @@
    "motifs": {
     "rain": "When U Cry"
    },
+   "hints": {},
    "profile": {
     "energy": 0.295,
     "angularity": 0.145,
@@ -1264,6 +1437,9 @@
    "motifs": {
     "face": "NIL BY MOUTH"
    },
+   "hints": {
+    "moon": "BLACK METAL 2"
+   },
    "profile": {
     "energy": 0.462,
     "angularity": 0.554,
@@ -1286,6 +1462,10 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "figure": "American Gangster",
+    "globe": "American Gangster"
+   },
    "profile": {
     "energy": 0.622,
     "angularity": 0.607,
@@ -1308,6 +1488,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "cloud": "Off-White (feat. Lil Uzi Vert)"
+   },
    "profile": {
     "energy": 0.768,
     "angularity": 0.726,
@@ -1330,6 +1513,9 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {},
+   "hints": {
+    "arrow": "We Travel the Spaceways"
+   },
    "profile": {
     "energy": 0.48,
     "angularity": 0.351,
@@ -1353,6 +1539,7 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.353,
     "angularity": 0.285,
@@ -1375,6 +1562,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "circle": "Packman"
+   },
    "profile": {
     "energy": 0.355,
     "angularity": 0.22,
@@ -1397,6 +1587,10 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "note": "90s Underground Hip Hop",
+    "skull": "All Glocks Down (An L To The Neck Mix)"
+   },
    "profile": {
     "energy": 0.674,
     "angularity": 0.691,
@@ -1422,6 +1616,7 @@
     "rain": "No Tears",
     "drop": "No Tears"
    },
+   "hints": {},
    "profile": {
     "energy": 0.708,
     "angularity": 0.693,
@@ -1446,6 +1641,7 @@
    "motifs": {
     "diamond": "Graceful Jewelry Removal"
    },
+   "hints": {},
    "profile": {
     "energy": 0.595,
     "angularity": 0.658,
@@ -1470,6 +1666,9 @@
    "motifs": {
     "moon": "Blood Moon"
    },
+   "hints": {
+    "drop": "Blood Moon"
+   },
    "profile": {
     "energy": 0.748,
     "angularity": 0.728,
@@ -1492,7 +1691,11 @@
    "tags": [],
    "genre": "disco",
    "motifs": {
-    "screen": "Scarface (Expanded Motion Picture Soundtrack)"
+    "screen": "Scarface (Expanded Motion Picture Soundtrack)",
+    "bubble": "Sosa / Talk To Frank"
+   },
+   "hints": {
+    "arrow": "Scarface (Expanded Motion Picture Soundtrack)"
    },
    "profile": {
     "energy": 0.75,
@@ -1516,6 +1719,10 @@
    "tags": [],
    "genre": "dancehall",
    "motifs": {},
+   "hints": {
+    "bird": "Mentally Free",
+    "flower": "Back to Life"
+   },
    "profile": {
     "energy": 0.788,
     "angularity": 0.56,
@@ -1538,6 +1745,10 @@
    "tags": [],
    "genre": "dancehall",
    "motifs": {},
+   "hints": {
+    "globe": "Pon Di Gaza 2.0",
+    "bubble": "Nah Let Go"
+   },
    "profile": {
     "energy": 0.731,
     "angularity": 0.492,
@@ -1560,6 +1771,10 @@
    "tags": [],
    "genre": "dancehall",
    "motifs": {},
+   "hints": {
+    "skull": "M16 Riddim",
+    "note": "M16 Riddim"
+   },
    "profile": {
     "energy": 0.775,
     "angularity": 0.542,
@@ -1584,6 +1799,7 @@
    "motifs": {
     "crown": "King Of The Dancehall"
    },
+   "hints": {},
    "profile": {
     "energy": 0.741,
     "angularity": 0.49,
@@ -1606,6 +1822,9 @@
    "tags": [],
    "genre": "dancehall",
    "motifs": {},
+   "hints": {
+    "mountain": "Stronger We Get"
+   },
    "profile": {
     "energy": 0.729,
     "angularity": 0.469,
@@ -1631,6 +1850,9 @@
     "eye": "Real Eyes",
     "heart": "Your Daddy Loves You (For Gia Louise)"
    },
+   "hints": {
+    "figure": "You Could Be My Brother"
+   },
    "profile": {
     "energy": 0.473,
     "angularity": 0.336,
@@ -1653,6 +1875,9 @@
    "tags": [],
    "genre": "ambient",
    "motifs": {},
+   "hints": {
+    "star": "Space 1.8"
+   },
    "profile": {
     "energy": 0.03,
     "angularity": 0.134,
@@ -1678,6 +1903,9 @@
     "clock": "Ceres & Calypso in the Deep Time",
     "sun": "Into the Deep Time (One Sun)"
    },
+   "hints": {
+    "wave": "Ceres & Calypso in the Deep Time"
+   },
    "profile": {
     "energy": 0.275,
     "angularity": 0.164,
@@ -1700,6 +1928,9 @@
    "tags": [],
    "genre": "funk",
    "motifs": {},
+   "hints": {
+    "cloud": "Maggot Brain"
+   },
    "profile": {
     "energy": 0.751,
     "angularity": 0.537,
@@ -1722,6 +1953,7 @@
    "tags": [],
    "genre": "drill",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.755,
     "angularity": 0.935,
@@ -1744,6 +1976,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "money": "19 & Boomin"
+   },
    "profile": {
     "energy": 0.778,
     "angularity": 0.641,
@@ -1768,6 +2003,9 @@
    "motifs": {
     "money": "RACKS BLUE"
    },
+   "hints": {
+    "wave": "RACKS BLUE"
+   },
    "profile": {
     "energy": 0.783,
     "angularity": 0.691,
@@ -1789,7 +2027,12 @@
    "url": "https://open.spotify.com/album/5ydx8HEoTmJrxZuPKcTU4V",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "bubble": "Pilot Talk: Trilogy"
+   },
+   "hints": {
+    "zigzag": "Alert (feat. Styles P)"
+   },
    "profile": {
     "energy": 0.651,
     "angularity": 0.701,
@@ -1814,6 +2057,9 @@
    "genreGuess": true,
    "motifs": {
     "money": "BREAK THE BANK"
+   },
+   "hints": {
+    "zigzag": "BREAK THE BANK"
    },
    "profile": {
     "energy": 1,
@@ -1840,6 +2086,11 @@
     "moon": "The Night of the Purple Moon",
     "heart": "Love in Outer Space - Vocal"
    },
+   "hints": {
+    "cloud": "The Night of the Purple Moon",
+    "note": "Blue Soul",
+    "wave": "Blue Soul"
+   },
    "profile": {
     "energy": 0.45,
     "angularity": 0.399,
@@ -1862,6 +2113,10 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "eye": "Controversy",
+    "skull": "F*ck The KKK"
+   },
    "profile": {
     "energy": 0.6,
     "angularity": 0.68,
@@ -1886,6 +2141,7 @@
    "motifs": {
     "face": "Smiling Faces Sometimes"
    },
+   "hints": {},
    "profile": {
     "energy": 0.428,
     "angularity": 0.255,
@@ -1908,6 +2164,11 @@
    "tags": [],
    "genre": "soul",
    "motifs": {},
+   "hints": {
+    "globe": "Winter In America - Live, Bremen, 1983",
+    "cloud": "Legend In His Own Mind (Live, Bremen, 1983)",
+    "star": "Legend In His Own Mind (Live, Bremen, 1983)"
+   },
    "profile": {
     "energy": 0.428,
     "angularity": 0.273,
@@ -1932,6 +2193,7 @@
    "motifs": {
     "car": "Cruisin' with Junior H"
    },
+   "hints": {},
    "profile": {
     "energy": 0.66,
     "angularity": 0.302,
@@ -1957,6 +2219,7 @@
     "sun": "Sunset Reggae",
     "heart": "You Really Love Me"
    },
+   "hints": {},
    "profile": {
     "energy": 0.412,
     "angularity": 0.315,
@@ -1979,6 +2242,11 @@
    "tags": [],
    "genre": "reggae",
    "motifs": {},
+   "hints": {
+    "note": "Essential Ska Masters",
+    "star": "Essential Ska Masters",
+    "figure": "Mally Sally"
+   },
    "profile": {
     "energy": 0.358,
     "angularity": 0.35,
@@ -2003,6 +2271,9 @@
    "motifs": {
     "car": "Funky Ride"
    },
+   "hints": {
+    "note": "Funky Ride"
+   },
    "profile": {
     "energy": 0.636,
     "angularity": 0.618,
@@ -2025,6 +2296,9 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {
+    "bubble": "Ok Seke Bien"
+   },
    "profile": {
     "energy": 0.489,
     "angularity": 0.472,
@@ -2047,6 +2321,10 @@
    "tags": [],
    "genre": "reggae",
    "motifs": {},
+   "hints": {
+    "sun": "96 Degrees In The Shade",
+    "money": "96 Degrees In The Shade"
+   },
    "profile": {
     "energy": 0.406,
     "angularity": 0.276,
@@ -2072,6 +2350,9 @@
     "phone": "Sent From My Telephone",
     "heart": "Love"
    },
+   "hints": {
+    "sun": "Another Day"
+   },
    "profile": {
     "energy": 0.118,
     "angularity": 0.112,
@@ -2094,6 +2375,11 @@
    "tags": [],
    "genre": "disco",
    "motifs": {},
+   "hints": {
+    "box": "The 12 Inch Collection",
+    "money": "The 12 Inch Collection",
+    "cloud": "A Night to Remember"
+   },
    "profile": {
     "energy": 0.724,
     "angularity": 0.309,
@@ -2119,6 +2405,10 @@
     "sun": "Dark Sunrise",
     "bird": "The Wings Of Africa"
    },
+   "hints": {
+    "moon": "Dark Sunrise",
+    "globe": "The Wings Of Africa"
+   },
    "profile": {
     "energy": 0.52,
     "angularity": 0.274,
@@ -2141,6 +2431,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "scribble": "Ain't No Joke"
+   },
    "profile": {
     "energy": 0.703,
     "angularity": 0.682,
@@ -2163,6 +2456,9 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "flame": "Red Jacket 6"
+   },
    "profile": {
     "energy": 0.642,
     "angularity": 0.596,
@@ -2189,6 +2485,7 @@
     "bird": "Flying High",
     "clock": "Midnight Oil (feat. Larry June & Jay Worthy)"
    },
+   "hints": {},
    "profile": {
     "energy": 0.612,
     "angularity": 0.666,
@@ -2211,6 +2508,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "money": "Ah Thousand Jugs"
+   },
    "profile": {
     "energy": 0.696,
     "angularity": 0.7,
@@ -2233,6 +2533,7 @@
    "tags": [],
    "genre": "indie rock",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.594,
     "angularity": 0.472,
@@ -2257,6 +2558,10 @@
    "motifs": {
     "eye": "This Night Has Opened My Eyes - 2011 Remaster"
    },
+   "hints": {
+    "circle": "Hatful of Hollow",
+    "moon": "This Night Has Opened My Eyes - 2011 Remaster"
+   },
    "profile": {
     "energy": 0.589,
     "angularity": 0.483,
@@ -2279,6 +2584,9 @@
    "tags": [],
    "genre": "indie rock",
    "motifs": {},
+   "hints": {
+    "wave": "Whale"
+   },
    "profile": {
     "energy": 0.576,
     "angularity": 0.518,
@@ -2302,6 +2610,9 @@
    "genre": "indie rock",
    "motifs": {
     "car": "Race"
+   },
+   "hints": {
+    "cloud": "Remember"
    },
    "profile": {
     "energy": 0.582,
@@ -2327,6 +2638,10 @@
    "motifs": {
     "figure": "Candy Man"
    },
+   "hints": {
+    "note": "Funky Butt",
+    "dots": "Candy Man"
+   },
    "profile": {
     "energy": 0.403,
     "angularity": 0.5,
@@ -2350,6 +2665,10 @@
    "genre": "r&b",
    "motifs": {
     "diamond": "Diamond Life"
+   },
+   "hints": {
+    "flower": "Diamond Life",
+    "star": "Frankie's First Affair"
    },
    "profile": {
     "energy": 0.257,
@@ -2375,6 +2694,7 @@
    "motifs": {
     "figure": "BOY BYE"
    },
+   "hints": {},
    "profile": {
     "energy": 0.353,
     "angularity": 0.204,
@@ -2397,6 +2717,11 @@
    "tags": [],
    "genre": "soul",
    "motifs": {},
+   "hints": {
+    "star": "The Very Best Of Nina Simone 1967-1972 - Sugar In My Bowl",
+    "dots": "The Very Best Of Nina Simone 1967-1972 - Sugar In My Bowl",
+    "clock": "The Very Best Of Nina Simone 1967-1972 - Sugar In My Bowl"
+   },
    "profile": {
     "energy": 0.412,
     "angularity": 0.346,
@@ -2419,6 +2744,10 @@
    "tags": [],
    "genre": "blues",
    "motifs": {},
+   "hints": {
+    "star": "Vanguard Visionaries",
+    "figure": "Stagolee"
+   },
    "profile": {
     "energy": 0.408,
     "angularity": 0.465,
@@ -2441,6 +2770,10 @@
    "tags": [],
    "genre": "blues",
    "motifs": {},
+   "hints": {
+    "figure": "Louis Collins",
+    "diamond": "Louis Collins"
+   },
    "profile": {
     "energy": 0.359,
     "angularity": 0.433,
@@ -2466,6 +2799,7 @@
    "motifs": {
     "abstract": "Figures"
    },
+   "hints": {},
    "profile": {
     "energy": 0.379,
     "angularity": 0.193,
@@ -2488,6 +2822,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "bubble": "CANT RELATE !"
+   },
    "profile": {
     "energy": 0.36,
     "angularity": 0.195,
@@ -2513,6 +2850,10 @@
     "skull": "Trap-A-Holics Present: Death Before Dishonor",
     "money": "Count My Money Backwards"
    },
+   "hints": {
+    "house": "Trap-A-Holics Present: Death Before Dishonor",
+    "clock": "Trap-A-Holics Present: Death Before Dishonor"
+   },
    "profile": {
     "energy": 0.696,
     "angularity": 0.727,
@@ -2537,6 +2878,7 @@
    "motifs": {
     "clock": "Tomorrow"
    },
+   "hints": {},
    "profile": {
     "energy": 0.659,
     "angularity": 0.944,
@@ -2561,6 +2903,11 @@
    "motifs": {
     "house": "This Could Build Us a Home"
    },
+   "hints": {
+    "flower": "Red Green Yellow",
+    "flame": "Red Green Yellow",
+    "sun": "Red Green Yellow"
+   },
    "profile": {
     "energy": 0.965,
     "angularity": 0.863,
@@ -2584,7 +2931,13 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {
-    "figure": "Rise of Man (Intro)"
+    "figure": "Rise of Man (Intro)",
+    "bubble": "Talk My Shit (GrandeMarshall Remix"
+   },
+   "hints": {
+    "note": "Talk My Shit (GrandeMarshall Remix",
+    "scribble": "Talk My Shit (GrandeMarshall Remix",
+    "mountain": "Rise of Man (Intro)"
    },
    "profile": {
     "energy": 0.306,
@@ -2610,6 +2963,11 @@
    "motifs": {
     "skull": "Working on Dying 2"
    },
+   "hints": {
+    "money": "Working on Dying 2",
+    "drop": "Red Cups (feat. Marcy Mane)",
+    "flame": "Red Cups (feat. Marcy Mane)"
+   },
    "profile": {
     "energy": 0.752,
     "angularity": 0.675,
@@ -2631,7 +2989,13 @@
    "url": "https://open.spotify.com/album/7IKkHmEk4It4cRdOYanyvW",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "bubble": "Stupid/Asking"
+   },
+   "hints": {
+    "note": "Punk",
+    "scribble": "Stupid/Asking"
+   },
    "profile": {
     "energy": 0.757,
     "angularity": 0.674,
@@ -2654,6 +3018,9 @@
    "tags": [],
    "genre": "latin",
    "motifs": {},
+   "hints": {
+    "figure": "Atrapado en un Sueño"
+   },
    "profile": {
     "energy": 0.641,
     "angularity": 0.356,
@@ -2681,6 +3048,10 @@
     "heart": "Do U Love Me",
     "mountain": "Get High (feat. Snoop Dogg & Lil Durk)"
    },
+   "hints": {
+    "flower": "Beautiful Thugger Girls",
+    "spiral": "Tomorrow 'Til Infinity (feat. Gunna)"
+   },
    "profile": {
     "energy": 0.735,
     "angularity": 0.683,
@@ -2706,6 +3077,7 @@
     "bird": "Negro Swan",
     "cross": "Saint"
    },
+   "hints": {},
    "profile": {
     "energy": 0.312,
     "angularity": 0.165,
@@ -2729,9 +3101,11 @@
    "genre": "hip hop",
    "motifs": {
     "eye": "Tell The Vision",
+    "bubble": "Tell The Vision",
     "box": "Jail",
     "cross": "God Breathed"
    },
+   "hints": {},
    "profile": {
     "energy": 0.625,
     "angularity": 0.645,
@@ -2754,6 +3128,9 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "note": "Disco!"
+   },
    "profile": {
     "energy": 0.632,
     "angularity": 0.673,
@@ -2776,6 +3153,9 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "star": "The Champ Is Here"
+   },
    "profile": {
     "energy": 0.688,
     "angularity": 0.664,
@@ -2798,6 +3178,9 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {
+    "note": "Cypher"
+   },
    "profile": {
     "energy": 0.484,
     "angularity": 0.527,
@@ -2822,6 +3205,7 @@
    "motifs": {
     "globe": "One Nation"
    },
+   "hints": {},
    "profile": {
     "energy": 0.446,
     "angularity": 0.534,
@@ -2844,6 +3228,10 @@
    "tags": [],
    "genre": "dream pop",
    "motifs": {},
+   "hints": {
+    "clock": "1992 - 2001",
+    "money": "1992 - 2001"
+   },
    "profile": {
     "energy": 0.222,
     "angularity": 0.171,
@@ -2866,6 +3254,9 @@
    "tags": [],
    "genre": "country",
    "motifs": {},
+   "hints": {
+    "globe": "That's How I Got To Memphis"
+   },
    "profile": {
     "energy": 0.344,
     "angularity": 0.413,
@@ -2888,6 +3279,11 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "star": "Library of a Legend, Vol. 10",
+    "box": "Library of a Legend, Vol. 10",
+    "money": "Library of a Legend, Vol. 10"
+   },
    "profile": {
     "energy": 0.654,
     "angularity": 0.653,
@@ -2912,6 +3308,9 @@
    "motifs": {
     "skull": "Do It For Demon"
    },
+   "hints": {
+    "grid": "Other Side"
+   },
    "profile": {
     "energy": 0.314,
     "angularity": 0.276,
@@ -2934,6 +3333,9 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {
+    "moon": "Sleep It Off"
+   },
    "profile": {
     "energy": 0.447,
     "angularity": 0.492,
@@ -2959,6 +3361,11 @@
     "house": "Suicide Doors",
     "face": "Flooded The Face"
    },
+   "hints": {
+    "heart": "Pink Tape",
+    "box": "Pink Tape",
+    "circle": "Spin Again"
+   },
    "profile": {
     "energy": 0.809,
     "angularity": 0.688,
@@ -2980,7 +3387,13 @@
    "url": "https://open.spotify.com/album/72dBYNXFF0PI7VVdSyn9VF",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "bubble": "Nokia Talk 2002"
+   },
+   "hints": {
+    "clock": "Nokia Talk 2002",
+    "money": "Nokia Talk 2002"
+   },
    "profile": {
     "energy": 0.396,
     "angularity": 0.209,
@@ -3007,6 +3420,11 @@
     "globe": "Edge Of The Earth/Post Mortem Boredom",
     "figure": "Man In The Night"
    },
+   "hints": {
+    "arrow": "Speedin' Bullet 2 Heaven",
+    "line": "Edge Of The Earth/Post Mortem Boredom",
+    "moon": "Man In The Night"
+   },
    "profile": {
     "energy": 0.642,
     "angularity": 0.691,
@@ -3029,6 +3447,10 @@
    "tags": [],
    "genre": "funk",
    "motifs": {},
+   "hints": {
+    "screen": "Hollywood",
+    "figure": "Mary Jane"
+   },
    "profile": {
     "energy": 0.706,
     "angularity": 0.503,
@@ -3053,6 +3475,7 @@
    "motifs": {
     "heart": "Three for Love"
    },
+   "hints": {},
    "profile": {
     "energy": 0.733,
     "angularity": 0.339,
@@ -3079,6 +3502,9 @@
     "wave": "Surf Da World",
     "globe": "Surf Da World"
    },
+   "hints": {
+    "arrow": "MOVE"
+   },
    "profile": {
     "energy": 0.805,
     "angularity": 0.696,
@@ -3103,6 +3529,10 @@
    "motifs": {
     "loops": "My Beautiful Dark Twisted Fantasy"
    },
+   "hints": {
+    "flower": "My Beautiful Dark Twisted Fantasy",
+    "moon": "My Beautiful Dark Twisted Fantasy"
+   },
    "profile": {
     "energy": 0.655,
     "angularity": 0.6,
@@ -3125,6 +3555,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "skull": "Pistolz & Pearlz",
+    "figure": "Dirt McGerk (feat. EST Gee & Lil Crix)"
+   },
    "profile": {
     "energy": 0.797,
     "angularity": 0.654,
@@ -3147,6 +3581,10 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {
+    "moon": "Black Metal",
+    "cross": "X"
+   },
    "profile": {
     "energy": 0.495,
     "angularity": 0.505,
@@ -3169,6 +3607,9 @@
    "tags": [],
    "genre": "minimal",
    "motifs": {},
+   "hints": {
+    "eye": "Look"
+   },
    "profile": {
     "energy": 0.227,
     "angularity": 0.42,
@@ -3191,6 +3632,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.598,
     "angularity": 0.698,
@@ -3215,6 +3657,7 @@
    "motifs": {
     "money": "Wit Da Racks (feat. 21 Savage, Travis Scott & Yak Gotti)"
    },
+   "hints": {},
    "profile": {
     "energy": 0.771,
     "angularity": 0.669,
@@ -3238,6 +3681,11 @@
    "genre": "country",
    "motifs": {
     "clock": "All-Time Greatest Hits, Vol. 1"
+   },
+   "hints": {
+    "star": "All-Time Greatest Hits, Vol. 1",
+    "box": "All-Time Greatest Hits, Vol. 1",
+    "globe": "Made In Japan"
    },
    "profile": {
     "energy": 0.342,
@@ -3263,6 +3711,7 @@
    "motifs": {
     "clock": "Serious Time"
    },
+   "hints": {},
    "profile": {
     "energy": 0.454,
     "angularity": 0.249,
@@ -3287,6 +3736,7 @@
    "motifs": {
     "phone": "Calling Out Of Context"
    },
+   "hints": {},
    "profile": {
     "energy": 0.539,
     "angularity": 0.525,
@@ -3311,6 +3761,10 @@
    "motifs": {
     "note": "Ella Fitzgerald Sings The Cole Porter Song Book"
    },
+   "hints": {
+    "moon": "Night And Day",
+    "sun": "Night And Day"
+   },
    "profile": {
     "energy": 0.551,
     "angularity": 0.436,
@@ -3333,6 +3787,11 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {},
+   "hints": {
+    "circle": "The Complete Ella And Louis On Verve",
+    "figure": "The Complete Ella And Louis On Verve",
+    "diamond": "The Complete Ella And Louis On Verve"
+   },
    "profile": {
     "energy": 0.52,
     "angularity": 0.384,
@@ -3357,6 +3816,9 @@
    "motifs": {
     "flame": "Dontay's Inferno"
    },
+   "hints": {
+    "money": "06' Micheal Redd"
+   },
    "profile": {
     "energy": 0.674,
     "angularity": 0.629,
@@ -3380,6 +3842,9 @@
    "genre": "ambient",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "eye": "Invisible"
+   },
    "profile": {
     "energy": 0.12,
     "angularity": 0.089,
@@ -3404,6 +3869,7 @@
    "motifs": {
     "flame": "Itzsoweezee (HOT)"
    },
+   "hints": {},
    "profile": {
     "energy": 0.596,
     "angularity": 0.595,
@@ -3426,6 +3892,10 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {
+    "money": "419 (Remastered)",
+    "scribble": "419 / Nervous Freestyle"
+   },
    "profile": {
     "energy": 0.489,
     "angularity": 0.522,
@@ -3451,6 +3921,7 @@
    "motifs": {
     "moon": "Moonwalk"
    },
+   "hints": {},
    "profile": {
     "energy": 0.314,
     "angularity": 0.258,
@@ -3473,6 +3944,11 @@
    "tags": [],
    "genre": "house",
    "motifs": {},
+   "hints": {
+    "star": "The Best!",
+    "figure": "Bitch....I'll Buy Another One!!!",
+    "money": "Bitch....I'll Buy Another One!!!"
+   },
    "profile": {
     "energy": 0.644,
     "angularity": 0.407,
@@ -3495,6 +3971,9 @@
    "tags": [],
    "genre": "soul",
    "motifs": {},
+   "hints": {
+    "arrow": "I'll Erase Away Your Pain"
+   },
    "profile": {
     "energy": 0.447,
     "angularity": 0.326,
@@ -3519,6 +3998,10 @@
    "motifs": {
     "grid": "Married to the Streets"
    },
+   "hints": {
+    "heart": "Married to the Streets",
+    "moon": "Black Migo (feat. Cartel MGM)"
+   },
    "profile": {
     "energy": 0.706,
     "angularity": 0.688,
@@ -3541,6 +4024,11 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "money": "Free Bricks 2",
+    "box": "Free Bricks 2",
+    "bird": "Free Bricks 2"
+   },
    "profile": {
     "energy": 0.799,
     "angularity": 0.655,
@@ -3563,6 +4051,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "star": "Pluto 3D"
+   },
    "profile": {
     "energy": 0.81,
     "angularity": 0.741,
@@ -3587,6 +4078,9 @@
    "motifs": {
     "clock": "Same Damn Time (Verse)"
    },
+   "hints": {
+    "scribble": "Same Damn Time (Verse)"
+   },
    "profile": {
     "energy": 0.796,
     "angularity": 0.645,
@@ -3609,6 +4103,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "star": "Astronaut Status"
+   },
    "profile": {
     "energy": 0.76,
     "angularity": 0.723,
@@ -3637,6 +4134,11 @@
     "globe": "Universal Star",
     "heart": "Show Me Good Love Like My Angel"
    },
+   "hints": {
+    "flower": "Believe in Me My Pretty Girl",
+    "cross": "Believe in Me My Pretty Girl",
+    "screen": "Show Me Good Love Like My Angel"
+   },
    "profile": {
     "energy": 0.53,
     "angularity": 0.444,
@@ -3663,6 +4165,10 @@
     "money": "Money Moves",
     "house": "Open Yo Door"
    },
+   "hints": {
+    "arrow": "Money Moves",
+    "bubble": "Open Yo Door"
+   },
    "profile": {
     "energy": 0.407,
     "angularity": 0.237,
@@ -3685,6 +4191,10 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "mountain": "The Inevitable Rise And Liberation Of Niggy Tardust",
+    "scribble": "WTF!"
+   },
    "profile": {
     "energy": 0.647,
     "angularity": 0.613,
@@ -3708,6 +4218,7 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.362,
     "angularity": 0.234,
@@ -3730,6 +4241,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "face": "Mood"
+   },
    "profile": {
     "energy": 0.785,
     "angularity": 0.698,
@@ -3752,6 +4266,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.719,
     "angularity": 0.757,
@@ -3776,6 +4291,11 @@
    "motifs": {
     "line": "Penthouse Celebration Pt. 1: Live At 56 Slipe Road, Kingston, Jamaica"
    },
+   "hints": {
+    "globe": "Penthouse Celebration Pt. 1: Live At 56 Slipe Road, Kingston, Jamaica",
+    "car": "Penthouse Celebration Pt. 1: Live At 56 Slipe Road, Kingston, Jamaica",
+    "money": "Penthouse Celebration Pt. 1: Live At 56 Slipe Road, Kingston, Jamaica"
+   },
    "profile": {
     "energy": 0.804,
     "angularity": 0.447,
@@ -3798,6 +4318,9 @@
    "tags": [],
    "genre": "synthpop",
    "motifs": {},
+   "hints": {
+    "star": "The Space Lady's Greatest Hits"
+   },
    "profile": {
     "energy": 0.497,
     "angularity": 0.591,
@@ -3820,6 +4343,10 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "figure": "Lift Yourself",
+    "face": "Lift Yourself"
+   },
    "profile": {
     "energy": 0.69,
     "angularity": 0.651,
@@ -3843,6 +4370,10 @@
    "genre": "ambient",
    "motifs": {
     "wave": "Beat The Water"
+   },
+   "hints": {
+    "note": "Beat The Water",
+    "flower": "Woods From The Sea"
    },
    "profile": {
     "energy": 0.107,
@@ -3868,6 +4399,11 @@
    "motifs": {
     "money": "Blood On the Money"
    },
+   "hints": {
+    "figure": "Freak Hoe",
+    "star": "Slave Master",
+    "drop": "Blood On the Money"
+   },
    "profile": {
     "energy": 0.773,
     "angularity": 0.711,
@@ -3890,6 +4426,9 @@
    "tags": [],
    "genre": "psychedelic rock",
    "motifs": {},
+   "hints": {
+    "skull": "Suicide"
+   },
    "profile": {
     "energy": 0.516,
     "angularity": 0.191,
@@ -3912,6 +4451,10 @@
    "tags": [],
    "genre": "gospel",
    "motifs": {},
+   "hints": {
+    "eye": "Witness",
+    "bubble": "Scandalize My Name"
+   },
    "profile": {
     "energy": 0.508,
     "angularity": 0.153,
@@ -3936,6 +4479,7 @@
    "motifs": {
     "money": "Rich Ni**a Timeline"
    },
+   "hints": {},
    "profile": {
     "energy": 0.787,
     "angularity": 0.681,
@@ -3958,7 +4502,13 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "star": "Amethyst Rock Star"
+    "star": "Amethyst Rock Star",
+    "bubble": "Coded Language"
+   },
+   "hints": {
+    "note": "Amethyst Rock Star",
+    "drop": "Wine/Do You Know",
+    "clock": "1987"
    },
    "profile": {
     "energy": 0.689,
@@ -3983,6 +4533,10 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "skull": "Pilgrimage to Lobotomy",
+    "cross": "Pilgrimage to Lobotomy"
+   },
    "profile": {
     "energy": 0.291,
     "angularity": 0.249,
@@ -4007,6 +4561,11 @@
    "motifs": {
     "note": "Freetown Sound",
     "heart": "Love Ya"
+   },
+   "hints": {
+    "globe": "Freetown Sound",
+    "bubble": "Thank You",
+    "star": "Best to You"
    },
    "profile": {
     "energy": 0.299,
@@ -4034,6 +4593,10 @@
     "car": "Speed Dial",
     "phone": "Speed Dial"
    },
+   "hints": {
+    "flower": "The Life Of Pi'erre 4",
+    "circle": "Try Again"
+   },
    "profile": {
     "energy": 0.733,
     "angularity": 0.693,
@@ -4060,6 +4623,10 @@
     "eye": "The Needle's Eye",
     "house": "Home Is Where the Hatred Is"
    },
+   "hints": {
+    "line": "The Needle's Eye",
+    "sun": "Lady Day and John Coltrane"
+   },
    "profile": {
     "energy": 0.418,
     "angularity": 0.298,
@@ -4082,6 +4649,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.629,
     "angularity": 0.71,
@@ -4106,6 +4674,9 @@
    "motifs": {
     "skull": "The Death of Adam"
    },
+   "hints": {
+    "house": "Stay Up! (Viagra)"
+   },
    "profile": {
     "energy": 0.667,
     "angularity": 0.652,
@@ -4128,6 +4699,9 @@
    "tags": [],
    "genre": "house",
    "motifs": {},
+   "hints": {
+    "cloud": "It Makes You Forget (Itgehane)"
+   },
    "profile": {
     "energy": 0.676,
     "angularity": 0.462,
@@ -4152,7 +4726,13 @@
    "genreGuess": true,
    "motifs": {
     "note": "Flex Muzik 2",
-    "phone": "Hang Up the Phone (feat. Playboi Carti)"
+    "phone": "Hang Up the Phone (feat. Playboi Carti)",
+    "bubble": "Ask Around (feat. Young Scooter)"
+   },
+   "hints": {
+    "diamond": "Flex Muzik 2",
+    "scribble": "PSA Freestyle",
+    "arrow": "Run Wit da Sack (feat. Lil Yachty & Hood Rich Pablo Jaun)"
    },
    "profile": {
     "energy": 0.764,
@@ -4175,7 +4755,12 @@
    "url": "https://open.spotify.com/album/6ZWL1xSTEvqs5A6dBh8vZw",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "bubble": "Scream Double R"
+   },
+   "hints": {
+    "money": "Scream Double R"
+   },
    "profile": {
     "energy": 0.621,
     "angularity": 0.686,
@@ -4200,6 +4785,9 @@
    "motifs": {
     "circle": "En Ring Til Aa Herske"
    },
+   "hints": {
+    "spiral": "Lost Wisdom"
+   },
    "profile": {
     "energy": 0.934,
     "angularity": 0.897,
@@ -4222,6 +4810,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "spiral": "Lost All My Feelings"
+   },
    "profile": {
     "energy": 0.385,
     "angularity": 0.302,
@@ -4244,6 +4835,11 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "cloud": "No Mind",
+    "scribble": "Save That Shit",
+    "mountain": "Standin Tall"
+   },
    "profile": {
     "energy": 0.356,
     "angularity": 0.196,
@@ -4268,6 +4864,10 @@
    "motifs": {
     "rain": "After The Storm (Deluxe Version)"
    },
+   "hints": {
+    "zigzag": "After The Storm (Deluxe Version)",
+    "clock": "After The Storm (Deluxe Version)"
+   },
    "profile": {
     "energy": 0.388,
     "angularity": 0.262,
@@ -4290,6 +4890,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "star": "Demigod$"
+   },
    "profile": {
     "energy": 0.394,
     "angularity": 0.246,
@@ -4314,6 +4917,7 @@
    "motifs": {
     "grid": "Make A Dent In The City"
    },
+   "hints": {},
    "profile": {
     "energy": 0.331,
     "angularity": 0.406,
@@ -4336,6 +4940,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "figure": "A-Team",
+    "box": "A-Team (You Ain't Safe)"
+   },
    "profile": {
     "energy": 0.721,
     "angularity": 0.713,
@@ -4359,6 +4967,9 @@
    "genre": "drill",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "wave": "BabyDrill Flow"
+   },
    "profile": {
     "energy": 0.659,
     "angularity": 0.862,
@@ -4382,6 +4993,10 @@
    "genre": "drill",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "scribble": "Dont Say Shit 2",
+    "bubble": "Dont Say Shit 2"
+   },
    "profile": {
     "energy": 0.69,
     "angularity": 0.948,
@@ -4405,6 +5020,9 @@
    "genre": "trap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "scribble": "Freestyle"
+   },
    "profile": {
     "energy": 0.691,
     "angularity": 0.694,
@@ -4428,6 +5046,10 @@
    "genre": "trap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "arrow": "Wrong Turn",
+    "clock": "Still Shot"
+   },
    "profile": {
     "energy": 0.746,
     "angularity": 0.751,
@@ -4451,6 +5073,9 @@
    "genre": "trap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "skull": "Shooter Ambition"
+   },
    "profile": {
     "energy": 0.725,
     "angularity": 0.672,
@@ -4474,6 +5099,10 @@
    "genre": "trap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "star": "Before the Fame",
+    "clock": "Before the Fame"
+   },
    "profile": {
     "energy": 0.808,
     "angularity": 0.718,
@@ -4496,6 +5125,9 @@
    "tags": [],
    "genre": "post-punk",
    "motifs": {},
+   "hints": {
+    "flame": "If Only It Was Warmth"
+   },
    "profile": {
     "energy": 0.67,
     "angularity": 0.773,
@@ -4518,6 +5150,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.657,
     "angularity": 0.665,
@@ -4540,6 +5173,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.627,
     "angularity": 0.608,
@@ -4564,6 +5198,7 @@
    "motifs": {
     "heart": "Love What Survives"
    },
+   "hints": {},
    "profile": {
     "energy": 0.526,
     "angularity": 0.416,
@@ -4589,6 +5224,10 @@
    "motifs": {
     "screen": "27 c/o off-white fw20 womens runway show soundtrack (05 B)"
    },
+   "hints": {
+    "cloud": "27 c/o off-white fw20 womens runway show soundtrack (05 B)",
+    "money": "27 c/o off-white fw20 womens runway show soundtrack (05 B)"
+   },
    "profile": {
     "energy": 0.364,
     "angularity": 0.287,
@@ -4612,6 +5251,10 @@
    "genre": "cloud rap",
    "motifs": {
     "rain": "After The Storm"
+   },
+   "hints": {
+    "zigzag": "After The Storm",
+    "clock": "After The Storm"
    },
    "profile": {
     "energy": 0.306,
@@ -4638,6 +5281,7 @@
     "cross": "angels",
     "skull": "Killer instinct"
    },
+   "hints": {},
    "profile": {
     "energy": 0.607,
     "angularity": 0.808,
@@ -4662,6 +5306,10 @@
    "motifs": {
     "figure": "Real People"
    },
+   "hints": {
+    "bubble": "They Say",
+    "circle": "The Food - Live"
+   },
    "profile": {
     "energy": 0.705,
     "angularity": 0.625,
@@ -4684,6 +5332,11 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "cross": "A S.W.A.T. Healin' Ritual",
+    "skull": "Hurtin'",
+    "wave": "Island Koneelalee"
+   },
    "profile": {
     "energy": 0.591,
     "angularity": 0.598,
@@ -4706,6 +5359,9 @@
    "tags": [],
    "genre": "soul",
    "motifs": {},
+   "hints": {
+    "heart": "Ooo Baby Baby"
+   },
    "profile": {
     "energy": 0.487,
     "angularity": 0.278,
@@ -4730,6 +5386,9 @@
    "motifs": {
     "clock": "Maybe Tomorrow"
    },
+   "hints": {
+    "bubble": "Never Can Say Goodbye"
+   },
    "profile": {
     "energy": 0.442,
     "angularity": 0.264,
@@ -4752,6 +5411,7 @@
    "tags": [],
    "genre": "minimal",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.156,
     "angularity": 0.444,
@@ -4774,6 +5434,10 @@
    "tags": [],
    "genre": "reggae",
    "motifs": {},
+   "hints": {
+    "note": "Original DJ",
+    "flame": "Natty Rebel"
+   },
    "profile": {
     "energy": 0.344,
     "angularity": 0.344,
@@ -4798,6 +5462,9 @@
    "motifs": {
     "horizon": "Dub Fi Social Distance"
    },
+   "hints": {
+    "note": "King Jammy Destroys The Virus With Dub"
+   },
    "profile": {
     "energy": 0.704,
     "angularity": 0.488,
@@ -4820,6 +5487,9 @@
    "tags": [],
    "genre": "dancehall",
    "motifs": {},
+   "hints": {
+    "box": "King Jammy's: Selector's Choice Vol. 1"
+   },
    "profile": {
     "energy": 0.7,
     "angularity": 0.451,
@@ -4844,6 +5514,11 @@
    "motifs": {
     "crown": "King At The Controls: Essential Hits From Reggae's Digital Revolution 1985-1989"
    },
+   "hints": {
+    "star": "King At The Controls: Essential Hits From Reggae's Digital Revolution 1985-1989",
+    "screen": "King At The Controls: Essential Hits From Reggae's Digital Revolution 1985-1989",
+    "clock": "King At The Controls: Essential Hits From Reggae's Digital Revolution 1985-1989"
+   },
    "profile": {
     "energy": 0.776,
     "angularity": 0.481,
@@ -4866,6 +5541,7 @@
    "tags": [],
    "genre": "dancehall",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.78,
     "angularity": 0.495,
@@ -4888,6 +5564,10 @@
    "tags": [],
    "genre": "reggae",
    "motifs": {},
+   "hints": {
+    "eye": "Deeply Concerned",
+    "skull": "Satan Control Them"
+   },
    "profile": {
     "energy": 0.35,
     "angularity": 0.335,
@@ -4912,6 +5592,9 @@
    "motifs": {
     "scribble": "Dub Those Crazy Baldheads"
    },
+   "hints": {
+    "note": "Mystic Warrior & Mystic Warrior Dub"
+   },
    "profile": {
     "energy": 0.427,
     "angularity": 0.298,
@@ -4934,6 +5617,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "bird": "Spiderr"
+   },
    "profile": {
     "energy": 0.329,
     "angularity": 0.226,
@@ -4956,6 +5642,10 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "wave": "Trash Island",
+    "scribble": "Trash Island"
+   },
    "profile": {
     "energy": 0.31,
     "angularity": 0.19,
@@ -4979,6 +5669,9 @@
    "genre": "cloud rap",
    "motifs": {
     "star": "Trash Star"
+   },
+   "hints": {
+    "scribble": "Trash Star"
    },
    "profile": {
     "energy": 0.362,
@@ -5005,6 +5698,7 @@
     "star": "5 Star Crest (4 Vattenrum)",
     "scribble": "Chaos Follows"
    },
+   "hints": {},
    "profile": {
     "energy": 0.301,
     "angularity": 0.277,
@@ -5028,6 +5722,10 @@
    "genre": "latin",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "money": "La Atrevida 100% Latina",
+    "globe": "La Atrevida 100% Latina"
+   },
    "profile": {
     "energy": 0.676,
     "angularity": 0.402,
@@ -5050,6 +5748,10 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {},
+   "hints": {
+    "box": "A Seat at the Table",
+    "figure": "Junie"
+   },
    "profile": {
     "energy": 0.319,
     "angularity": 0.125,
@@ -5074,6 +5776,11 @@
    "motifs": {
     "figure": "We the People Who Are Darker Than Blue"
    },
+   "hints": {
+    "moon": "Miss Black America",
+    "globe": "Miss Black America",
+    "wave": "We the People Who Are Darker Than Blue"
+   },
    "profile": {
     "energy": 0.494,
     "angularity": 0.257,
@@ -5096,6 +5803,9 @@
    "tags": [],
    "genre": "soul",
    "motifs": {},
+   "hints": {
+    "cloud": "With Me In Mind"
+   },
    "profile": {
     "energy": 0.503,
     "angularity": 0.299,
@@ -5118,6 +5828,9 @@
    "tags": [],
    "genre": "psychedelic rock",
    "motifs": {},
+   "hints": {
+    "note": "Killed By The Hands of An Unknown Rock Starr"
+   },
    "profile": {
     "energy": 0.558,
     "angularity": 0.239,
@@ -5140,6 +5853,10 @@
    "tags": [],
    "genre": "drill",
    "motifs": {},
+   "hints": {
+    "zigzag": "Bang Part 2",
+    "money": "12 Bars"
+   },
    "profile": {
     "energy": 0.696,
     "angularity": 0.867,
@@ -5162,6 +5879,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "star": "First"
+   },
    "profile": {
     "energy": 0.36,
     "angularity": 0.296,
@@ -5187,6 +5907,7 @@
     "circle": "Brown Loop",
     "loops": "Brown Loop"
    },
+   "hints": {},
    "profile": {
     "energy": 0.168,
     "angularity": 0.45,
@@ -5211,6 +5932,7 @@
    "motifs": {
     "grid": "Jumped Out the Window"
    },
+   "hints": {},
    "profile": {
     "energy": 0.755,
     "angularity": 0.686,
@@ -5235,6 +5957,7 @@
    "motifs": {
     "face": "Smile"
    },
+   "hints": {},
    "profile": {
     "energy": 0.319,
     "angularity": 0.285,
@@ -5258,6 +5981,10 @@
    "genre": "hip hop",
    "motifs": {
     "clock": "No Time To Play"
+   },
+   "hints": {
+    "box": "Jazzmatazz Volume 1",
+    "screen": "No Time To Play"
    },
    "profile": {
     "energy": 0.632,
@@ -5283,6 +6010,7 @@
    "motifs": {
     "scribble": "Crazy Funny"
    },
+   "hints": {},
    "profile": {
     "energy": 0.237,
     "angularity": 0.252,
@@ -5305,6 +6033,9 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "figure": "So Called Friends"
+   },
    "profile": {
     "energy": 0.623,
     "angularity": 0.641,
@@ -5328,6 +6059,9 @@
    "genre": "hip hop",
    "motifs": {
     "clock": "Midnight Marauders"
+   },
+   "hints": {
+    "figure": "Sucka Nigga"
    },
    "profile": {
     "energy": 0.695,
@@ -5353,6 +6087,9 @@
    "motifs": {
     "heart": "Somebody (Loves You)"
    },
+   "hints": {
+    "figure": "Somebody (Loves You)"
+   },
    "profile": {
     "energy": 0.751,
     "angularity": 0.682,
@@ -5376,6 +6113,11 @@
    "genre": "lo-fi",
    "motifs": {
     "clock": "I've Wasted So Much Time"
+   },
+   "hints": {
+    "wave": "Deep Cuts (2011-2014)",
+    "line": "Deep Cuts (2011-2014)",
+    "money": "Deep Cuts (2011-2014)"
    },
    "profile": {
     "energy": 0.293,
@@ -5401,6 +6143,7 @@
    "motifs": {
     "heart": "HEART ATTACK"
    },
+   "hints": {},
    "profile": {
     "energy": 0.397,
     "angularity": 0.285,
@@ -5423,6 +6166,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "flame": "Hate"
+   },
    "profile": {
     "energy": 0.396,
     "angularity": 0.292,
@@ -5450,6 +6196,9 @@
     "skull": "A Minute To Pray And A Second To Die",
     "money": "Money And The Power"
    },
+   "hints": {
+    "zigzag": "Money And The Power"
+   },
    "profile": {
     "energy": 0.613,
     "angularity": 0.673,
@@ -5473,6 +6222,10 @@
    "genre": "folk",
    "motifs": {
     "note": "Classic Labor Songs from Smithsonian Folkways"
+   },
+   "hints": {
+    "clock": "Classic Labor Songs from Smithsonian Folkways",
+    "grid": "Which Side Are You On? / Which Side Are You On?"
    },
    "profile": {
     "energy": 0.182,
@@ -5499,6 +6252,11 @@
     "heart": "Safe In The Hands of Love",
     "cross": "Faith In Nothing Except In Salvation"
    },
+   "hints": {
+    "box": "Safe In The Hands of Love",
+    "wave": "Let The Lioness In You Flow Freely",
+    "skull": "Recognizing The Enemy"
+   },
    "profile": {
     "energy": 0.521,
     "angularity": 0.515,
@@ -5523,6 +6281,9 @@
    "motifs": {
     "cross": "God Laughs"
    },
+   "hints": {
+    "face": "God Laughs"
+   },
    "profile": {
     "energy": 0.661,
     "angularity": 0.616,
@@ -5545,6 +6306,7 @@
    "tags": [],
    "genre": "dancehall",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.807,
     "angularity": 0.559,
@@ -5567,6 +6329,7 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.288,
     "angularity": 0.177,
@@ -5590,6 +6353,11 @@
    "genre": "experimental",
    "motifs": {
     "flame": "Soul On Fire"
+   },
+   "hints": {
+    "note": "Soul On Fire",
+    "cross": "Soul On Fire",
+    "clock": "CIAO 2001"
    },
    "profile": {
     "energy": 0.51,
@@ -5615,6 +6383,7 @@
    "motifs": {
     "moon": "Half Moon Mornings"
    },
+   "hints": {},
    "profile": {
     "energy": 0.705,
     "angularity": 0.637,
@@ -5637,6 +6406,9 @@
    "tags": [],
    "genre": "funk",
    "motifs": {},
+   "hints": {
+    "figure": "It's Gonna Be Lonely"
+   },
    "profile": {
     "energy": 0.754,
     "angularity": 0.504,
@@ -5659,6 +6431,10 @@
    "tags": [],
    "genre": "electronica",
    "motifs": {},
+   "hints": {
+    "note": "The Remix EP",
+    "box": "The Dishwasher - Dean Blunt Remix"
+   },
    "profile": {
     "energy": 0.505,
     "angularity": 0.417,
@@ -5683,6 +6459,10 @@
    "motifs": {
     "face": "Smile Please"
    },
+   "hints": {
+    "note": "Johnny cash hurt type beat",
+    "skull": "Johnny cash hurt type beat"
+   },
    "profile": {
     "energy": 0.456,
     "angularity": 0.539,
@@ -5705,6 +6485,11 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "skull": "Return to the 36 Chambers: The Dirty Version",
+    "money": "Return to the 36 Chambers: The Dirty Version",
+    "heart": "Drunk Game (Sweet Sugar Pie)"
+   },
    "profile": {
     "energy": 0.638,
     "angularity": 0.606,
@@ -5727,6 +6512,11 @@
    "tags": [],
    "genre": "classical",
    "motifs": {},
+   "hints": {
+    "circle": "Chopin: Complete Nocturnes, Barcarolle, Berceuse",
+    "moon": "Nocturne in E-Flat Major, Op. 9, No.2",
+    "line": "Nocturne in E-Flat Major, Op. 9, No.2"
+   },
    "profile": {
     "energy": 0.345,
     "angularity": 0.276,
@@ -5752,6 +6542,7 @@
     "figure": "Man & His Music",
     "note": "Man & His Music"
    },
+   "hints": {},
    "profile": {
     "energy": 0.697,
     "angularity": 0.634,
@@ -5774,6 +6565,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "bubble": "Sorry"
+   },
    "profile": {
     "energy": 0.804,
     "angularity": 0.719,
@@ -5796,6 +6590,9 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {},
+   "hints": {
+    "cross": "Krishna Krishna"
+   },
    "profile": {
     "energy": 0.5,
     "angularity": 0.408,
@@ -5818,6 +6615,11 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "skull": "Sex & Violence",
+    "arrow": "Like A Throttle",
+    "drop": "Drug Dealer"
+   },
    "profile": {
     "energy": 0.645,
     "angularity": 0.625,
@@ -5840,6 +6642,9 @@
    "tags": [],
    "genre": "dancehall",
    "motifs": {},
+   "hints": {
+    "skull": "Trouble You A Trouble Me"
+   },
    "profile": {
     "energy": 0.808,
     "angularity": 0.512,
@@ -5862,6 +6667,9 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "note": "Enta Da Stage"
+   },
    "profile": {
     "energy": 0.674,
     "angularity": 0.6,
@@ -5884,6 +6692,11 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "box": "Slam Dunk, Vol. 3",
+    "circle": "Nothing to Hide (Babyfather Honeytrap Mix) - For Shakilus",
+    "eye": "Nothing to Hide (Babyfather Honeytrap Mix) - For Shakilus"
+   },
    "profile": {
     "energy": 0.623,
     "angularity": 0.701,
@@ -5906,6 +6719,11 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "circle": "A Roller Skating Jam Named \"Saturdays\"",
+    "note": "A Roller Skating Jam Named \"Saturdays\"",
+    "clock": "A Roller Skating Jam Named \"Saturdays\""
+   },
    "profile": {
     "energy": 0.687,
     "angularity": 0.618,
@@ -5928,6 +6746,11 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "money": "Unfinished Business",
+    "note": "Please Listen To My Demo",
+    "bubble": "Please Listen To My Demo"
+   },
    "profile": {
     "energy": 0.687,
     "angularity": 0.675,
@@ -5951,6 +6774,10 @@
    "genre": "trap",
    "motifs": {
     "car": "Drinkin and Driving"
+   },
+   "hints": {
+    "box": "The Slaughter Tape",
+    "drop": "Drinkin and Driving"
    },
    "profile": {
     "energy": 0.766,
@@ -5978,6 +6805,9 @@
     "clock": "I Think I'll Call It Morning",
     "phone": "I Think I'll Call It Morning"
    },
+   "hints": {
+    "cloud": "I Think I'll Call It Morning"
+   },
    "profile": {
     "energy": 0.494,
     "angularity": 0.302,
@@ -5999,7 +6829,13 @@
    "url": "https://open.spotify.com/album/5rbqupVSYwvEmXBUnFtUf7",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "bubble": "Big Rube Speaks"
+   },
+   "hints": {
+    "face": "Honest",
+    "mountain": "Big Rube Speaks"
+   },
    "profile": {
     "energy": 0.806,
     "angularity": 0.729,
@@ -6023,6 +6859,11 @@
    "genre": "hip hop",
    "motifs": {
     "horizon": "Atlanta Sky"
+   },
+   "hints": {
+    "cloud": "A Thought Weapon",
+    "globe": "Atlanta Sky",
+    "moon": "No Sleep"
    },
    "profile": {
     "energy": 0.618,
@@ -6049,6 +6890,9 @@
     "crown": "King Gucci",
     "face": "Smart Mouth (feat. Chief Keef)"
    },
+   "hints": {
+    "diamond": "King Gucci"
+   },
    "profile": {
     "energy": 0.76,
     "angularity": 0.668,
@@ -6071,6 +6915,10 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "heart": "ILY Louie",
+    "figure": "ILY Louie"
+   },
    "profile": {
     "energy": 0.4,
     "angularity": 0.285,
@@ -6096,6 +6944,9 @@
    "motifs": {
     "money": "Been Getting Money"
    },
+   "hints": {
+    "sun": "900 Degrees"
+   },
    "profile": {
     "energy": 0.336,
     "angularity": 0.305,
@@ -6118,6 +6969,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "figure": "Hobos"
+   },
    "profile": {
     "energy": 0.391,
     "angularity": 0.267,
@@ -6140,6 +6994,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.347,
     "angularity": 0.236,
@@ -6163,6 +7018,9 @@
    "genre": "cloud rap",
    "motifs": {
     "grid": "Fuck the Streets"
+   },
+   "hints": {
+    "scribble": "Fuck the Streets"
    },
    "profile": {
     "energy": 0.375,
@@ -6189,6 +7047,11 @@
    "motifs": {
     "note": "Play the Music"
    },
+   "hints": {
+    "money": "Essence of Redemption Ina Dif'rent Styley",
+    "cross": "Essence of Redemption Ina Dif'rent Styley",
+    "screen": "Play the Music"
+   },
    "profile": {
     "energy": 0.351,
     "angularity": 0.27,
@@ -6211,6 +7074,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "box": "Deleted Catalog"
+   },
    "profile": {
     "energy": 0.305,
     "angularity": 0.268,
@@ -6232,7 +7098,12 @@
    "url": "https://open.spotify.com/album/5EG7pgJNnfnJGtxHHzdJKv",
    "tags": [],
    "genre": "jazz",
-   "motifs": {},
+   "motifs": {
+    "bubble": "Happy Talk"
+   },
+   "hints": {
+    "sun": "Happy Talk"
+   },
    "profile": {
     "energy": 0.523,
     "angularity": 0.391,
@@ -6257,6 +7128,11 @@
    "motifs": {
     "skull": "De La Soul is Dead",
     "cross": "Keepin' the Faith"
+   },
+   "hints": {
+    "circle": "A Roller Skating Jam Named \"Saturdays\"",
+    "note": "A Roller Skating Jam Named \"Saturdays\"",
+    "clock": "A Roller Skating Jam Named \"Saturdays\""
    },
    "profile": {
     "energy": 0.705,
@@ -6283,6 +7159,10 @@
    "motifs": {
     "circle": "Dark Circles"
    },
+   "hints": {
+    "note": "Demo",
+    "moon": "Dark Circles"
+   },
    "profile": {
     "energy": 0.338,
     "angularity": 0.256,
@@ -6307,6 +7187,11 @@
    "motifs": {
     "mountain": "3 Feet High and Rising"
    },
+   "hints": {
+    "star": "Transmitting Live from Mars",
+    "arrow": "3 Feet High and Rising",
+    "phone": "(3 Is) The Magic Number"
+   },
    "profile": {
     "energy": 0.652,
     "angularity": 0.689,
@@ -6329,6 +7214,11 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {
+    "figure": "SON",
+    "line": "RACHEL CUT",
+    "skull": "WAR REPORT"
+   },
    "profile": {
     "energy": 0.456,
     "angularity": 0.488,
@@ -6351,6 +7241,9 @@
    "tags": [],
    "genre": "lo-fi",
    "motifs": {},
+   "hints": {
+    "flower": "Genetic Tree (Remix)"
+   },
    "profile": {
     "energy": 0.269,
     "angularity": 0.487,
@@ -6373,6 +7266,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "scribble": "The Fool"
+   },
    "profile": {
     "energy": 0.351,
     "angularity": 0.191,
@@ -6395,6 +7291,7 @@
    "tags": [],
    "genre": "shoegaze",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.496,
     "angularity": 0.23,
@@ -6418,6 +7315,7 @@
    "genre": "trap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.77,
     "angularity": 0.641,
@@ -6440,6 +7338,9 @@
    "tags": [],
    "genre": "folk",
    "motifs": {},
+   "hints": {
+    "cross": "Havan İyi Olsun - Allah Korusun - Elveda"
+   },
    "profile": {
     "energy": 0.201,
     "angularity": 0.242,
@@ -6464,6 +7365,7 @@
    "motifs": {
     "eye": "Eye Know"
    },
+   "hints": {},
    "profile": {
     "energy": 0.605,
     "angularity": 0.697,
@@ -6488,6 +7390,10 @@
    "motifs": {
     "clock": "LONDON TONIGHT FREESTYLE"
    },
+   "hints": {
+    "globe": "LONDON TONIGHT FREESTYLE",
+    "scribble": "LONDON TONIGHT FREESTYLE"
+   },
    "profile": {
     "energy": 0.515,
     "angularity": 0.453,
@@ -6510,6 +7416,9 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {
+    "box": "PRESSED"
+   },
    "profile": {
     "energy": 0.544,
     "angularity": 0.552,
@@ -6534,6 +7443,7 @@
    "motifs": {
     "face": "Mirror Might Steal Your Charm"
    },
+   "hints": {},
    "profile": {
     "energy": 1,
     "angularity": 0.869,
@@ -6556,6 +7466,10 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {
+    "globe": "NOLA Freestyle",
+    "scribble": "NOLA Freestyle"
+   },
    "profile": {
     "energy": 0.44,
     "angularity": 0.453,
@@ -6579,6 +7493,11 @@
    "genre": "experimental",
    "motifs": {
     "sun": "Heat (feat. Joanne Robertson)"
+   },
+   "hints": {
+    "wave": "Stone Island",
+    "mountain": "Stone Island",
+    "flame": "Heat (feat. Joanne Robertson)"
    },
    "profile": {
     "energy": 0.5,
@@ -6605,6 +7524,7 @@
     "flame": "Hot Raviolis",
     "box": "JuneBug on Da Crate"
    },
+   "hints": {},
    "profile": {
     "energy": 0.798,
     "angularity": 0.654,
@@ -6629,6 +7549,10 @@
    "motifs": {
     "abstract": "My Life in Art"
    },
+   "hints": {
+    "bubble": "Excuses for Travellers",
+    "flower": "My Life in Art"
+   },
    "profile": {
     "energy": 0.213,
     "angularity": 0.108,
@@ -6651,6 +7575,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.325,
     "angularity": 0.282,
@@ -6676,6 +7601,10 @@
     "box": "Trapped On Cleveland 3",
     "heart": "Kiss Em Peace (feat. Young Thug)",
     "loops": "Twisted (feat. 42 Dugg)"
+   },
+   "hints": {
+    "globe": "Trapped On Cleveland 3",
+    "cross": "Kiss Em Peace (feat. Young Thug)"
    },
    "profile": {
     "energy": 0.786,
@@ -6703,6 +7632,11 @@
     "face": "Comet Face",
     "star": "Comet Face"
    },
+   "hints": {
+    "cloud": "Stoned Again",
+    "flower": "Man Alive!",
+    "circle": "Stoned Again"
+   },
    "profile": {
     "energy": 0.611,
     "angularity": 0.749,
@@ -6725,6 +7659,9 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {},
+   "hints": {
+    "figure": "Son"
+   },
    "profile": {
     "energy": 0.32,
     "angularity": 0.099,
@@ -6747,6 +7684,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.77,
     "angularity": 0.665,
@@ -6769,6 +7707,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.758,
     "angularity": 0.687,
@@ -6795,6 +7734,11 @@
     "crown": "King Kong (feat. Young Thug)",
     "money": "Money Don't Change You"
    },
+   "hints": {
+    "house": "At the Hotel (feat. Lil Uzi Vert & Young Jordan)",
+    "star": "Top Off",
+    "note": "My Soul"
+   },
    "profile": {
     "energy": 0.734,
     "angularity": 0.643,
@@ -6820,6 +7764,9 @@
     "cross": "The Lord Is The Master",
     "loops": "Wrapped, Tied, & Tangled"
    },
+   "hints": {
+    "star": "The Lord Is The Master"
+   },
    "profile": {
     "energy": 0.509,
     "angularity": 0.165,
@@ -6843,6 +7790,9 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "heart": "CANCER BABY"
+   },
    "profile": {
     "energy": 0.318,
     "angularity": 0.268,
@@ -6865,6 +7815,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.303,
     "angularity": 0.191,
@@ -6887,6 +7838,7 @@
    "tags": [],
    "genre": "bossa nova",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.335,
     "angularity": 0.104,
@@ -6911,6 +7863,10 @@
    "motifs": {
     "figure": "A Man Apart (Intervention)"
    },
+   "hints": {
+    "arrow": "100 Miles & Walk'in",
+    "money": "100 Miles & Walk'in"
+   },
    "profile": {
     "energy": 0.708,
     "angularity": 0.654,
@@ -6933,6 +7889,7 @@
    "tags": [],
    "genre": "folk",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.153,
     "angularity": 0.242,
@@ -6957,6 +7914,10 @@
    "motifs": {
     "note": "Blue Break Beats",
     "figure": "My Little Girl"
+   },
+   "hints": {
+    "wave": "Blue Break Beats",
+    "zigzag": "Blue Break Beats"
    },
    "profile": {
     "energy": 0.515,
@@ -6983,6 +7944,9 @@
     "sun": "Sun Drawing",
     "abstract": "Sun Drawing"
    },
+   "hints": {
+    "moon": "Day And Night"
+   },
    "profile": {
     "energy": 0.284,
     "angularity": 0.178,
@@ -7005,6 +7969,7 @@
    "tags": [],
    "genre": "folk",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.155,
     "angularity": 0.242,
@@ -7030,6 +7995,7 @@
    "motifs": {
     "heart": "Me Loving You"
    },
+   "hints": {},
    "profile": {
     "energy": 0.284,
     "angularity": 0.102,
@@ -7053,6 +8019,10 @@
    "genre": "jazz",
    "motifs": {
     "eye": "Collard Greens And Black-Eye Peas - Alternate Take/Rudy Van Gelder/24Bit Mastering/2001 Digital Remaster"
+   },
+   "hints": {
+    "box": "The Amazing Bud Powell, Vol. 2 (2001 RVG Edition)",
+    "moon": "Collard Greens And Black-Eye Peas - Alternate Take/Rudy Van Gelder/24Bit Mastering/2001 Digital Remaster"
    },
    "profile": {
     "energy": 0.476,
@@ -7079,6 +8049,7 @@
     "heart": "The Queen of Hearts",
     "crown": "The Queen of Hearts"
    },
+   "hints": {},
    "profile": {
     "energy": 0.251,
     "angularity": 0.42,
@@ -7103,6 +8074,9 @@
    "motifs": {
     "globe": "Been Around the World (feat. The Notorious B.I.G. & Mase)"
    },
+   "hints": {
+    "circle": "Been Around the World (feat. The Notorious B.I.G. & Mase)"
+   },
    "profile": {
     "energy": 0.602,
     "angularity": 0.604,
@@ -7126,6 +8100,7 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.29,
     "angularity": 0.229,
@@ -7148,6 +8123,7 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.469,
     "angularity": 0.342,
@@ -7170,6 +8146,10 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "clock": "1988",
+    "money": "1988"
+   },
    "profile": {
     "energy": 0.69,
     "angularity": 0.647,
@@ -7194,6 +8174,7 @@
    "motifs": {
     "globe": "Pap Vs. The World"
    },
+   "hints": {},
    "profile": {
     "energy": 0.704,
     "angularity": 0.695,
@@ -7219,6 +8200,7 @@
     "drop": "Til The Casket Drops",
     "skull": "Til The Casket Drops"
    },
+   "hints": {},
    "profile": {
     "energy": 0.668,
     "angularity": 0.593,
@@ -7241,8 +8223,14 @@
    "tags": [],
    "genre": "soul",
    "motifs": {
+    "bubble": "Did You Hear What They Said?",
     "skull": "Billy Green Is Dead",
     "crown": "The King Alfred Plan"
+   },
+   "hints": {
+    "figure": "Billy Green Is Dead",
+    "bird": "Free Will",
+    "grid": "The Get Out of the Ghetto Blues"
    },
    "profile": {
     "energy": 0.441,
@@ -7266,6 +8254,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "note": "JuiceWord 2 (No Dj)"
+   },
    "profile": {
     "energy": 0.769,
     "angularity": 0.716,
@@ -7288,6 +8279,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "figure": "Da Baddest Bitch",
+    "mountain": "The Big Lick (feat. The Lost Tribe)"
+   },
    "profile": {
     "energy": 0.785,
     "angularity": 0.643,
@@ -7312,6 +8307,9 @@
    "motifs": {
     "globe": "Show Da World (feat. Kiara)"
    },
+   "hints": {
+    "screen": "Show Da World (feat. Kiara)"
+   },
    "profile": {
     "energy": 0.736,
     "angularity": 0.732,
@@ -7334,6 +8332,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.698,
     "angularity": 0.67,
@@ -7358,6 +8357,11 @@
    "motifs": {
     "globe": "Around the World"
    },
+   "hints": {
+    "house": "Fillmoelanta da Trap",
+    "circle": "Around the World",
+    "arrow": "Jump Shot Dough"
+   },
    "profile": {
     "energy": 0.769,
     "angularity": 0.674,
@@ -7380,6 +8384,11 @@
    "tags": [],
    "genre": "comedy",
    "motifs": {},
+   "hints": {
+    "cloud": "In Living Black & White",
+    "flower": "In Living Black & White",
+    "moon": "In Living Black & White"
+   },
    "profile": {
     "energy": 0.575,
     "angularity": 0.402,
@@ -7402,6 +8411,11 @@
    "tags": [],
    "genre": "synthpop",
    "motifs": {},
+   "hints": {
+    "circle": "Plucking a Cherry From The Void",
+    "flower": "Plucking a Cherry From The Void",
+    "house": "Stay Open"
+   },
    "profile": {
     "energy": 0.588,
     "angularity": 0.516,
@@ -7424,6 +8438,10 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {
+    "clock": "Roaches 2012-2019",
+    "money": "Roaches 2012-2019"
+   },
    "profile": {
     "energy": 0.519,
     "angularity": 0.484,
@@ -7449,6 +8467,11 @@
     "rain": "Platinum Tears",
     "drop": "Platinum Tears"
    },
+   "hints": {
+    "star": "Platinum Tears",
+    "wave": "Positive Flow",
+    "sun": "Positive Flow"
+   },
    "profile": {
     "energy": 0.531,
     "angularity": 0.531,
@@ -7471,6 +8494,9 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {
+    "scribble": "AUG Freestyle / MANNA"
+   },
    "profile": {
     "energy": 0.544,
     "angularity": 0.548,
@@ -7493,6 +8519,9 @@
    "tags": [],
    "genre": "synthpop",
    "motifs": {},
+   "hints": {
+    "screen": "Show Me What"
+   },
    "profile": {
     "energy": 0.558,
     "angularity": 0.538,
@@ -7517,6 +8546,10 @@
    "motifs": {
     "face": "Head Up"
    },
+   "hints": {
+    "house": "Attic",
+    "arrow": "Pull up with a Glt"
+   },
    "profile": {
     "energy": 0.731,
     "angularity": 0.672,
@@ -7539,6 +8572,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "wave": "Blue"
+   },
    "profile": {
     "energy": 0.317,
     "angularity": 0.229,
@@ -7562,6 +8598,10 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "money": "Work",
+    "clock": "Everyday SuWoop"
+   },
    "profile": {
     "energy": 0.405,
     "angularity": 0.224,
@@ -7584,6 +8624,11 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "skull": "Criminal Minded (Deluxe)",
+    "note": "Scott La Rock (Megamix)",
+    "figure": "Super Hoe"
+   },
    "profile": {
     "energy": 0.596,
     "angularity": 0.613,
@@ -7608,6 +8653,7 @@
    "motifs": {
     "mountain": "Highest In Charge"
    },
+   "hints": {},
    "profile": {
     "energy": 0.59,
     "angularity": 0.624,
@@ -7630,6 +8676,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.676,
     "angularity": 0.693,
@@ -7654,6 +8701,7 @@
    "motifs": {
     "heart": "Love's Gonna Get'cha (Material Love)"
    },
+   "hints": {},
    "profile": {
     "energy": 0.688,
     "angularity": 0.636,
@@ -7679,6 +8727,9 @@
     "heart": "Rhythm and Soul - Sweet Love Songs",
     "note": "Rhythm and Soul - Sweet Love Songs"
    },
+   "hints": {
+    "cross": "Rhythm and Soul - Sweet Love Songs"
+   },
    "profile": {
     "energy": 0.458,
     "angularity": 0.248,
@@ -7700,7 +8751,10 @@
    "url": "https://open.spotify.com/album/0apVddbk7Juec0DV4LNiBg",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "bubble": "Talk To You (Lil' Darlin')"
+   },
+   "hints": {},
    "profile": {
     "energy": 0.651,
     "angularity": 0.611,
@@ -7725,6 +8779,9 @@
    "motifs": {
     "diamond": "Blue Emerald"
    },
+   "hints": {
+    "wave": "Blue Emerald"
+   },
    "profile": {
     "energy": 0.75,
     "angularity": 0.693,
@@ -7748,6 +8805,11 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "moon": "New Black History Month",
+    "clock": "New Black History Month",
+    "drop": "Lean Too Hard"
+   },
    "profile": {
     "energy": 0.361,
     "angularity": 0.285,
@@ -7775,6 +8837,9 @@
     "screen": "Fire & Ice (Original Soundtrack)",
     "bird": "Flight Of The Dragonhawks/The End Of Nekron/Reunited"
    },
+   "hints": {
+    "arrow": "Flight Of The Dragonhawks/The End Of Nekron/Reunited"
+   },
    "profile": {
     "energy": 0.331,
     "angularity": 0.299,
@@ -7797,6 +8862,10 @@
    "tags": [],
    "genre": "latin",
    "motifs": {},
+   "hints": {
+    "box": "Anthology",
+    "globe": "El Pito (I'll Never Go Back To Georgia)"
+   },
    "profile": {
     "energy": 0.743,
     "angularity": 0.31,
@@ -7822,6 +8891,9 @@
     "crown": "A Tribute to The King of G-Funk (Deluxe Version)",
     "bird": "So Fly (J. Period Remix)"
    },
+   "hints": {
+    "note": "A Tribute to The King of G-Funk (Deluxe Version)"
+   },
    "profile": {
     "energy": 0.669,
     "angularity": 0.591,
@@ -7845,6 +8917,9 @@
    "genre": "hip hop",
    "motifs": {
     "heart": "Kiss Tha Game Goodbye"
+   },
+   "hints": {
+    "screen": "Kiss Tha Game Goodbye"
    },
    "profile": {
     "energy": 0.697,
@@ -7871,6 +8946,7 @@
     "heart": "Kiss Of Death",
     "skull": "Kiss Of Death"
    },
+   "hints": {},
    "profile": {
     "energy": 0.603,
     "angularity": 0.61,
@@ -7893,6 +8969,9 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "money": "75 in the Can"
+   },
    "profile": {
     "energy": 0.603,
     "angularity": 0.692,
@@ -7915,6 +8994,7 @@
    "tags": [],
    "genre": "shoegaze",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.489,
     "angularity": 0.305,
@@ -7940,6 +9020,9 @@
     "figure": "The Boogie Man Song",
     "note": "The Boogie Man Song"
    },
+   "hints": {
+    "skull": "The New Danger"
+   },
    "profile": {
     "energy": 0.642,
     "angularity": 0.647,
@@ -7962,6 +9045,10 @@
    "tags": [],
    "genre": "post-punk",
    "motifs": {},
+   "hints": {
+    "cloud": "Stoned Again (Live)",
+    "circle": "Stoned Again (Live)"
+   },
    "profile": {
     "energy": 0.618,
     "angularity": 0.838,
@@ -7984,6 +9071,7 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.521,
     "angularity": 0.452,
@@ -8006,6 +9094,11 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {},
+   "hints": {
+    "heart": "Do Me Baby",
+    "flower": "Fool's Paradise",
+    "scribble": "Fool's Paradise"
+   },
    "profile": {
     "energy": 0.333,
     "angularity": 0.125,
@@ -8030,6 +9123,9 @@
    "motifs": {
     "heart": "The Look Of Love"
    },
+   "hints": {
+    "eye": "The Look Of Love"
+   },
    "profile": {
     "energy": 0.434,
     "angularity": 0.333,
@@ -8053,6 +9149,9 @@
    "genre": "funk",
    "motifs": {
     "clock": "Seven Minutes Of Funk"
+   },
+   "hints": {
+    "note": "Seven Minutes Of Funk"
    },
    "profile": {
     "energy": 0.676,
@@ -8079,6 +9178,7 @@
     "house": "Keeper Of The Castle",
     "figure": "Ain't No Woman (Like The One I've Got)"
    },
+   "hints": {},
    "profile": {
     "energy": 0.457,
     "angularity": 0.266,
@@ -8102,6 +9202,11 @@
    "genre": "soul",
    "motifs": {
     "money": "Ghetto: Misfortune's Wealth"
+   },
+   "hints": {
+    "grid": "Ghetto: Misfortune's Wealth",
+    "figure": "Mother's Day",
+    "sun": "Mother's Day"
    },
    "profile": {
     "energy": 0.405,
@@ -8127,6 +9232,11 @@
    "motifs": {
     "globe": "Somebody Else's World - a.k.a. Somebody Else's Idea"
    },
+   "hints": {
+    "figure": "My Brother the Wind, Vol. 2",
+    "box": "My Brother the Wind, Vol. 2",
+    "cloud": "Somebody Else's World - a.k.a. Somebody Else's Idea"
+   },
    "profile": {
     "energy": 0.523,
     "angularity": 0.394,
@@ -8151,7 +9261,11 @@
    "motifs": {
     "skull": "Get Rich Or Die Tryin'",
     "money": "Get Rich Or Die Tryin'",
+    "bubble": "21 Questions",
     "figure": "Many Men (Wish Death)"
+   },
+   "hints": {
+    "star": "Many Men (Wish Death)"
    },
    "profile": {
     "energy": 0.66,
@@ -8174,7 +9288,12 @@
    "url": "https://open.spotify.com/album/5f6Nz2v1DESbpu1NerEql2",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "bubble": "Moment Of Truth"
+   },
+   "hints": {
+    "clock": "Moment Of Truth"
+   },
    "profile": {
     "energy": 0.683,
     "angularity": 0.622,
@@ -8197,6 +9316,7 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.273,
     "angularity": 0.137,
@@ -8219,6 +9339,11 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "note": "G Funk Classics, Vols. 1 & 2",
+    "box": "G Funk Classics, Vols. 1 & 2",
+    "figure": "Nobody Does It Better"
+   },
    "profile": {
     "energy": 0.605,
     "angularity": 0.684,
@@ -8241,6 +9366,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "screen": "Play$"
+   },
    "profile": {
     "energy": 0.346,
     "angularity": 0.297,
@@ -8264,6 +9392,9 @@
    "genre": "trap",
    "motifs": {
     "clock": "9 TIMES OUTTA 10"
+   },
+   "hints": {
+    "money": "9 TIMES OUTTA 10"
    },
    "profile": {
     "energy": 0.724,
@@ -8289,6 +9420,9 @@
    "motifs": {
     "sun": "When There Is No Sun"
    },
+   "hints": {
+    "arrow": "New Steps"
+   },
    "profile": {
     "energy": 0.541,
     "angularity": 0.353,
@@ -8311,6 +9445,11 @@
    "tags": [],
    "genre": "hardcore",
    "motifs": {},
+   "hints": {
+    "note": "1987 Demo",
+    "clock": "1987 Demo",
+    "money": "1987 Demo"
+   },
    "profile": {
     "energy": 0.961,
     "angularity": 0.853,
@@ -8333,6 +9472,11 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {
+    "moon": "BLACK METAL",
+    "note": "PUNK",
+    "money": "50 CENT"
+   },
    "profile": {
     "energy": 0.496,
     "angularity": 0.442,
@@ -8356,6 +9500,10 @@
    "genre": "soul",
    "motifs": {
     "horizon": "Sky's The Limit"
+   },
+   "hints": {
+    "line": "Sky's The Limit",
+    "cloud": "Just My Imagination (Running Away With Me)"
    },
    "profile": {
     "energy": 0.442,
@@ -8383,6 +9531,11 @@
     "screen": "Space is the Place: Music for the Film",
     "globe": "It's After the End of the World"
    },
+   "hints": {
+    "star": "Space is the Place: Music for the Film",
+    "skull": "It's After the End of the World",
+    "clock": "It's After the End of the World"
+   },
    "profile": {
     "energy": 0.474,
     "angularity": 0.444,
@@ -8406,6 +9559,10 @@
    "genre": "funk",
    "motifs": {
     "note": "Sweet Sweetback's Baadasssss Song (An Opera)"
+   },
+   "hints": {
+    "heart": "Sweet Sweetback's Baadasssss Song (An Opera)",
+    "flower": "Sweetback Losing His Cherry"
    },
    "profile": {
     "energy": 0.729,
@@ -8431,6 +9588,9 @@
    "motifs": {
     "bird": "Flying Start"
    },
+   "hints": {
+    "heart": "The Baby"
+   },
    "profile": {
     "energy": 0.72,
     "angularity": 0.557,
@@ -8453,6 +9613,9 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {},
+   "hints": {
+    "figure": "He Loved Him Madly"
+   },
    "profile": {
     "energy": 0.496,
     "angularity": 0.453,
@@ -8476,6 +9639,7 @@
    "genre": "hip hop",
    "genreGuess": true,
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.649,
     "angularity": 0.703,
@@ -8500,6 +9664,7 @@
    "motifs": {
     "flower": "kenzle rose"
    },
+   "hints": {},
    "profile": {
     "energy": 0.67,
     "angularity": 0.854,
@@ -8525,6 +9690,9 @@
     "globe": "If I Ruled The World - Live At Bell Auditorium, Augusta, GA/1969",
     "figure": "It's A Man's Man's Man's World - Live At Bell Auditorium, Augusta, GA/1969"
    },
+   "hints": {
+    "line": "Licking Stick - Licking Stick - Live At Bell Auditorium, Augusta, GA/1969"
+   },
    "profile": {
     "energy": 0.743,
     "angularity": 0.499,
@@ -8549,6 +9717,10 @@
    "motifs": {
     "scribble": "There's A Riot Goin' On (Expanded Edition)"
    },
+   "hints": {
+    "arrow": "Runnin' Away - Single Version",
+    "figure": "Family Affair - Single Version"
+   },
    "profile": {
     "energy": 0.751,
     "angularity": 0.586,
@@ -8571,6 +9743,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "figure": "She Twerkin"
+   },
    "profile": {
     "energy": 0.73,
     "angularity": 0.66,
@@ -8593,6 +9768,10 @@
    "tags": [],
    "genre": "hardcore",
    "motifs": {},
+   "hints": {
+    "skull": "KKK Tattoo",
+    "face": "KKK Tattoo"
+   },
    "profile": {
     "energy": 1,
     "angularity": 0.893,
@@ -8615,6 +9794,9 @@
    "tags": [],
    "genre": "shoegaze",
    "motifs": {},
+   "hints": {
+    "star": "Souvlaki Space Station"
+   },
    "profile": {
     "energy": 0.424,
     "angularity": 0.248,
@@ -8637,6 +9819,7 @@
    "tags": [],
    "genre": "shoegaze",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.414,
     "angularity": 0.292,
@@ -8662,6 +9845,7 @@
     "car": "Speed Is Relative",
     "globe": "Weight of the World"
    },
+   "hints": {},
    "profile": {
     "energy": 0.925,
     "angularity": 0.809,
@@ -8684,6 +9868,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.779,
     "angularity": 0.708,
@@ -8706,6 +9891,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "circle": "Whole Lotta Wickery"
+   },
    "profile": {
     "energy": 0.705,
     "angularity": 0.697,
@@ -8728,6 +9916,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.712,
     "angularity": 0.749,
@@ -8752,6 +9941,9 @@
    "motifs": {
     "car": "Ridin Spinners (feat. Lil' Flip) - Explicit Album Version"
    },
+   "hints": {
+    "star": "Most Known Hits"
+   },
    "profile": {
     "energy": 0.701,
     "angularity": 0.708,
@@ -8774,6 +9966,11 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "note": "Mississippi: The Album",
+    "globe": "Mississippi: The Album",
+    "figure": "Like A Pimp"
+   },
    "profile": {
     "energy": 0.73,
     "angularity": 0.665,
@@ -8796,6 +9993,10 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "star": "Greatest Hits, Vol.2",
+    "box": "Greatest Hits, Vol.2"
+   },
    "profile": {
     "energy": 0.655,
     "angularity": 0.645,
@@ -8818,6 +10019,7 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.515,
     "angularity": 0.343,
@@ -8840,6 +10042,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.796,
     "angularity": 0.747,
@@ -8863,6 +10066,7 @@
    "genre": "synthpop",
    "genreGuess": true,
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.538,
     "angularity": 0.572,
@@ -8887,6 +10091,7 @@
    "motifs": {
     "heart": "Let The Love Go On"
    },
+   "hints": {},
    "profile": {
     "energy": 0.572,
     "angularity": 0.53,
@@ -8910,6 +10115,9 @@
    "genre": "trap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "figure": "Gangster"
+   },
    "profile": {
     "energy": 0.785,
     "angularity": 0.758,
@@ -8934,6 +10142,9 @@
    "motifs": {
     "globe": "…For The Whole World To See"
    },
+   "hints": {
+    "circle": "…For The Whole World To See"
+   },
    "profile": {
     "energy": 0.852,
     "angularity": 0.936,
@@ -8956,6 +10167,9 @@
    "tags": [],
    "genre": "punk",
    "motifs": {},
+   "hints": {
+    "money": "Double Nickels on the Dime"
+   },
    "profile": {
     "energy": 0.964,
     "angularity": 0.842,
@@ -8981,6 +10195,9 @@
    "motifs": {
     "money": "My Money"
    },
+   "hints": {
+    "circle": "Nothing"
+   },
    "profile": {
     "energy": 0.585,
     "angularity": 0.412,
@@ -9003,6 +10220,7 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.55,
     "angularity": 0.441,
@@ -9027,6 +10245,9 @@
    "motifs": {
     "rain": "In The Rain"
    },
+   "hints": {
+    "star": "The Very Best Of The Dramatics"
+   },
    "profile": {
     "energy": 0.505,
     "angularity": 0.31,
@@ -9049,6 +10270,9 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {},
+   "hints": {
+    "mountain": "Hard Way"
+   },
    "profile": {
     "energy": 0.274,
     "angularity": 0.157,
@@ -9073,6 +10297,7 @@
    "motifs": {
     "figure": "Iron Woman"
    },
+   "hints": {},
    "profile": {
     "energy": 0.714,
     "angularity": 0.495,
@@ -9095,6 +10320,7 @@
    "tags": [],
    "genre": "techno",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.865,
     "angularity": 0.765,
@@ -9117,6 +10343,10 @@
    "tags": [],
    "genre": "hardcore",
    "motifs": {},
+   "hints": {
+    "clock": "2006/2009",
+    "money": "2006/2009"
+   },
    "profile": {
     "energy": 0.947,
     "angularity": 0.941,
@@ -9139,6 +10369,10 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {},
+   "hints": {
+    "star": "Hits",
+    "clock": "Anniversary"
+   },
    "profile": {
     "energy": 0.359,
     "angularity": 0.21,
@@ -9162,6 +10396,10 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "bird": "FREE ANGELXX2 (...And Justice for Criminals)",
+    "circle": "Stealing from Whole Foods"
+   },
    "profile": {
     "energy": 0.328,
     "angularity": 0.219,
@@ -9185,6 +10423,9 @@
    "genre": "trap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "heart": "Gravy Baby"
+   },
    "profile": {
     "energy": 0.726,
     "angularity": 0.656,
@@ -9207,6 +10448,10 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "skull": "A Bad Azz Mix Tape II",
+    "box": "A Bad Azz Mix Tape II"
+   },
    "profile": {
     "energy": 0.691,
     "angularity": 0.618,
@@ -9232,6 +10477,7 @@
     "cross": "Heaven & Hell",
     "skull": "Heaven & Hell"
    },
+   "hints": {},
    "profile": {
     "energy": 0.699,
     "angularity": 0.558,
@@ -9256,6 +10502,7 @@
    "motifs": {
     "crown": "Saturnian Queen of the Sun Ra Arkestra"
    },
+   "hints": {},
    "profile": {
     "energy": 0.551,
     "angularity": 0.414,
@@ -9278,6 +10525,7 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.344,
     "angularity": 0.175,
@@ -9300,6 +10548,9 @@
    "tags": [],
    "genre": "house",
    "motifs": {},
+   "hints": {
+    "wave": "Hangin' At The Beach"
+   },
    "profile": {
     "energy": 0.748,
     "angularity": 0.414,
@@ -9323,6 +10574,9 @@
    "genre": "jazz",
    "motifs": {
     "clock": "New York Times - Remastered 2002"
+   },
+   "hints": {
+    "globe": "New York Times - Remastered 2002"
    },
    "profile": {
     "energy": 0.538,
@@ -9348,6 +10602,7 @@
    "motifs": {
     "face": "Make a Smile for Me"
    },
+   "hints": {},
    "profile": {
     "energy": 0.501,
     "angularity": 0.321,
@@ -9370,6 +10625,11 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {},
+   "hints": {
+    "flower": "Sleeping Beauty",
+    "moon": "Sleeping Beauty",
+    "circle": "Springtime Again"
+   },
    "profile": {
     "energy": 0.534,
     "angularity": 0.382,
@@ -9395,6 +10655,10 @@
     "crown": "Queens of Reggae",
     "rain": "Rainy Night in Georgia"
    },
+   "hints": {
+    "globe": "Rainy Night in Georgia",
+    "moon": "Rainy Night in Georgia"
+   },
    "profile": {
     "energy": 0.348,
     "angularity": 0.249,
@@ -9417,6 +10681,7 @@
    "tags": [],
    "genre": "dancehall",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.768,
     "angularity": 0.481,
@@ -9439,6 +10704,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "figure": "K9 Crew"
+   },
    "profile": {
     "energy": 0.354,
     "angularity": 0.194,
@@ -9463,6 +10731,9 @@
    "motifs": {
     "heart": "Never My Love: The Anthology"
    },
+   "hints": {
+    "box": "Never My Love: The Anthology"
+   },
    "profile": {
     "energy": 0.392,
     "angularity": 0.26,
@@ -9485,6 +10756,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.655,
     "angularity": 0.625,
@@ -9509,6 +10781,9 @@
    "motifs": {
     "globe": "International"
    },
+   "hints": {
+    "clock": "After Touch"
+   },
    "profile": {
     "energy": 0.581,
     "angularity": 0.563,
@@ -9531,6 +10806,10 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {},
+   "hints": {
+    "spiral": "Eternity",
+    "cross": "Om Supreme"
+   },
    "profile": {
     "energy": 0.553,
     "angularity": 0.358,
@@ -9553,6 +10832,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.778,
     "angularity": 0.721,
@@ -9575,6 +10855,11 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "clock": "Hardwood Classic",
+    "arrow": "Sleep Walking Pt.2",
+    "moon": "Sleep Walking Pt.2"
+   },
    "profile": {
     "energy": 0.787,
     "angularity": 0.663,
@@ -9599,6 +10884,11 @@
    "motifs": {
     "star": "50 In My Denim (Gang Shynin Like Stars)"
    },
+   "hints": {
+    "figure": "50 In My Denim (Gang Shynin Like Stars)",
+    "dots": "50 In My Denim (Gang Shynin Like Stars)",
+    "money": "50 In My Denim (Gang Shynin Like Stars)"
+   },
    "profile": {
     "energy": 0.35,
     "angularity": 0.226,
@@ -9621,6 +10911,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "circle": "I Came from Nothing 2",
+    "globe": "Haiti Slang"
+   },
    "profile": {
     "energy": 0.743,
     "angularity": 0.682,
@@ -9643,6 +10937,10 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "figure": "Bloody Mary",
+    "drop": "Bloody Mary"
+   },
    "profile": {
     "energy": 0.375,
     "angularity": 0.192,
@@ -9665,6 +10963,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.405,
     "angularity": 0.262,
@@ -9691,6 +10990,9 @@
     "clock": "I Think I'll Call It Morning",
     "phone": "I Think I'll Call It Morning"
    },
+   "hints": {
+    "cloud": "I Think I'll Call It Morning"
+   },
    "profile": {
     "energy": 0.496,
     "angularity": 0.326,
@@ -9716,6 +11018,9 @@
     "note": "Rhythm Nation 1814",
     "globe": "Rhythm Nation 1814"
    },
+   "hints": {
+    "money": "Rhythm Nation 1814"
+   },
    "profile": {
     "energy": 0.335,
     "angularity": 0.165,
@@ -9738,6 +11043,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.398,
     "angularity": 0.242,
@@ -9760,6 +11066,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "figure": "SAVAGE MODE II",
+    "arrow": "Steppin On Niggas"
+   },
    "profile": {
     "energy": 0.766,
     "angularity": 0.698,
@@ -9783,6 +11093,9 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "arrow": "Full Throttle"
+   },
    "profile": {
     "energy": 0.317,
     "angularity": 0.239,
@@ -9805,6 +11118,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.312,
     "angularity": 0.203,
@@ -9828,6 +11142,9 @@
    "genre": "cloud rap",
    "motifs": {
     "sun": "Gates to the Sun (POLLEN Singles)"
+   },
+   "hints": {
+    "note": "Gates to the Sun (POLLEN Singles)"
    },
    "profile": {
     "energy": 0.327,
@@ -9854,6 +11171,10 @@
     "crown": "Purple Reign",
     "drop": "Drippin (How U Luv That)"
    },
+   "hints": {
+    "cloud": "Purple Reign",
+    "heart": "Drippin (How U Luv That)"
+   },
    "profile": {
     "energy": 0.751,
     "angularity": 0.703,
@@ -9878,6 +11199,7 @@
    "motifs": {
     "clock": "Forever Eva"
    },
+   "hints": {},
    "profile": {
     "energy": 0.759,
     "angularity": 0.741,
@@ -9900,6 +11222,10 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "money": "BLVCKLVND Rvdix 66.6",
+    "clock": "Pheel Tha Phonk 1990"
+   },
    "profile": {
     "energy": 0.327,
     "angularity": 0.301,
@@ -9923,6 +11249,10 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "dots": "STONE COLD",
+    "mountain": "STONE COLD"
+   },
    "profile": {
     "energy": 0.367,
     "angularity": 0.254,
@@ -9945,6 +11275,7 @@
    "tags": [],
    "genre": "post-punk",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.693,
     "angularity": 0.762,
@@ -9967,6 +11298,11 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "figure": "1017 Thug 3 The Finale",
+    "money": "1017 Thug 3 The Finale",
+    "circle": "Rollin Rollin"
+   },
    "profile": {
     "energy": 0.723,
     "angularity": 0.682,
@@ -9989,6 +11325,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "figure": "1017 Thug",
+    "money": "1017 Thug"
+   },
    "profile": {
     "energy": 0.786,
     "angularity": 0.684,
@@ -10015,6 +11355,7 @@
     "money": "Millions",
     "skull": "Die Today"
    },
+   "hints": {},
    "profile": {
     "energy": 0.729,
     "angularity": 0.722,
@@ -10037,6 +11378,11 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "money": "Free Bricks 2",
+    "box": "Free Bricks 2",
+    "bird": "Free Bricks 2"
+   },
    "profile": {
     "energy": 0.74,
     "angularity": 0.741,
@@ -10062,6 +11408,7 @@
     "heart": "Puppy Love",
     "rain": "Rainy"
    },
+   "hints": {},
    "profile": {
     "energy": 0.301,
     "angularity": 0.112,
@@ -10085,6 +11432,7 @@
    "genre": "trap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.733,
     "angularity": 0.739,
@@ -10108,6 +11456,9 @@
    "genre": "trap",
    "motifs": {
     "grid": "Front Street"
+   },
+   "hints": {
+    "flower": "Down for Life"
    },
    "profile": {
     "energy": 0.717,
@@ -10133,6 +11484,7 @@
    "motifs": {
     "skull": "Back From The Dead 2"
    },
+   "hints": {},
    "profile": {
     "energy": 0.759,
     "angularity": 0.95,
@@ -10155,6 +11507,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "note": "Rubba Band Business: Part 2",
+    "money": "Rubba Band Business: Part 2"
+   },
    "profile": {
     "energy": 0.799,
     "angularity": 0.747,
@@ -10177,6 +11533,10 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "arrow": "Next Day",
+    "sun": "Next Day"
+   },
    "profile": {
     "energy": 0.401,
     "angularity": 0.235,
@@ -10199,6 +11559,7 @@
    "tags": [],
    "genre": "psychedelic rock",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.608,
     "angularity": 0.258,
@@ -10222,6 +11583,7 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.326,
     "angularity": 0.266,
@@ -10244,6 +11606,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.349,
     "angularity": 0.231,
@@ -10268,6 +11631,7 @@
    "motifs": {
     "heart": "The Thing About Love"
    },
+   "hints": {},
    "profile": {
     "energy": 0.269,
     "angularity": 0.14,
@@ -10290,6 +11654,11 @@
    "tags": [],
    "genre": "classical",
    "motifs": {},
+   "hints": {
+    "moon": "Dark Souls",
+    "cross": "A Moment's Peace",
+    "clock": "A Moment's Peace"
+   },
    "profile": {
     "energy": 0.329,
     "angularity": 0.339,
@@ -10312,6 +11681,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.81,
     "angularity": 0.748,
@@ -10334,6 +11704,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.743,
     "angularity": 0.651,
@@ -10356,6 +11727,11 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "cloud": "The Purple Album",
+    "note": "The Purple Album",
+    "star": "You The Best"
+   },
    "profile": {
     "energy": 0.746,
     "angularity": 0.709,
@@ -10378,6 +11754,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "drop": "Slime Season 4",
+    "note": "Beat It"
+   },
    "profile": {
     "energy": 0.701,
     "angularity": 0.706,
@@ -10402,6 +11782,7 @@
    "motifs": {
     "money": "When I Was Broke"
    },
+   "hints": {},
    "profile": {
     "energy": 0.697,
     "angularity": 0.673,
@@ -10427,6 +11808,11 @@
     "car": "Cruise Ship",
     "house": "Group Home"
    },
+   "hints": {
+    "star": "SUPER SLIMEY",
+    "drop": "SUPER SLIMEY",
+    "wave": "Cruise Ship"
+   },
    "profile": {
     "energy": 0.694,
     "angularity": 0.726,
@@ -10451,6 +11837,9 @@
    "motifs": {
     "heart": "Sin in My Heart"
    },
+   "hints": {
+    "skull": "Sin in My Heart"
+   },
    "profile": {
     "energy": 0.996,
     "angularity": 0.938,
@@ -10474,6 +11863,11 @@
    "genre": "electronica",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "note": "Harsh Riddims VoL. 4",
+    "box": "Harsh Riddims VoL. 4",
+    "eye": "Hide From Me - Ruff Demo"
+   },
    "profile": {
     "energy": 0.502,
     "angularity": 0.415,
@@ -10496,6 +11890,9 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "scribble": "Damn Shawty"
+   },
    "profile": {
     "energy": 0.611,
     "angularity": 0.603,
@@ -10518,6 +11915,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "box": "Gift Of Gab (Hosted by DJ Scream)",
+    "bubble": "Listen While I Draw"
+   },
    "profile": {
     "energy": 0.742,
     "angularity": 0.683,
@@ -10544,6 +11945,7 @@
     "clock": "Playgrounds Forever",
     "flower": "My Rose"
    },
+   "hints": {},
    "profile": {
     "energy": 0.542,
     "angularity": 0.498,
@@ -10568,6 +11970,10 @@
    "motifs": {
     "cross": "Heaven To A Tortured Mind"
    },
+   "hints": {
+    "cloud": "Heaven To A Tortured Mind",
+    "sun": "Hasdallen Lights"
+   },
    "profile": {
     "energy": 0.462,
     "angularity": 0.487,
@@ -10590,6 +11996,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.372,
     "angularity": 0.228,
@@ -10616,6 +12023,7 @@
     "cloud": "Vapor Drip",
     "drop": "Vapor Drip"
    },
+   "hints": {},
    "profile": {
     "energy": 0.803,
     "angularity": 0.737,
@@ -10640,6 +12048,7 @@
    "motifs": {
     "flame": "Torch"
    },
+   "hints": {},
    "profile": {
     "energy": 0.351,
     "angularity": 0.273,
@@ -10662,6 +12071,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.293,
     "angularity": 0.299,
@@ -10685,6 +12095,9 @@
    "genre": "indie rock",
    "motifs": {
     "screen": "The Photo Album"
+   },
+   "hints": {
+    "note": "The Photo Album"
    },
    "profile": {
     "energy": 0.521,
@@ -10710,6 +12123,10 @@
    "motifs": {
     "circle": "Carry the Zero"
    },
+   "hints": {
+    "eye": "Keep It like a Secret",
+    "bubble": "Keep It like a Secret"
+   },
    "profile": {
     "energy": 0.604,
     "angularity": 0.54,
@@ -10732,6 +12149,9 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "arrow": "Sector Rush Rmx [REBUILT]"
+   },
    "profile": {
     "energy": 0.668,
     "angularity": 0.636,
@@ -10754,6 +12174,9 @@
    "tags": [],
    "genre": "drill",
    "motifs": {},
+   "hints": {
+    "figure": "Nobody 2"
+   },
    "profile": {
     "energy": 0.641,
     "angularity": 0.842,
@@ -10778,6 +12201,7 @@
    "motifs": {
     "clock": "Time"
    },
+   "hints": {},
    "profile": {
     "energy": 0.471,
     "angularity": 0.546,
@@ -10804,6 +12228,7 @@
     "screen": "NASTY GIRL / ON CAMERA",
     "face": "DOLLAZ ON MY HEAD (feat. Young Thug)"
    },
+   "hints": {},
    "profile": {
     "energy": 0.728,
     "angularity": 0.702,
@@ -10826,6 +12251,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.776,
     "angularity": 0.683,
@@ -10851,6 +12277,7 @@
    "motifs": {
     "flower": "Between II Gardens"
    },
+   "hints": {},
    "profile": {
     "energy": 0.083,
     "angularity": 0.129,
@@ -10874,6 +12301,7 @@
    "genre": "electronica",
    "genreGuess": true,
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.496,
     "angularity": 0.389,
@@ -10898,6 +12326,10 @@
    "genreGuess": true,
    "motifs": {
     "scribble": "Wild"
+   },
+   "hints": {
+    "skull": "Vices Hurt",
+    "bird": "Wild"
    },
    "profile": {
     "energy": 0.693,
@@ -10925,6 +12357,10 @@
     "sun": "Trapped In The Sun",
     "box": "Trapped In The Sun"
    },
+   "hints": {
+    "flower": "High Off Life",
+    "skull": "All Bad (feat. Lil Uzi Vert)"
+   },
    "profile": {
     "energy": 0.704,
     "angularity": 0.688,
@@ -10949,6 +12385,7 @@
    "motifs": {
     "face": "Two Face"
    },
+   "hints": {},
    "profile": {
     "energy": 0.75,
     "angularity": 0.645,
@@ -10971,6 +12408,9 @@
    "tags": [],
    "genre": "soul",
    "motifs": {},
+   "hints": {
+    "house": "Stay With Me"
+   },
    "profile": {
     "energy": 0.439,
     "angularity": 0.256,
@@ -10993,6 +12433,10 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "moon": "Black On Both Sides",
+    "bubble": "UMI Says"
+   },
    "profile": {
     "energy": 0.657,
     "angularity": 0.653,
@@ -11015,6 +12459,11 @@
    "tags": [],
    "genre": "hardcore",
    "motifs": {},
+   "hints": {
+    "star": "Best Wishes",
+    "sun": "Days of Confusion",
+    "spiral": "Days of Confusion"
+   },
    "profile": {
     "energy": 0.955,
     "angularity": 0.919,
@@ -11039,6 +12488,7 @@
    "motifs": {
     "clock": "Any Time, Any Place"
    },
+   "hints": {},
    "profile": {
     "energy": 0.281,
     "angularity": 0.094,
@@ -11061,6 +12511,11 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "dots": "Against Da Grain",
+    "figure": "85/Billy Dee Interlude",
+    "money": "85/Billy Dee Interlude"
+   },
    "profile": {
     "energy": 0.753,
     "angularity": 0.655,
@@ -11083,6 +12538,9 @@
    "tags": [],
    "genre": "drill",
    "motifs": {},
+   "hints": {
+    "clock": "Viral Moment"
+   },
    "profile": {
     "energy": 0.71,
     "angularity": 0.958,
@@ -11106,6 +12564,9 @@
    "genre": "r&b",
    "motifs": {
     "clock": "Funny How Time Flies (When You're Having Fun)"
+   },
+   "hints": {
+    "scribble": "Funny How Time Flies (When You're Having Fun)"
    },
    "profile": {
     "energy": 0.273,
@@ -11131,6 +12592,11 @@
    "motifs": {
     "heart": "At Your Best (You Are Love)"
    },
+   "hints": {
+    "circle": "Age Ain't Nothing But A Number",
+    "phone": "Age Ain't Nothing But A Number",
+    "clock": "Age Ain't Nothing But A Number"
+   },
    "profile": {
     "energy": 0.288,
     "angularity": 0.172,
@@ -11153,6 +12619,11 @@
    "tags": [],
    "genre": "metal",
    "motifs": {},
+   "hints": {
+    "figure": "Dusk And Her Embrace... The Original Sin",
+    "skull": "Dusk And Her Embrace... The Original Sin",
+    "moon": "Dusk And Her Embrace... The Original Sin"
+   },
    "profile": {
     "energy": 0.879,
     "angularity": 0.912,
@@ -11175,6 +12646,9 @@
    "tags": [],
    "genre": "synthpop",
    "motifs": {},
+   "hints": {
+    "wave": "Out of the Blue"
+   },
    "profile": {
     "energy": 0.571,
     "angularity": 0.537,
@@ -11199,6 +12673,7 @@
    "motifs": {
     "grid": "Under Your Window"
    },
+   "hints": {},
    "profile": {
     "energy": 0.509,
     "angularity": 0.543,
@@ -11224,6 +12699,7 @@
    "motifs": {
     "note": "Luh Da Sound (CashCache)"
    },
+   "hints": {},
    "profile": {
     "energy": 0.39,
     "angularity": 0.286,
@@ -11249,6 +12725,10 @@
     "heart": "Lovecraft & Witch Hearts",
     "star": "Beneath the Howling Stars"
    },
+   "hints": {
+    "skull": "Lovecraft & Witch Hearts",
+    "dots": "Beneath the Howling Stars"
+   },
    "profile": {
     "energy": 0.921,
     "angularity": 0.942,
@@ -11271,6 +12751,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "skull": "Halloween Tales"
+   },
    "profile": {
     "energy": 0.389,
     "angularity": 0.277,
@@ -11293,6 +12776,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.316,
     "angularity": 0.2,
@@ -11315,6 +12799,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "arrow": "My Turn"
+   },
    "profile": {
     "energy": 0.714,
     "angularity": 0.757,
@@ -11337,6 +12824,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.315,
     "angularity": 0.286,
@@ -11362,6 +12850,9 @@
     "cross": "Heaven Or Hell",
     "skull": "Heaven Or Hell"
    },
+   "hints": {
+    "dots": "Candy"
+   },
    "profile": {
     "energy": 0.743,
     "angularity": 0.745,
@@ -11386,6 +12877,7 @@
    "motifs": {
     "heart": "We Will Always Love You (feat. Blood Orange)"
    },
+   "hints": {},
    "profile": {
     "energy": 0.505,
     "angularity": 0.437,
@@ -11410,6 +12902,10 @@
    "motifs": {
     "wave": "Wave Pack"
    },
+   "hints": {
+    "heart": "Baby I Wonder",
+    "cloud": "Baby I Wonder"
+   },
    "profile": {
     "energy": 0.632,
     "angularity": 0.674,
@@ -11431,7 +12927,12 @@
    "url": "https://open.spotify.com/album/0QLhCvA0umP90dkJnmPuXB",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "bubble": "I Can't Speak 4 Nothing"
+   },
+   "hints": {
+    "circle": "I Can't Speak 4 Nothing"
+   },
    "profile": {
     "energy": 0.409,
     "angularity": 0.219,
@@ -11454,6 +12955,7 @@
    "tags": [],
    "genre": "grime",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.992,
     "angularity": 0.757,
@@ -11478,6 +12980,9 @@
    "motifs": {
     "heart": "Hey Lover"
    },
+   "hints": {
+    "bubble": "Hey Lover"
+   },
    "profile": {
     "energy": 0.457,
     "angularity": 0.261,
@@ -11500,6 +13005,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.694,
     "angularity": 0.648,
@@ -11522,6 +13028,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.362,
     "angularity": 0.194,
@@ -11545,6 +13052,11 @@
    "genre": "cloud rap",
    "motifs": {
     "diamond": "Diamonds Hit"
+   },
+   "hints": {
+    "figure": "Bad Kid from the 4",
+    "skull": "Bad Kid from the 4",
+    "scribble": "Puttin' Dat Shit On"
    },
    "profile": {
     "energy": 0.321,
@@ -11572,6 +13084,11 @@
     "money": "Money Spread (feat. Young Nudy)",
     "flower": "Lotus"
    },
+   "hints": {
+    "heart": "Eternal Atake (Deluxe) - LUV vs. The World 2",
+    "spiral": "Eternal Atake (Deluxe) - LUV vs. The World 2",
+    "clock": "Eternal Atake (Deluxe) - LUV vs. The World 2"
+   },
    "profile": {
     "energy": 0.758,
     "angularity": 0.654,
@@ -11594,8 +13111,12 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
+    "bubble": "The Neverending Story",
     "skull": "Ghost Of Soulja Slim",
     "circle": "Ezekiel’s Wheel feat. The-Dream"
+   },
+   "hints": {
+    "cross": "A Written Testimony"
    },
    "profile": {
     "energy": 0.655,
@@ -11620,6 +13141,7 @@
    "genre": "trap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.7,
     "angularity": 0.719,
@@ -11644,6 +13166,7 @@
    "motifs": {
     "figure": "When Man Fails You"
    },
+   "hints": {},
    "profile": {
     "energy": 0.551,
     "angularity": 0.455,
@@ -11666,6 +13189,7 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.482,
     "angularity": 0.527,
@@ -11689,6 +13213,9 @@
    "genre": "hardcore",
    "motifs": {
     "crown": "I Am King"
+   },
+   "hints": {
+    "cloud": "Dreams in Inertia"
    },
    "profile": {
     "energy": 0.943,
@@ -11715,6 +13242,9 @@
     "cross": "JESUS IS KING",
     "crown": "JESUS IS KING"
    },
+   "hints": {
+    "sun": "Closed On Sunday"
+   },
    "profile": {
     "energy": 0.596,
     "angularity": 0.624,
@@ -11739,6 +13269,9 @@
    "motifs": {
     "figure": "This Boy"
    },
+   "hints": {
+    "cloud": "Katie's Conscious (Demo)"
+   },
    "profile": {
     "energy": 0.603,
     "angularity": 0.533,
@@ -11761,6 +13294,9 @@
    "tags": [],
    "genre": "noise",
    "motifs": {},
+   "hints": {
+    "cloud": "I Dreamed I Dream"
+   },
    "profile": {
     "energy": 0.773,
     "angularity": 0.564,
@@ -11783,6 +13319,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "star": "Legendary Member"
+   },
    "profile": {
     "energy": 0.296,
     "angularity": 0.308,
@@ -11806,6 +13345,9 @@
    "genre": "trap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "drop": "Blood Thirsty"
+   },
    "profile": {
     "energy": 0.763,
     "angularity": 0.692,
@@ -11828,6 +13370,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "crown": "Proper Etiquette"
+   },
    "profile": {
     "energy": 0.323,
     "angularity": 0.284,
@@ -11853,6 +13398,9 @@
     "circle": "House on Wheels EP",
     "house": "House on Wheels EP"
    },
+   "hints": {
+    "note": "House on Wheels EP"
+   },
    "profile": {
     "energy": 0.345,
     "angularity": 0.398,
@@ -11875,6 +13423,9 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {},
+   "hints": {
+    "moon": "Last Night (feat. Keyshia Cole)"
+   },
    "profile": {
     "energy": 0.669,
     "angularity": 0.639,
@@ -11899,6 +13450,11 @@
    "motifs": {
     "cross": "Heaven Or Las Vegas (Remastered)"
    },
+   "hints": {
+    "globe": "Heaven Or Las Vegas (Remastered)",
+    "note": "Cherry-coloured Funk",
+    "flower": "Cherry-coloured Funk"
+   },
    "profile": {
     "energy": 0.221,
     "angularity": 0.204,
@@ -11922,6 +13478,7 @@
    "genre": "electronica",
    "genreGuess": true,
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.512,
     "angularity": 0.346,
@@ -11945,6 +13502,7 @@
    "genre": "trap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.692,
     "angularity": 0.752,
@@ -11968,6 +13526,7 @@
    "genre": "grime",
    "genreGuess": true,
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 1,
     "angularity": 0.82,
@@ -11990,6 +13549,9 @@
    "tags": [],
    "genre": "drill",
    "motifs": {},
+   "hints": {
+    "money": "Ballin No Nba 2"
+   },
    "profile": {
     "energy": 0.716,
     "angularity": 0.85,
@@ -12013,6 +13575,9 @@
    "genre": "hip hop",
    "motifs": {
     "cross": "Prayers"
+   },
+   "hints": {
+    "skull": "War in My Pen"
    },
    "profile": {
     "energy": 0.657,
@@ -12039,6 +13604,9 @@
     "grid": "City High",
     "mountain": "City High"
    },
+   "hints": {
+    "arrow": "The Movement"
+   },
    "profile": {
     "energy": 0.699,
     "angularity": 0.7,
@@ -12061,6 +13629,7 @@
    "tags": [],
    "genre": "indie rock",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.537,
     "angularity": 0.505,
@@ -12083,6 +13652,7 @@
    "tags": [],
    "genre": "shoegaze",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.494,
     "angularity": 0.242,
@@ -12105,6 +13675,11 @@
    "tags": [],
    "genre": "indie rock",
    "motifs": {},
+   "hints": {
+    "cloud": "Green Mind",
+    "flower": "Green Mind",
+    "money": "Green Mind"
+   },
    "profile": {
     "energy": 0.561,
     "angularity": 0.47,
@@ -12128,6 +13703,11 @@
    "genre": "noise",
    "motifs": {
     "star": "Experimental Jet Set, Trash And No Star"
+   },
+   "hints": {
+    "bird": "Experimental Jet Set, Trash And No Star",
+    "box": "Experimental Jet Set, Trash And No Star",
+    "scribble": "Experimental Jet Set, Trash And No Star"
    },
    "profile": {
     "energy": 0.836,
@@ -12153,6 +13733,10 @@
    "motifs": {
     "figure": "The Body, The Blood, The Machine"
    },
+   "hints": {
+    "drop": "The Body, The Blood, The Machine",
+    "dots": "A Pillar Of Salt"
+   },
    "profile": {
     "energy": 0.929,
     "angularity": 0.9,
@@ -12175,6 +13759,10 @@
    "tags": [],
    "genre": "shoegaze",
    "motifs": {},
+   "hints": {
+    "sun": "Happy Days",
+    "clock": "Happy Days"
+   },
    "profile": {
     "energy": 0.504,
     "angularity": 0.3,
@@ -12199,6 +13787,7 @@
    "motifs": {
     "car": "Race for the Prize - 2017 Remaster"
    },
+   "hints": {},
    "profile": {
     "energy": 0.574,
     "angularity": 0.292,
@@ -12223,6 +13812,7 @@
    "motifs": {
     "mountain": "High/Low"
    },
+   "hints": {},
    "profile": {
     "energy": 0.541,
     "angularity": 0.442,
@@ -12247,6 +13837,7 @@
    "motifs": {
     "money": "Finally Rich (Deluxe)"
    },
+   "hints": {},
    "profile": {
     "energy": 0.711,
     "angularity": 0.902,
@@ -12269,7 +13860,13 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
+    "bubble": "Project Talk",
     "heart": "Love Jones"
+   },
+   "hints": {
+    "globe": "Slow Grind Italian",
+    "line": "Slow Grind Italian",
+    "money": "Slow Grind Italian"
    },
    "profile": {
     "energy": 0.646,
@@ -12294,6 +13891,9 @@
    "genre": "hip hop",
    "motifs": {
     "drop": "Liquid Swords"
+   },
+   "hints": {
+    "line": "Liquid Swords"
    },
    "profile": {
     "energy": 0.67,
@@ -12320,6 +13920,9 @@
     "cross": "Heaven & Hell (feat. Ghostface Killah)",
     "skull": "Heaven & Hell (feat. Ghostface Killah)"
    },
+   "hints": {
+    "globe": "Only Built 4 Cuban Linx..."
+   },
    "profile": {
     "energy": 0.627,
     "angularity": 0.63,
@@ -12342,6 +13945,7 @@
    "tags": [],
    "genre": "ambient",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.07,
     "angularity": 0.129,
@@ -12366,6 +13970,9 @@
    "motifs": {
     "clock": "Midnight Snack"
    },
+   "hints": {
+    "circle": "Midnight Snack"
+   },
    "profile": {
     "energy": 0.327,
     "angularity": 0.472,
@@ -12388,6 +13995,9 @@
    "tags": [],
    "genre": "psychedelic rock",
    "motifs": {},
+   "hints": {
+    "face": "Do I Make You Feel Shy?"
+   },
    "profile": {
     "energy": 0.519,
     "angularity": 0.238,
@@ -12410,6 +14020,9 @@
    "tags": [],
    "genre": "indie rock",
    "motifs": {},
+   "hints": {
+    "cloud": "Chill"
+   },
    "profile": {
     "energy": 0.535,
     "angularity": 0.546,
@@ -12432,6 +14045,7 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.264,
     "angularity": 0.107,
@@ -12456,6 +14070,7 @@
    "motifs": {
     "cross": "holy terrain"
    },
+   "hints": {},
    "profile": {
     "energy": 0.33,
     "angularity": 0.147,
@@ -12478,6 +14093,9 @@
    "tags": [],
    "genre": "synthpop",
    "motifs": {},
+   "hints": {
+    "skull": "Violence"
+   },
    "profile": {
     "energy": 0.597,
     "angularity": 0.491,
@@ -12501,6 +14119,10 @@
    "genre": "trap",
    "motifs": {
     "figure": "White Girl"
+   },
+   "hints": {
+    "clock": "Young Jefe",
+    "cloud": "White Girl"
    },
    "profile": {
     "energy": 0.726,
@@ -12527,6 +14149,9 @@
     "skull": "Blue Devil 2",
     "drop": "Wet Like A Boat (feat. Lil Keed & Lil Yachty)"
    },
+   "hints": {
+    "wave": "Blue Devil 2"
+   },
    "profile": {
     "energy": 0.808,
     "angularity": 0.646,
@@ -12551,6 +14176,10 @@
    "motifs": {
     "abstract": "Dark & Handsome - A COLORS SHOW"
    },
+   "hints": {
+    "moon": "Dark & Handsome - A COLORS SHOW",
+    "screen": "Dark & Handsome - A COLORS SHOW"
+   },
    "profile": {
     "energy": 0.293,
     "angularity": 0.131,
@@ -12573,6 +14202,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.375,
     "angularity": 0.278,
@@ -12595,7 +14225,13 @@
    "tags": [],
    "genre": "soul",
    "motifs": {
+    "bubble": "The Baby Huey Story: The Living Legend",
     "clock": "Hard Times"
+   },
+   "hints": {
+    "star": "The Baby Huey Story: The Living Legend",
+    "flower": "The Baby Huey Story: The Living Legend",
+    "mountain": "Hard Times"
    },
    "profile": {
     "energy": 0.438,
@@ -12619,6 +14255,7 @@
    "tags": [],
    "genre": "synthpop",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.513,
     "angularity": 0.498,
@@ -12642,6 +14279,10 @@
    "genre": "reggae",
    "motifs": {
     "figure": "Girl Of My Dreams"
+   },
+   "hints": {
+    "star": "Very Best",
+    "cloud": "Girl Of My Dreams"
    },
    "profile": {
     "energy": 0.425,
@@ -12668,6 +14309,11 @@
     "sun": "Summer Records Anthology: 1974 - 1988",
     "clock": "Right, Right Time"
    },
+   "hints": {
+    "note": "Summer Records Anthology: 1974 - 1988",
+    "box": "Summer Records Anthology: 1974 - 1988",
+    "money": "Summer Records Anthology: 1974 - 1988"
+   },
    "profile": {
     "energy": 0.385,
     "angularity": 0.264,
@@ -12691,6 +14337,9 @@
    "genre": "dancehall",
    "motifs": {
     "car": "Driver A"
+   },
+   "hints": {
+    "skull": "Too Bad"
    },
    "profile": {
     "energy": 0.753,
@@ -12716,6 +14365,9 @@
    "motifs": {
     "heart": "Do You Love Her Now / He"
    },
+   "hints": {
+    "figure": "Do You Love Her Now / He"
+   },
    "profile": {
     "energy": 0.317,
     "angularity": 0.09,
@@ -12738,6 +14390,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "money": "16 Fever"
+   },
    "profile": {
     "energy": 0.692,
     "angularity": 0.698,
@@ -12762,6 +14417,9 @@
    "motifs": {
     "heart": "Borrowed Love (feat. Swae Lee & WizKid)"
    },
+   "hints": {
+    "figure": "NOT ALL HEROES WEAR CAPES (Deluxe)"
+   },
    "profile": {
     "energy": 0.783,
     "angularity": 0.702,
@@ -12784,6 +14442,7 @@
    "tags": [],
    "genre": "punk",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 1,
     "angularity": 0.848,
@@ -12806,6 +14465,11 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "drop": "Future & Juice WRLD Present... WRLD ON DRUGS",
+    "spiral": "Future & Juice WRLD Present... WRLD ON DRUGS",
+    "mountain": "Hard Work Pays Off"
+   },
    "profile": {
     "energy": 0.79,
     "angularity": 0.748,
@@ -12828,6 +14492,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.705,
     "angularity": 0.64,
@@ -12850,6 +14515,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.714,
     "angularity": 0.757,
@@ -12872,6 +14538,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.76,
     "angularity": 0.716,
@@ -12894,6 +14561,7 @@
    "tags": [],
    "genre": "electronica",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.558,
     "angularity": 0.449,
@@ -12918,6 +14586,9 @@
    "motifs": {
     "cloud": "800db cloud"
    },
+   "hints": {
+    "money": "1000 gecs"
+   },
    "profile": {
     "energy": 0.589,
     "angularity": 0.601,
@@ -12940,6 +14611,11 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "globe": "Long Live Mexico",
+    "line": "Long Live Mexico",
+    "star": "Tip Top (feat. Guap Tarantino & MSA PG)"
+   },
    "profile": {
     "energy": 0.711,
     "angularity": 0.711,
@@ -12963,6 +14639,9 @@
    "genre": "house",
    "motifs": {
     "face": "Family Portrait"
+   },
+   "hints": {
+    "figure": "Family Portrait"
    },
    "profile": {
     "energy": 0.703,
@@ -12988,6 +14667,9 @@
    "motifs": {
     "face": "Is It All Over My Face & Tower Of Meaning - Single"
    },
+   "hints": {
+    "mountain": "Is It All Over My Face & Tower Of Meaning - Single"
+   },
    "profile": {
     "energy": 0.296,
     "angularity": 0.109,
@@ -13010,6 +14692,11 @@
    "tags": [],
    "genre": "house",
    "motifs": {},
+   "hints": {
+    "clock": "2012 - 2017",
+    "money": "2012 - 2017",
+    "cloud": "I Never Dream"
+   },
    "profile": {
     "energy": 0.693,
     "angularity": 0.397,
@@ -13032,6 +14719,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.328,
     "angularity": 0.309,
@@ -13054,6 +14742,10 @@
    "tags": [],
    "genre": "lo-fi",
    "motifs": {},
+   "hints": {
+    "note": "Vampire Blues",
+    "skull": "Vampire Blues"
+   },
    "profile": {
     "energy": 0.357,
     "angularity": 0.411,
@@ -13077,6 +14769,10 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {
+    "cross": "Spirit Plug",
+    "money": "Spirit Plug"
+   },
    "profile": {
     "energy": 0.324,
     "angularity": 0.194,
@@ -13102,6 +14798,9 @@
    "motifs": {
     "face": "Can't See Your Face Anymore"
    },
+   "hints": {
+    "cloud": "Wonder What"
+   },
    "profile": {
     "energy": 0.401,
     "angularity": 0.299,
@@ -13125,6 +14824,7 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.369,
     "angularity": 0.273,
@@ -13149,6 +14849,7 @@
    "motifs": {
     "house": "Mansion Musick"
    },
+   "hints": {},
    "profile": {
     "energy": 0.665,
     "angularity": 0.918,
@@ -13173,6 +14874,7 @@
    "motifs": {
     "heart": "My Love (feat. Jess Glynne)"
    },
+   "hints": {},
    "profile": {
     "energy": 0.758,
     "angularity": 0.424,
@@ -13195,6 +14897,11 @@
    "tags": [],
    "genre": "soul",
    "motifs": {},
+   "hints": {
+    "circle": "Nothing New",
+    "cloud": "Alien (Hold On to Your Dreams)",
+    "star": "Alien (Hold On to Your Dreams)"
+   },
    "profile": {
     "energy": 0.458,
     "angularity": 0.281,
@@ -13218,6 +14925,9 @@
    "genre": "trap",
    "motifs": {
     "note": "Double Dare (Soapy Anthem)"
+   },
+   "hints": {
+    "money": "Double Dare (Soapy Anthem)"
    },
    "profile": {
     "energy": 0.709,
@@ -13243,6 +14953,10 @@
    "motifs": {
     "globe": "Anime World"
    },
+   "hints": {
+    "screen": "Anime World",
+    "heart": "Boyfriend (feat. T3)"
+   },
    "profile": {
     "energy": 0.396,
     "angularity": 0.256,
@@ -13265,6 +14979,10 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "cloud": "Peach Dream",
+    "flower": "Peach Dream"
+   },
    "profile": {
     "energy": 0.292,
     "angularity": 0.253,
@@ -13289,6 +15007,7 @@
    "motifs": {
     "phone": "Text Me Back"
    },
+   "hints": {},
    "profile": {
     "energy": 0.974,
     "angularity": 0.772,
@@ -13311,6 +15030,9 @@
    "tags": [],
    "genre": "grime",
    "motifs": {},
+   "hints": {
+    "bird": "Animal Instinct"
+   },
    "profile": {
     "energy": 0.952,
     "angularity": 0.858,
@@ -13337,6 +15059,9 @@
     "money": "Millions & Billions",
     "drop": "Add a Lil Drip (feat. Yung Slatt)"
    },
+   "hints": {
+    "globe": "Trapped On Cleveland 2"
+   },
    "profile": {
     "energy": 0.766,
     "angularity": 0.752,
@@ -13359,6 +15084,7 @@
    "tags": [],
    "genre": "grime",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.937,
     "angularity": 0.777,
@@ -13380,7 +15106,10 @@
    "url": "https://open.spotify.com/album/0lYJfrAdIT65115h0CWoAg",
    "tags": [],
    "genre": "r&b",
-   "motifs": {},
+   "motifs": {
+    "bubble": "whisper"
+   },
+   "hints": {},
    "profile": {
     "energy": 0.32,
     "angularity": 0.117,
@@ -13403,6 +15132,9 @@
    "tags": [],
    "genre": "ambient",
    "motifs": {},
+   "hints": {
+    "flower": "Paradise Valley"
+   },
    "profile": {
     "energy": 0.095,
     "angularity": 0.061,
@@ -13425,6 +15157,7 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.452,
     "angularity": 0.47,
@@ -13449,6 +15182,7 @@
    "motifs": {
     "heart": "I Shall Love 2"
    },
+   "hints": {},
    "profile": {
     "energy": 0.551,
     "angularity": 0.499,
@@ -13471,6 +15205,9 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {},
+   "hints": {
+    "heart": "Devotion"
+   },
    "profile": {
     "energy": 0.325,
     "angularity": 0.165,
@@ -13494,6 +15231,11 @@
    "genre": "indie rock",
    "motifs": {
     "money": "Million Miles"
+   },
+   "hints": {
+    "moon": "4am",
+    "cloud": "Big Dreams",
+    "mountain": "Big Dreams"
    },
    "profile": {
     "energy": 0.57,
@@ -13519,6 +15261,9 @@
    "motifs": {
     "figure": "Small Town Girl"
    },
+   "hints": {
+    "grid": "Small Town Girl"
+   },
    "profile": {
     "energy": 0.514,
     "angularity": 0.494,
@@ -13543,6 +15288,9 @@
    "motifs": {
     "face": "Mirror"
    },
+   "hints": {
+    "figure": "I Am Nobody"
+   },
    "profile": {
     "energy": 0.723,
     "angularity": 0.848,
@@ -13565,6 +15313,11 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "spiral": "Infinity 33",
+    "money": "Infinity 33",
+    "arrow": "Heading South"
+   },
    "profile": {
     "energy": 0.352,
     "angularity": 0.212,
@@ -13587,6 +15340,11 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "spiral": "Infinity 33",
+    "money": "Infinity 33",
+    "circle": "Nothing Left (feat. Deb Never & Shlohmo)"
+   },
    "profile": {
     "energy": 0.297,
     "angularity": 0.236,
@@ -13609,7 +15367,12 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "bubble": "Please Tell Me",
     "heart": "Love Thy Enemies"
+   },
+   "hints": {
+    "drop": "XanaX Damage",
+    "skull": "Love Thy Enemies"
    },
    "profile": {
     "energy": 0.697,
@@ -13638,6 +15401,11 @@
     "eye": "Watching a Video",
     "screen": "Watching a Video"
    },
+   "hints": {
+    "clock": "Headache of the Year",
+    "circle": "Eating Away",
+    "arrow": "Eating Away"
+   },
    "profile": {
     "energy": 0.555,
     "angularity": 0.355,
@@ -13660,6 +15428,9 @@
    "tags": [],
    "genre": "lo-fi",
    "motifs": {},
+   "hints": {
+    "scribble": "Ugly"
+   },
    "profile": {
     "energy": 0.352,
     "angularity": 0.458,
@@ -13682,6 +15453,9 @@
    "tags": [],
    "genre": "lo-fi",
    "motifs": {},
+   "hints": {
+    "scribble": "Ugly"
+   },
    "profile": {
     "energy": 0.306,
     "angularity": 0.437,
@@ -13704,6 +15478,10 @@
    "tags": [],
    "genre": "grime",
    "motifs": {},
+   "hints": {
+    "circle": "Nothing Great About Britain",
+    "star": "Nothing Great About Britain"
+   },
    "profile": {
     "energy": 0.993,
     "angularity": 0.812,
@@ -13726,6 +15504,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "skull": "Fully Loaded (feat. Lil Gotit)"
+   },
    "profile": {
     "energy": 0.695,
     "angularity": 0.736,
@@ -13748,6 +15529,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "figure": "Louie",
+    "scribble": "Fucking for a Reason"
+   },
    "profile": {
     "energy": 0.781,
     "angularity": 0.684,
@@ -13770,6 +15555,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.349,
     "angularity": 0.256,
@@ -13792,6 +15578,10 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {},
+   "hints": {
+    "note": "The Paris Concert",
+    "globe": "The Paris Concert"
+   },
    "profile": {
     "energy": 0.474,
     "angularity": 0.444,
@@ -13814,6 +15604,10 @@
    "tags": [],
    "genre": "grime",
    "motifs": {},
+   "hints": {
+    "arrow": "Bullet from a Gun",
+    "skull": "Bullet from a Gun"
+   },
    "profile": {
     "energy": 0.9,
     "angularity": 0.836,
@@ -13836,6 +15630,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "note": "Tryna Beat"
+   },
    "profile": {
     "energy": 0.697,
     "angularity": 0.728,
@@ -13858,6 +15655,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.784,
     "angularity": 0.663,
@@ -13880,6 +15678,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "bird": "Mickey Mouse Clubhouse"
+   },
    "profile": {
     "energy": 0.326,
     "angularity": 0.279,
@@ -13902,6 +15703,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "arrow": "Southside"
+   },
    "profile": {
     "energy": 0.39,
     "angularity": 0.25,
@@ -13924,6 +15728,10 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "skull": "Sinner",
+    "face": "Tattoos"
+   },
    "profile": {
     "energy": 0.294,
     "angularity": 0.29,
@@ -13946,6 +15754,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.318,
     "angularity": 0.217,
@@ -13968,6 +15777,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.357,
     "angularity": 0.253,
@@ -13992,6 +15802,9 @@
    "motifs": {
     "phone": "Phone"
    },
+   "hints": {
+    "figure": "Dad"
+   },
    "profile": {
     "energy": 0.376,
     "angularity": 0.209,
@@ -14014,6 +15827,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "cloud": "Ethereal Dreams"
+   },
    "profile": {
     "energy": 0.359,
     "angularity": 0.253,
@@ -14036,6 +15852,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "flame": "D Phoenix",
+    "globe": "D Phoenix"
+   },
    "profile": {
     "energy": 0.749,
     "angularity": 0.742,
@@ -14060,6 +15880,7 @@
    "motifs": {
     "loops": "Siccadilly Circus"
    },
+   "hints": {},
    "profile": {
     "energy": 0.722,
     "angularity": 0.699,
@@ -14082,6 +15903,7 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.513,
     "angularity": 0.35,
@@ -14104,6 +15926,7 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.526,
     "angularity": 0.366,
@@ -14130,6 +15953,11 @@
     "note": "My Song",
     "drop": "Drown Her"
    },
+   "hints": {
+    "figure": "Drown Her",
+    "cross": "Believe",
+    "flame": "Red Silver Blue"
+   },
    "profile": {
     "energy": 0.535,
     "angularity": 0.537,
@@ -14155,6 +15983,11 @@
     "heart": "Medley: Ike's Rap II / Help Me Love",
     "clock": "For The Good Times"
    },
+   "hints": {
+    "note": "Medley: Ike's Rap II / Help Me Love",
+    "moon": "Black Moses",
+    "cross": "Black Moses"
+   },
    "profile": {
     "energy": 0.429,
     "angularity": 0.318,
@@ -14177,6 +16010,10 @@
    "tags": [],
    "genre": "gospel",
    "motifs": {},
+   "hints": {
+    "figure": "Father Stretch My Hands",
+    "line": "Father Stretch My Hands"
+   },
    "profile": {
     "energy": 0.511,
     "angularity": 0.193,
@@ -14203,6 +16040,11 @@
     "note": "Storm Music",
     "clock": "Morning Thoughts",
     "grid": "Inner City Blues (Make Me Wanna Holler)"
+   },
+   "hints": {
+    "eye": "Reflections",
+    "zigzag": "Storm Music",
+    "cloud": "Morning Thoughts"
    },
    "profile": {
     "energy": 0.487,
@@ -14231,6 +16073,11 @@
     "note": "Piano Player",
     "skull": "NY Is Killing Me"
    },
+   "hints": {
+    "arrow": "Running",
+    "cross": "Ur Soul and Mine",
+    "figure": "Piano Player"
+   },
    "profile": {
     "energy": 0.444,
     "angularity": 0.352,
@@ -14258,6 +16105,10 @@
     "cross": "Any God of Yours",
     "horizon": "Buffed Sky"
    },
+   "hints": {
+    "figure": "Arise Dear Brother",
+    "circle": "Empty Vessels"
+   },
    "profile": {
     "energy": 0.328,
     "angularity": 0.5,
@@ -14281,6 +16132,10 @@
    "genre": "trap",
    "motifs": {
     "heart": "Adore Me"
+   },
+   "hints": {
+    "spiral": "The Lost Files",
+    "note": "The Lost Files EP"
    },
    "profile": {
     "energy": 0.799,
@@ -14307,6 +16162,7 @@
     "heart": "Feel The Love",
     "flame": "Fire"
    },
+   "hints": {},
    "profile": {
     "energy": 0.625,
     "angularity": 0.614,
@@ -14332,6 +16188,11 @@
     "figure": "Human",
     "house": "Home"
    },
+   "hints": {
+    "clock": "Past Lives",
+    "cloud": "Air Conditioning",
+    "line": "How Long Have You Known"
+   },
    "profile": {
     "energy": 0.416,
     "angularity": 0.26,
@@ -14354,6 +16215,11 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {},
+   "hints": {
+    "note": "Steve Lacy's Demo",
+    "eye": "Looks",
+    "flame": "Dark Red"
+   },
    "profile": {
     "energy": 0.295,
     "angularity": 0.117,
@@ -14381,6 +16247,11 @@
     "clock": "Long Time - Intro",
     "money": "Old Money"
    },
+   "hints": {
+    "line": "Long Time - Intro",
+    "drop": "Lean 4 Real (feat. Skepta)",
+    "heart": "Fell In Luv (feat. Bryson Tiller)"
+   },
    "profile": {
     "energy": 0.718,
     "angularity": 0.654,
@@ -14402,7 +16273,13 @@
    "url": "https://open.spotify.com/album/0BsMZIueWsJLWng8A7sE8e",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "bubble": "Can't Tell (feat. T.I. and Boosie BadAzz)"
+   },
+   "hints": {
+    "cloud": "Dream (feat. Yak Gotti)",
+    "phone": "Numbers"
+   },
    "profile": {
     "energy": 0.732,
     "angularity": 0.662,
@@ -14425,6 +16302,9 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {},
+   "hints": {
+    "grid": "N Side"
+   },
    "profile": {
     "energy": 0.319,
     "angularity": 0.197,
@@ -14448,6 +16328,9 @@
    "genre": "cloud rap",
    "motifs": {
     "star": "Trash Star"
+   },
+   "hints": {
+    "scribble": "Trash Star"
    },
    "profile": {
     "energy": 0.328,
@@ -14474,6 +16357,10 @@
     "figure": "Missing Person",
     "rain": "Wrist Cry"
    },
+   "hints": {
+    "face": "Missing Person",
+    "dots": "Sugar"
+   },
    "profile": {
     "energy": 0.403,
     "angularity": 0.288,
@@ -14498,6 +16385,11 @@
    "motifs": {
     "skull": "Working on Dying",
     "figure": "Backstr€€t Boys"
+   },
+   "hints": {
+    "money": "Working on Dying",
+    "clock": "Redlight Moments",
+    "cross": "Under Your Spell"
    },
    "profile": {
     "energy": 0.356,
@@ -14524,6 +16416,10 @@
     "sun": "Golden Boy",
     "figure": "Golden Boy"
    },
+   "hints": {
+    "flame": "Red Light",
+    "face": "Fake News"
+   },
    "profile": {
     "energy": 0.348,
     "angularity": 0.253,
@@ -14546,6 +16442,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "figure": "Lame Niggaz",
+    "diamond": "Flex"
+   },
    "profile": {
     "energy": 0.702,
     "angularity": 0.682,
@@ -14571,6 +16471,10 @@
     "face": "Portrait In Black and Blue",
     "grid": "The Noose of Jah City"
    },
+   "hints": {
+    "wave": "Portrait In Black and Blue",
+    "moon": "Portrait In Black and Blue"
+   },
    "profile": {
     "energy": 0.668,
     "angularity": 0.746,
@@ -14595,6 +16499,11 @@
    "motifs": {
     "figure": "Blue Boy"
    },
+   "hints": {
+    "sun": "Salad Days",
+    "clock": "Salad Days",
+    "wave": "Blue Boy"
+   },
    "profile": {
     "energy": 0.6,
     "angularity": 0.447,
@@ -14617,6 +16526,7 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {},
+   "hints": {},
    "profile": {
     "energy": 0.312,
     "angularity": 0.108,
@@ -14639,6 +16549,11 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {},
+   "hints": {
+    "flower": "Green Eggs & Ham",
+    "money": "Green Eggs & Ham",
+    "arrow": "Throw It"
+   },
    "profile": {
     "energy": 0.374,
     "angularity": 0.197,
@@ -14661,7 +16576,13 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {
+    "bubble": "Words From The Wise",
     "skull": "Live.Shyne.Die"
+   },
+   "hints": {
+    "cloud": "Day Dream",
+    "sun": "Day Dream",
+    "wave": "Go With The Flow"
    },
    "profile": {
     "energy": 0.345,
@@ -14690,6 +16611,11 @@
     "money": "Cash War",
     "car": "Speed It Up"
    },
+   "hints": {
+    "skull": "Cash War",
+    "line": "Richard Millie Plain",
+    "heart": "Baby Birkin"
+   },
    "profile": {
     "energy": 0.733,
     "angularity": 0.668,
@@ -14712,6 +16638,10 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {},
+   "hints": {
+    "flame": "Dark Red",
+    "moon": "Dark Red"
+   },
    "profile": {
     "energy": 0.358,
     "angularity": 0.126,
@@ -14734,6 +16664,9 @@
    "tags": [],
    "genre": "post-punk",
    "motifs": {},
+   "hints": {
+    "grid": "Biscuit Town"
+   },
    "profile": {
     "energy": 0.677,
     "angularity": 0.767,
@@ -14756,6 +16689,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {},
+   "hints": {
+    "star": "Glow Up"
+   },
    "profile": {
     "energy": 0.798,
     "angularity": 0.733,

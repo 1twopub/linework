@@ -3,7 +3,7 @@
 import * as spotify from './spotify.js';
 import { GENRES } from './mapping.js';
 import { MOTIF_LABELS } from './analyze.js';
-import { MOTIFS, genreFromArtistGenres, motifsFromText, profileFor, loadCatalog } from './catalog.js';
+import { MOTIFS, genreFromArtistGenres, motifsFromText, hintsFromText, profileFor, loadCatalog, SOUND_MOTIFS } from './catalog.js';
 import * as mb from './musicbrainz.js';
 
 const $ = (id) => document.getElementById(id);
@@ -141,10 +141,10 @@ async function build() {
     for (const { album: al, picked } of list) {
       const tags = tagsByArtist.get(mb.normalize(al.artists?.[0]?.name))?.tags || [];
       const genre = genreFromArtistGenres(tags);
-      const motifs = motifsFromText([
-        { text: al.name, weight: 3 },
-        ...picked.map((text) => ({ text, weight: 2 })),
-      ], (al.artists || []).map((x) => x.name));
+      const texts = [{ text: al.name, weight: 3 }, ...picked.map((text) => ({ text, weight: 2 }))];
+      const exclude = (al.artists || []).map((x) => x.name);
+      const motifs = motifsFromText(texts, exclude);
+      const hints = hintsFromText(texts, exclude, motifs);
       const rec = {
         id: al.id,
         name: al.name,
@@ -156,6 +156,7 @@ async function build() {
         tags: tags.slice(0, 6).map((t) => t.name),
         genre,
         motifs,
+        hints,
         profile: profileFor(genre, al.id),
         edited: false,
       };
@@ -211,10 +212,14 @@ function render() {
 
   const noGenre = rs.filter((r) => !r.genre).length;
   const noMotif = rs.filter((r) => !Object.keys(r.motifs || {}).length).length;
+  const withHint = rs.filter((r) => Object.keys(r.motifs || {}).length || Object.keys(r.hints || {}).length).length;
+  const withAny = rs.filter((r) => Object.keys(r.motifs || {}).length || Object.keys(r.hints || {}).length || SOUND_MOTIFS[r.genre]).length;
   $('stats').innerHTML = `
     <div><b>${rs.length}</b><span>records</span></div>
     <div><b>${rs.length - noGenre}</b><span>with a genre</span></div>
-    <div><b>${rs.length - noMotif}</b><span>with a motif</span></div>`;
+    <div><b>${rs.length - noMotif}</b><span>motif in title</span></div>
+    <div><b>${withHint}</b><span>+ title hints</span></div>
+    <div><b>${withAny}</b><span>+ sound</span></div>`;
 
   const counts = Object.fromEntries(MOTIFS.map((m) => [m, 0]));
   for (const r of rs) for (const m of Object.keys(r.motifs || {})) counts[m]++;
@@ -241,6 +246,8 @@ function render() {
         <div class="rec-edit">
           <select class="genre" aria-label="Genre for ${esc(r.name)}">${genreOptions(r.genre)}</select>
           ${motifs.map(([m, why]) => `<button class="tag on" data-remove="${esc(m)}" title="From “${esc(why)}”. Tap to remove.">${esc(m)} ×</button>`).join('')}
+          ${Object.entries(r.hints || {}).map(([m, why]) => `<span class="tag hint" title="Hinted by “${esc(why)}”">~${esc(m)}</span>`).join('')}
+          ${!motifs.length && !Object.keys(r.hints || {}).length && SOUND_MOTIFS[r.genre] ? `<span class="tag hint" title="From its ${esc(r.genre)} sound">♪ ${esc(SOUND_MOTIFS[r.genre])}</span>` : ''}
           <select class="addmotif" aria-label="Add a motif"><option value="">+ motif</option>${unused.map((m) => `<option value="${m}">${esc(MOTIF_LABELS[m])}</option>`).join('')}</select>
         </div>
       </div>

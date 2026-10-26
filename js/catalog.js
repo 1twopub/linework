@@ -46,6 +46,7 @@ export const MOTIF_PATTERNS = {
   car: ['cars?', 'rid(e|es|ing|in)', 'whips?', 'driv(e|es|er|ing|in)', 'benz', 'mercedes', 'porsche', 'trucks?', 'coupe', 'lambo', 'lamborghini', 'bentley', 'ferrari', 'cadillac', 'caddy', 'chevy', 'impala', 'jeep', 'racing', 'race', 'garage', 'parking', 'speed(ing)?', 'vroom', 'cruis(e|ing|in)'],
   phone: ['phones?', 'call(s|ing|in)?', 'hotline', 'text(s|ing|in|ed)?', 'cell', 'dial(ing)?', 'voicemail', 'facetime', 'telephone', 'ringtone', 'iphone', 'blackberry', 'pager', 'messages?'],
   screen: ['tv', 'television', 'screens?', 'videos?', 'movies?', 'films?', 'cameras?', 'pictures?', 'photos?', 'cinema', 'channels?', 'showtime', 'broadcast', 'youtube', 'stream(ing)?', 'theater', 'theatre', 'soundtrack'],
+  bubble: ['talk(s|ing|in)?', 'speak(s|ing|in)?', 'said', 'tell(s|ing|in)?', 'told', 'stor(y|ies)', 'words?', 'voices?', 'conversations?', 'chat(ter|ting)?', 'gossip', 'rumou?rs?', 'whispers?', 'shout(s|ing|out)?', 'scream(s|ing|in)?', 'lies', 'liar', 'truth', 'ask(ed|ing|in)?', 'answers?', 'questions?', 'languages?', 'speech', 'interview', 'quotes?'],
   abstract: ['shapes?', 'forms?', 'abstract(ion)?', 'gestures?', 'figures?', 'sketch(es)?', 'drawings?', 'lines and', 'colou?rs?', 'art'],
 };
 
@@ -68,6 +69,7 @@ export const RELATED = {
   flame: ['drop', 'sun', 'zigzag'], money: ['wave', 'box', 'line'], note: ['line', 'bird', 'eye'],
   clock: ['circle', 'face', 'globe'], globe: ['circle', 'clock', 'sun'], skull: ['face', 'cross', 'eye'],
   car: ['box', 'circle', 'line'], phone: ['box', 'screen'], screen: ['box', 'phone', 'grid'],
+  bubble: ['cloud', 'face', 'phone'],
   abstract: ['scribble'],
 };
 
@@ -172,6 +174,94 @@ export function motifsFromText(texts, exclude = []) {
   );
 }
 
+// Title hints: words that suggest a motif without naming it ("baby" → heart, "east" → arrow on a compass).
+// Weaker than a title naming the thing; only used when the title doesn't already name that motif.
+export const HINT_PATTERNS = {
+  heart: ['babe', 'bae', 'boo', 'honey', 'sweet(ie|ness|er|est)?', 'luv', 'crush', '(girl|boy)friends?', 'wife', 'husband', 'marr(y|ied|iage)', 'wedding', 'passion', 'desire', 'miss you', 'need you', 'want you', 'together', 'pink', 'affection', 'tender', 'intimate', 'devotion', 'soulmate', 'beloved', 'xoxo', 'ily', 'baby'],
+  cloud: ['minds?', 'thoughts?', 'think(ing|in)?', 'dream(s|ing|in|y|er|ers)?', 'daydream', 'imagin(e|ation)', 'memor(y|ies)', 'remember', 'forget', 'wonder(ing|in)?', 'ideas?', 'brain', 'conscious(ness)?', 'meditat(e|ion)', 'white', 'purple', 'gr[ae]y', 'weather', 'air', 'breath(e|ing)?', 'float(ing|in)?', 'dope', 'kush', 'weed', 'blunts?', 'joints?', 'stoned', 'vibe(s|z)?', 'chill(in|ing)?'],
+  circle: ['roll(in|ing|er|ers)?', 'skating', 'wheel', 'pac-?man', 'packman', 'lunch(room)?', 'dinner', 'breakfast', 'food', 'eat(ing|in)?', 'munch', 'snack', 'hungry', 'pizza', 'burgers?', 'tacos?', 'plates?', 'nothing', 'none', 'zero', 'empty', 'void', 'hollow', 'around', 'again', 'repeat', 'cycle', 'whole', 'complete', 'balls?', 'coins?', 'donuts?', 'pie', 'apples?', 'oranges?', 'cookies?', 'globe'],
+  figure: ['boyz', 'girlz', 'gurl', 'grl', 'hobos?', 'tony', 'ben', 'sally', 'agnes', 'junie', 'mary', 'john(ny)?', 'jack', 'mike', 'bobby', 'billy', 'jimmy', 'joe', 'sam', 'sue', 'annie', 'lucy', 'lola', 'linda', 'nancy', 'penelope', 'louie', 'louis', 'eddie', 'stagolee', 'mcgerk', 'kids?', 'child', 'sons?', 'daughters?', 'father', 'mother', 'mom(ma|my)?', 'dad(dy)?', 'brothers?', 'sisters?', 'family', 'friends?', 'homie(s)?', 'bro', 'gang', 'crew', 'squad', 'team', 'nobody', 'somebody', 'everybody', 'anybody', 'she', 'he', 'her', 'him', 'myself', 'yourself', 'self', 'alone', 'lonely', 'solo', 'hero(es)?', 'villains?', 'savages?', 'freaks?', 'bitch(es)?', 'hoes?', 'thugs?', 'gangsters?', 'hustlers?', 'players?', 'pimps?', 'guys?', 'dude', 'dawg', 'folks', 'crowd', 'n[i*]gg?as?', 'n[i*]gg?az'],
+  note: ['jam(s)?', 'riddims?', 'cypher', 'ska', 'dj', 'remix', 'ep', 'lp', 'cd', 'demo', 'beats?', 'party', 'parties', 'partying', 'club', 'dancing', 'disco', 'groove', 'funk(y)?', 'jazz', 'rock', 'punk', 'hip hop', 'hip-hop', 'rap', 'dub(s)?', 'mixtapes?', 'remixes', 'soul', 'blues', 'bass', 'drums?', '808s?', 'tracks?', 'playlist', 'albums?', 'records?', 'vinyl', 'studio', 'concert', 'stage', 'mic', 'microphone', 'opera', 'orchestra', 'choir', 'band', 'autotune', 'swing', 'allegro', 'concerto', 'sonata', 'overture', 'aria', 'singles'],
+  arrow: ['run(s|ning|nin)?', 'walk(s|ing|in)?', 'step(s|pin|ping)?', 'steppin', 'feet', 'foot', 'mov(e|es|ing|in|ement)', 'motion', 'travel(s|ing|in)?', 'journey', 'gone', 'away', 'leav(e|ing|in)', 'escape', 'chase', 'pull up', 'run up', 'east(side)?', 'west(side)?', 'north(side)?', 'south(side)?', 'turn(s|t|ing|in|ed)?', 'faster', 'fast', 'quick', 'rush', 'throttle', 'jump(s|ing|in)?', 'throw', 'shoot(ing|in)?', 'shots?', 'bullets?', 'point', 'next', 'ahead', 'flight'],
+  star: ['santa', 'christmas', 'xmas', 'champ(ion)?', 'masters?', 'vanguard', 'visionar(y|ies)', 'icon(ic)?', 'multiverse', 'gravity', 'demigods?', 'best', 'greatest', 'hits', 'legend(s|ary)?', 'super', 'famous', 'fame', 'celebrity', 'champions?', 'winners?', 'win(s|ning|nin)?', 'top', 'number one', 'first', 'platinum', 'shining', 'bright', 'glow(ing)?', 'sparkl(e|ing)', 'wish(es)?', 'lucky', 'luck', 'magic(al)?', 'miracles?', 'great', 'awesome', 'space', 'galactic', 'cosmos', 'astronaut', 'rocket', 'aliens?', 'pluto', 'mars', 'saturn', 'venus', 'jupiter', 'neptune', 'mercury', 'nova', 'astro', 'orion'],
+  crown: ['proper', 'etiquette', 'manners', 'noble', 'boss(es)?', 'chief', 'ceo', "don(?!['’])", 'mogul', 'rulers?', 'rules?', 'presidents?', 'presidential', 'leaders?', 'kingpin', 'highness', 'tycoon'],
+  diamond: ['swag(ger|gin|gy)?', 'flex(in|ing)?', 'fresh', 'luxury', 'designer', 'gucci', 'prada', 'versace', 'louis', 'vuitton', 'cartier', 'rolex', 'patek', 'chains?', 'necklace', 'earrings?', 'bust down', 'flawless', 'expensive', 'glitter', 'glam(our)?', 'shiny', 'sparkle', 'perfect', 'rare', 'precious'],
+  flower: ['life', 'living', 'alive', 'pretty', 'beautiful', 'beauty', 'gorgeous', 'cute', 'lovely', 'spring', 'green', 'nature', 'plants?', 'trees?', 'leaf', 'leaves', 'forest', 'woods?', 'grass', 'herb', 'peach(es)?', 'cherr(y|ies)', 'fruits?', 'plums?', 'seeds?', 'grow(ing|in|th)?', 'paradise', 'eden'],
+  drop: ['slime(ball|balls|y|s)?', 'wet', 'dew', 'lean', 'codeine', 'sip(s|pin|ping)?', 'drink(s|ing|in)?', 'drank', 'liquor', 'wine', 'champagne', 'henny', 'alcohol', 'cups?', 'soda', 'fanta', 'sprite', 'juice', 'milk', 'blood(y)?', 'bleed(ing|in)?', 'slime', 'slimy', 'melt(ing|in)?', 'pour(ing|in)?', 'spill', 'pills?', 'drugs?', 'molly', 'percs?', 'percocet', 'xans?', 'xanax', 'potion', 'sauce', 'syrup'],
+  flame: ['warmth', 'volcanic', 'rebels?', 'red', 'rage', 'angry', 'anger', 'mad', 'hate', 'haters?', 'fury', 'furious', 'spicy', 'pepper', 'heat(ed)?', 'warm', 'passion', 'dragon', 'phoenix', 'volcano', 'explode', 'explosion'],
+  skull: ['ammo', 'm-?16', 'pistolz', 'satan(ic)?', 'sinners?', 'damaged', 'suffer(ing)?', 'hurt(in|ing|s)?', 'trouble', 'oblivion', 'lobotomy', 'kkk', 'loaded', 'troll', 'bad', 'violen(ce|t)', 'wars?', 'guns?', 'glocks?', 'pistols?', 'rifle', 'choppa', 'shooters?', 'opps?', 'enem(y|ies)', 'beef', 'monsters?', 'dirty', 'danger(ous)?', 'crimes?', 'criminal', 'suicide', 'poison', 'toxic', 'horror', 'scary', 'fear', 'nightmares?', 'terror', 'sins?', 'wicked', 'doom', 'blacula', 'vampires?', 'apocalypse', 'end of the world', 'graveyard', 'halloween', 'helloween', 'witch(es)?', 'curse(d)?', 'grim', 'massacre'],
+  box: ['tables?', 'seats?', 'dresser', 'dishwasher', 'chairs?', 'couch', 'sofa', 'desk', 'shelf', 'catalog', 'deleted', 'pressed', 'tapes?', 'collection', 'anthology', 'library', 'archives?', 'vol(ume)?s?', 'bricks?', 'safe', 'vault', 'gifts?', 'trunk', 'briefcase', 'suitcase', 'cases?', 'compilation', 'catalogu?e', 'edition', 'set', 'blocks?', 'container', 'basket', 'chest'],
+  grid: ['town', 'hood', 'ave(nue)?', 'boulevard', 'blvd', 'side', 'ghetto', 'projects', 'trenches', 'slums?', 'suburbs?', 'uptown', 'downtown', 'midtown', 'neighbou?rhood', 'district', 'ward', 'zone', 'area', 'metro', 'urban', 'concrete', 'corners?', 'plaza', 'market', 'mall'],
+  globe: ['arizona', 'montana', 'nevada', 'colorado', 'alabama', 'mississippi', 'tennessee', 'kentucky', 'louisiana', 'oklahoma', 'kansas', 'missouri', 'michigan', 'minnesota', 'wisconsin', 'iowa', 'oregon', 'washington', 'utah', 'idaho', 'alaska', 'hawaii', 'boston', 'seattle', 'denver', 'dallas', 'austin', 'phoenix', 'portland', 'nashville', 'jersey', 'gaza', 'palestine', 'israel', 'iran', 'iraq', 'syria', 'turkey', 'greece', 'montreal', 'vancouver', 'sydney', 'australia', 'latin(a|o)?', 'gothlantastan', 'land', 'lands', 'states', 'america(n|ns)?', 'usa', 'u\\.s\\.a\\.?', 'africa(n)?', 'europe(an)?', 'asia(n)?', 'japan(ese)?', 'tokyo', 'china', 'chinese', 'london', 'paris', 'france', 'french', 'brazil(ian)?', 'mexic(o|an)', 'jamaica(n)?', 'kingston', 'atlanta', 'atl', 'detroit', 'memphis', 'chicago', 'chi-?town', 'chiraq', 'new york', 'nyc', 'brooklyn', 'bronx', 'harlem', 'houston', 'texas', 'miami', 'florida', 'california', 'cali', 'los angeles', 'compton', 'oakland', 'bay area', 'philly', 'philadelphia', 'toronto', 'canada', 'england', 'uk', 'ireland', 'irish', 'sweden', 'swedish', 'stockholm', 'berlin', 'german(y)?', 'russia(n)?', 'nigeria(n)?', 'lagos', 'ghana', 'haiti(an)?', 'cuba(n)?', 'puerto rico', 'dubai', 'osaka', 'seoul', 'korea(n)?', 'ital(y|ian)', 'rome', 'spain', 'spanish', 'india(n)?', 'egypt(ian)?', 'babylon', 'zion', 'ethiopia(n)?', 'vegas', 'nola', 'new orleans', 'georgia', 'carolina', 'virginia', 'ohio', 'cleveland', 'baltimore', 'freetown', 'foreign', 'abroad', 'overseas', 'tour(ing)?', 'countr(y|ies)', 'nation(al)?', 'outer space', 'east coast', 'west coast', 'world'],
+  wave: ['flow', 'seahorse', 'river', 'rinsed', 'wash(ed)?', 'blue', 'beach', 'islands?', 'coast', 'sail(ing)?', 'boats?', 'ships?', 'yacht', 'swim(ming)?', 'pool', 'bath', 'lake', 'bay', 'harbou?r', 'waterfall', 'tsunami', 'flood', 'fish(es|ing)?', 'dolphins?', 'whales?', 'sharks?', 'mermaids?', 'calm', 'smooth', 'cool', 'deep', 'sea', 'marine', 'aqua', 'navy', 'sailor', 'anchor', 'dive', 'diving'],
+  moon: ['nights?', 'dark(ness|er|est)?', 'black', 'sleep(ing|in|less)?', 'asleep', 'bed(time)?', 'nocturn(al|e)', 'evening', 'dusk', 'twilight', 'shadows?', 'lights out', 'insomnia', 'werewolf', 'goth(ic)?', 'after hours', 'late night', '3am', '4am', 'dreamland'],
+  sun: ['shade', 'degrees', 'mirage', 'desert', 'days?', 'daytime', 'lights?', 'yellow', 'orange', 'happy', 'happiness', 'joy(ful)?', 'tropical', 'sunday', 'positive', 'holiday', 'vacation', 'shine', 'good vibes', 'bright side', 'rays', 'beam', 'glory', 'easter'],
+  dots: ['cold', 'winter', 'freez(e|ing|in)', 'frozen', 'frost(y)?', 'sprinkles?', 'salt', 'sugar', 'cand(y|ies)', 'popcorn', 'crumbs', 'sand', 'spots?', 'polka', 'specks?', 'gum', 'chicken', 'beans', 'rice', 'grain', 'pepper', 'stars'],
+  zigzag: ['energy', 'power(ful)?', 'zap', 'buzz(ing|in)?', 'bang(s|ing|in|er)?', 'boom', 'blast', 'crash', 'punch', 'fight(s|ing|in|er|ers)?', 'broken', 'break(s|ing|in)?', 'crack(ed|s)?', 'glitch', 'loud', 'turbo', 'nitro', 'alerts?', 'alarm', 'warning', 'sirens?', 'hype', 'turnt', 'rage', 'wild out', 'mosh', 'storm'],
+  mountain: ['stronger', 'strong', 'hard', 'tough', 'ceilings?', 'higher', 'rise', 'rising', 'level up', 'elevat(e|ed|ion)', 'above', 'heights?', 'stairs', 'stairway', 'stones?', 'towers?', 'skyscrapers?', 'rock bottom', 'top floor', 'upper', 'grand', 'giant', 'big', 'huge', 'tall'],
+  spiral: ['trip(py|pin|ping|s)?', 'lost', 'confus(ed|ion)', 'spin(s|ning|nin)?', 'infinit(e|y)', 'endless', 'eternal', 'eternity', 'maze', 'hypnosis', 'deja vu', 'paranoi(a|d)', 'anxiety', 'insane', 'psycho', 'psychedelic', 'mystery', 'mysterious', 'twilight zone', 'time machine', 'drugs'],
+  scribble: ['shit', 'fuck(ing|in|ed)?', 'damn', 'dumb', 'stupid', 'silly', 'fools?', 'foolish', 'clowns?', 'ugly', 'weird', 'strange', 'bizarre', 'random', 'freestyle', 'wtf', 'lol', 'funny', 'jokes?', 'comedy', 'prank', 'nonsense', 'gibberish', 'mumble', 'goofy', 'trash', 'garbage', 'junk'],
+  line: ['long', 'slow(ly)?', 'steady', 'stretch', 'simple', 'plain', 'flat', 'single', 'far', 'linear', 'strings?', 'rope', 'thread', 'cable', 'edge', 'limits?', 'boundary', 'cuts?', 'slice', 'knife', 'swords?', 'blades?', 'razor', 'needle', 'stick', 'lane', 'train', 'trains'],
+  eye: ['sentry', 'guard(ian)?', 'watchers?', 'controversy', 'concerned', 'look(s|ing|in)?', 'lookin', 'seen', 'witness', 'views?', 'spy', 'observe', 'focus', 'peep', 'clear', 'shades', 'glasses', 'sunglasses', 'reflect(ion|ions|ing)?', 'envy', 'jealous(y)?', 'evil eye', 'third eye', 'wink', 'notice', 'appear', 'disappear', 'invisible', 'hidden', 'hide', 'secret'],
+  face: ['tattoos?', 'piercings?', 'sad', 'laugh(s|ing|in|ter)?', 'moods?', 'moody', 'emotion(s|al)?', 'masks?', 'masked', 'makeup', 'teeth', 'tongues?', 'nose', 'hair', 'skin', 'selfie', 'beard', 'honest(y)?', 'fake', 'shy', 'blush', 'grin', 'frown', 'cheeks?', 'kisses', 'yourself', 'person'],
+  house: ['traps?', 'trap(pin|ping|per|pers)', 'stay(ing|in)?', 'inside', 'indoors', 'welcome', 'basement', 'attic', 'hotel', 'motel', 'condo', 'hut', 'shelter', 'neighbou?rs?', 'household', 'domestic', 'cozy', 'lodge', 'cottage'],
+  cross: ['spells?', 'rituals?', 'heal(in|ing)?', 'krishna', 'pilgrimage', 'allah', 'misa', 'buddha', 'om', 'karma', 'soul', 'spirit(s|ual)?', 'hope', 'grace', 'mercy', 'forgiv(e|en|eness)', 'sacred', 'divine', 'prophet', 'moses', 'bible', 'salvation', 'redemption', 'redeem(er)?', 'praise', 'worship', 'testimony', 'glory', 'believe', 'belief', 'peace', 'holy ghost', 'pastor', 'preacher', 'cathedral', 'temple', 'chapel', 'x'],
+  bird: ['icarus', 'spiderr?', 'monky', 'free(dom)?', 'dogs?', 'doggy', 'dawgs', 'cats?', 'kitty', 'rabbits?', 'bunny', 'monkeys?', 'apes?', 'gorilla', 'lions?', 'tigers?', 'bears?', 'wolf', 'wolves', 'fox', 'horses?', 'pony', 'pigs?', 'goats?', 'cows?', 'bulls?', 'snakes?', 'rats?', 'mouse', 'mice', 'bugs?', 'spiders?', 'bees?', 'butterfl(y|ies)', 'chickens?', 'ducks?', 'frogs?', 'lizards?', 'dragons?', 'bats?', 'crabs?', 'snails?', 'turtles?', 'pandas?', 'zebras?', 'giraffes?', 'elephants?', 'dinosaurs?', 'animals?', 'creatures?', 'zoo', 'jungle', 'wild', 'airplane', 'planes?', 'jets?', 'kites?'],
+  car: ['motors?', 'engines?', 'gas', 'fuel', 'tank', 'bikes?', 'motorcycles?', 'bus', 'taxi', 'cabs?', 'limo', 'vans?', 'uber', 'tires?', 'traffic', 'license', 'roads?', 'highway', 'freeway', 'skrrt', 'skrt', 'brakes', 'turbo', 'hood rich'],
+  phone: ['hello', 'holla', 'hit me up', 'numbers?', 'digits', 'dm', 'snap(chat)?', 'insta(gram)?', 'twitter', 'tiktok', 'online', 'internet', 'wi-?fi', 'signal', 'connect(ed|ion)?', 'e-?mail', 'mail', 'letters?', 'reach'],
+  screen: ['games?', 'gamer', 'play(ing|in)?', 'playstation', 'xbox', 'nintendo', 'sega', 'arcade', 'anime', 'cartoons?', 'comics?', 'netflix', 'hollywood', 'actors?', 'actress', 'scenes?', 'episodes?', 'sequel', 'trailer', 'premiere', 'director', 'script', 'drama', 'reality', 'vhs', 'dvd', 'computer', 'laptop', 'digital', 'cyber', 'matrix', 'virtual', 'simulation', 'npcs?', 'motion picture', 'show'],
+  clock: ['(19|20)\\d\\d', "'\\d\\ds", 'nineties', 'eighties', 'seventies', 'tuesdays?', 'saturdays?', 'mondays?', 'fridays?', 'weekend', 'late', 'early', 'soon', 'wait(ing|in)?', 'days', 'weeks?', 'years?', 'months?', 'ages?', 'old', 'young', 'before', 'after', 'past', 'future', 'history', 'birthday', 'anniversary', 'new year', 'century', 'decade', 'generations?', 'era', 'moments?', 'instant', 'pause', 'patience', 'delay', 'retro', 'vintage', 'classic', 'eternal', 'then', 'still', 'daily', 'everyday', 'overtime'],
+  money: ['thousands?', 'nickels?', 'dimes?', 'quarters?', 'pennies', 'double', 'triple', '\\d{2,4}', 'nine', 'dolla', 'mvp', 'bricks?', 'jug(g|gin|ging|gs)?', 'juug', 'finesse(r|rs|in|ing)?', 'hustl(e|er|ers|in|ing)', 'grind(ing|in)?', 'work(in|ing)?', 'paper', 'cheese', 'stacks?', 'lotto', 'lottery', 'jackpot', 'casino', 'bets?', 'gambl(e|ing)', 'dice', 'deals?', 'dealers?', 'plugs?', 'business', 'sales?', 'buy', 'sell(ing|in)?', 'price', 'cost', 'cheap', 'pay(s|ing|day)?', 'tax(es)?', 'rent', 'bills?', 'invest(ment|ments)?', 'stocks?', 'crypto', 'bitcoin', 'ball(in|ing|er|ers)', 'scam(mer|mers|ming|min)?', 'green', 'gold', 'grams?', 'pounds?', 'ounces?', 'zips?', 'birds'],
+  bubble: ['woah', 'whoa', 'nah', 'gimm(e|ie)', 'wow', 'huh', 'okay', 'ok', 'relate', 'say(s|ing|in)?', 'sorry', 'thank(s| you)?', 'names?', 'call me', 'hey', 'yo', 'listen', 'hear', 'heard', 'conversate', 'discuss', 'argue', 'argument', 'promise', 'swear', 'confess(ion)?', 'secrets?', 'explain', 'message', 'letter', 'reply', 'respond', 'excuse', 'excuses', 'blah', 'yap', 'talkin'],
+};
+for (const k of Object.keys(HINT_PATTERNS)) if (!HINT_PATTERNS[k].length) delete HINT_PATTERNS[k];
+
+const HINT_RE = Object.fromEntries(
+  Object.entries(HINT_PATTERNS).map(([m, words]) => [m, new RegExp(`\\b(${words.join('|')})\\b`, 'i')]),
+);
+
+// Sound: when a title gives nothing to go on, a record's genre suggests a motif (drill → zigzag).
+// The weakest tier, so a drawing only lands on these when no title fits.
+export const SOUND_MOTIFS = {
+  ambient: 'cloud', 'dream pop': 'cloud', shoegaze: 'wave', folk: 'flower', 'singer-songwriter': 'heart', jazz: 'spiral',
+  soul: 'heart', funk: 'loops', disco: 'star', house: 'box', techno: 'grid', 'drum and bass': 'zigzag', synthpop: 'star',
+  'new wave': 'zigzag', 'post-punk': 'zigzag', punk: 'scribble', hardcore: 'zigzag', noise: 'scribble', industrial: 'grid',
+  metal: 'skull', grunge: 'scribble', 'psychedelic rock': 'spiral', krautrock: 'line', minimal: 'line', classical: 'note',
+  'hip hop': 'grid', 'trip hop': 'rain', 'lo-fi': 'dots', reggae: 'sun', 'bossa nova': 'wave', blues: 'rain', country: 'horizon',
+  'indie rock': 'line', experimental: 'scribble', electronica: 'grid', gospel: 'cross', trap: 'money', 'cloud rap': 'cloud',
+  drill: 'zigzag', grime: 'zigzag', 'r&b': 'heart', dancehall: 'wave', latin: 'sun', comedy: 'face',
+};
+
+// Hints in titles, skipping motifs the titles already name outright.
+export function hintsFromText(texts, exclude = [], strong = {}) {
+  const names = exclude.map((n) => String(n || '').trim()).filter((n) => n.length >= 3)
+    .map((n) => new RegExp(`\\b${n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}('s|s)?\\b`, 'gi'));
+  const scores = {};
+  const where = {};
+  for (const { text, weight } of texts) {
+    if (!text) continue;
+    let clean = cleanTitle(text);
+    for (const re of names) clean = clean.replace(re, ' ');
+    for (const [m, re] of Object.entries(HINT_RE)) {
+      if (strong[m] !== undefined || !re.test(clean)) continue;
+      scores[m] = (scores[m] || 0) + weight;
+      if (!where[m] || weight > where[m].weight) where[m] = { text, weight };
+    }
+  }
+  return Object.fromEntries(
+    Object.keys(scores).sort((a, b) => scores[b] - scores[a]).slice(0, 3).map((m) => [m, where[m].text]),
+  );
+}
+
+// Which tier connects a record to a motif: 'title', 'hint', 'sound', or null.
+export function motifTier(r, motif) {
+  if (r.motifs?.[motif] !== undefined) return 'title';
+  if (r.hints?.[motif] !== undefined) return 'hint';
+  const titleless = !Object.keys(r.motifs || {}).length && !Object.keys(r.hints || {}).length;
+  if (titleless && r.genre && SOUND_MOTIFS[r.genre] === motif) return 'sound';
+  return null;
+}
+
 function hashString(s) {
   let h = 0x811c9dc5;
   for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); }
@@ -205,14 +295,19 @@ export function matchRelease(analysis, catalog) {
   const motif = analysis.motif;
   const related = RELATED[motif] || [];
 
+  // Strength of each kind of link: the title names the drawing > hints at it > the record's sound suits it
+  // > the title names a related shape.
+  const TIER = { title: 1.4, hint: 0.95, sound: 0.6 };
   const scored = releases.map((r) => {
-    const motifs = r.motifs || {};
     let motifScore = 0;
     let via = null;
-    if (motifs[motif] !== undefined) { motifScore = 1.4; via = { motif, text: motifs[motif] }; }
-    else {
-      const rel = related.find((m) => motifs[m] !== undefined);
-      if (rel) { motifScore = 0.45; via = { motif: rel, text: motifs[rel] }; }
+    const tier = motifTier(r, motif);
+    if (tier) {
+      motifScore = TIER[tier];
+      via = { motif, kind: tier, text: tier === 'title' ? r.motifs[motif] : tier === 'hint' ? r.hints[motif] : r.genre };
+    } else {
+      const rel = related.find((m) => r.motifs?.[m] !== undefined);
+      if (rel) { motifScore = 0.45; via = { motif: rel, kind: 'related', text: r.motifs[rel] }; }
     }
     const dist = distance(analysis.features, r.profile);
     return { r, via, dist, score: motifScore - dist };

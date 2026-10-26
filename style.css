@@ -304,3 +304,5 @@ a.submit.small-btn { display: inline-flex; text-decoration: none; }
   .post { grid-template-columns: 1fr; }
   .post-art { width: 100%; height: auto; aspect-ratio: 1; }
 }
+.tag.hint { background: transparent; border-style: dashed; color: var(--ink-2); }
+.stats { grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); }

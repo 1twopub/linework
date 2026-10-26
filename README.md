@@ -6,7 +6,7 @@ A static site: no build step, no server, no dependencies. It runs from GitHub Pa
 
 ## How a drawing becomes a record
 
-1. **Content (the motif).** Each stroke is classified (circle, spiral, star, zigzag, wave, peak, line, box, heart, crescent, almond, cloud, flower, bird, arrow, crown, diamond, drop, flame, S-curve, scribble, dot…), then the whole drawing is read as one of 39 motifs: a face, sun, circle, spiral, star, grid, rainfall, field of dots, zigzag, peak, wave, loops, horizon, single line, scribble, heart, house, flower, crescent moon, eye, cross, box, arrow, stick figure, bird, cloud, crown, diamond, drop, flame, dollar sign, music note, clock, globe, skull (a face with X eyes), car, phone (a tall rectangle), screen (a wide rectangle), or an abstraction. The motif picks the search keyword, e.g. a spiral searches for *spiral*, *vertigo*, *galaxy*, *hypnotic*.
+1. **Content (the motif).** Each stroke is classified (circle, spiral, star, zigzag, wave, peak, line, box, heart, crescent, almond, cloud, flower, bird, arrow, crown, diamond, drop, flame, S-curve, scribble, dot…), then the whole drawing is read as one of 40 motifs: a face, sun, circle, spiral, star, grid, rainfall, field of dots, zigzag, peak, wave, loops, horizon, single line, scribble, heart, house, flower, crescent moon, eye, cross, box, arrow, stick figure, bird, cloud, crown, diamond, drop, flame, dollar sign, music note, clock, globe, skull (a face with X eyes), car, phone (a tall rectangle), screen (a wide rectangle), speech bubble, or an abstraction. The motif picks the search keyword, e.g. a spiral searches for *spiral*, *vertigo*, *galaxy*, *hypnotic*.
 2. **Linework (the character).** Seven measurements, each 0–1:
    speed of drawing, angularity (corners), curvature, ink density, chaos (strokes, jitter, crossings), lift (how high on the page), and symmetry.
    These are matched against profiles for 44 genres (including trap, cloud rap, drill, grime, R&B, dancehall, Latin and comedy) (jagged + fast + dense → punk or metal; slow, flowing, sparse → ambient or bossa nova) and choose an era.
@@ -37,7 +37,12 @@ All of this is in `js/analyze.js` (drawing analysis) and `js/mapping.js` (keywor
 
 To update the catalog later, add records to the playlist and build again. A playlist of 150–500 albums with varied titles gives the best spread; titles that mention suns, rain, stars, waves, mountains, cities, faces and so on give drawings something to latch onto.
 
-How matching works: an exact motif match counts most, a related motif (a sun drawing → a "moon" record) a little, and among those the record whose genre profile is closest to the drawing's linework wins. The pick is deterministic, so the same drawing always gives the same record.
+How matching works: each record is linked to motifs in three tiers, strongest first:
+1. **Title**: a title names the thing ("Moonlight" → moon).
+2. **Title hint**: a title suggests it ("baby" → heart, "east" → arrow, a city → globe, "1988" → clock). The word lists are `HINT_PATTERNS` in `js/catalog.js`.
+3. **Sound**: only for records whose titles give nothing, the genre suggests a motif (drill → zigzag, reggae → sun). See `SOUND_MOTIFS`.
+
+A related motif in a title (a sun drawing → a "moon" record) counts a little. Among the best-linked records, the one whose genre profile is closest to the drawing's linework wins. The result card says which tier linked the record. The pick is deterministic, so the same drawing always gives the same record.
 
 ### The included catalogs
 

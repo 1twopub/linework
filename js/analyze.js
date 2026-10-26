@@ -74,6 +74,7 @@ export const MOTIF_LABELS = {
   car: 'A car',
   phone: 'A phone',
   screen: 'A screen',
+  bubble: 'A speech bubble',
   abstract: 'An abstraction',
 };
 
@@ -343,6 +344,7 @@ function classifyStroke(s) {
     if (isHeart(s, aspect)) return 'heart';
     if (isDiamond(s)) return 'diamond';
     if (isDrop(s, aspect)) return 'drop';
+    if (isBubble(s, aspect)) return 'bubble';
     if (isFlame(s, aspect)) return 'flame';
     if (s.outwardPoints === 2 && s.lobes <= 2 && s.fill > 0 && s.fill < 0.45) return 'moon';
     if (s.outwardPoints === 2 && s.corners <= 3 && s.fill >= 0.45 && (aspect > 1.5 || aspect < 0.67)) return 'lens';
@@ -427,6 +429,16 @@ function isDrop(s, aspect) {
   if (points.length !== 1) return false;
   const p = points[0].pt;
   return p.y < bb.minY + 0.2 * bb.h && Math.abs(p.x - bb.cx) < 0.25 * bb.w;
+}
+
+// Speech bubble: a rounded outline with a single tail poking out underneath.
+function isBubble(s, aspect) {
+  if (aspect < 0.9 || aspect > 3.2) return false;
+  const { bb } = s;
+  const points = s.cornerPts.filter((k) => convex(s, k, 0.9));
+  if (points.length !== 1) return false;
+  const tail = points[0].pt;
+  return tail.y > bb.minY + 0.7 * bb.h && s.concave <= 2 && s.polygonness < 0.6;
 }
 
 // Flame: two or more tongues licking up from a rounded bottom.

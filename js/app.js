@@ -207,14 +207,17 @@ function releaseHtml(r) {
 
 function catalogWhy(r, a) {
   const parts = [];
-  if (r.via) {
-    const shape = (MOTIF_LABELS[r.via.motif] || r.via.motif).toLowerCase();
-    const verb = r.via.motif === a.motif ? 'echoes' : 'is close to';
-    if (!r.via.text || r.via.text === 'added by hand') parts.push(`Tagged as ${esc(shape)}`);
-    else if (r.via.text === r.name) parts.push(`The title ${verb} your drawing (${esc(shape)})`);
-    else parts.push(`The track “${esc(r.via.text)}” ${verb} your drawing (${esc(shape)})`);
+  const v = r.via;
+  if (v) {
+    const shape = (MOTIF_LABELS[v.motif] || v.motif).toLowerCase();
+    const title = v.text === r.name ? 'The title' : `The track “${esc(v.text)}”`;
+    if (v.kind === 'sound') parts.push(`Its ${esc(r.genre)} sound suits your drawing (${esc(shape)})`);
+    else if (!v.text || v.text === 'added by hand') parts.push(`Tagged as ${esc(shape)}`);
+    else if (v.kind === 'hint') parts.push(`${title} hints at your drawing (${esc(shape)})`);
+    else parts.push(`${title} ${v.motif === a.motif ? 'echoes' : 'is close to'} your drawing (${esc(shape)})`);
   }
-  if (r.genre) parts.push(`${parts.length ? 'and its' : 'Its'} ${esc(r.genre)} sound sits closest to how your lines move`);
+  if (r.genre && v?.kind !== 'sound') parts.push(`${parts.length ? 'and its' : 'Its'} ${esc(r.genre)} sound sits closest to how your lines move`);
+  else if (r.genre) parts.push('and sits closest to how your lines move');
   else if (!parts.length) parts.push('Closest record to how your lines move');
   return `${parts.join(', ')}.`;
 }
