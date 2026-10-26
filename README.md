@@ -6,7 +6,7 @@ A static site: no build step, no server, no dependencies. It runs from GitHub Pa
 
 ## How a drawing becomes a record
 
-1. **Content (the motif).** Each stroke is classified (circle, spiral, star, zigzag, wave, peak, line, box, heart, crescent, almond, cloud, flower, bird, arrow, scribble, dot…), then the whole drawing is read as one of 27 motifs: a face, sun, circle, spiral, star, grid, rainfall, field of dots, zigzag, peak, wave, loops, horizon, single line, scribble, heart, house, flower, crescent moon, eye, cross, box, arrow, stick figure, bird, cloud, or an abstraction. The motif picks the search keyword, e.g. a spiral searches for *spiral*, *vertigo*, *galaxy*, *hypnotic*.
+1. **Content (the motif).** Each stroke is classified (circle, spiral, star, zigzag, wave, peak, line, box, heart, crescent, almond, cloud, flower, bird, arrow, crown, diamond, drop, flame, S-curve, scribble, dot…), then the whole drawing is read as one of 39 motifs: a face, sun, circle, spiral, star, grid, rainfall, field of dots, zigzag, peak, wave, loops, horizon, single line, scribble, heart, house, flower, crescent moon, eye, cross, box, arrow, stick figure, bird, cloud, crown, diamond, drop, flame, dollar sign, music note, clock, globe, skull (a face with X eyes), car, phone (a tall rectangle), screen (a wide rectangle), or an abstraction. The motif picks the search keyword, e.g. a spiral searches for *spiral*, *vertigo*, *galaxy*, *hypnotic*.
 2. **Linework (the character).** Seven measurements, each 0–1:
    speed of drawing, angularity (corners), curvature, ink density, chaos (strokes, jitter, crossings), lift (how high on the page), and symmetry.
    These are matched against profiles for 44 genres (including trap, cloud rap, drill, grime, R&B, dancehall, Latin and comedy) (jagged + fast + dense → punk or metal; slow, flowing, sparse → ambient or bossa nova) and choose an era.
@@ -61,7 +61,7 @@ How it works without a database:
 ### Setting it up (about 15 minutes, all free)
 
 1. **Pages source.** Repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-2. **Label.** Repo **Issues → Labels → New label**, named `linework-post`.
+2. **Label (optional).** Repo **Issues → Labels → New label**, named `linework-post`. Posts are recognised by a marker in the issue text, so this only helps you filter them; GitHub may not apply it with an issues-only token.
 3. **GitHub token.** Go to github.com → **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**.
    - Repository access: **Only select repositories**, this repo.
    - Permissions: **Issues: Read and write** (nothing else).

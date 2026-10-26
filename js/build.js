@@ -144,7 +144,7 @@ async function build() {
       const motifs = motifsFromText([
         { text: al.name, weight: 3 },
         ...picked.map((text) => ({ text, weight: 2 })),
-      ]);
+      ], (al.artists || []).map((x) => x.name));
       const rec = {
         id: al.id,
         name: al.name,

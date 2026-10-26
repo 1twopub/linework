@@ -6,7 +6,7 @@
   "file": "d188304a-lovers_rock.csv"
  },
  "genres": "assigned by Claude from the artists (entries with genreGuess: true are low-confidence)",
- "built": "2026-10-24T13:21:57.795Z",
+ "built": "2026-10-26T06:09:33.198Z",
  "releases": [
   {
    "id": "6UmSsT0szEohdKATVnZn9B",
@@ -62,7 +62,9 @@
    "url": "https://open.spotify.com/album/3AI5kAUjgNtZBwFRi6opDc",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "clock": "Once Upon A Time In The Projects"
+   },
    "profile": {
     "energy": 0.612,
     "angularity": 0.605,
@@ -84,7 +86,9 @@
    "url": "https://open.spotify.com/album/7JlCbNWZszAdVKZdtHFQ5p",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "cross": "When I Get To Heaven - Remastered"
+   },
    "profile": {
     "energy": 0.64,
     "angularity": 0.631,
@@ -129,6 +133,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
+    "money": "Money, Power & Respect",
     "heart": "All for the Love"
    },
    "profile": {
@@ -179,6 +184,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
+    "skull": "Life After Death (2014 Remastered Edition)",
     "horizon": "Sky's the Limit (feat. 112) - 2014 Remaster"
    },
    "profile": {
@@ -203,6 +209,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "money": "Young Rich N*ggas",
     "figure": "Bakers Man"
    },
    "profile": {
@@ -249,6 +256,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {
+    "clock": "Forever",
     "star": "Born Stars"
    },
    "profile": {
@@ -272,7 +280,9 @@
    "url": "https://open.spotify.com/album/2dkxjKof1Q1dIzhmaFTQUB",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "money": "Throwin' Bands Thursday"
+   },
    "profile": {
     "energy": 0.304,
     "angularity": 0.299,
@@ -339,7 +349,9 @@
    "tags": [],
    "genre": "cloud rap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "skull": "trap or die"
+   },
    "profile": {
     "energy": 0.297,
     "angularity": 0.218,
@@ -361,7 +373,9 @@
    "url": "https://open.spotify.com/album/3BrxMaXBuAZta7ApDRlOHL",
    "tags": [],
    "genre": "drill",
-   "motifs": {},
+   "motifs": {
+    "skull": "Back From The Dead 3"
+   },
    "profile": {
     "energy": 0.711,
     "angularity": 0.857,
@@ -427,7 +441,9 @@
    "url": "https://open.spotify.com/album/0K3UH7bD39kLVqIX7FsAi6",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "globe": "Jet World Order 2"
+   },
    "profile": {
     "energy": 0.705,
     "angularity": 0.626,
@@ -474,7 +490,10 @@
    "url": "https://open.spotify.com/album/3KLLRiCnqYvt78H52TeZ1k",
    "tags": [],
    "genre": "r&b",
-   "motifs": {},
+   "motifs": {
+    "cross": "Angel's Pulse",
+    "clock": "Seven Hours Part 1"
+   },
    "profile": {
     "energy": 0.261,
     "angularity": 0.197,
@@ -496,7 +515,9 @@
    "url": "https://open.spotify.com/album/39xHAZmTUSQJyXt6ebpjKT",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "crown": "Queen Bitch"
+   },
    "profile": {
     "energy": 0.707,
     "angularity": 0.671,
@@ -679,7 +700,8 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "heart": "Speakerboxxx/The Love Below"
+    "heart": "Speakerboxxx/The Love Below",
+    "cross": "God (Interlude)"
    },
    "profile": {
     "energy": 0.675,
@@ -702,7 +724,9 @@
    "url": "https://open.spotify.com/album/57FQTvThrTFPrGPAvZCjw6",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "crown": "King Of Rock (Expanded Edition)"
+   },
    "profile": {
     "energy": 0.606,
     "angularity": 0.675,
@@ -724,7 +748,9 @@
    "url": "https://open.spotify.com/album/3YPK0bNOuayhmSrs0sIIBR",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "skull": "Dead Presidents II"
+   },
    "profile": {
     "energy": 0.621,
     "angularity": 0.691,
@@ -746,7 +772,11 @@
    "url": "https://open.spotify.com/album/1XhdTPGDCpLWUzMHqZpbeZ",
    "tags": [],
    "genre": "experimental",
-   "motifs": {},
+   "motifs": {
+    "note": "Songs in the Key of Z, Vol. 4: The Curious Universe of Outsider Music",
+    "globe": "Songs in the Key of Z, Vol. 4: The Curious Universe of Outsider Music",
+    "phone": "Message to the Label Industry"
+   },
    "profile": {
     "energy": 0.452,
     "angularity": 0.539,
@@ -791,7 +821,9 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {
-    "figure": "ICE BOY"
+    "figure": "ICE BOY",
+    "diamond": "ICE BOY",
+    "note": "Revenge Song"
    },
    "profile": {
     "energy": 0.26,
@@ -862,7 +894,9 @@
    "genre": "punk",
    "motifs": {
     "circle": "Kiss My Super Bowl Ring",
-    "heart": "Kiss My Super Bowl Ring"
+    "heart": "Kiss My Super Bowl Ring",
+    "crown": "The King Of Cutting Corners",
+    "car": "AMPM Truck"
    },
    "profile": {
     "energy": 0.938,
@@ -953,7 +987,10 @@
    "url": "https://open.spotify.com/album/5fjcR3LsoVMs4QVJBS3Twb",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "screen": "Tim's Bio: From The Motion Picture - Life From Da Bassment",
+    "flame": "John Blaze"
+   },
    "profile": {
     "energy": 0.665,
     "angularity": 0.636,
@@ -1140,7 +1177,9 @@
    "url": "https://open.spotify.com/album/69WHFCqNKzL0eFIBl9zEgu",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "globe": "World War 3 (Lean)"
+   },
    "profile": {
     "energy": 0.794,
     "angularity": 0.667,
@@ -1413,7 +1452,8 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "rain": "No Tears"
+    "rain": "No Tears",
+    "drop": "No Tears"
    },
    "profile": {
     "energy": 0.708,
@@ -1436,7 +1476,9 @@
    "url": "https://open.spotify.com/album/6KsCwALkzuzlMNxZRSHAwH",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "diamond": "Graceful Jewelry Removal"
+   },
    "profile": {
     "energy": 0.595,
     "angularity": 0.658,
@@ -1482,7 +1524,9 @@
    "url": "https://open.spotify.com/album/6ccQdoDqZsqWlflxEIg0F3",
    "tags": [],
    "genre": "disco",
-   "motifs": {},
+   "motifs": {
+    "screen": "Scarface (Expanded Motion Picture Soundtrack)"
+   },
    "profile": {
     "energy": 0.75,
     "angularity": 0.3,
@@ -1570,7 +1614,9 @@
    "url": "https://open.spotify.com/album/2aekHyNMelpHfvD4p5zlOk",
    "tags": [],
    "genre": "dancehall",
-   "motifs": {},
+   "motifs": {
+    "crown": "King Of The Dancehall"
+   },
    "profile": {
     "energy": 0.741,
     "angularity": 0.49,
@@ -1662,6 +1708,7 @@
    "tags": [],
    "genre": "dream pop",
    "motifs": {
+    "clock": "Ceres & Calypso in the Deep Time",
     "sun": "Into the Deep Time (One Sun)"
    },
    "profile": {
@@ -1751,7 +1798,9 @@
    "url": "https://open.spotify.com/album/6Ew52HWkgfbth9ihRAq2Xd",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "money": "RACKS BLUE"
+   },
    "profile": {
     "energy": 0.783,
     "angularity": 0.691,
@@ -1796,7 +1845,9 @@
    "tags": [],
    "genre": "hardcore",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "money": "BREAK THE BANK"
+   },
    "profile": {
     "energy": 1,
     "angularity": 0.925,
@@ -1911,7 +1962,9 @@
    "url": "https://open.spotify.com/album/0HANqWtJABVpAWVrQzE2XM",
    "tags": [],
    "genre": "latin",
-   "motifs": {},
+   "motifs": {
+    "car": "Cruisin' with Junior H"
+   },
    "profile": {
     "energy": 0.66,
     "angularity": 0.302,
@@ -1980,7 +2033,9 @@
    "url": "https://open.spotify.com/album/3l5AwLKqQ42VJbc5lTuP8G",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "car": "Funky Ride"
+   },
    "profile": {
     "energy": 0.636,
     "angularity": 0.618,
@@ -2047,6 +2102,7 @@
    "tags": [],
    "genre": "ambient",
    "motifs": {
+    "phone": "Sent From My Telephone",
     "heart": "Love"
    },
    "profile": {
@@ -2163,7 +2219,8 @@
    "genre": "hip hop",
    "motifs": {
     "mountain": "Flying High",
-    "bird": "Flying High"
+    "bird": "Flying High",
+    "clock": "Midnight Oil (feat. Larry June & Jay Worthy)"
    },
    "profile": {
     "energy": 0.612,
@@ -2276,7 +2333,9 @@
    "url": "https://open.spotify.com/album/3hY0WIR79EKnQcwUsyRy5m",
    "tags": [],
    "genre": "indie rock",
-   "motifs": {},
+   "motifs": {
+    "car": "Race"
+   },
    "profile": {
     "energy": 0.582,
     "angularity": 0.543,
@@ -2323,7 +2382,9 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {
-    "heart": "Your Love Is King"
+    "diamond": "Diamond Life",
+    "heart": "Your Love Is King",
+    "crown": "Your Love Is King"
    },
    "profile": {
     "energy": 0.257,
@@ -2483,7 +2544,10 @@
    "url": "https://open.spotify.com/album/1WuOPtGH2QYPsX8OwNO0OW",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "skull": "Trap-A-Holics Present: Death Before Dishonor",
+    "money": "Count My Money Backwards"
+   },
    "profile": {
     "energy": 0.696,
     "angularity": 0.727,
@@ -2505,7 +2569,9 @@
    "url": "https://open.spotify.com/album/6aTC2JzfyY5DnVtr18LiOT",
    "tags": [],
    "genre": "drill",
-   "motifs": {},
+   "motifs": {
+    "clock": "Tomorrow"
+   },
    "profile": {
     "energy": 0.659,
     "angularity": 0.944,
@@ -2576,7 +2642,9 @@
    "url": "https://open.spotify.com/album/6467KaO8RbDTxkoRhGZ26V",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "skull": "Working on Dying 2"
+   },
    "profile": {
     "energy": 0.752,
     "angularity": 0.675,
@@ -2644,8 +2712,9 @@
    "genre": "trap",
    "motifs": {
     "figure": "Beautiful Thugger Girls",
-    "heart": "Do U Love Me",
-    "mountain": "Get High (feat. Snoop Dogg & Lil Durk)"
+    "flame": "On Fire",
+    "clock": "Tomorrow 'Til Infinity (feat. Gunna)",
+    "heart": "Do U Love Me"
    },
    "profile": {
     "energy": 0.735,
@@ -2786,7 +2855,9 @@
    "url": "https://open.spotify.com/album/4U1U4bqxzWp4pfN2ajknUR",
    "tags": [],
    "genre": "experimental",
-   "motifs": {},
+   "motifs": {
+    "globe": "One Nation"
+   },
    "profile": {
     "energy": 0.446,
     "angularity": 0.534,
@@ -2808,7 +2879,9 @@
    "url": "https://open.spotify.com/album/6vUZbXDPOX59fKA8hacgyW",
    "tags": [],
    "genre": "dream pop",
-   "motifs": {},
+   "motifs": {
+    "diamond": "Return From The Ice"
+   },
    "profile": {
     "energy": 0.222,
     "angularity": 0.171,
@@ -2874,7 +2947,9 @@
    "url": "https://open.spotify.com/album/6eUW9NcuSDGITokLjqGZJE",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "skull": "Do It For Demon"
+   },
    "profile": {
     "energy": 0.314,
     "angularity": 0.276,
@@ -2966,6 +3041,8 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
+    "cross": "Speedin' Bullet 2 Heaven",
+    "globe": "Edge Of The Earth/Post Mortem Boredom",
     "figure": "Man In The Night"
    },
    "profile": {
@@ -3037,7 +3114,8 @@
    "genre": "trap",
    "genreGuess": true,
    "motifs": {
-    "wave": "Surf Da World"
+    "wave": "Surf Da World",
+    "globe": "Surf Da World"
    },
    "profile": {
     "energy": 0.805,
@@ -3106,7 +3184,9 @@
    "url": "https://open.spotify.com/album/3NaLxwBorilUsVXaB9NCKw",
    "tags": [],
    "genre": "experimental",
-   "motifs": {},
+   "motifs": {
+    "clock": "FOREVER"
+   },
    "profile": {
     "energy": 0.495,
     "angularity": 0.505,
@@ -3172,7 +3252,9 @@
    "url": "https://open.spotify.com/album/6qElaeK7SHsEzb8uV8eG3D",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "money": "Wit Da Racks (feat. 21 Savage, Travis Scott & Yak Gotti)"
+   },
    "profile": {
     "energy": 0.771,
     "angularity": 0.669,
@@ -3194,7 +3276,9 @@
    "url": "https://open.spotify.com/album/38YMI8jMA7RotlUBZJNtcs",
    "tags": [],
    "genre": "country",
-   "motifs": {},
+   "motifs": {
+    "clock": "All-Time Greatest Hits, Vol. 1"
+   },
    "profile": {
     "energy": 0.342,
     "angularity": 0.358,
@@ -3216,7 +3300,9 @@
    "url": "https://open.spotify.com/album/51UvHwEnJZ2elIVFcuclKJ",
    "tags": [],
    "genre": "reggae",
-   "motifs": {},
+   "motifs": {
+    "clock": "Serious Time"
+   },
    "profile": {
     "energy": 0.454,
     "angularity": 0.249,
@@ -3238,7 +3324,9 @@
    "url": "https://open.spotify.com/album/0cJ39KJ52lQ2tnZUyy299i",
    "tags": [],
    "genre": "experimental",
-   "motifs": {},
+   "motifs": {
+    "phone": "Calling Out Of Context"
+   },
    "profile": {
     "energy": 0.539,
     "angularity": 0.525,
@@ -3260,7 +3348,9 @@
    "url": "https://open.spotify.com/album/6nOxyYuddsKmHYRQccKSjM",
    "tags": [],
    "genre": "jazz",
-   "motifs": {},
+   "motifs": {
+    "note": "Ella Fitzgerald Sings The Cole Porter Song Book"
+   },
    "profile": {
     "energy": 0.551,
     "angularity": 0.436,
@@ -3304,7 +3394,9 @@
    "url": "https://open.spotify.com/album/5UwqUpfZ8U6DdvdJGDagBX",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "flame": "Dontay's Inferno"
+   },
    "profile": {
     "energy": 0.674,
     "angularity": 0.629,
@@ -3349,7 +3441,9 @@
    "url": "https://open.spotify.com/album/0STe9kwlkzbTFbzvDSvN7V",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "flame": "Itzsoweezee (HOT)"
+   },
    "profile": {
     "energy": 0.596,
     "angularity": 0.595,
@@ -3530,7 +3624,9 @@
    "url": "https://open.spotify.com/album/3Xw0MQ7YFd0i1zdiHSfLMB",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "clock": "Same Damn Time (Verse)"
+   },
    "profile": {
     "energy": 0.796,
     "angularity": 0.645,
@@ -3578,6 +3674,7 @@
    "motifs": {
     "figure": "Believe in Me My Pretty Girl",
     "star": "Universal Star",
+    "globe": "Universal Star",
     "heart": "Show Me Good Love Like My Angel"
    },
    "profile": {
@@ -3603,6 +3700,7 @@
    "genre": "cloud rap",
    "motifs": {
     "sun": "Feels Like Summer",
+    "money": "Money Moves",
     "house": "Open Yo Door"
    },
    "profile": {
@@ -3695,7 +3793,8 @@
    "genre": "trap",
    "motifs": {
     "face": "Mouth Write a Check",
-    "box": "County Jail"
+    "box": "County Jail",
+    "note": "Posse Song"
    },
    "profile": {
     "energy": 0.719,
@@ -3742,9 +3841,7 @@
    "url": "https://open.spotify.com/album/5jHqrml3maWBldVlyzFjKh",
    "tags": [],
    "genre": "synthpop",
-   "motifs": {
-    "figure": "The Space Lady's Greatest Hits"
-   },
+   "motifs": {},
    "profile": {
     "energy": 0.497,
     "angularity": 0.591,
@@ -3812,7 +3909,9 @@
    "url": "https://open.spotify.com/album/0fUy6IdLHDpGNwavIlhEsl",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "money": "Blood On the Money"
+   },
    "profile": {
     "energy": 0.773,
     "angularity": 0.711,
@@ -3878,7 +3977,9 @@
    "url": "https://open.spotify.com/album/0ty5iwaiepWlGq8g0DKtEy",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "money": "Rich Ni**a Timeline"
+   },
    "profile": {
     "energy": 0.787,
     "angularity": 0.681,
@@ -3948,6 +4049,7 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {
+    "note": "Freetown Sound",
     "heart": "Love Ya"
    },
    "profile": {
@@ -3972,6 +4074,8 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "note": "Ballad",
+    "skull": "Romeo Must Die",
     "mountain": "How High",
     "heart": "Lovers"
    },
@@ -3999,7 +4103,8 @@
    "motifs": {
     "figure": "Pieces Of A Man",
     "eye": "The Needle's Eye",
-    "house": "Home Is Where the Hatred Is"
+    "clock": "I Think I'll Call It Morning",
+    "phone": "I Think I'll Call It Morning"
    },
    "profile": {
     "energy": 0.418,
@@ -4046,7 +4151,9 @@
    "url": "https://open.spotify.com/album/4TYUio8kgphr2s8ry23ilv",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "skull": "The Death of Adam"
+   },
    "profile": {
     "energy": 0.667,
     "angularity": 0.652,
@@ -4091,7 +4198,10 @@
    "tags": [],
    "genre": "trap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "note": "Flex Muzik 2",
+    "phone": "Hang Up the Phone (feat. Playboi Carti)"
+   },
    "profile": {
     "energy": 0.764,
     "angularity": 0.716,
@@ -4274,6 +4384,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "drop": "Drip Jacker",
     "figure": "Fashion Nova Men (feat. Foolio)"
    },
    "profile": {
@@ -4526,7 +4637,9 @@
    "tags": [],
    "genre": "cloud rap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "screen": "27 c/o off-white fw20 womens runway show soundtrack (05 B)"
+   },
    "profile": {
     "energy": 0.364,
     "angularity": 0.287,
@@ -4550,6 +4663,7 @@
    "genre": "cloud rap",
    "motifs": {
     "rain": "After The Storm",
+    "money": "25 Dollar Fanta",
     "heart": "The Benjamin Franklin Love Story"
    },
    "profile": {
@@ -4573,7 +4687,10 @@
    "url": "https://open.spotify.com/album/7tfdHTJ4Ul7zao9yC8HFcS",
    "tags": [],
    "genre": "post-punk",
-   "motifs": {},
+   "motifs": {
+    "cross": "angels",
+    "skull": "Killer instinct"
+   },
    "profile": {
     "energy": 0.607,
     "angularity": 0.808,
@@ -4663,7 +4780,9 @@
    "url": "https://open.spotify.com/album/30gDRAWUg1hC8TYAtzr0i9",
    "tags": [],
    "genre": "soul",
-   "motifs": {},
+   "motifs": {
+    "clock": "Maybe Tomorrow"
+   },
    "profile": {
     "energy": 0.442,
     "angularity": 0.264,
@@ -4777,7 +4896,9 @@
    "url": "https://open.spotify.com/album/341TN5Fo3QBWGA7tdDEBGu",
    "tags": [],
    "genre": "dancehall",
-   "motifs": {},
+   "motifs": {
+    "crown": "King At The Controls: Essential Hits From Reggae's Digital Revolution 1985-1989"
+   },
    "profile": {
     "energy": 0.776,
     "angularity": 0.481,
@@ -5190,7 +5311,9 @@
    "url": "https://open.spotify.com/album/64J8girYqmK86ebqBayrjQ",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "clock": "No Time To Play"
+   },
    "profile": {
     "energy": 0.632,
     "angularity": 0.599,
@@ -5258,7 +5381,10 @@
    "url": "https://open.spotify.com/album/4v5x3Oo3UjQ9YmF3hRAip5",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "clock": "Midnight Marauders",
+    "money": "8 Million Stories"
+   },
    "profile": {
     "energy": 0.695,
     "angularity": 0.692,
@@ -5304,7 +5430,9 @@
    "url": "https://open.spotify.com/album/7BYdha593w1BAdWGBhmtVA",
    "tags": [],
    "genre": "lo-fi",
-   "motifs": {},
+   "motifs": {
+    "clock": "I've Wasted So Much Time"
+   },
    "profile": {
     "energy": 0.293,
     "angularity": 0.507,
@@ -5373,7 +5501,10 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "cross": "A Minute To Pray And A Second To Die"
+    "cross": "A Minute To Pray And A Second To Die",
+    "clock": "A Minute To Pray And A Second To Die",
+    "skull": "A Minute To Pray And A Second To Die",
+    "money": "Money And The Power"
    },
    "profile": {
     "energy": 0.613,
@@ -5396,7 +5527,9 @@
    "url": "https://open.spotify.com/album/32M7l43XQm70ngVmaYABKT",
    "tags": [],
    "genre": "folk",
-   "motifs": {},
+   "motifs": {
+    "note": "Classic Labor Songs from Smithsonian Folkways"
+   },
    "profile": {
     "energy": 0.182,
     "angularity": 0.244,
@@ -5443,7 +5576,10 @@
    "url": "https://open.spotify.com/album/51heTwkSfb4Z5dRIgwU2bd",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "cross": "God Laughs",
+    "flame": "Fire in the Hole"
+   },
    "profile": {
     "energy": 0.661,
     "angularity": 0.616,
@@ -5509,7 +5645,9 @@
    "url": "https://open.spotify.com/album/6TszLBjIeLIiys3W7JZFog",
    "tags": [],
    "genre": "experimental",
-   "motifs": {},
+   "motifs": {
+    "flame": "Soul On Fire"
+   },
    "profile": {
     "energy": 0.51,
     "angularity": 0.471,
@@ -5668,7 +5806,8 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "figure": "Man & His Music"
+    "figure": "Man & His Music",
+    "note": "Man & His Music"
    },
    "profile": {
     "energy": 0.697,
@@ -5867,7 +6006,9 @@
    "url": "https://open.spotify.com/album/3l2umvdEq50qZ5fmw4iHcI",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "car": "Drinkin and Driving"
+   },
    "profile": {
     "energy": 0.766,
     "angularity": 0.748,
@@ -5890,7 +6031,9 @@
    "tags": [],
    "genre": "soul",
    "motifs": {
-    "figure": "Pieces of a Man"
+    "figure": "Pieces of a Man",
+    "clock": "I Think I'll Call It Morning",
+    "phone": "I Think I'll Call It Morning"
    },
    "profile": {
     "energy": 0.494,
@@ -5960,6 +6103,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "crown": "King Gucci",
     "face": "Smart Mouth (feat. Chief Keef)"
    },
    "profile": {
@@ -6006,7 +6150,9 @@
    "tags": [],
    "genre": "cloud rap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "money": "Been Getting Money"
+   },
    "profile": {
     "energy": 0.336,
     "angularity": 0.305,
@@ -6097,7 +6243,9 @@
    "tags": [],
    "genre": "reggae",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "note": "Play the Music"
+   },
    "profile": {
     "energy": 0.351,
     "angularity": 0.27,
@@ -6164,6 +6312,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "money": "Big Bag (feat. Young Thug & Dolly White)",
     "horizon": "Bags To The Sky"
    },
    "profile": {
@@ -6234,7 +6383,8 @@
    "tags": [],
    "genre": "psychedelic rock",
    "motifs": {
-    "star": "TV Star"
+    "star": "TV Star",
+    "screen": "TV Star"
    },
    "profile": {
     "energy": 0.596,
@@ -6281,7 +6431,9 @@
    "url": "https://open.spotify.com/album/7vtq4mlZSC1HC4a6UdcVug",
    "tags": [],
    "genre": "punk",
-   "motifs": {},
+   "motifs": {
+    "cross": "Plastic Surgery Disasters/In God We Trust, Inc."
+   },
    "profile": {
     "energy": 0.936,
     "angularity": 0.908,
@@ -6505,7 +6657,8 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
-    "figure": "Life of a Hot Boy"
+    "figure": "Life of a Hot Boy",
+    "flame": "Life of a Hot Boy"
    },
    "profile": {
     "energy": 0.754,
@@ -6575,7 +6728,9 @@
    "url": "https://open.spotify.com/album/657wUSfWEs3WcOA0xhsAfI",
    "tags": [],
    "genre": "jazz",
-   "motifs": {},
+   "motifs": {
+    "clock": "Whisky Story Time"
+   },
    "profile": {
     "energy": 0.538,
     "angularity": 0.355,
@@ -6804,7 +6959,9 @@
    "url": "https://open.spotify.com/album/4pxnDGBdoGu88h8ZInX5f5",
    "tags": [],
    "genre": "jazz",
-   "motifs": {},
+   "motifs": {
+    "crown": "Your Queen Is A Reptile"
+   },
    "profile": {
     "energy": 0.532,
     "angularity": 0.457,
@@ -6917,7 +7074,10 @@
    "url": "https://open.spotify.com/album/5RNDzxhlXYBsT8FH9h0ORO",
    "tags": [],
    "genre": "gospel",
-   "motifs": {},
+   "motifs": {
+    "cross": "Can You Lose By Following God b/w God Is Going To Raise A Nation",
+    "globe": "Can You Lose By Following God b/w God Is Going To Raise A Nation"
+   },
    "profile": {
     "energy": 0.548,
     "angularity": 0.237,
@@ -6964,7 +7124,8 @@
    "tags": [],
    "genre": "lo-fi",
    "motifs": {
-    "rain": "Hell Rain"
+    "rain": "Hell Rain",
+    "skull": "Hell Rain"
    },
    "profile": {
     "energy": 0.266,
@@ -7010,6 +7171,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
+    "note": "Biz's Baddest Beats: The Best of Biz Markie",
     "cloud": "Vapors"
    },
    "profile": {
@@ -7056,6 +7218,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
+    "skull": "De La Soul is Dead",
     "house": "Kicked Out the House",
     "figure": "Not Over Till the Fat Lady Plays the Demo",
     "cross": "Keepin' the Faith"
@@ -7289,7 +7452,9 @@
    "url": "https://open.spotify.com/album/4wPp1Cs1uTQmWtImbz6TKW",
    "tags": [],
    "genre": "experimental",
-   "motifs": {},
+   "motifs": {
+    "clock": "LONDON TONIGHT FREESTYLE"
+   },
    "profile": {
     "energy": 0.515,
     "angularity": 0.453,
@@ -7404,6 +7569,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "flame": "Hot Raviolis",
     "box": "JuneBug on Da Crate"
    },
    "profile": {
@@ -7476,7 +7642,8 @@
    "motifs": {
     "box": "Trapped On Cleveland 3",
     "heart": "Kiss Em Peace (feat. Young Thug)",
-    "loops": "Twisted (feat. 42 Dugg)"
+    "loops": "Twisted (feat. 42 Dugg)",
+    "car": "Obama Coupe"
    },
    "profile": {
     "energy": 0.786,
@@ -7551,7 +7718,8 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
-    "house": "Shut the Door"
+    "house": "Shut the Door",
+    "money": "Now We Getting Money (feat. Lil PJ & Lil Keed)"
    },
    "profile": {
     "energy": 0.717,
@@ -7598,7 +7766,9 @@
    "url": "https://open.spotify.com/album/419VGvkL9H3w9qHog2FyQC",
    "tags": [],
    "genre": "post-punk",
-   "motifs": {},
+   "motifs": {
+    "globe": "Hey World!"
+   },
    "profile": {
     "energy": 0.67,
     "angularity": 0.842,
@@ -7643,8 +7813,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "car": "Ride the Wave",
     "wave": "Ride the Wave",
-    "house": "Million Dollar Mansion (feat. Young Thug)"
+    "house": "Million Dollar Mansion (feat. Young Thug)",
+    "money": "Million Dollar Mansion (feat. Young Thug)"
    },
    "profile": {
     "energy": 0.711,
@@ -7757,6 +7929,7 @@
    "tags": [],
    "genre": "funk",
    "motifs": {
+    "clock": "Sign O' The Times",
     "cross": "The Cross - 2020 Remaster"
    },
    "profile": {
@@ -7827,7 +8000,9 @@
    "url": "https://open.spotify.com/album/6uVu5Afa5aBDTcQE6g9ZIh",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "skull": "Snapback 90′S Nigga (Rare) [R.I.P. Eazy E! Bring Back the 90′S]"
+   },
    "profile": {
     "energy": 0.381,
     "angularity": 0.197,
@@ -7918,7 +8093,9 @@
    "url": "https://open.spotify.com/album/6p55q5zxShIhqMFcf8aCax",
    "tags": [],
    "genre": "hardcore",
-   "motifs": {},
+   "motifs": {
+    "clock": "Pride (Times Are Changing)"
+   },
    "profile": {
     "energy": 1,
     "angularity": 0.91,
@@ -8008,7 +8185,8 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {
-    "bird": "Soaring"
+    "bird": "Soaring",
+    "cross": "I Saw an Angel"
    },
    "profile": {
     "energy": 0.35,
@@ -8056,7 +8234,8 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "eye": "When I Look In Your Eyes"
+    "eye": "When I Look In Your Eyes",
+    "globe": "Greatest Show On Earth (feat. Macy Gray)"
    },
    "profile": {
     "energy": 0.699,
@@ -8101,7 +8280,9 @@
    "url": "https://open.spotify.com/album/2zQSWhL6B5kepcLmmjsBVq",
    "tags": [],
    "genre": "lo-fi",
-   "motifs": {},
+   "motifs": {
+    "globe": "Punk Planet"
+   },
    "profile": {
     "energy": 0.249,
     "angularity": 0.493,
@@ -8146,7 +8327,9 @@
    "url": "https://open.spotify.com/album/7f2FmIgcpU4p0R2or5fx2x",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "note": "Gangsta Musik (Chopped & Screwed)"
+   },
    "profile": {
     "energy": 0.732,
     "angularity": 0.699,
@@ -8373,7 +8556,9 @@
    "url": "https://open.spotify.com/album/4CPTwEox1O2YlPGCsEAqaB",
    "tags": [],
    "genre": "soul",
-   "motifs": {},
+   "motifs": {
+    "globe": "World That's Not Real"
+   },
    "profile": {
     "energy": 0.45,
     "angularity": 0.328,
@@ -8396,7 +8581,8 @@
    "tags": [],
    "genre": "funk",
    "motifs": {
-    "rain": "Sorrow Tears and Blood"
+    "rain": "Sorrow Tears and Blood",
+    "drop": "Sorrow Tears and Blood"
    },
    "profile": {
     "energy": 0.665,
@@ -8532,7 +8718,9 @@
    "url": "https://open.spotify.com/album/2P2Xwvh2xWXIZ1OWY9S9o5",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "crown": "Watch The Throne (Deluxe)"
+   },
    "profile": {
     "energy": 0.613,
     "angularity": 0.646,
@@ -8577,7 +8765,9 @@
    "tags": [],
    "genre": "cloud rap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "note": "Stripper Music"
+   },
    "profile": {
     "energy": 0.366,
     "angularity": 0.192,
@@ -8644,7 +8834,9 @@
    "url": "https://open.spotify.com/album/65LaTW7Q12QKrF9xcMFN8M",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "money": "Rich Homie Cartel Vol 1"
+   },
    "profile": {
     "energy": 0.69,
     "angularity": 0.736,
@@ -8873,7 +9065,8 @@
    "tags": [],
    "genre": "soul",
    "motifs": {
-    "grid": "Emerald City Sequence"
+    "grid": "Emerald City Sequence",
+    "diamond": "Emerald City Sequence"
    },
    "profile": {
     "energy": 0.463,
@@ -8896,7 +9089,9 @@
    "url": "https://open.spotify.com/album/04i1MvAMcUzMl1DoAZCHTZ",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "money": "Atlanta - Don't Get Mad Get Money Digital Exclusive"
+   },
    "profile": {
     "energy": 0.665,
     "angularity": 0.624,
@@ -9009,7 +9204,9 @@
    "url": "https://open.spotify.com/album/3IMYc8MA9XFrf51AKnW3Gv",
    "tags": [],
    "genre": "reggae",
-   "motifs": {},
+   "motifs": {
+    "skull": "Devil In Bed"
+   },
    "profile": {
     "energy": 0.442,
     "angularity": 0.255,
@@ -9170,7 +9367,9 @@
    "url": "https://open.spotify.com/album/2EL4Tqtj9eXAjxcKPDIyu1",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "note": "12 Odd Future Songs"
+   },
    "profile": {
     "energy": 0.61,
     "angularity": 0.693,
@@ -9284,7 +9483,9 @@
    "url": "https://open.spotify.com/album/2y85NsbsBnGTXcXgHpj3PD",
    "tags": [],
    "genre": "classical",
-   "motifs": {},
+   "motifs": {
+    "note": "Songs from the Arc of Life"
+   },
    "profile": {
     "energy": 0.401,
     "angularity": 0.331,
@@ -9329,7 +9530,9 @@
    "tags": [],
    "genre": "cloud rap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "note": "8 SONGS"
+   },
    "profile": {
     "energy": 0.32,
     "angularity": 0.25,
@@ -9418,7 +9621,9 @@
    "url": "https://open.spotify.com/album/24cxJPhtyRyITkV9VEt4E9",
    "tags": [],
    "genre": "lo-fi",
-   "motifs": {},
+   "motifs": {
+    "globe": "Welcome to My World"
+   },
    "profile": {
     "energy": 0.246,
     "angularity": 0.407,
@@ -9441,7 +9646,8 @@
    "tags": [],
    "genre": "folk",
    "motifs": {
-    "sun": "Morning Sun"
+    "sun": "Morning Sun",
+    "clock": "Morning Sun"
    },
    "profile": {
     "energy": 0.238,
@@ -9466,7 +9672,8 @@
    "genre": "lo-fi",
    "motifs": {
     "figure": "Girl of My Dreams",
-    "heart": "Love Forever"
+    "heart": "Love Forever",
+    "clock": "Love Forever"
    },
    "profile": {
     "energy": 0.253,
@@ -9489,7 +9696,9 @@
    "url": "https://open.spotify.com/album/27pGqngJj2CHovycxEqKu8",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "flame": "Young Hot Ebony"
+   },
    "profile": {
     "energy": 0.339,
     "angularity": 0.283,
@@ -9699,7 +9908,8 @@
    "genre": "synthpop",
    "genreGuess": true,
    "motifs": {
-    "heart": "Oh! My Heart..."
+    "heart": "Oh! My Heart...",
+    "skull": "DIE YUNG"
    },
    "profile": {
     "energy": 0.572,
@@ -9833,7 +10043,9 @@
    "url": "https://open.spotify.com/album/3TO0nNhticf0vYqlDRmthj",
    "tags": [],
    "genre": "reggae",
-   "motifs": {},
+   "motifs": {
+    "flame": "Dub Fire"
+   },
    "profile": {
     "energy": 0.362,
     "angularity": 0.259,
@@ -9856,7 +10068,8 @@
    "tags": [],
    "genre": "reggae",
    "motifs": {
-    "heart": "Love Me Forever"
+    "heart": "Love Me Forever",
+    "clock": "Love Me Forever"
    },
    "profile": {
     "energy": 0.434,
@@ -9879,7 +10092,9 @@
    "url": "https://open.spotify.com/album/0cMFWWPdC87MXohtuJPM8n",
    "tags": [],
    "genre": "reggae",
-   "motifs": {},
+   "motifs": {
+    "flame": "Blood and Fire"
+   },
    "profile": {
     "energy": 0.388,
     "angularity": 0.314,
@@ -10037,7 +10252,10 @@
    "url": "https://open.spotify.com/album/3k8xoyOXkGgZxUKgpmxz4P",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "drop": "Liquid Swords",
+    "globe": "Cold World"
+   },
    "profile": {
     "energy": 0.67,
     "angularity": 0.6,
@@ -10060,6 +10278,7 @@
    "tags": [],
    "genre": "metal",
    "motifs": {
+    "globe": "…For The Whole World To See",
     "eye": "Politicians In My Eyes"
    },
    "profile": {
@@ -10083,7 +10302,9 @@
    "url": "https://open.spotify.com/album/4isanca8rAOurYRLPvKwnS",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "money": "All Money Is Legal"
+   },
    "profile": {
     "energy": 0.706,
     "angularity": 0.678,
@@ -10107,7 +10328,8 @@
    "genre": "hip hop",
    "motifs": {
     "grid": "Streets Is Watching (Original Motion Picture Soundtrack)",
-    "eye": "Streets Is Watching (Original Motion Picture Soundtrack)"
+    "eye": "Streets Is Watching (Original Motion Picture Soundtrack)",
+    "screen": "Streets Is Watching (Original Motion Picture Soundtrack)"
    },
    "profile": {
     "energy": 0.69,
@@ -10284,7 +10506,9 @@
    "url": "https://open.spotify.com/album/4QzaueQPQa0lqrMmQoh4v0",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "money": "Mission Impossible (Pt. 5 Million) - Outro"
+   },
    "profile": {
     "energy": 0.794,
     "angularity": 0.647,
@@ -10372,7 +10596,9 @@
    "url": "https://open.spotify.com/album/05qVKtCTd3o2NTcD34aZge",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "skull": "After I Die - Screwed"
+   },
    "profile": {
     "energy": 0.61,
     "angularity": 0.708,
@@ -10490,7 +10716,9 @@
    "url": "https://open.spotify.com/album/6ZANEjETQ9L9pjBuvOAhCQ",
    "tags": [],
    "genre": "r&b",
-   "motifs": {},
+   "motifs": {
+    "phone": "Interlude - Speaker Phone"
+   },
    "profile": {
     "energy": 0.291,
     "angularity": 0.106,
@@ -10513,6 +10741,7 @@
    "tags": [],
    "genre": "hardcore",
    "motifs": {
+    "globe": "Black Earth",
     "abstract": "The Fine Art of Bullshit"
    },
    "profile": {
@@ -10738,6 +10967,7 @@
    "tags": [],
    "genre": "lo-fi",
    "motifs": {
+    "note": "Songs of Pain",
     "face": "Pot Head"
    },
    "profile": {
@@ -10874,7 +11104,9 @@
    "tags": [],
    "genre": "cloud rap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "flame": "Torch"
+   },
    "profile": {
     "energy": 0.311,
     "angularity": 0.227,
@@ -10965,7 +11197,8 @@
    "tags": [],
    "genre": "folk",
    "motifs": {
-    "line": "The Line Of Time And The Plane Of Now"
+    "line": "The Line Of Time And The Plane Of Now",
+    "clock": "The Line Of Time And The Plane Of Now"
    },
    "profile": {
     "energy": 0.226,
@@ -11033,7 +11266,9 @@
    "tags": [],
    "genre": "trap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "car": "CD Freestyle (Central Drive)"
+   },
    "profile": {
     "energy": 0.721,
     "angularity": 0.686,
@@ -11078,7 +11313,9 @@
    "url": "https://open.spotify.com/album/6RgDbrehG51t5f7XvU7XT1",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "car": "Park My Car"
+   },
    "profile": {
     "energy": 0.363,
     "angularity": 0.297,
@@ -11215,6 +11452,7 @@
    "tags": [],
    "genre": "hardcore",
    "motifs": {
+    "cross": "Heaven is Here",
     "figure": "Human Condition Above Human Opinion"
    },
    "profile": {
@@ -11260,7 +11498,9 @@
    "url": "https://open.spotify.com/album/59Ti0MtssgtVxrVE6T7oyR",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "note": "Ghetto Music: The Blueprint of Hip-Hop (Expanded Edition)"
+   },
    "profile": {
     "energy": 0.594,
     "angularity": 0.63,
@@ -11394,7 +11634,9 @@
    "url": "https://open.spotify.com/album/3zbrqKb1xBeeEoutRFq44t",
    "tags": [],
    "genre": "singer-songwriter",
-   "motifs": {},
+   "motifs": {
+    "car": "Car Therapy Sessions"
+   },
    "profile": {
     "energy": 0.223,
     "angularity": 0.324,
@@ -11761,6 +12003,8 @@
    "tags": [],
    "genre": "reggae",
    "motifs": {
+    "money": "\"Lee Perry \"\"The Upsetter\"\" Presents: Roast Fish Collie Weed & Corn Bread\"",
+    "skull": "Evil Tongues",
     "wave": "Throw Some Water In"
    },
    "profile": {
@@ -11806,7 +12050,9 @@
    "url": "https://open.spotify.com/album/5snUbps5KleLIP0cVI72lP",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "clock": "Reachin' (A New Refutation Of Time And Space)"
+   },
    "profile": {
     "energy": 0.608,
     "angularity": 0.601,
@@ -11850,7 +12096,9 @@
    "url": "https://open.spotify.com/album/1qgJNWnPIeK9rx7hF8JCPK",
    "tags": [],
    "genre": "r&b",
-   "motifs": {},
+   "motifs": {
+    "clock": "Tonight"
+   },
    "profile": {
     "energy": 0.325,
     "angularity": 0.142,
@@ -11872,7 +12120,9 @@
    "url": "https://open.spotify.com/album/1MQO4j8QExVgmnplbIodEU",
    "tags": [],
    "genre": "experimental",
-   "motifs": {},
+   "motifs": {
+    "car": "Whip"
+   },
    "profile": {
     "energy": 0.544,
     "angularity": 0.555,
@@ -11938,7 +12188,9 @@
    "url": "https://open.spotify.com/album/6dmUtPrpqNmOzm7yWwWBdJ",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "clock": "Tonight"
+   },
    "profile": {
     "energy": 0.391,
     "angularity": 0.276,
@@ -11960,7 +12212,9 @@
    "url": "https://open.spotify.com/album/7MvfuK2EXdoRXKpXtQqANP",
    "tags": [],
    "genre": "jazz",
-   "motifs": {},
+   "motifs": {
+    "clock": "Oscar Peterson's Finest Hour"
+   },
    "profile": {
     "energy": 0.478,
     "angularity": 0.347,
@@ -12048,7 +12302,9 @@
    "url": "https://open.spotify.com/album/5ljIGCRRvS48V4ADzPGav2",
    "tags": [],
    "genre": "soul",
-   "motifs": {},
+   "motifs": {
+    "screen": "Superfly (Original Soundtrack)"
+   },
    "profile": {
     "energy": 0.419,
     "angularity": 0.359,
@@ -12226,7 +12482,9 @@
    "url": "https://open.spotify.com/album/3lN840dPcmKqVhqYZYGGZO",
    "tags": [],
    "genre": "classical",
-   "motifs": {},
+   "motifs": {
+    "clock": "Recomposed By Max Richter: Vivaldi, The Four Seasons: Spring 0 - 2012"
+   },
    "profile": {
     "energy": 0.353,
     "angularity": 0.356,
@@ -12248,7 +12506,9 @@
    "url": "https://open.spotify.com/album/4oV1x8g9soPYY7dttgsang",
    "tags": [],
    "genre": "classical",
-   "motifs": {},
+   "motifs": {
+    "note": "Vivaldi Variation (Arr. for Piano from Concerto for Strings in G Minor, RV 156 by F. Christl)"
+   },
    "profile": {
     "energy": 0.399,
     "angularity": 0.311,
@@ -12297,7 +12557,9 @@
    "url": "https://open.spotify.com/album/0cT1SQDE7wSh1eUJkGFXse",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "cross": "Cartier'god Icedancer (Intermission)"
+   },
    "profile": {
     "energy": 0.357,
     "angularity": 0.253,
@@ -12319,7 +12581,10 @@
    "url": "https://open.spotify.com/album/7hiKQYPQfKoRWSxyD0hRCD",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "phone": "She Call My Phone",
+    "clock": "Time Machine - Bonus"
+   },
    "profile": {
     "energy": 0.349,
     "angularity": 0.297,
@@ -12433,7 +12698,10 @@
    "url": "https://open.spotify.com/album/6Mhaf6k6BfcZRh7JuOxL9T",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "globe": "Planet Playa",
+    "cross": "Only God Knows"
+   },
    "profile": {
     "energy": 0.7,
     "angularity": 0.606,
@@ -12501,7 +12769,9 @@
    "url": "https://open.spotify.com/album/4w1BBgCcUVv54r3zJenKpG",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "cross": "God Don't Make Mistakes"
+   },
    "profile": {
     "energy": 0.64,
     "angularity": 0.678,
@@ -12570,6 +12840,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "clock": "Rush Hour",
     "figure": "A Man Apart (Intervention)",
     "box": "Bird Box, Pt. 2",
     "bird": "Bird Box, Pt. 2"
@@ -12686,7 +12957,9 @@
    "url": "https://open.spotify.com/album/4fHPtUfTxQLSRSh4JqA4uf",
    "tags": [],
    "genre": "r&b",
-   "motifs": {},
+   "motifs": {
+    "skull": "Ghost With Skin"
+   },
    "profile": {
     "energy": 0.356,
     "angularity": 0.147,
@@ -12775,7 +13048,9 @@
    "url": "https://open.spotify.com/album/3fSIBgImGhZnmjCoqaeey5",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "money": "Rich Homie Cartel Vol. 2"
+   },
    "profile": {
     "energy": 0.76,
     "angularity": 0.643,
@@ -12888,6 +13163,8 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {
+    "diamond": "Diamonds Hit",
+    "skull": "Killin'",
     "house": "Rollin' Dope in a Castle"
    },
    "profile": {
@@ -12933,7 +13210,9 @@
    "url": "https://open.spotify.com/album/3Qwn4i9QV2uXfPiBQNnT3z",
    "tags": [],
    "genre": "r&b",
-   "motifs": {},
+   "motifs": {
+    "skull": "It Kills Me"
+   },
    "profile": {
     "energy": 0.257,
     "angularity": 0.17,
@@ -12977,7 +13256,9 @@
    "url": "https://open.spotify.com/album/6rzMufuu8sLkIizM4q9c7J",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "cross": "Angels"
+   },
    "profile": {
     "energy": 0.36,
     "angularity": 0.223,
@@ -13068,7 +13349,9 @@
    "tags": [],
    "genre": "funk",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "screen": "Motion Picture Soundtrack"
+   },
    "profile": {
     "energy": 0.726,
     "angularity": 0.565,
@@ -13157,7 +13440,10 @@
    "url": "https://open.spotify.com/album/0YksPVYor2eHo7ILCTAxJs",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "clock": "Tonight",
+    "globe": "Anime World"
+   },
    "profile": {
     "energy": 0.396,
     "angularity": 0.256,
@@ -13313,7 +13599,9 @@
    "url": "https://open.spotify.com/album/0mRIaVhwnvAblQaRkvGJBA",
    "tags": [],
    "genre": "r&b",
-   "motifs": {},
+   "motifs": {
+    "phone": "Call On Me"
+   },
    "profile": {
     "energy": 0.241,
     "angularity": 0.101,
@@ -13455,6 +13743,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {
+    "phone": "She Call My Phone",
+    "globe": "My World",
+    "clock": "Time Machine (Bonus Track)",
     "sun": "Under Da Sun 2"
    },
    "profile": {
@@ -13500,7 +13791,9 @@
    "url": "https://open.spotify.com/album/1ozpmkWcCHwsQ4QTnxOOdT",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "clock": "What A Time To Be Alive"
+   },
    "profile": {
     "energy": 0.737,
     "angularity": 0.728,
@@ -13592,7 +13885,8 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
-    "figure": "Mr. Ice Cream Man"
+    "figure": "Mr. Ice Cream Man",
+    "cross": "Is There A Heaven For A Gangsta?"
    },
    "profile": {
     "energy": 0.743,
@@ -13708,7 +14002,8 @@
    "genre": "trap",
    "motifs": {
     "heart": "Heart Break Kodak (HBK)",
-    "rain": "When Vultures Cry"
+    "rain": "When Vultures Cry",
+    "phone": "Call You"
    },
    "profile": {
     "energy": 0.727,
@@ -13732,7 +14027,9 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "cross": "JESUS IS KING"
+    "cross": "JESUS IS KING",
+    "crown": "JESUS IS KING",
+    "clock": "Every Hour"
    },
    "profile": {
     "energy": 0.596,
@@ -13844,7 +14141,9 @@
    "url": "https://open.spotify.com/album/3IPA2O6NvIY88V7ASaTAI8",
    "tags": [],
    "genre": "psychedelic rock",
-   "motifs": {},
+   "motifs": {
+    "money": "One in a Million"
+   },
    "profile": {
     "energy": 0.561,
     "angularity": 0.31,
@@ -13980,7 +14279,8 @@
    "genre": "cloud rap",
    "genreGuess": true,
    "motifs": {
-    "abstract": "Art"
+    "abstract": "Art",
+    "diamond": "Sterling Ruby Flow"
    },
    "profile": {
     "energy": 0.314,
@@ -14049,6 +14349,7 @@
    "tags": [],
    "genre": "classical",
    "motifs": {
+    "clock": "Vivaldi: The Four Seasons • Concertos for Bassoon & Violin 'in tromba marina'",
     "sun": "The Four Seasons: Concerto No. 2 in G Minor, RV 315 \"L'estate\" (summer): III. Presto"
    },
    "profile": {
@@ -14073,7 +14374,9 @@
    "tags": [],
    "genre": "singer-songwriter",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "note": "Here's A Song! (You Might Have Missed) Vol 13"
+   },
    "profile": {
     "energy": 0.196,
     "angularity": 0.407,
@@ -14095,7 +14398,9 @@
    "url": "https://open.spotify.com/album/17FBoXK1NU2rvJBbzdzw0r",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "money": "When I Was Broke"
+   },
    "profile": {
     "energy": 0.697,
     "angularity": 0.673,
@@ -14118,7 +14423,8 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "circle": "Monster Zero"
+    "circle": "Monster Zero",
+    "globe": "Krazy World"
    },
    "profile": {
     "energy": 0.681,
@@ -14253,6 +14559,7 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {
+    "money": "One In A Million",
     "heart": "Choosey Lover (Old School / New School)"
    },
    "profile": {
@@ -14276,7 +14583,9 @@
    "url": "https://open.spotify.com/album/3LpIwZdzFwc10psLingT8x",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "phone": "Call the Coroner"
+   },
    "profile": {
     "energy": 0.81,
     "angularity": 0.748,
@@ -14298,7 +14607,10 @@
    "url": "https://open.spotify.com/album/7hlDUJVUxRHLWPXJmXy9Ug",
    "tags": [],
    "genre": "jazz",
-   "motifs": {},
+   "motifs": {
+    "note": "Batman Theme & Other Bat Songs (Expanded Edition)",
+    "screen": "Batman Theme - from \"Batman\" A Greenway Production in association with Twentieth Century-Fox Television"
+   },
    "profile": {
     "energy": 0.47,
     "angularity": 0.396,
@@ -14342,7 +14654,9 @@
    "url": "https://open.spotify.com/album/2t9Kgt56eaeXRKJUR1cDDQ",
    "tags": [],
    "genre": "classical",
-   "motifs": {},
+   "motifs": {
+    "clock": "Vivaldi: Four Seasons"
+   },
    "profile": {
     "energy": 0.35,
     "angularity": 0.29,
@@ -14364,7 +14678,9 @@
    "url": "https://open.spotify.com/album/0bgjJ99UFbk0yBOzjJl7cq",
    "tags": [],
    "genre": "classical",
-   "motifs": {},
+   "motifs": {
+    "note": "The 50 Greatest Pieces of Classical Music"
+   },
    "profile": {
     "energy": 0.313,
     "angularity": 0.331,
@@ -14477,6 +14793,7 @@
    "tags": [],
    "genre": "drill",
    "motifs": {
+    "clock": "Drill Time",
     "figure": "I'm Da Man"
    },
    "profile": {
@@ -14546,7 +14863,9 @@
    "url": "https://open.spotify.com/album/0LFwFu1urEPuu4d9rxF6vx",
    "tags": [],
    "genre": "hardcore",
-   "motifs": {},
+   "motifs": {
+    "skull": "Weak Die First"
+   },
    "profile": {
     "energy": 1,
     "angularity": 0.896,
@@ -14752,7 +15071,9 @@
    "url": "https://open.spotify.com/album/4eBXRI4mExUO5zSZULCYnK",
    "tags": [],
    "genre": "drum and bass",
-   "motifs": {},
+   "motifs": {
+    "skull": "Death Is Not the End"
+   },
    "profile": {
     "energy": 0.972,
     "angularity": 0.691,
@@ -14824,6 +15145,7 @@
    "tags": [],
    "genre": "metal",
    "motifs": {
+    "screen": "Soundtrack to a Party (Bonus)",
     "wave": "Soda in the Water Cup"
    },
    "profile": {
@@ -14916,7 +15238,9 @@
    "url": "https://open.spotify.com/album/0qNqU2ov4T6tQSTZI1edj6",
    "tags": [],
    "genre": "comedy",
-   "motifs": {},
+   "motifs": {
+    "money": "Put The Money In The Bag"
+   },
    "profile": {
     "energy": 0.586,
     "angularity": 0.438,
@@ -15114,7 +15438,9 @@
    "url": "https://open.spotify.com/album/6hwD6ZjtCYrZSBMmK5se46",
    "tags": [],
    "genre": "jazz",
-   "motifs": {},
+   "motifs": {
+    "globe": "There Are Other Worlds (They Have Not Told You Of) - Remastered"
+   },
    "profile": {
     "energy": 0.503,
     "angularity": 0.458,
@@ -15206,7 +15532,9 @@
    "url": "https://open.spotify.com/album/5DM1qCdgGt2zbknnsVn1Ca",
    "tags": [],
    "genre": "indie rock",
-   "motifs": {},
+   "motifs": {
+    "skull": "Meat Is Murder"
+   },
    "profile": {
     "energy": 0.495,
     "angularity": 0.46,
@@ -15430,7 +15758,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
-    "figure": "Boy Back (feat. NAV)"
+    "diamond": "Diamonds (feat. Gunna)",
+    "figure": "Boy Back (feat. NAV)",
+    "money": "Millions",
+    "skull": "Die Today"
    },
    "profile": {
     "energy": 0.729,
@@ -15453,7 +15784,9 @@
    "url": "https://open.spotify.com/album/69MkhutqLxy0FM4xg8eDSt",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "skull": "Back From Hell"
+   },
    "profile": {
     "energy": 0.787,
     "angularity": 0.714,
@@ -15476,7 +15809,9 @@
    "tags": [],
    "genre": "trap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "note": "Flex Muzik 2"
+   },
    "profile": {
     "energy": 0.783,
     "angularity": 0.72,
@@ -15635,7 +15970,11 @@
    "url": "https://open.spotify.com/album/2xGGKcvtbp9eErepkGxLHO",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "diamond": "Ice Attack 2",
+    "car": "Truck Loaded",
+    "money": "Big Broke Records"
+   },
    "profile": {
     "energy": 0.781,
     "angularity": 0.679,
@@ -15659,7 +15998,8 @@
    "genre": "blues",
    "motifs": {
     "grid": "Free Form Patterns",
-    "abstract": "Free Form Patterns"
+    "abstract": "Free Form Patterns",
+    "skull": "Black Ghost"
    },
    "profile": {
     "energy": 0.342,
@@ -15704,7 +16044,9 @@
    "url": "https://open.spotify.com/album/4AHgFBOENvVS8v9xvvqddA",
    "tags": [],
    "genre": "blues",
-   "motifs": {},
+   "motifs": {
+    "clock": "Lightnin' Strikes One More Time"
+   },
    "profile": {
     "energy": 0.401,
     "angularity": 0.469,
@@ -15771,7 +16113,9 @@
    "url": "https://open.spotify.com/album/21lPRF73PjVpt17MfArFGD",
    "tags": [],
    "genre": "folk",
-   "motifs": {},
+   "motifs": {
+    "flame": "Lit"
+   },
    "profile": {
     "energy": 0.256,
     "angularity": 0.335,
@@ -15839,7 +16183,9 @@
    "url": "https://open.spotify.com/album/4ULtQUG8AZ5TYXQgYw0hbH",
    "tags": [],
    "genre": "house",
-   "motifs": {},
+   "motifs": {
+    "note": "Sounds from the Far East"
+   },
    "profile": {
     "energy": 0.708,
     "angularity": 0.433,
@@ -15927,7 +16273,9 @@
    "url": "https://open.spotify.com/album/4vjBmHL0f9a3H8Ul1JXDyy",
    "tags": [],
    "genre": "electronica",
-   "motifs": {},
+   "motifs": {
+    "diamond": "Solid Iced Air"
+   },
    "profile": {
     "energy": 0.595,
     "angularity": 0.347,
@@ -15994,7 +16342,9 @@
    "url": "https://open.spotify.com/album/4M7rG9McYmbzn32dYc3QKA",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "car": "Keep da K / Coupe"
+   },
    "profile": {
     "energy": 0.356,
     "angularity": 0.204,
@@ -16039,7 +16389,8 @@
    "tags": [],
    "genre": "hardcore",
    "motifs": {
-    "figure": "I Know a Girl Who Develops Crime Scene Photos"
+    "figure": "I Know a Girl Who Develops Crime Scene Photos",
+    "screen": "I Know a Girl Who Develops Crime Scene Photos"
    },
    "profile": {
     "energy": 1,
@@ -16088,7 +16439,8 @@
    "tags": [],
    "genre": "r&b",
    "motifs": {
-    "figure": "Forever My Lady (Expanded Edition)"
+    "figure": "Forever My Lady (Expanded Edition)",
+    "clock": "Forever My Lady (Expanded Edition)"
    },
    "profile": {
     "energy": 0.315,
@@ -16134,6 +16486,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "cross": "Trap God 2",
     "heart": "You Gona Love Me"
    },
    "profile": {
@@ -16182,7 +16535,10 @@
    "tags": [],
    "genre": "singer-songwriter",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "screen": "100 Hits from the Movies",
+    "phone": "Calling You"
+   },
    "profile": {
     "energy": 0.281,
     "angularity": 0.375,
@@ -16250,7 +16606,9 @@
    "url": "https://open.spotify.com/album/2HTbQ0RHwukKVXAlTmCZP2",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "skull": "Ready to Die (The Remaster)"
+   },
    "profile": {
     "energy": 0.678,
     "angularity": 0.648,
@@ -16317,7 +16675,8 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {
-    "figure": "Coy Boy"
+    "figure": "Coy Boy",
+    "money": "Hush Money"
    },
    "profile": {
     "energy": 0.519,
@@ -16340,7 +16699,9 @@
    "url": "https://open.spotify.com/album/49vpRrUcAr2bj6aYQr0Cfl",
    "tags": [],
    "genre": "funk",
-   "motifs": {},
+   "motifs": {
+    "clock": "Time Is Running Out Fast"
+   },
    "profile": {
     "energy": 0.706,
     "angularity": 0.593,
@@ -16429,7 +16790,8 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {
-    "sun": "Sound Sun Pleasure"
+    "sun": "Sound Sun Pleasure",
+    "note": "Sound Sun Pleasure"
    },
    "profile": {
     "energy": 0.492,
@@ -16522,6 +16884,7 @@
    "genre": "soul",
    "motifs": {
     "heart": "Will You Still Love Me Tomorrow",
+    "clock": "Will You Still Love Me Tomorrow",
     "figure": "Soldier Boy"
    },
    "profile": {
@@ -16850,6 +17213,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
+    "cross": "Lord Willin'",
     "heart": "Ma, I Don't Love Her (feat. Faith Evans)"
    },
    "profile": {
@@ -16873,7 +17237,9 @@
    "url": "https://open.spotify.com/album/7nxYXN1wJ2PsPpQI09abMx",
    "tags": [],
    "genre": "house",
-   "motifs": {},
+   "motifs": {
+    "clock": "Someday"
+   },
    "profile": {
     "energy": 0.663,
     "angularity": 0.479,
@@ -16988,7 +17354,9 @@
    "url": "https://open.spotify.com/album/6HB5Nq7lSjvTs3gJom6BXI",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "money": "Bread"
+   },
    "profile": {
     "energy": 0.658,
     "angularity": 0.592,
@@ -17102,6 +17470,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "money": "Paid the Fine (feat. Lil Baby & YTB Trench)",
     "moon": "Moon Man (feat. Strick & Kid Cudi)",
     "figure": "Moon Man (feat. Strick & Kid Cudi)",
     "grid": "My City Remix (feat. YTB Trench)"
@@ -17149,7 +17518,9 @@
    "url": "https://open.spotify.com/album/5qMjQBgXiEDIoNFHatsaNA",
    "tags": [],
    "genre": "house",
-   "motifs": {},
+   "motifs": {
+    "cross": "Cig Angel"
+   },
    "profile": {
     "energy": 0.686,
     "angularity": 0.494,
@@ -17171,7 +17542,9 @@
    "url": "https://open.spotify.com/album/4jXMrjRBqq8CCjLVLfDAAe",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "money": "Run Your Bands"
+   },
    "profile": {
     "energy": 0.592,
     "angularity": 0.613,
@@ -17304,6 +17677,7 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {
+    "clock": "Dreams Of Tomorrow",
     "flower": "A Garden Of Peace"
    },
    "profile": {
@@ -17351,7 +17725,9 @@
    "url": "https://open.spotify.com/album/1cCAb1vN8uUsdfEylVmTLs",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "skull": "Cradle to the Grave"
+   },
    "profile": {
     "energy": 0.643,
     "angularity": 0.674,
@@ -17439,7 +17815,10 @@
    "url": "https://open.spotify.com/album/6cQ4ezGz3UQCtHUnJGUZLv",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "screen": "Channel 10",
+    "globe": "Iraq (See The World)"
+   },
    "profile": {
     "energy": 0.705,
     "angularity": 0.595,
@@ -17505,7 +17884,9 @@
    "url": "https://open.spotify.com/album/5tXymXBFsOAtBsDujLvjmN",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "car": "Ridin Spinners (feat. Lil' Flip) - Explicit Album Version"
+   },
    "profile": {
     "energy": 0.701,
     "angularity": 0.708,
@@ -17595,7 +17976,9 @@
    "tags": [],
    "genre": "synthpop",
    "motifs": {
-    "heart": "Unbreak My Heart"
+    "heart": "Unbreak My Heart",
+    "note": "My Song",
+    "drop": "Drown Her"
    },
    "profile": {
     "energy": 0.535,
@@ -17775,7 +18158,9 @@
    "url": "https://open.spotify.com/album/2u30gztZTylY4RG7IvfXs8",
    "tags": [],
    "genre": "indie rock",
-   "motifs": {},
+   "motifs": {
+    "clock": "(What's The Story) Morning Glory?"
+   },
    "profile": {
     "energy": 0.511,
     "angularity": 0.525,
@@ -17844,6 +18229,7 @@
    "tags": [],
    "genre": "soul",
    "motifs": {
+    "clock": "Gone: The Promises Of Yesterday",
     "heart": "The Best Of Good Love Gone"
    },
    "profile": {
@@ -17957,7 +18343,9 @@
    "url": "https://open.spotify.com/album/1mQkCjNNs32GHM7nlEpA2N",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "skull": "Ryde Or Die, Vol.1"
+   },
    "profile": {
     "energy": 0.66,
     "angularity": 0.65,
@@ -18025,7 +18413,10 @@
    "url": "https://open.spotify.com/album/3fFlGU0k3z7wle0gp4wNrU",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "drop": "Til The Casket Drops",
+    "skull": "Til The Casket Drops"
+   },
    "profile": {
     "energy": 0.668,
     "angularity": 0.593,
@@ -18163,7 +18554,9 @@
    "url": "https://open.spotify.com/album/5NRnE7jLiB8MC1xZbDFwcg",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "car": "Sittin' In My Car"
+   },
    "profile": {
     "energy": 0.606,
     "angularity": 0.648,
@@ -18186,6 +18579,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
+    "globe": "Hey Young World",
     "heart": "Teenage Love"
    },
    "profile": {
@@ -18321,7 +18715,9 @@
    "url": "https://open.spotify.com/album/3vi20DRHkqv4HyVg9Rt9wC",
    "tags": [],
    "genre": "r&b",
-   "motifs": {},
+   "motifs": {
+    "globe": "Fuck The World"
+   },
    "profile": {
     "energy": 0.3,
     "angularity": 0.168,
@@ -18573,7 +18969,9 @@
    "url": "https://open.spotify.com/album/4iDnlihofFPLZYI4OB8p6E",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "skull": "Kill You"
+   },
    "profile": {
     "energy": 0.601,
     "angularity": 0.632,
@@ -18596,7 +18994,9 @@
    "tags": [],
    "genre": "electronica",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "note": "Music for NPCs (Extended Edition)"
+   },
    "profile": {
     "energy": 0.602,
     "angularity": 0.429,
@@ -18618,7 +19018,9 @@
    "url": "https://open.spotify.com/album/3flHKlyXgH4vu277N43sMJ",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "drop": "Drip or Drown"
+   },
    "profile": {
     "energy": 0.777,
     "angularity": 0.666,
@@ -18665,7 +19067,8 @@
    "genreGuess": true,
    "motifs": {
     "abstract": "Art of Finesse",
-    "heart": "I'm in Love"
+    "heart": "I'm in Love",
+    "drop": "Drop Top"
    },
    "profile": {
     "energy": 0.76,
@@ -18712,7 +19115,9 @@
    "tags": [],
    "genre": "trap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "car": "T'd Up in Da Coupe"
+   },
    "profile": {
     "energy": 0.693,
     "angularity": 0.755,
@@ -18804,7 +19209,9 @@
    "url": "https://open.spotify.com/album/6G2VFrsyr7jAiUYklrdKob",
    "tags": [],
    "genre": "folk",
-   "motifs": {},
+   "motifs": {
+    "money": "Blood Bank"
+   },
    "profile": {
     "energy": 0.222,
     "angularity": 0.326,
@@ -19010,7 +19417,9 @@
    "url": "https://open.spotify.com/album/31WVLciVB5ffpco1dZ9vHz",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "crown": "Knowledge Is King"
+   },
    "profile": {
     "energy": 0.698,
     "angularity": 0.709,
@@ -19122,7 +19531,9 @@
    "genre": "trap",
    "motifs": {
     "wave": "Water By G",
-    "face": "Ain't Seen My Face (feat. Duke)"
+    "flame": "Red Hot (feat. Trippie Redd)",
+    "face": "Ain't Seen My Face (feat. Duke)",
+    "cross": "Smack on God (feat. Brandy)"
    },
    "profile": {
     "energy": 0.734,
@@ -19214,7 +19625,9 @@
    "url": "https://open.spotify.com/album/4kGbqMuDdzYhsgEzebbU7X",
    "tags": [],
    "genre": "jazz",
-   "motifs": {},
+   "motifs": {
+    "globe": "Gilles Peterson Presents Sun Ra And His Arkestra: To Those Of Earth... And Other Worlds (Mixed Tracks)"
+   },
    "profile": {
     "energy": 0.467,
     "angularity": 0.422,
@@ -19280,7 +19693,9 @@
    "url": "https://open.spotify.com/album/3lQ8igSNnVnrOqx96x2Cku",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "crown": "The Blue M&M 2 (King Size)"
+   },
    "profile": {
     "energy": 0.726,
     "angularity": 0.704,
@@ -19372,7 +19787,9 @@
    "url": "https://open.spotify.com/album/3vkMlOSwC8os2p23GxkdAd",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "money": "Cash Cash (feat. Makonnen)"
+   },
    "profile": {
     "energy": 0.697,
     "angularity": 0.665,
@@ -19394,7 +19811,9 @@
    "url": "https://open.spotify.com/album/1hwSOLY96HTUyi98nq3MNN",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "cross": "Trap God 3"
+   },
    "profile": {
     "energy": 0.756,
     "angularity": 0.699,
@@ -19561,6 +19980,7 @@
    "genre": "jazz",
    "motifs": {
     "eye": "Visions of a New World",
+    "globe": "Visions of a New World",
     "sun": "Summer Nights"
    },
    "profile": {
@@ -19585,6 +20005,7 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {
+    "note": "Wisdom Through Music",
     "heart": "Love Is Everywhere"
    },
    "profile": {
@@ -19701,7 +20122,9 @@
    "url": "https://open.spotify.com/album/7iQhStWUSQLL8t3VvPS6WC",
    "tags": [],
    "genre": "funk",
-   "motifs": {},
+   "motifs": {
+    "note": "Blacula: Music From The Original Soundtrack"
+   },
    "profile": {
     "energy": 0.661,
     "angularity": 0.548,
@@ -19833,7 +20256,9 @@
    "url": "https://open.spotify.com/album/5u12pGZcS9BI45L0sUk2Qv",
    "tags": [],
    "genre": "reggae",
-   "motifs": {},
+   "motifs": {
+    "note": "Freedom Sounds In Dub !"
+   },
    "profile": {
     "energy": 0.394,
     "angularity": 0.356,
@@ -19855,7 +20280,9 @@
    "url": "https://open.spotify.com/album/1PdibECcUStPNmeTZxtoBY",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "cross": "Trap God"
+   },
    "profile": {
     "energy": 0.74,
     "angularity": 0.681,
@@ -19878,7 +20305,9 @@
    "tags": [],
    "genre": "hip hop",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "clock": "Morning Showers"
+   },
    "profile": {
     "energy": 0.594,
     "angularity": 0.681,
@@ -19901,7 +20330,9 @@
    "tags": [],
    "genre": "jazz",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "screen": "Skullgirls: The Complete Soundtrack"
+   },
    "profile": {
     "energy": 0.547,
     "angularity": 0.441,
@@ -20193,6 +20624,7 @@
    "tags": [],
    "genre": "electronica",
    "motifs": {
+    "note": "Jet Set Radio Future SEGA Original Tracks",
     "heart": "The Concept of Love"
    },
    "profile": {
@@ -20216,7 +20648,9 @@
    "url": "https://open.spotify.com/album/3oVKqk9TahxvHpFIUlAEuJ",
    "tags": [],
    "genre": "electronica",
-   "motifs": {},
+   "motifs": {
+    "note": "Jet Set Radio SEGA Original Tracks"
+   },
    "profile": {
     "energy": 0.548,
     "angularity": 0.346,
@@ -20238,7 +20672,11 @@
    "url": "https://open.spotify.com/album/3O0ZCopTqSKAqGLir6wla7",
    "tags": [],
    "genre": "soul",
-   "motifs": {},
+   "motifs": {
+    "skull": "Speed Kills",
+    "crown": "The King Alfred Plan (Alt)",
+    "car": "Speed Kills"
+   },
    "profile": {
     "energy": 0.441,
     "angularity": 0.325,
@@ -20285,7 +20723,9 @@
    "url": "https://open.spotify.com/album/00CChcNYBjFy2wFafjGAFP",
    "tags": [],
    "genre": "drum and bass",
-   "motifs": {},
+   "motifs": {
+    "clock": "Let's Leave Tomorrow (feat. Bev Lee Harling)"
+   },
    "profile": {
     "energy": 0.995,
     "angularity": 0.652,
@@ -20307,7 +20747,10 @@
    "url": "https://open.spotify.com/album/4ppObAAyfg44dOKDUT2eMF",
    "tags": [],
    "genre": "electronica",
-   "motifs": {},
+   "motifs": {
+    "globe": "The World Ends With You (Original Soundtrack)",
+    "screen": "The World Ends With You (Original Soundtrack)"
+   },
    "profile": {
     "energy": 0.509,
     "angularity": 0.386,
@@ -20329,7 +20772,10 @@
    "url": "https://open.spotify.com/album/1TEsX50DWbhcBbWm0hnJVI",
    "tags": [],
    "genre": "electronica",
-   "motifs": {},
+   "motifs": {
+    "globe": "NEO: The World Ends with You - Original Soundtrack",
+    "screen": "NEO: The World Ends with You - Original Soundtrack"
+   },
    "profile": {
     "energy": 0.509,
     "angularity": 0.38,
@@ -20374,6 +20820,7 @@
    "tags": [],
    "genre": "drum and bass",
    "motifs": {
+    "globe": "Earth, Vol. 1",
     "sun": "Tokyo Dawn"
    },
    "profile": {
@@ -20490,7 +20937,10 @@
    "tags": [],
    "genre": "electronica",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "note": "Truck Music",
+    "car": "Truck Music"
+   },
    "profile": {
     "energy": 0.569,
     "angularity": 0.41,
@@ -20602,7 +21052,12 @@
    "url": "https://open.spotify.com/album/5xtAAHr59ozJ2PQ67utEmi",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "drop": "Drip Season 3 (Deluxe)",
+    "car": "Car Sick (feat. NAV & Metro Boomin)",
+    "crown": "King Kong (feat. Young Thug)",
+    "money": "Money Don't Change You"
+   },
    "profile": {
     "energy": 0.734,
     "angularity": 0.643,
@@ -20625,6 +21080,7 @@
    "tags": [],
    "genre": "gospel",
    "motifs": {
+    "cross": "The Lord Is The Master",
     "loops": "Wrapped, Tied, & Tangled"
    },
    "profile": {
@@ -20738,6 +21194,7 @@
    "tags": [],
    "genre": "jazz",
    "motifs": {
+    "note": "Blue Break Beats",
     "figure": "My Little Girl"
    },
    "profile": {
@@ -20858,7 +21315,8 @@
    "tags": [],
    "genre": "lo-fi",
    "motifs": {
-    "heart": "The Queen of Hearts"
+    "heart": "The Queen of Hearts",
+    "crown": "The Queen of Hearts"
    },
    "profile": {
     "energy": 0.251,
@@ -20881,7 +21339,9 @@
    "url": "https://open.spotify.com/album/4OGaOZUHLhSeiicZB909aL",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "globe": "Been Around the World (feat. The Notorious B.I.G. & Mase)"
+   },
    "profile": {
     "energy": 0.602,
     "angularity": 0.604,
@@ -20970,7 +21430,9 @@
    "url": "https://open.spotify.com/album/6H1x6XVvIOkhEBAeIOHVLW",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "globe": "Pap Vs. The World"
+   },
    "profile": {
     "energy": 0.704,
     "angularity": 0.695,
@@ -21036,7 +21498,9 @@
    "url": "https://open.spotify.com/album/33FuFBTdTzTj1f4wtoiozq",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "globe": "Show Da World (feat. Kiara)"
+   },
    "profile": {
     "energy": 0.736,
     "angularity": 0.732,
@@ -21080,7 +21544,9 @@
    "url": "https://open.spotify.com/album/2lGyLeSvCxfdKR4ObFO6Mn",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "globe": "Around the World"
+   },
    "profile": {
     "energy": 0.769,
     "angularity": 0.674,
@@ -21148,7 +21614,8 @@
    "genre": "experimental",
    "motifs": {
     "figure": "NITRO GIRLS 1",
-    "cross": "ACTS OF FAITH"
+    "cross": "ACTS OF FAITH",
+    "flame": "LIT freestyle"
    },
    "profile": {
     "energy": 0.519,
@@ -21172,7 +21639,8 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {
-    "rain": "Platinum Tears"
+    "rain": "Platinum Tears",
+    "drop": "Platinum Tears"
    },
    "profile": {
     "energy": 0.531,
@@ -21219,7 +21687,9 @@
    "genre": "synthpop",
    "motifs": {
     "grid": "Windows",
-    "dots": "Dust"
+    "note": "Note Velocity",
+    "dots": "Dust",
+    "car": "Car Keys"
    },
    "profile": {
     "energy": 0.558,
@@ -21399,7 +21869,9 @@
    "url": "https://open.spotify.com/album/6tVg2Wl9hVKMpHYcAl2V2M",
    "tags": [],
    "genre": "psychedelic rock",
-   "motifs": {},
+   "motifs": {
+    "crown": "In The Court Of The Crimson King (Expanded & Remastered Original Album Mix)"
+   },
    "profile": {
     "energy": 0.525,
     "angularity": 0.222,
@@ -21443,7 +21915,9 @@
    "url": "https://open.spotify.com/album/3IAeuXl1pBBbzA5mo0HuEz",
    "tags": [],
    "genre": "hardcore",
-   "motifs": {},
+   "motifs": {
+    "drop": "Wet Dream War Machine"
+   },
    "profile": {
     "energy": 1,
     "angularity": 0.893,
@@ -21509,7 +21983,9 @@
    "url": "https://open.spotify.com/album/10m5vXmKXzwleTr472dKgF",
    "tags": [],
    "genre": "drill",
-   "motifs": {},
+   "motifs": {
+    "skull": "Trappin' Ain't Dead"
+   },
    "profile": {
     "energy": 0.757,
     "angularity": 0.9,
@@ -21531,7 +22007,9 @@
    "url": "https://open.spotify.com/album/02GVhWjMuoQBQUtNhjWsnG",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "clock": "I Need You Tonight"
+   },
    "profile": {
     "energy": 0.633,
     "angularity": 0.607,
@@ -21576,7 +22054,9 @@
    "tags": [],
    "genre": "cloud rap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "globe": "Snotty World (Deluxe)"
+   },
    "profile": {
     "energy": 0.327,
     "angularity": 0.307,
@@ -21730,7 +22210,10 @@
    "url": "https://open.spotify.com/album/3e9xazUt5IAWx6tL7oLYDa",
    "tags": [],
    "genre": "house",
-   "motifs": {},
+   "motifs": {
+    "note": "Movement: Torino Music Festival (Off Series) [Issue I]",
+    "clock": "Forever Monna"
+   },
    "profile": {
     "energy": 0.723,
     "angularity": 0.474,
@@ -22051,7 +22534,6 @@
    "tags": [],
    "genre": "techno",
    "motifs": {
-    "spiral": "Galaxy 2 Galaxy: A High Tech Jazz Compilation",
     "mountain": "Galaxy 2 Galaxy: A High Tech Jazz Compilation"
    },
    "profile": {
@@ -22097,7 +22579,9 @@
    "url": "https://open.spotify.com/album/5C44djamaXUXQI1U1NzdS2",
    "tags": [],
    "genre": "house",
-   "motifs": {},
+   "motifs": {
+    "clock": "When The Morning Comes"
+   },
    "profile": {
     "energy": 0.69,
     "angularity": 0.4,
@@ -22279,7 +22763,9 @@
    "url": "https://open.spotify.com/album/2OCmKJAV29CkNK6CCB6isR",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "crown": "King Boat"
+   },
    "profile": {
     "energy": 0.799,
     "angularity": 0.712,
@@ -22349,7 +22835,9 @@
    "url": "https://open.spotify.com/album/6P8wXk9USJ43LBczY0Sjo1",
    "tags": [],
    "genre": "lo-fi",
-   "motifs": {},
+   "motifs": {
+    "cross": "Under Heaven"
+   },
    "profile": {
     "energy": 0.277,
     "angularity": 0.403,
@@ -22537,7 +23025,9 @@
    "tags": [],
    "genre": "indie rock",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "car": "I Like Cars"
+   },
    "profile": {
     "energy": 0.524,
     "angularity": 0.488,
@@ -22671,7 +23161,10 @@
    "url": "https://open.spotify.com/album/1iERsnQr9phlIOi5cL0X6H",
    "tags": [],
    "genre": "soul",
-   "motifs": {},
+   "motifs": {
+    "flame": "James Brown And His Famous Flames Tour The U.S.A.",
+    "money": "I've Got Money"
+   },
    "profile": {
     "energy": 0.501,
     "angularity": 0.286,
@@ -22693,7 +23186,9 @@
    "url": "https://open.spotify.com/album/2PJm0LWNtuetLiTzLfIvHO",
    "tags": [],
    "genre": "soul",
-   "motifs": {},
+   "motifs": {
+    "drop": "Cold Sweat"
+   },
    "profile": {
     "energy": 0.504,
     "angularity": 0.294,
@@ -22716,7 +23211,8 @@
    "tags": [],
    "genre": "soul",
    "motifs": {
-    "figure": "It's A Man's Man's Man's World"
+    "figure": "It's A Man's Man's Man's World",
+    "globe": "It's A Man's Man's Man's World"
    },
    "profile": {
     "energy": 0.504,
@@ -22739,7 +23235,9 @@
    "url": "https://open.spotify.com/album/6MjOv3BeIjmht2ymtRih3s",
    "tags": [],
    "genre": "funk",
-   "motifs": {},
+   "motifs": {
+    "clock": "20 All-Time Greatest Hits!"
+   },
    "profile": {
     "energy": 0.678,
     "angularity": 0.577,
@@ -22945,7 +23443,8 @@
    "tags": [],
    "genre": "soul",
    "motifs": {
-    "heart": "Rhythm and Soul - Sweet Love Songs"
+    "heart": "Rhythm and Soul - Sweet Love Songs",
+    "note": "Rhythm and Soul - Sweet Love Songs"
    },
    "profile": {
     "energy": 0.458,
@@ -22990,7 +23489,9 @@
    "url": "https://open.spotify.com/album/4RYm1rNLj2ATcaOmyjQAgH",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "diamond": "Blue Emerald"
+   },
    "profile": {
     "energy": 0.75,
     "angularity": 0.693,
@@ -23013,6 +23514,9 @@
    "tags": [],
    "genre": "classical",
    "motifs": {
+    "diamond": "Fire & Ice (Original Soundtrack)",
+    "flame": "Fire & Ice (Original Soundtrack)",
+    "screen": "Fire & Ice (Original Soundtrack)",
     "bird": "Flight Of The Dragonhawks/The End Of Nekron/Reunited"
    },
    "profile": {
@@ -23059,6 +23563,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
+    "crown": "A Tribute to The King of G-Funk (Deluxe Version)",
     "bird": "So Fly (J. Period Remix)"
    },
    "profile": {
@@ -23107,7 +23612,8 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "heart": "Kiss Of Death"
+    "heart": "Kiss Of Death",
+    "skull": "Kiss Of Death"
    },
    "profile": {
     "energy": 0.603,
@@ -23175,7 +23681,8 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "figure": "The Boogie Man Song"
+    "figure": "The Boogie Man Song",
+    "note": "The Boogie Man Song"
    },
    "profile": {
     "energy": 0.642,
@@ -23288,7 +23795,9 @@
    "url": "https://open.spotify.com/album/6iOjexGMWCmNrtQbgVWPJH",
    "tags": [],
    "genre": "funk",
-   "motifs": {},
+   "motifs": {
+    "clock": "Seven Minutes Of Funk"
+   },
    "profile": {
     "energy": 0.676,
     "angularity": 0.578,
@@ -23335,7 +23844,9 @@
    "url": "https://open.spotify.com/album/0v4BWrBj5t5GC9jBt3HYSg",
    "tags": [],
    "genre": "soul",
-   "motifs": {},
+   "motifs": {
+    "money": "Ghetto: Misfortune's Wealth"
+   },
    "profile": {
     "energy": 0.405,
     "angularity": 0.301,
@@ -23357,7 +23868,9 @@
    "url": "https://open.spotify.com/album/0FrUjs3IuYD1kcSCJ5P4il",
    "tags": [],
    "genre": "jazz",
-   "motifs": {},
+   "motifs": {
+    "globe": "Somebody Else's World - a.k.a. Somebody Else's Idea"
+   },
    "profile": {
     "energy": 0.523,
     "angularity": 0.394,
@@ -23380,6 +23893,8 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
+    "skull": "Get Rich Or Die Tryin'",
+    "money": "Get Rich Or Die Tryin'",
     "figure": "Many Men (Wish Death)"
    },
    "profile": {
@@ -23491,7 +24006,9 @@
    "url": "https://open.spotify.com/album/6otZ1ujzyrKwBkafWgKocu",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "clock": "9 TIMES OUTTA 10"
+   },
    "profile": {
     "energy": 0.724,
     "angularity": 0.722,
@@ -23562,6 +24079,7 @@
    "tags": [],
    "genre": "psychedelic rock",
    "motifs": {
+    "money": "We're Only In It For The Money",
     "figure": "What's The Ugliest Part Of Your Body?"
    },
    "profile": {
@@ -23607,7 +24125,11 @@
    "url": "https://open.spotify.com/album/7dgJdwZKyUp7l60W7odU8n",
    "tags": [],
    "genre": "jazz",
-   "motifs": {},
+   "motifs": {
+    "note": "Space is the Place: Music for the Film",
+    "screen": "Space is the Place: Music for the Film",
+    "globe": "It's After the End of the World"
+   },
    "profile": {
     "energy": 0.474,
     "angularity": 0.444,
@@ -23721,7 +24243,9 @@
    "url": "https://open.spotify.com/album/1WHbPhjPCBhjo49DpKvYbL",
    "tags": [],
    "genre": "electronica",
-   "motifs": {},
+   "motifs": {
+    "note": "Melody AM"
+   },
    "profile": {
     "energy": 0.574,
     "angularity": 0.357,
@@ -23928,7 +24452,9 @@
    "url": "https://open.spotify.com/album/2SbgyrDcbsPnuBEeg2amNK",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "skull": "Waiting to Die"
+   },
    "profile": {
     "energy": 0.753,
     "angularity": 0.687,
@@ -24042,7 +24568,9 @@
    "url": "https://open.spotify.com/album/0j1qzjaJmsF1FkcICf3hRu",
    "tags": [],
    "genre": "r&b",
-   "motifs": {},
+   "motifs": {
+    "phone": "Call U Out"
+   },
    "profile": {
     "energy": 0.323,
     "angularity": 0.178,
@@ -24219,7 +24747,9 @@
    "url": "https://open.spotify.com/album/2nsRxs0hCUgjPfDx0nfjHx",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "skull": "Bin Reaper"
+   },
    "profile": {
     "energy": 0.759,
     "angularity": 0.707,
@@ -24314,6 +24844,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "money": "Rich Shooter",
     "face": "One In The Head (Bonus Track) (feat. Cristo4L & 4lquan)"
    },
    "profile": {
@@ -24665,7 +25196,10 @@
    "url": "https://open.spotify.com/album/48kU5gP41TqZEw32Cwhsna",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "car": "Bizarre Ride II The Pharcyde",
+    "clock": "It's Jiggaboo Time (Skit)"
+   },
    "profile": {
     "energy": 0.626,
     "angularity": 0.632,
@@ -24687,7 +25221,9 @@
    "url": "https://open.spotify.com/album/43y2Wfw5HXdhwPhUNrUG5E",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "crown": "Royal Rumble"
+   },
    "profile": {
     "energy": 0.409,
     "angularity": 0.258,
@@ -24734,7 +25270,9 @@
    "url": "https://open.spotify.com/album/7gsWAHLeT0w7es6FofOXk1",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "clock": "30 Hours"
+   },
    "profile": {
     "energy": 0.67,
     "angularity": 0.636,
@@ -24802,7 +25340,9 @@
    "url": "https://open.spotify.com/album/53eRw37Sne9d5kCGwu0Yk0",
    "tags": [],
    "genre": "drill",
-   "motifs": {},
+   "motifs": {
+    "skull": "Back From The Dead 2"
+   },
    "profile": {
     "energy": 0.759,
     "angularity": 0.95,
@@ -24894,6 +25434,7 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {
+    "globe": "The Asymptotical World EP",
     "figure": "...And Loyalty Is A Nuisance Child"
    },
    "profile": {
@@ -25033,7 +25574,9 @@
    "url": "https://open.spotify.com/album/7480uYcUMAQzx4an5NoBLF",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "skull": "Why These Opps Wanna See Me Die"
+   },
    "profile": {
     "energy": 0.749,
     "angularity": 0.73,
@@ -25122,7 +25665,8 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
-    "rain": "Yellow Tears"
+    "rain": "Yellow Tears",
+    "drop": "Yellow Tears"
    },
    "profile": {
     "energy": 0.779,
@@ -25262,7 +25806,9 @@
    "tags": [],
    "genre": "punk",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "skull": "Dont Die"
+   },
    "profile": {
     "energy": 0.93,
     "angularity": 0.828,
@@ -25442,7 +25988,9 @@
    "url": "https://open.spotify.com/album/6sTsWJAIhkN7zp31rX03Xd",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "note": "Hymns"
+   },
    "profile": {
     "energy": 0.759,
     "angularity": 0.736,
@@ -25464,7 +26012,9 @@
    "url": "https://open.spotify.com/album/2QRedhP5RmKJiJ1i8VgDGR",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "clock": "On That Time"
+   },
    "profile": {
     "energy": 0.775,
     "angularity": 0.656,
@@ -25486,7 +26036,9 @@
    "url": "https://open.spotify.com/album/4z3XljyOyVeBiFEQbix0ev",
    "tags": [],
    "genre": "jazz",
-   "motifs": {},
+   "motifs": {
+    "globe": "Leaving This Planet"
+   },
    "profile": {
     "energy": 0.467,
     "angularity": 0.441,
@@ -25508,7 +26060,9 @@
    "url": "https://open.spotify.com/album/1ClCNLImJ4EUku8W7KYyS5",
    "tags": [],
    "genre": "jazz",
-   "motifs": {},
+   "motifs": {
+    "globe": "There Are Other Worlds (They Have Not Told You Of) - Alternate Mix"
+   },
    "profile": {
     "energy": 0.515,
     "angularity": 0.343,
@@ -25530,7 +26084,9 @@
    "url": "https://open.spotify.com/album/2Bs1cX8PXm08dcIH8wp0iK",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "note": "Where Do I Go (Bbq Music)"
+   },
    "profile": {
     "energy": 0.616,
     "angularity": 0.603,
@@ -25598,7 +26154,9 @@
    "url": "https://open.spotify.com/album/7FfetYZZnw5VAJpVL2LT0J",
    "tags": [],
    "genre": "funk",
-   "motifs": {},
+   "motifs": {
+    "note": "Sweet Sweetback's Baadasssss Song (An Opera)"
+   },
    "profile": {
     "energy": 0.729,
     "angularity": 0.539,
@@ -25714,6 +26272,7 @@
    "tags": [],
    "genre": "funk",
    "motifs": {
+    "globe": "If I Ruled The World - Live At Bell Auditorium, Augusta, GA/1969",
     "figure": "It's A Man's Man's Man's World - Live At Bell Auditorium, Augusta, GA/1969"
    },
    "profile": {
@@ -25849,7 +26408,10 @@
    "url": "https://open.spotify.com/album/7nx2r1KsPIcz8fRC6d30p4",
    "tags": [],
    "genre": "punk",
-   "motifs": {},
+   "motifs": {
+    "car": "Speed Is Relative",
+    "globe": "Weight of the World"
+   },
    "profile": {
     "energy": 0.925,
     "angularity": 0.809,
@@ -26050,7 +26612,9 @@
    "url": "https://open.spotify.com/album/5JNVyhMsfAgfOmT3v3Iqcy",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "globe": "Jet World Order"
+   },
    "profile": {
     "energy": 0.615,
     "angularity": 0.619,
@@ -26140,7 +26704,9 @@
    "url": "https://open.spotify.com/album/4y8VCv8bEgpdcGXzaGFcAi",
    "tags": [],
    "genre": "drill",
-   "motifs": {},
+   "motifs": {
+    "skull": "Demons"
+   },
    "profile": {
     "energy": 0.71,
     "angularity": 0.856,
@@ -26209,7 +26775,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
-    "mountain": "On A Mountain"
+    "drop": "Drip or Drown 2",
+    "mountain": "On A Mountain",
+    "phone": "One Call",
+    "money": "Cash War"
    },
    "profile": {
     "energy": 0.733,
@@ -26278,8 +26847,10 @@
    "tags": [],
    "genre": "soul",
    "motifs": {
+    "note": "'B' Movie (Intro, Poem, Song)",
+    "screen": "'B' Movie (Intro, Poem, Song)",
     "rain": "Storm Music",
-    "grid": "Inner City Blues (Make Me Wanna Holler)"
+    "clock": "Morning Thoughts"
    },
    "profile": {
     "energy": 0.487,
@@ -26372,7 +26943,9 @@
    "tags": [],
    "genre": "ambient",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "screen": "Mainstream (Original Motion Picture Soundtrack)"
+   },
    "profile": {
     "energy": 0.124,
     "angularity": 0.05,
@@ -26417,6 +26990,7 @@
    "tags": [],
    "genre": "metal",
    "motifs": {
+    "crown": "Reign In Blood",
     "rain": "Raining Blood"
    },
    "profile": {
@@ -26489,7 +27063,9 @@
    "url": "https://open.spotify.com/album/3ICC0vKyzbAiCdYNO5eXq5",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "note": "Lullaby (feat. Young Nudy)"
+   },
    "profile": {
     "energy": 0.75,
     "angularity": 0.709,
@@ -26511,7 +27087,9 @@
    "url": "https://open.spotify.com/album/1ZRMX4V4gDAJzRmwUfjMYg",
    "tags": [],
    "genre": "soul",
-   "motifs": {},
+   "motifs": {
+    "clock": "In the Morning"
+   },
    "profile": {
     "energy": 0.464,
     "angularity": 0.312,
@@ -26601,7 +27179,9 @@
    "url": "https://open.spotify.com/album/1Fqn2fjxRoXeGgdldwK2Fj",
    "tags": [],
    "genre": "dancehall",
-   "motifs": {},
+   "motifs": {
+    "crown": "Mi King"
+   },
    "profile": {
     "energy": 0.736,
     "angularity": 0.445,
@@ -26763,7 +27343,9 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "cross": "Holy Hell - Instrumental"
+    "screen": "TV Dinners - Instrumental",
+    "cross": "Holy Hell - Instrumental",
+    "skull": "Holy Hell - Instrumental"
    },
    "profile": {
     "energy": 0.653,
@@ -26787,7 +27369,10 @@
    "tags": [],
    "genre": "hardcore",
    "motifs": {
-    "heart": "Not For Love"
+    "heart": "Not For Love",
+    "globe": "Die For The Earth To Live",
+    "skull": "Die For The Earth To Live",
+    "note": "USA Lullaby"
    },
    "profile": {
     "energy": 1,
@@ -26812,6 +27397,7 @@
    "genre": "soul",
    "motifs": {
     "heart": "Part-Time Love",
+    "clock": "Part-Time Love",
     "figure": "Man's Temptation",
     "circle": "Going In Circles"
    },
@@ -27002,7 +27588,9 @@
    "url": "https://open.spotify.com/album/6tLfk0VZqcJpNJF43WvAed",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "globe": "Fuck Earth Im Gon Wage An Interstella War"
+   },
    "profile": {
     "energy": 0.695,
     "angularity": 0.643,
@@ -27141,7 +27729,9 @@
    "url": "https://open.spotify.com/album/1Tua4dkX0tbH9Sja1HHdAf",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "crown": "BLP2020 \"King of the Night\""
+   },
    "profile": {
     "energy": 0.658,
     "angularity": 0.663,
@@ -27185,7 +27775,9 @@
    "url": "https://open.spotify.com/album/65iF0FK7eHmssGSIiv0axo",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "cross": "God (Evian Christ Remix)"
+   },
    "profile": {
     "energy": 0.387,
     "angularity": 0.212,
@@ -27230,7 +27822,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
-    "circle": "Grab the Wheel"
+    "globe": "Lil Uzi Vert vs. The World",
+    "circle": "Grab the Wheel",
+    "money": "Money Longer"
    },
    "profile": {
     "energy": 0.695,
@@ -27298,6 +27892,8 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "globe": "Eternal Atake (Deluxe) - LUV vs. The World 2",
+    "money": "Money Spread (feat. Young Nudy)",
     "flower": "Lotus"
    },
    "profile": {
@@ -27662,7 +28258,9 @@
    "tags": [],
    "genre": "electronica",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "money": "My Money"
+   },
    "profile": {
     "energy": 0.585,
     "angularity": 0.412,
@@ -27886,7 +28484,10 @@
    "url": "https://open.spotify.com/album/7ylTeGpMy2RbFDMGSnYjX5",
    "tags": [],
    "genre": "funk",
-   "motifs": {},
+   "motifs": {
+    "cross": "Heaven & Hell",
+    "skull": "Heaven & Hell"
+   },
    "profile": {
     "energy": 0.699,
     "angularity": 0.558,
@@ -27908,7 +28509,9 @@
    "url": "https://open.spotify.com/album/0JWYj0Ng9AiDFlDBPX7q2u",
    "tags": [],
    "genre": "jazz",
-   "motifs": {},
+   "motifs": {
+    "crown": "Saturnian Queen of the Sun Ra Arkestra"
+   },
    "profile": {
     "energy": 0.551,
     "angularity": 0.414,
@@ -27974,7 +28577,9 @@
    "url": "https://open.spotify.com/album/7Fil4ZuDB04CjP4GDT1Lxs",
    "tags": [],
    "genre": "jazz",
-   "motifs": {},
+   "motifs": {
+    "clock": "New York Times - Remastered 2002"
+   },
    "profile": {
     "energy": 0.538,
     "angularity": 0.406,
@@ -28043,6 +28648,7 @@
    "tags": [],
    "genre": "reggae",
    "motifs": {
+    "crown": "Queens of Reggae",
     "rain": "Rainy Night in Georgia"
    },
    "profile": {
@@ -28111,7 +28717,8 @@
    "tags": [],
    "genre": "soul",
    "motifs": {
-    "heart": "Never My Love: The Anthology"
+    "heart": "Never My Love: The Anthology",
+    "clock": "The Sands of Time and Changes"
    },
    "profile": {
     "energy": 0.392,
@@ -28156,7 +28763,9 @@
    "url": "https://open.spotify.com/album/00Jd0W5qFMJ6C0Cedc9PXH",
    "tags": [],
    "genre": "synthpop",
-   "motifs": {},
+   "motifs": {
+    "globe": "International"
+   },
    "profile": {
     "energy": 0.581,
     "angularity": 0.563,
@@ -28335,7 +28944,9 @@
    "tags": [],
    "genre": "soul",
    "motifs": {
-    "figure": "Pieces of a Man"
+    "figure": "Pieces of a Man",
+    "clock": "I Think I'll Call It Morning",
+    "phone": "I Think I'll Call It Morning"
    },
    "profile": {
     "energy": 0.496,
@@ -28383,6 +28994,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "car": "Long Ride",
     "sun": "Sunflower Seeds",
     "flower": "Sunflower Seeds",
     "bird": "Hot Wings"
@@ -28587,7 +29199,9 @@
    "url": "https://open.spotify.com/album/1I8mUtgebG39rNBApC7clb",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "clock": "Time"
+   },
    "profile": {
     "energy": 0.398,
     "angularity": 0.242,
@@ -28609,7 +29223,9 @@
    "url": "https://open.spotify.com/album/0dxfvWbpUHEQbWCK3Off5a",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "crown": "Queen Latifah"
+   },
    "profile": {
     "energy": 0.334,
     "angularity": 0.231,
@@ -28748,7 +29364,10 @@
    "tags": [],
    "genre": "trap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "note": "Ferrari Musik",
+    "car": "Ferrari Musik"
+   },
    "profile": {
     "energy": 0.702,
     "angularity": 0.728,
@@ -28770,7 +29389,9 @@
    "url": "https://open.spotify.com/album/3BBRkEHu6nmOVs7juIJ1KN",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "note": "There Is No Competition 2: The Grieving Music Mixtape"
+   },
    "profile": {
     "energy": 0.674,
     "angularity": 0.706,
@@ -28815,7 +29436,9 @@
    "tags": [],
    "genre": "cloud rap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "car": "Go For A Ride"
+   },
    "profile": {
     "energy": 0.322,
     "angularity": 0.287,
@@ -28883,7 +29506,9 @@
    "tags": [],
    "genre": "trap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "clock": "Morning"
+   },
    "profile": {
     "energy": 0.714,
     "angularity": 0.692,
@@ -28953,7 +29578,10 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "house": "Capone Phone Home - Interlude"
+    "skull": "Capone Bone",
+    "house": "Capone Phone Home - Interlude",
+    "phone": "Capone Phone Home - Interlude",
+    "screen": "Channel 10"
    },
    "profile": {
     "energy": 0.656,
@@ -29088,7 +29716,9 @@
    "url": "https://open.spotify.com/album/2DdGlgA5MKhbPAx7a4wCxF",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "skull": "Come with Me to Hell: Part 1 (Remastered)"
+   },
    "profile": {
     "energy": 0.737,
     "angularity": 0.736,
@@ -29251,6 +29881,7 @@
    "genre": "electronica",
    "genreGuess": true,
    "motifs": {
+    "globe": "World Greetings",
     "figure": "Cannonball Style (Child Class)"
    },
    "profile": {
@@ -29274,7 +29905,9 @@
    "url": "https://open.spotify.com/album/2kDlZYgWVfExQBqgjvlHpC",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "globe": "weight of the world"
+   },
    "profile": {
     "energy": 0.651,
     "angularity": 0.688,
@@ -29524,7 +30157,9 @@
    "url": "https://open.spotify.com/album/48xpWR8K6CGpy3ETAym3pt",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "money": "Bankroll"
+   },
    "profile": {
     "energy": 0.807,
     "angularity": 0.731,
@@ -29568,7 +30203,9 @@
    "url": "https://open.spotify.com/album/051k93izd0reEjp85OgEo6",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "flame": "The Fire"
+   },
    "profile": {
     "energy": 0.78,
     "angularity": 0.724,
@@ -29613,7 +30250,10 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {
-    "figure": "Lost Boy"
+    "globe": "Hackers of the World Unite",
+    "figure": "Lost Boy",
+    "drop": "WWYD + No Sweat",
+    "cross": "Black & White Angels"
    },
    "profile": {
     "energy": 0.403,
@@ -29636,7 +30276,9 @@
    "url": "https://open.spotify.com/album/353V4tfIwapSRygVvJoJSU",
    "tags": [],
    "genre": "indie rock",
-   "motifs": {},
+   "motifs": {
+    "screen": "A Picture Postcard"
+   },
    "profile": {
     "energy": 0.491,
     "angularity": 0.461,
@@ -29703,7 +30345,8 @@
    "tags": [],
    "genre": "shoegaze",
    "motifs": {
-    "moon": "Moon Song (EP Version)"
+    "moon": "Moon Song (EP Version)",
+    "note": "Moon Song (EP Version)"
    },
    "profile": {
     "energy": 0.449,
@@ -29727,6 +30370,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {
+    "skull": "Working on Dying",
     "figure": "Backstr€€t Boys"
    },
    "profile": {
@@ -29819,7 +30463,10 @@
    "url": "https://open.spotify.com/album/7u2w8suqknN2Dzkw8GdeZK",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "crown": "King of da Playaz Ball",
+    "clock": "Midnight Hoes"
+   },
    "profile": {
     "energy": 0.8,
     "angularity": 0.753,
@@ -29953,7 +30600,9 @@
    "url": "https://open.spotify.com/album/2q0B1JTgZRAh7xVEZfJRg8",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "money": "Married to the Money II #Mttm2"
+   },
    "profile": {
     "energy": 0.757,
     "angularity": 0.682,
@@ -29975,7 +30624,10 @@
    "url": "https://open.spotify.com/album/4OD3LU6001esAtFshDX46M",
    "tags": [],
    "genre": "r&b",
-   "motifs": {},
+   "motifs": {
+    "note": "Rhythm Nation 1814",
+    "globe": "Rhythm Nation 1814"
+   },
    "profile": {
     "energy": 0.335,
     "angularity": 0.165,
@@ -30066,7 +30718,10 @@
    "url": "https://open.spotify.com/album/76G83osdQ4whezYjnYwwq2",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "crown": "Purple Reign",
+    "drop": "Drippin (How U Luv That)"
+   },
    "profile": {
     "energy": 0.751,
     "angularity": 0.703,
@@ -30088,7 +30743,9 @@
    "url": "https://open.spotify.com/album/02Mp4Q83TVhpe8VeCpMZjZ",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "clock": "Forever Eva"
+   },
    "profile": {
     "energy": 0.759,
     "angularity": 0.741,
@@ -30401,7 +31058,9 @@
    "url": "https://open.spotify.com/album/6MJSSPWvW8WISXI68yy48j",
    "tags": [],
    "genre": "classical",
-   "motifs": {},
+   "motifs": {
+    "cross": "Gwyn, Lord of Cinder"
+   },
    "profile": {
     "energy": 0.329,
     "angularity": 0.339,
@@ -30468,6 +31127,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "car": "Cruise Ship",
     "house": "Group Home"
    },
    "profile": {
@@ -30514,7 +31174,9 @@
    "tags": [],
    "genre": "trap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "note": "Flex Muzik"
+   },
    "profile": {
     "energy": 0.696,
     "angularity": 0.697,
@@ -30607,7 +31269,9 @@
    "url": "https://open.spotify.com/album/1uveV0oi9gareah57tZdoL",
    "tags": [],
    "genre": "r&b",
-   "motifs": {},
+   "motifs": {
+    "phone": "CALL ME (Freestyle)"
+   },
    "profile": {
     "energy": 0.267,
     "angularity": 0.142,
@@ -30744,7 +31408,10 @@
    "url": "https://open.spotify.com/album/4jJInzmsXFB6WfoWNqKMH5",
    "tags": [],
    "genre": "synthpop",
-   "motifs": {},
+   "motifs": {
+    "note": "Ricky Music",
+    "car": "I Wanna Ride"
+   },
    "profile": {
     "energy": 0.555,
     "angularity": 0.607,
@@ -30792,7 +31459,8 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "sun": "Kanye West Presents Good Music Cruel Summer"
+    "sun": "Kanye West Presents Good Music Cruel Summer",
+    "note": "Kanye West Presents Good Music Cruel Summer"
    },
    "profile": {
     "energy": 0.685,
@@ -30953,6 +31621,7 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {
+    "globe": "World Wide Web",
     "figure": "Body"
    },
    "profile": {
@@ -31020,7 +31689,9 @@
    "url": "https://open.spotify.com/album/4zb4gmGzDYtlWMjmc1NZWW",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "globe": "Extinction Level Event: The Final World Front"
+   },
    "profile": {
     "energy": 0.677,
     "angularity": 0.601,
@@ -31067,7 +31738,9 @@
    "url": "https://open.spotify.com/album/7psUCd9IZX7b1bxKT4c3GY",
    "tags": [],
    "genre": "drill",
-   "motifs": {},
+   "motifs": {
+    "globe": "Welcome 2 Ballout World (Hosted by DJ Rell)"
+   },
    "profile": {
     "energy": 0.642,
     "angularity": 0.902,
@@ -31136,6 +31809,7 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "money": "Money Power Ammunition",
     "circle": "Runnin Round The Lobby"
    },
    "profile": {
@@ -31318,7 +31992,9 @@
    "tags": [],
    "genre": "cloud rap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "clock": "Tonight"
+   },
    "profile": {
     "energy": 0.297,
     "angularity": 0.232,
@@ -31409,7 +32085,8 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {
-    "eye": "Scandinavian Swords IIII: Atlas of Visions Pt. I & II"
+    "eye": "Scandinavian Swords IIII: Atlas of Visions Pt. I & II",
+    "globe": "Scandinavian Swords IIII: Atlas of Visions Pt. I & II"
    },
    "profile": {
     "energy": 0.296,
@@ -31656,7 +32333,9 @@
    "url": "https://open.spotify.com/album/5C6sVbqJ6Fz5KT4HzHr9PS",
    "tags": [],
    "genre": "lo-fi",
-   "motifs": {},
+   "motifs": {
+    "skull": "Evil"
+   },
    "profile": {
     "energy": 0.303,
     "angularity": 0.468,
@@ -31703,7 +32382,10 @@
    "tags": [],
    "genre": "electronica",
    "motifs": {
-    "eye": "Watching a Video"
+    "note": "Rock Music",
+    "car": "We Sat in the Car",
+    "eye": "Watching a Video",
+    "screen": "Watching a Video"
    },
    "profile": {
     "energy": 0.555,
@@ -31748,7 +32430,10 @@
    "url": "https://open.spotify.com/album/0SeTonJJPjy57LqiCDmeEM",
    "tags": [],
    "genre": "funk",
-   "motifs": {},
+   "motifs": {
+    "globe": "Emergency on Planet Earth (Remastered)",
+    "note": "Music of the Mind"
+   },
    "profile": {
     "energy": 0.714,
     "angularity": 0.546,
@@ -31836,7 +32521,9 @@
    "url": "https://open.spotify.com/album/4ZOMxANCO570l3UsqLPGiT",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "note": "G-Unit Radio 11: Yayo - Raw And Uncut"
+   },
    "profile": {
     "energy": 0.609,
     "angularity": 0.709,
@@ -31925,7 +32612,9 @@
    "url": "https://open.spotify.com/album/4l425B8qiSKiq1w4tV5eTY",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "phone": "iPhone Update"
+   },
    "profile": {
     "energy": 0.756,
     "angularity": 0.649,
@@ -31947,7 +32636,9 @@
    "url": "https://open.spotify.com/album/4EeaL2K8fZzJidKah633Ju",
    "tags": [],
    "genre": "minimal",
-   "motifs": {},
+   "motifs": {
+    "skull": "Evil Nigger (Live on the Black Power Live Broadcast, Los Angeles, 2020)"
+   },
    "profile": {
     "energy": 0.202,
     "angularity": 0.501,
@@ -32084,7 +32775,9 @@
    "tags": [],
    "genre": "trap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "skull": "Kill Ya Self"
+   },
    "profile": {
     "energy": 0.752,
     "angularity": 0.734,
@@ -32152,7 +32845,9 @@
    "tags": [],
    "genre": "indie rock",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "car": "Ferrari"
+   },
    "profile": {
     "energy": 0.541,
     "angularity": 0.556,
@@ -32174,7 +32869,10 @@
    "url": "https://open.spotify.com/album/1RWgm4YvRL0YN1iX1Mto7b",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "globe": "WHOLE WORLD (feat. Maxo)",
+    "skull": "GHOST (feat. Navy Blue)"
+   },
    "profile": {
     "energy": 0.67,
     "angularity": 0.705,
@@ -32266,7 +32964,9 @@
    "tags": [],
    "genre": "cloud rap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "skull": "Demon With a Violin Playing Big Hits for Little Kids"
+   },
    "profile": {
     "energy": 0.346,
     "angularity": 0.244,
@@ -32289,7 +32989,8 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "rain": "Song Cry"
+    "rain": "Song Cry",
+    "note": "Song Cry"
    },
    "profile": {
     "energy": 0.594,
@@ -32694,7 +33395,9 @@
    "url": "https://open.spotify.com/album/3H8RKfpv4jrOD6XugbtWcN",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "skull": "Death Valley Oasis"
+   },
    "profile": {
     "energy": 0.351,
     "angularity": 0.295,
@@ -32765,6 +33468,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
+    "note": "Some Rap Songs",
     "wave": "Red Water",
     "circle": "Eclipse",
     "scribble": "Riot!"
@@ -32836,7 +33540,9 @@
    "url": "https://open.spotify.com/album/00YaqNvEQP9xZKF6EiTwOM",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "skull": "Tongue Demon"
+   },
    "profile": {
     "energy": 0.334,
     "angularity": 0.277,
@@ -33000,6 +33706,7 @@
    "genre": "synthpop",
    "genreGuess": true,
    "motifs": {
+    "clock": "Playgrounds Forever",
     "flower": "My Rose"
    },
    "profile": {
@@ -33024,6 +33731,7 @@
    "tags": [],
    "genre": "experimental",
    "motifs": {
+    "cross": "Heaven To A Tortured Mind",
     "heart": "A Greater Love",
     "star": "Super Stars"
    },
@@ -33072,7 +33780,8 @@
    "genre": "trap",
    "genreGuess": true,
    "motifs": {
-    "cloud": "Vapor Drip"
+    "cloud": "Vapor Drip",
+    "drop": "Vapor Drip"
    },
    "profile": {
     "energy": 0.803,
@@ -33095,7 +33804,9 @@
    "url": "https://open.spotify.com/album/1iDmJgHcLrYKW8EUg402zz",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "flame": "Torch"
+   },
    "profile": {
     "energy": 0.351,
     "angularity": 0.273,
@@ -33139,7 +33850,9 @@
    "url": "https://open.spotify.com/album/60Rnz307ETOWHn6LWlKMrK",
    "tags": [],
    "genre": "indie rock",
-   "motifs": {},
+   "motifs": {
+    "screen": "The Photo Album"
+   },
    "profile": {
     "energy": 0.521,
     "angularity": 0.518,
@@ -33207,7 +33920,9 @@
    "url": "https://open.spotify.com/album/2Iqg9i3aamtJUcdIapKJ9I",
    "tags": [],
    "genre": "experimental",
-   "motifs": {},
+   "motifs": {
+    "clock": "Time"
+   },
    "profile": {
     "energy": 0.471,
     "angularity": 0.546,
@@ -33231,6 +33946,7 @@
    "genre": "trap",
    "motifs": {
     "figure": "NASTY GIRL / ON CAMERA",
+    "screen": "NASTY GIRL / ON CAMERA",
     "face": "DOLLAZ ON MY HEAD (feat. Young Thug)"
    },
    "profile": {
@@ -33465,7 +34181,9 @@
    "url": "https://open.spotify.com/album/7qIuZgsMkRuh7rzi4qVcpg",
    "tags": [],
    "genre": "r&b",
-   "motifs": {},
+   "motifs": {
+    "clock": "Any Time, Any Place"
+   },
    "profile": {
     "energy": 0.281,
     "angularity": 0.094,
@@ -33531,7 +34249,9 @@
    "url": "https://open.spotify.com/album/7GWkceE5McMVfffd1RGL6Y",
    "tags": [],
    "genre": "r&b",
-   "motifs": {},
+   "motifs": {
+    "clock": "Funny How Time Flies (When You're Having Fun)"
+   },
    "profile": {
     "energy": 0.273,
     "angularity": 0.201,
@@ -33646,7 +34366,9 @@
    "tags": [],
    "genre": "cloud rap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "note": "Luh Da Sound (CashCache)"
+   },
    "profile": {
     "energy": 0.39,
     "angularity": 0.286,
@@ -33849,7 +34571,9 @@
    "url": "https://open.spotify.com/album/0qnkaQdhxfRgCeNCakNC4o",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "globe": "WHOLE WORLD (feat. Maxo)"
+   },
    "profile": {
     "energy": 0.667,
     "angularity": 0.679,
@@ -33872,7 +34596,8 @@
    "tags": [],
    "genre": "synthpop",
    "motifs": {
-    "eye": "Hey Big Eyes"
+    "eye": "Hey Big Eyes",
+    "flame": "So Hot You're Hurting My Feelings"
    },
    "profile": {
     "energy": 0.535,
@@ -34010,7 +34735,8 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {
-    "face": "MIRROR (HYMN) - INTRO"
+    "face": "MIRROR (HYMN) - INTRO",
+    "note": "MIRROR (HYMN) - INTRO"
    },
    "profile": {
     "energy": 0.347,
@@ -34078,7 +34804,9 @@
    "url": "https://open.spotify.com/album/4J5QtgOhv6tPCsxxifVskj",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "cross": "Gospel"
+   },
    "profile": {
     "energy": 0.725,
     "angularity": 0.699,
@@ -34152,7 +34880,10 @@
    "url": "https://open.spotify.com/album/7kIvlhU8SmzVu8C9zB6EWQ",
    "tags": [],
    "genre": "hardcore",
-   "motifs": {},
+   "motifs": {
+    "skull": "Drop Dead (30th Anniversary Edition)",
+    "drop": "Drop Dead (30th Anniversary Edition)"
+   },
    "profile": {
     "energy": 1,
     "angularity": 0.896,
@@ -34196,7 +34927,9 @@
    "url": "https://open.spotify.com/album/3nHpBmW5wJXGeC3ojBkpey",
    "tags": [],
    "genre": "punk",
-   "motifs": {},
+   "motifs": {
+    "note": "Online Songs"
+   },
    "profile": {
     "energy": 0.937,
     "angularity": 0.909,
@@ -34220,6 +34953,7 @@
    "genre": "lo-fi",
    "motifs": {
     "circle": "Small Car Big Wheels",
+    "car": "Small Car Big Wheels",
     "moon": "New Balance New Moon"
    },
    "profile": {
@@ -34309,7 +35043,9 @@
    "url": "https://open.spotify.com/album/1xpGyKyV26uPstk1Elgp9Q",
    "tags": [],
    "genre": "indie rock",
-   "motifs": {},
+   "motifs": {
+    "globe": "The World Has Turned And Left Me Here"
+   },
    "profile": {
     "energy": 0.557,
     "angularity": 0.517,
@@ -34354,7 +35090,9 @@
    "tags": [],
    "genre": "cloud rap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "crown": "Drama Queen"
+   },
    "profile": {
     "energy": 0.318,
     "angularity": 0.3,
@@ -34398,7 +35136,10 @@
    "url": "https://open.spotify.com/album/2CaTyv2PRp5uG5SHIb2tK5",
    "tags": [],
    "genre": "electronica",
-   "motifs": {},
+   "motifs": {
+    "screen": "Mass Effect (EA Games Soundtrack)",
+    "globe": "Uncharted Worlds"
+   },
    "profile": {
     "energy": 0.576,
     "angularity": 0.42,
@@ -34650,7 +35391,9 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
-    "box": "Trapped On Cleveland 2"
+    "box": "Trapped On Cleveland 2",
+    "money": "Millions & Billions",
+    "drop": "Add a Lil Drip (feat. Yung Slatt)"
    },
    "profile": {
     "energy": 0.766,
@@ -34674,7 +35417,9 @@
    "tags": [],
    "genre": "trap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "money": "My Money and Me"
+   },
    "profile": {
     "energy": 0.691,
     "angularity": 0.684,
@@ -34806,7 +35551,10 @@
    "url": "https://open.spotify.com/album/7z4GhRfLqfSkqrj5F3Yt2B",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "cross": "Heaven Or Hell",
+    "skull": "Heaven Or Hell"
+   },
    "profile": {
     "energy": 0.743,
     "angularity": 0.745,
@@ -34965,6 +35713,7 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
+    "skull": "Ghost Of Soulja Slim",
     "circle": "Ezekiel’s Wheel feat. The-Dream"
    },
    "profile": {
@@ -35057,7 +35806,9 @@
    "url": "https://open.spotify.com/album/6T3bpnPxYxnaoRhGVhT7aL",
    "tags": [],
    "genre": "hardcore",
-   "motifs": {},
+   "motifs": {
+    "crown": "I Am King"
+   },
    "profile": {
     "energy": 0.943,
     "angularity": 0.928,
@@ -35125,7 +35876,8 @@
    "genre": "trap",
    "motifs": {
     "house": "Homecoming",
-    "heart": "Chrome Heart Tags"
+    "heart": "Chrome Heart Tags",
+    "money": "Secure The Bag"
    },
    "profile": {
     "energy": 0.786,
@@ -35173,7 +35925,9 @@
    "url": "https://open.spotify.com/album/2Cnl8AUUR6lNcBoauc6zB6",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "clock": "Forever Kaine"
+   },
    "profile": {
     "energy": 0.29,
     "angularity": 0.205,
@@ -35373,7 +36127,9 @@
    "url": "https://open.spotify.com/album/55bhTW7p0YpAr1Oawj6REI",
    "tags": [],
    "genre": "soul",
-   "motifs": {},
+   "motifs": {
+    "clock": "Touch Me In The Morning (Expanded Edition)"
+   },
    "profile": {
     "energy": 0.408,
     "angularity": 0.279,
@@ -35395,7 +36151,9 @@
    "url": "https://open.spotify.com/album/4vt0V1SmkaK1Y440P5Nsb4",
    "tags": [],
    "genre": "singer-songwriter",
-   "motifs": {},
+   "motifs": {
+    "money": "Atlanta Millionaires Club"
+   },
    "profile": {
     "energy": 0.192,
     "angularity": 0.402,
@@ -35419,8 +36177,9 @@
    "genre": "lo-fi",
    "motifs": {
     "wave": "Eye's Drift",
-    "horizon": "Buffed Sky",
-    "eye": "Eye's Drift"
+    "drop": "A New Place 2 Drown",
+    "cross": "Any God of Yours",
+    "horizon": "Buffed Sky"
    },
    "profile": {
     "energy": 0.328,
@@ -35558,7 +36317,9 @@
    "url": "https://open.spotify.com/album/2u07QZy2B5vzr0s5pBbKga",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "skull": "Unknown Death 2002"
+   },
    "profile": {
     "energy": 0.325,
     "angularity": 0.265,
@@ -35580,7 +36341,9 @@
    "url": "https://open.spotify.com/album/0NjpedEWmXVlxHhLl7nTor",
    "tags": [],
    "genre": "experimental",
-   "motifs": {},
+   "motifs": {
+    "drop": "Solid Liquid Gas"
+   },
    "profile": {
     "energy": 0.467,
     "angularity": 0.456,
@@ -35757,7 +36520,9 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {
-    "rain": "Codeine Tears in Her Fanta"
+    "globe": "Soulja Luv Rari World",
+    "rain": "Codeine Tears in Her Fanta",
+    "drop": "Codeine Tears in Her Fanta"
    },
    "profile": {
     "energy": 0.321,
@@ -35829,7 +36594,8 @@
    "genre": "trap",
    "genreGuess": true,
    "motifs": {
-    "heart": "I Need Your Love"
+    "heart": "I Need Your Love",
+    "drop": "Pussy Drip"
    },
    "profile": {
     "energy": 0.8,
@@ -35964,7 +36730,8 @@
    "tags": [],
    "genre": "hip hop",
    "motifs": {
-    "figure": "Hot Girl Semester"
+    "figure": "Hot Girl Semester",
+    "flame": "Hot Girl Semester"
    },
    "profile": {
     "energy": 0.615,
@@ -36010,7 +36777,10 @@
    "url": "https://open.spotify.com/album/4w7k93mEK9eYQRcoE9L4U6",
    "tags": [],
    "genre": "electronica",
-   "motifs": {},
+   "motifs": {
+    "skull": "Resident Evil: Afterlife (Original Soundtrack) [Deluxe Version]",
+    "screen": "Resident Evil: Afterlife (Original Soundtrack) [Deluxe Version]"
+   },
    "profile": {
     "energy": 0.529,
     "angularity": 0.386,
@@ -36188,9 +36958,7 @@
    "url": "https://open.spotify.com/album/0RJ6KKGI7jZFdLIdjmp0C6",
    "tags": [],
    "genre": "lo-fi",
-   "motifs": {
-    "heart": "Horse Jumper of Love"
-   },
+   "motifs": {},
    "profile": {
     "energy": 0.319,
     "angularity": 0.465,
@@ -36347,7 +37115,9 @@
    "url": "https://open.spotify.com/album/7EJgbDKmoiDPPMVfxvZIt8",
    "tags": [],
    "genre": "funk",
-   "motifs": {},
+   "motifs": {
+    "globe": "Africa Centre of the World (feat. Roy Ayers)"
+   },
    "profile": {
     "energy": 0.716,
     "angularity": 0.494,
@@ -36708,7 +37478,10 @@
    "tags": [],
    "genre": "cloud rap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "money": "Money Callin",
+    "phone": "Money Callin"
+   },
    "profile": {
     "energy": 0.31,
     "angularity": 0.219,
@@ -36755,7 +37528,9 @@
    "url": "https://open.spotify.com/album/1bgdG0363iC28Hv0o7atAN",
    "tags": [],
    "genre": "synthpop",
-   "motifs": {},
+   "motifs": {
+    "money": "money machine (A. G. Cook Remix)"
+   },
    "profile": {
     "energy": 0.508,
     "angularity": 0.53,
@@ -36777,7 +37552,9 @@
    "url": "https://open.spotify.com/album/6YUCc2RiXcEKS9ibuZxjt0",
    "tags": [],
    "genre": "soul",
-   "motifs": {},
+   "motifs": {
+    "note": "Songs In The Key Of Life"
+   },
    "profile": {
     "energy": 0.481,
     "angularity": 0.246,
@@ -36914,7 +37691,9 @@
    "url": "https://open.spotify.com/album/37hHXJ7xas2Nb7Jbi8ip4E",
    "tags": [],
    "genre": "dream pop",
-   "motifs": {},
+   "motifs": {
+    "cross": "Heaven Or Las Vegas (Remastered)"
+   },
    "profile": {
     "energy": 0.221,
     "angularity": 0.204,
@@ -37212,7 +37991,9 @@
    "url": "https://open.spotify.com/album/1mJFgPeuLhU1PzLNBURdJC",
    "tags": [],
    "genre": "psychedelic rock",
-   "motifs": {},
+   "motifs": {
+    "car": "Race for the Prize - 2017 Remaster"
+   },
    "profile": {
     "energy": 0.574,
     "angularity": 0.292,
@@ -37234,7 +38015,9 @@
    "url": "https://open.spotify.com/album/6VML3yX1WR5pXtg6fmwdzZ",
    "tags": [],
    "genre": "drill",
-   "motifs": {},
+   "motifs": {
+    "money": "Finally Rich (Deluxe)"
+   },
    "profile": {
     "energy": 0.711,
     "angularity": 0.902,
@@ -37280,7 +38063,10 @@
    "url": "https://open.spotify.com/album/7btiyhWzUfzxN3ijSiBpC8",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "cross": "Heaven & Hell (feat. Ghostface Killah)",
+    "skull": "Heaven & Hell (feat. Ghostface Killah)"
+   },
    "profile": {
     "energy": 0.627,
     "angularity": 0.63,
@@ -37324,7 +38110,9 @@
    "url": "https://open.spotify.com/album/4p7OubIrnoRbhi3YUbN5Ib",
    "tags": [],
    "genre": "lo-fi",
-   "motifs": {},
+   "motifs": {
+    "clock": "Midnight Snack"
+   },
    "profile": {
     "energy": 0.327,
     "angularity": 0.472,
@@ -37461,6 +38249,8 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
+    "skull": "Blue Devil 2",
+    "drop": "Wet Like A Boat (feat. Lil Keed & Lil Yachty)",
     "moon": "To The Moon (feat. Young Thug)"
    },
    "profile": {
@@ -37530,7 +38320,9 @@
    "url": "https://open.spotify.com/album/2lTfjZPS0xFQE3cbGZf92T",
    "tags": [],
    "genre": "soul",
-   "motifs": {},
+   "motifs": {
+    "clock": "Hard Times"
+   },
    "profile": {
     "energy": 0.438,
     "angularity": 0.283,
@@ -37597,6 +38389,7 @@
    "tags": [],
    "genre": "synthpop",
    "motifs": {
+    "money": "Money on a Gold Plate / Cos I Love U",
     "heart": "Money on a Gold Plate / Cos I Love U"
    },
    "profile": {
@@ -37643,7 +38436,9 @@
    "url": "https://open.spotify.com/album/2RFYHIHFDbnhTlncrOpxi6",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "clock": "Lately (Chopped and Screwed)"
+   },
    "profile": {
     "energy": 0.629,
     "angularity": 0.676,
@@ -38024,7 +38819,9 @@
    "url": "https://open.spotify.com/album/1hYEZGnqoWPe5rV8gc8y3g",
    "tags": [],
    "genre": "synthpop",
-   "motifs": {},
+   "motifs": {
+    "phone": "Get The Message: The Best Of Electronic"
+   },
    "profile": {
     "energy": 0.566,
     "angularity": 0.534,
@@ -38115,7 +38912,9 @@
    "tags": [],
    "genre": "trap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "skull": "Rest in Peace Asap Yams"
+   },
    "profile": {
     "energy": 0.701,
     "angularity": 0.656,
@@ -38205,7 +39004,9 @@
    "url": "https://open.spotify.com/album/7v4AVMTkuZLfbFrQG8HdJq",
    "tags": [],
    "genre": "drill",
-   "motifs": {},
+   "motifs": {
+    "skull": "Back from the Dead"
+   },
    "profile": {
     "energy": 0.652,
     "angularity": 0.857,
@@ -38337,7 +39138,9 @@
    "url": "https://open.spotify.com/album/3vObc2h4jNdpjUoA1XlxCQ",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "drop": "Drip Season 2"
+   },
    "profile": {
     "energy": 0.777,
     "angularity": 0.731,
@@ -38359,7 +39162,9 @@
    "url": "https://open.spotify.com/album/4JXiAbWJB50MGIdmqXx06x",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "clock": "Took Time (feat. Dee)"
+   },
    "profile": {
     "energy": 0.712,
     "angularity": 0.708,
@@ -38660,7 +39465,9 @@
    "tags": [],
    "genre": "cloud rap",
    "genreGuess": true,
-   "motifs": {},
+   "motifs": {
+    "skull": "Die Like This"
+   },
    "profile": {
     "energy": 0.378,
     "angularity": 0.194,
@@ -38683,7 +39490,8 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
-    "grid": "Quality Control: Control The Streets Volume 2"
+    "grid": "Quality Control: Control The Streets Volume 2",
+    "money": "100 Racks (Offset feat. Playboi Carti)"
    },
    "profile": {
     "energy": 0.696,
@@ -38706,7 +39514,9 @@
    "url": "https://open.spotify.com/album/287q5htsgYZJXBAWr7dYeE",
    "tags": [],
    "genre": "r&b",
-   "motifs": {},
+   "motifs": {
+    "flame": "Hot For Me"
+   },
    "profile": {
     "energy": 0.347,
     "angularity": 0.185,
@@ -38797,7 +39607,8 @@
    "tags": [],
    "genre": "cloud rap",
    "motifs": {
-    "figure": "Are You Afraid of the Danger Boys?"
+    "figure": "Are You Afraid of the Danger Boys?",
+    "diamond": "Diamonds"
    },
    "profile": {
     "energy": 0.311,
@@ -39118,7 +39929,8 @@
    "tags": [],
    "genre": "reggae",
    "motifs": {
-    "sun": "Summer Records Anthology: 1974 - 1988"
+    "sun": "Summer Records Anthology: 1974 - 1988",
+    "clock": "Right, Right Time"
    },
    "profile": {
     "energy": 0.385,
@@ -39141,7 +39953,9 @@
    "url": "https://open.spotify.com/album/6EikTAFrq2EVZBccaoY9uH",
    "tags": [],
    "genre": "dancehall",
-   "motifs": {},
+   "motifs": {
+    "car": "Driver A"
+   },
    "profile": {
     "energy": 0.753,
     "angularity": 0.463,
@@ -39595,7 +40409,9 @@
    "url": "https://open.spotify.com/album/5Gd7JVwgnq79OHH0ECRQwJ",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "note": "Double Dare (Soapy Anthem)"
+   },
    "profile": {
     "energy": 0.709,
     "angularity": 0.755,
@@ -39640,7 +40456,8 @@
    "tags": [],
    "genre": "grime",
    "motifs": {
-    "figure": "Ladies Hit Squad"
+    "figure": "Ladies Hit Squad",
+    "phone": "Text Me Back"
    },
    "profile": {
     "energy": 0.974,
@@ -39910,7 +40727,8 @@
    "tags": [],
    "genre": "indie rock",
    "motifs": {
-    "line": "One Way"
+    "line": "One Way",
+    "money": "Million Miles"
    },
    "profile": {
     "energy": 0.57,
@@ -40159,7 +40977,9 @@
    "url": "https://open.spotify.com/album/24Dsi3qwXQBCerTLWdr1tq",
    "tags": [],
    "genre": "jazz",
-   "motifs": {},
+   "motifs": {
+    "clock": "Ev'ry Time We Say Goodbye - Live"
+   },
    "profile": {
     "energy": 0.474,
     "angularity": 0.444,
@@ -40357,7 +41177,9 @@
    "url": "https://open.spotify.com/album/1hzcMXVqHNhJkbHVjaPeFG",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "phone": "Phone"
+   },
    "profile": {
     "energy": 0.376,
     "angularity": 0.209,
@@ -40671,7 +41493,9 @@
    "url": "https://open.spotify.com/album/0SsIWVelJnusdFV9aBIzFP",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "clock": "Today or Tomorrow"
+   },
    "profile": {
     "energy": 0.799,
     "angularity": 0.727,
@@ -40781,7 +41605,9 @@
    "url": "https://open.spotify.com/album/4EpHrmN82k7id1BgYl6FOS",
    "tags": [],
    "genre": "trap",
-   "motifs": {},
+   "motifs": {
+    "cross": "Oh My God"
+   },
    "profile": {
     "energy": 0.708,
     "angularity": 0.706,
@@ -40849,7 +41675,10 @@
    "url": "https://open.spotify.com/album/2H7gR72Pdgr6vSm7ZFgznD",
    "tags": [],
    "genre": "drill",
-   "motifs": {},
+   "motifs": {
+    "skull": "Back From The Dead 3",
+    "phone": "Booty Call"
+   },
    "profile": {
     "energy": 0.755,
     "angularity": 0.905,
@@ -40919,6 +41748,7 @@
    "genre": "soul",
    "motifs": {
     "heart": "The Look Of Love - Remastered 1991 Album Version",
+    "clock": "By The Time I Get To Phoenix - Remastered 1991 Short Version",
     "figure": "Theme From \"The Men\" - Live At The Sahara Tahoe, USA / 1973"
    },
    "profile": {
@@ -40966,7 +41796,9 @@
    "genre": "soul",
    "motifs": {
     "house": "Home",
-    "cloud": "My Cloud"
+    "cloud": "My Cloud",
+    "note": "Piano Player",
+    "skull": "NY Is Killing Me"
    },
    "profile": {
     "energy": 0.444,
@@ -41011,7 +41843,9 @@
    "url": "https://open.spotify.com/album/6v7bvadPuidJL6o6kepl1f",
    "tags": [],
    "genre": "synthpop",
-   "motifs": {},
+   "motifs": {
+    "note": "PC Music, Vol. 1"
+   },
    "profile": {
     "energy": 0.541,
     "angularity": 0.515,
@@ -41103,9 +41937,10 @@
    "tags": [],
    "genre": "trap",
    "motifs": {
-    "heart": "Love Hurts (feat. Travis Scott)",
-    "house": "Home (KOD)",
-    "sun": "Middle Of The Summer (feat. Red Coldhearted)"
+    "skull": "Die Lit",
+    "flame": "Die Lit",
+    "clock": "Long Time - Intro",
+    "money": "Old Money"
    },
    "profile": {
     "energy": 0.718,
@@ -41270,7 +42105,9 @@
    "url": "https://open.spotify.com/album/3wUv2IjD5hPrqlPakpczQa",
    "tags": [],
    "genre": "hip hop",
-   "motifs": {},
+   "motifs": {
+    "note": "AM // Radio (feat. Wiki)"
+   },
    "profile": {
     "energy": 0.6,
     "angularity": 0.61,
@@ -41315,7 +42152,9 @@
    "url": "https://open.spotify.com/album/30wbr5CYayaCmIq5wVJ39p",
    "tags": [],
    "genre": "dancehall",
-   "motifs": {},
+   "motifs": {
+    "note": "Hi Grade Ganja Anthems Vol. 2"
+   },
    "profile": {
     "energy": 0.702,
     "angularity": 0.528,
@@ -41383,7 +42222,9 @@
    "url": "https://open.spotify.com/album/1lujGZhn4jdiIFrdUTSDso",
    "tags": [],
    "genre": "cloud rap",
-   "motifs": {},
+   "motifs": {
+    "skull": "Live.Shyne.Die"
+   },
    "profile": {
     "energy": 0.345,
     "angularity": 0.289,

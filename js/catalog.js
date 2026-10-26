@@ -28,12 +28,24 @@ export const MOTIF_PATTERNS = {
   flower: ['flowers?', 'roses?', 'bloom(s|ing)?', 'blossom(s|ing)?', 'gardens?', 'daisy', 'daisies', 'lily', 'lilies', 'tulips?', 'orchids?', 'petals?', 'sunflowers?', 'lotus', 'violets?', 'jasmine', 'bouquet', 'floral'],
   moon: ['moon(s|light|lit|shine|beam|walk)?', 'lunar', 'crescent', 'luna'],
   eye: ['eyes?', 'eyed', 'eyelids?', 'visions?', 'gaze', 'stare', 'sight', 'blind', 'iris', 'watching', 'glance'],
-  cross: ['cross(es|ed|ing|roads)?', 'church', 'pray(er|ers|ing)?', 'jesus', 'christ', 'holy', 'faith', 'amen', 'saints?', 'crucifix', 'calvary', 'hallelujah'],
+  cross: ['cross(es|ed|ing|roads)?', 'church', 'pray(er|ers|ing)?', 'jesus', 'christ', 'holy', 'faith', 'amen', 'saints?', 'crucifix', 'calvary', 'hallelujah', 'god', 'lord', 'heaven(ly)?', 'bless(ed|ing|ings)?', 'gospel', 'angels?', 'sermon', 'psalms?'],
   box: ['box(es|ed)?', 'squares?', 'cubes?', 'cages?', 'caged', 'prison', 'jail', 'locked', 'frames?', 'package', 'crates?', 'trapped'],
   arrow: ['arrows?', 'directions?', 'forward', 'onwards?', 'targets?', 'aim(ing)?', 'pointing', 'compass', 'bullseye'],
   figure: ['man', 'men', 'woman', 'women', 'girls?', 'boys?', 'person', 'people', 'bod(y|ies)', 'human', 'child(ren)?', 'lady', 'ladies', 'dancers?', 'gentlem[ae]n'],
   bird: ['birds?', 'birdsong', 'wings?', 'fly(ing)?', 'flight', 'feathers?', 'doves?', 'crows?', 'eagles?', 'sparrows?', 'swallows?', 'raven', 'robins?', 'pigeons?', 'owls?', 'hawks?', 'blackbird', 'songbird', 'swans?', 'nest', 'soar(ing)?', 'canary'],
   cloud: ['clouds?', 'cloudy', 'cloud nine', 'fog(gy)?', 'mist(y)?', 'haze', 'hazy', 'smok(e|ey|y|in|ing)', 'vapou?rs?', 'overcast', 'steam'],
+  crown: ['kings?', 'queens?', 'crown(s|ed)?', 'royal(ty|s)?', 'prince(ss)?', 'throne', 'kingdom', 'empire', 'reign', 'majesty', 'emperor', 'regal'],
+  diamond: ['diamonds?', 'ice', 'icy', 'iced', 'jewel(s|ry|ery)?', 'gems?', 'crystals?', 'bling', 'carats?', 'vvs', 'pearls?', 'sapphire', 'emerald', 'ruby'],
+  drop: ['drips?', 'drippy', 'drip(ping|pin)', 'drops?', 'drown(s|ing|ed)?', 'tears', 'teardrops?', 'sweat', 'wet', 'splash', 'puddle', 'liquid', 'leak(ing)?'],
+  flame: ['fire', 'fires', 'flames?', 'burn(s|ing|in|ed|t)?', 'blaze', 'blazing', 'lit', 'hot', 'inferno', 'torch', 'firestarter', 'ignite', 'matches'],
+  money: ['money', 'cash', 'bands', 'racks?', 'dollars?', 'bank(roll)?', 'rich(es)?', 'paid', 'bags?', 'bread', 'guap', 'bucks', 'millions?', 'millionaires?', 'billions?', 'billionaires?', 'profit', 'commas', 'broke', 'wealth', 'fortune', 'currency', 'payday', 'hundreds'],
+  note: ['music', 'musi[ck]', 'muzik', 'songs?', 'melod(y|ies)', 'tunes?', 'sing(s|ing|in|er|ers)?', 'notes?', 'lullaby', 'harmony', 'chorus', 'hymns?', 'anthems?', 'ballads?', 'serenade', 'symphony', 'rhythm', 'sounds?', 'radio', 'piano', 'guitar', 'beats'],
+  clock: ['time', 'times', 'clocks?', 'hours?', 'minutes?', 'seconds', "o'clock", 'tonight', 'forever', 'yesterday', 'tomorrow', 'someday', 'lately', 'timeless', 'countdown', 'midnight', 'morning', 'seasons'],
+  globe: ['world(s|wide)?', 'earth', 'globe', 'global', 'planet(s|ary)?', 'universe', 'universal', 'international', 'nations?', 'continents?', 'atlas', 'maps?', 'atlanta to the world'],
+  skull: ['skulls?', 'dead', 'death', 'die', 'dies', 'dying', 'died', 'grave(s|yard)?', 'bones?', 'kill(s|er|ers|ing|in)?', 'murder(s|er)?', 'r\\.i\\.p\\.?', 'rest in peace', 'funeral', 'coffin', 'casket', 'corpse', 'zombies?', 'ghosts?', 'demons?', 'devil', 'hell', 'evil', 'reaper', 'cemetery'],
+  car: ['cars?', 'rid(e|es|ing|in)', 'whips?', 'driv(e|es|er|ing|in)', 'benz', 'mercedes', 'porsche', 'trucks?', 'coupe', 'lambo', 'lamborghini', 'bentley', 'ferrari', 'cadillac', 'caddy', 'chevy', 'impala', 'jeep', 'racing', 'race', 'garage', 'parking', 'speed(ing)?', 'vroom', 'cruis(e|ing|in)'],
+  phone: ['phones?', 'call(s|ing|in)?', 'hotline', 'text(s|ing|in|ed)?', 'cell', 'dial(ing)?', 'voicemail', 'facetime', 'telephone', 'ringtone', 'iphone', 'blackberry', 'pager', 'messages?'],
+  screen: ['tv', 'television', 'screens?', 'videos?', 'movies?', 'films?', 'cameras?', 'pictures?', 'photos?', 'cinema', 'channels?', 'showtime', 'broadcast', 'youtube', 'stream(ing)?', 'theater', 'theatre', 'soundtrack'],
   abstract: ['shapes?', 'forms?', 'abstract(ion)?', 'gestures?', 'figures?', 'sketch(es)?', 'drawings?', 'lines and', 'colou?rs?', 'art'],
 };
 
@@ -43,15 +55,19 @@ const MOTIF_RE = Object.fromEntries(
 
 // Drawings that look alike share some credit.
 export const RELATED = {
-  face: ['eye', 'figure', 'circle'], sun: ['circle', 'flower', 'star'], circle: ['moon', 'sun', 'eye', 'spiral'],
-  spiral: ['loops', 'circle', 'wave'], star: ['sun', 'cross', 'moon'], grid: ['box', 'line', 'house'],
-  rain: ['cloud', 'line', 'dots'], dots: ['rain', 'star', 'scribble'], zigzag: ['mountain', 'arrow', 'scribble'],
+  face: ['eye', 'figure', 'circle', 'skull'], sun: ['circle', 'flower', 'star', 'flame'], circle: ['moon', 'sun', 'eye', 'spiral', 'clock', 'globe'],
+  spiral: ['loops', 'circle', 'wave'], star: ['sun', 'cross', 'moon', 'diamond', 'crown'], grid: ['box', 'line', 'house'],
+  rain: ['cloud', 'line', 'dots', 'drop'], dots: ['rain', 'star', 'scribble'], zigzag: ['mountain', 'arrow', 'scribble'],
   mountain: ['zigzag', 'house', 'horizon'], wave: ['horizon', 'bird', 'loops'], loops: ['spiral', 'cloud', 'scribble'],
   horizon: ['line', 'wave', 'mountain'], line: ['arrow', 'horizon', 'grid'], scribble: ['loops', 'zigzag', 'abstract'],
   heart: ['face', 'flower', 'circle'], house: ['box', 'mountain', 'grid'], flower: ['sun', 'heart', 'star'],
   moon: ['circle', 'star', 'cloud'], eye: ['face', 'circle', 'moon'], cross: ['star', 'grid', 'line'],
-  box: ['grid', 'house', 'line'], arrow: ['line', 'zigzag'], figure: ['face', 'line'],
+  box: ['grid', 'house', 'line', 'phone', 'screen'], arrow: ['line', 'zigzag'], figure: ['face', 'line'],
   bird: ['wave', 'cloud', 'zigzag'], cloud: ['rain', 'loops', 'moon'],
+  crown: ['star', 'mountain', 'zigzag'], diamond: ['star', 'box', 'mountain'], drop: ['rain', 'flame', 'heart'],
+  flame: ['drop', 'sun', 'zigzag'], money: ['wave', 'box', 'line'], note: ['line', 'bird', 'eye'],
+  clock: ['circle', 'face', 'globe'], globe: ['circle', 'clock', 'sun'], skull: ['face', 'cross', 'eye'],
+  car: ['box', 'circle', 'line'], phone: ['box', 'screen'], screen: ['box', 'phone', 'grid'],
   abstract: ['scribble'],
 };
 
@@ -130,16 +146,20 @@ export function cleanTitle(text) {
     .replace(/\s*[([][^)\]]*\b(feat|ft|with|remix|mix|prod|compiled|version|remaster(ed)?|edition|live|bonus|deluxe|instrumental|edit|demo|explicit|clean|hosted|chopped|screwed|presents?)\b[^)\]]*[)\]]/gi, ' ')
     .replace(/\s+-\s+[^-]*\b(remaster(ed)?|live|version|mix|remix|edit|demo|instrumental|mono|stereo|single|bonus)\b.*$/i, '')
     .replace(/\s(feat\.?|ft\.|featuring)\s.*$/i, '')
-    .replace(/\b(sun ra|pop smoke|frank ocean|box set|gilles peterson presents)\b/gi, ' ');
+    .replace(/\b(sun ra|pop smoke|frank ocean|box set|gilles peterson presents|ice cream|johnny cash)\b/gi, ' ');
 }
 
 // Finds motifs in titles. `texts` is [{ text, weight }]. Returns { motif: matchedTitle }, strongest first.
-export function motifsFromText(texts) {
+// `exclude`: names to ignore in titles, normally the record's own artists ("King Krule" isn't a crown).
+export function motifsFromText(texts, exclude = []) {
   const scores = {};
   const where = {};
+  const names = exclude.map((n) => String(n || '').trim()).filter((n) => n.length >= 3)
+    .map((n) => new RegExp(`\\b${n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}('s|s)?\\b`, 'gi'));
   for (const { text, weight } of texts) {
     if (!text) continue;
-    const clean = cleanTitle(text);
+    let clean = cleanTitle(text);
+    for (const re of names) clean = clean.replace(re, ' ');
     for (const [m, re] of Object.entries(MOTIF_RE)) {
       if (re.test(clean)) {
         scores[m] = (scores[m] || 0) + weight;

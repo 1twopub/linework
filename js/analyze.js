@@ -62,6 +62,18 @@ export const MOTIF_LABELS = {
   figure: 'A figure',
   bird: 'A bird',
   cloud: 'A cloud',
+  crown: 'A crown',
+  diamond: 'A diamond',
+  drop: 'A drop',
+  flame: 'A flame',
+  money: 'A dollar sign',
+  note: 'A music note',
+  clock: 'A clock',
+  globe: 'A globe',
+  skull: 'A skull',
+  car: 'A car',
+  phone: 'A phone',
+  screen: 'A screen',
   abstract: 'An abstraction',
 };
 
@@ -323,31 +335,36 @@ function classifyStroke(s) {
   const spiralish = s.radialRatio > 1.7 || s.radialRatio < 0.6;
   const roundish = s.windingsClosed >= 0.7 && s.windingsClosed < 1.45 && s.windings < 1.6;
 
+  if (s.closed && isCrown(s)) return 'crown';
   if (s.outwardSharp >= 4 && s.outwardSharp <= 8 && (s.sameSign >= 0.7 || s.closed)) return 'star';
   if (s.windings >= 1.4 && spiralish && s.corners <= 3) return 'spiral';
 
   if (s.closed && roundish) {
     if (isHeart(s, aspect)) return 'heart';
+    if (isDiamond(s)) return 'diamond';
+    if (isDrop(s, aspect)) return 'drop';
+    if (isFlame(s, aspect)) return 'flame';
     if (s.outwardPoints === 2 && s.lobes <= 2 && s.fill > 0 && s.fill < 0.45) return 'moon';
     if (s.outwardPoints === 2 && s.corners <= 3 && s.fill >= 0.45 && (aspect > 1.5 || aspect < 0.67)) return 'lens';
     if ((s.lobes >= 4 || s.concave >= 4) && s.depth >= 0.45 && aspect > 0.65 && aspect < 1.5 && s.outwardSharp <= 1) return 'flower';
     if (s.concave >= 3 && s.outwardSharp <= 1 && (aspect >= 1.15 || s.depth < 0.45)) return 'cloud';
     if (s.polygonness >= 0.4 && s.corners >= 3) {
       // Three corners: a square with a softened corner fills its box, a house front a bit less, a triangle half.
-      if (s.corners === 3) return s.fill > 0.86 ? 'box' : s.fill > 0.65 && isHouse(s) ? 'house' : 'mountain';
+      if (s.corners === 3) return s.fill > 0.86 ? boxKind(aspect) : s.fill > 0.65 && isHouse(s) ? 'house' : 'mountain';
       if (s.corners >= 4 && s.corners <= 6 && isHouse(s)) return 'house';
-      if (s.corners >= 4 && s.corners <= 5 && aspect > 0.35 && aspect < 2.8) return 'box';
+      if (s.corners >= 4 && s.corners <= 5 && aspect > 0.25 && aspect < 4) return boxKind(aspect);
     }
     if (s.cv < 0.25 && aspect > 0.45 && aspect < 2.2 && s.corners <= 2 && s.polygonness < 0.35) return 'circle';
   }
   if (s.closed && s.corners >= 2 && s.corners <= 5 && s.polygonness >= 0.35) {
     if (s.corners >= 3 && s.fill > 0.65 && s.fill <= 0.86 && isHouse(s)) return 'house';
-    return s.corners >= 4 || s.fill > 0.86 ? 'box' : 'mountain';
+    return s.corners >= 4 || s.fill > 0.86 ? boxKind(aspect) : 'mountain';
   }
   if (s.windings >= 1.4 && s.corners <= 4) return 'loops';
   if (s.straightness > 0.9) return 'line';
   if (!s.closed && isArrow(s)) return 'arrow';
   if (!s.closed && isBird(s, aspect)) return 'bird';
+  if (!s.closed && isMoneyS(s, aspect)) return 'money';
   if (!s.closed && s.corners >= 2 && s.alternation >= 0.6 && s.straightness > 0.25 && s.cornerTurn / s.corners >= 1.5) return 'zigzag';
   if (s.peak && s.inflections < 2 && s.corners >= 1 && s.corners <= 3) return 'mountain';
   if (!s.closed && s.inflections >= 2 && s.sharpCorners <= 1 && s.straightness > 0.3) return 'wave';
@@ -356,11 +373,86 @@ function classifyStroke(s) {
   return 'curve';
 }
 
+// Rectangles: tall reads as a phone, wide as a screen, squarish as a box.
+function boxKind(aspect) {
+  if (aspect < 0.62) return 'phone';
+  if (aspect > 1.6) return 'screen';
+  return 'box';
+}
+
+const convex = (s, k, min = 1.0) => Math.abs(k.turn) > min && Math.sign(k.turn) === Math.sign(s.signed || 1);
+const dent = (s, k) => Math.abs(k.turn) > 0.9 && Math.sign(k.turn) !== Math.sign(s.signed || 1);
+
+// Crown: three or more points along the top, dents between them, a flat base.
+function isCrown(s) {
+  const { bb } = s;
+  const tips = s.cornerPts.filter((k) => convex(s, k, 1.2) && k.pt.y < bb.minY + 0.4 * bb.h);
+  const base = s.cornerPts.filter((k) => convex(s, k, 0.9) && k.pt.y > bb.minY + 0.75 * bb.h);
+  const dents = s.cornerPts.filter((k) => dent(s, k) && k.pt.y < bb.minY + 0.75 * bb.h);
+  const lowDents = s.cornerPts.filter((k) => dent(s, k) && k.pt.y > bb.minY + 0.65 * bb.h);
+  if (tips.length < 3 || base.length < 1 || dents.length < 2 || lowDents.length || bb.w < 0.6 * bb.h || s.polygonness < 0.4) return false;
+  // The base is a straight edge across most of the width (a star has legs, a flame a round bottom).
+  const xs = s.segs.filter((p) => p.y > bb.maxY - 0.08 * bb.h).map((p) => p.x).sort((a, b) => a - b);
+  if (!xs.length || xs[xs.length - 1] - xs[0] < 0.5 * bb.w) return false;
+  // One unbroken edge, not two feet with a gap between them.
+  for (let i = 1; i < xs.length; i++) if (xs[i] - xs[i - 1] > 0.15 * bb.w) return false;
+  return true;
+}
+
+// Diamond: a square standing on its point, with corners at the middle of each side of its box.
+function isDiamond(s) {
+  const { bb } = s;
+  if (s.polygonness < 0.35 || s.fill < 0.35 || s.fill > 0.7 || !s.segs.length) return false;
+  const near = (p, x, y) => Math.abs(p.x - x) < 0.18 * bb.w && Math.abs(p.y - y) < 0.18 * bb.h;
+  const pts = s.segs;
+  const top = pts.reduce((a, p) => (p.y < a.y ? p : a));
+  const bot = pts.reduce((a, p) => (p.y > a.y ? p : a));
+  const left = pts.reduce((a, p) => (p.x < a.x ? p : a));
+  const right = pts.reduce((a, p) => (p.x > a.x ? p : a));
+  // A flat top or bottom edge (a triangle's base) rules it out.
+  const flat = (y) => { const xs = pts.filter((p) => Math.abs(p.y - y) < 0.05 * bb.h).map((p) => p.x); return xs.length && Math.max(...xs) - Math.min(...xs) > 0.3 * bb.w; };
+  if (!(near(top, bb.cx, bb.minY) && near(bot, bb.cx, bb.maxY) && near(left, bb.minX, bb.cy) && near(right, bb.maxX, bb.cy))) return false;
+  if (flat(bb.minY) || flat(bb.maxY)) return false;
+  // At least three of those four extremes must be real corners (an almond or a cloud is smooth there).
+  const r = 0.15 * Math.hypot(bb.w, bb.h);
+  const cornered = [top, bot, left, right].filter((e) => s.cornerPts.some((k) => convex(s, k, 0.7) && Math.hypot(k.pt.x - e.x, k.pt.y - e.y) < r)).length;
+  return cornered >= 3;
+}
+
+// Drop: one point at the top, round everywhere else.
+function isDrop(s, aspect) {
+  if (aspect < 0.4 || aspect > 1.15 || s.concave > 0 || s.fill < 0.4) return false;
+  const { bb } = s;
+  const points = s.cornerPts.filter((k) => convex(s, k, 0.9));
+  if (points.length !== 1) return false;
+  const p = points[0].pt;
+  return p.y < bb.minY + 0.2 * bb.h && Math.abs(p.x - bb.cx) < 0.25 * bb.w;
+}
+
+// Flame: two or more tongues licking up from a rounded bottom.
+function isFlame(s, aspect) {
+  if (aspect < 0.35 || aspect > 1.3) return false;
+  const { bb } = s;
+  const tips = s.cornerPts.filter((k) => convex(s, k, 0.9) && k.pt.y < bb.minY + 0.5 * bb.h);
+  const low = s.cornerPts.filter((k) => convex(s, k, 1.6) && k.pt.y > bb.minY + 0.6 * bb.h); // a soft start point is fine
+  // Tongues only point up; petals all the way round make a flower instead.
+  const lowerPoints = s.cornerPts.filter((k) => convex(s, k, 0.9) && k.pt.y > bb.cy).length;
+  return tips.length >= 2 && low.length === 0 && lowerPoints <= 1 && s.concave >= 1 && s.lobes <= 3;
+}
+
+// Dollar sign: an upright S (one or two bends the other way), with or without a line through it.
+function isMoneyS(s, aspect) {
+  return aspect < 0.8 && s.L > 0.15 && s.inflections >= 1 && s.inflections <= 3 && s.sharpCorners <= 1
+    && s.straightness < 0.85 && s.abs > 3 && s.windings < 1.2;
+}
+
 // Heart: a point at the bottom middle and a notch dipping into the top middle.
 function isHeart(s, aspect) {
   if (aspect < 0.6 || aspect > 1.7 || !s.segs.length) return false;
   const { bb } = s;
   if (s.concave > 2) return false; // clouds have many dents; a heart has one
+  // A heart's top is two round lobes: sharp points up there make it a flame or a crown instead.
+  if (s.cornerPts.some((k) => Math.abs(k.turn) > 1.3 && Math.sign(k.turn) === Math.sign(s.signed || 1) && k.pt.y < s.bb.minY + 0.35 * s.bb.h)) return false;
   const convex = (k) => Math.abs(k.turn) > 1.3 && Math.sign(k.turn) === Math.sign(s.signed || 1);
   const tip = s.cornerPts.some((k) => convex(k) && k.pt.y > bb.maxY - 0.15 * bb.h && Math.abs(k.pt.x - bb.cx) < 0.2 * bb.w);
   if (!tip) return false;
@@ -566,10 +658,61 @@ function detectMotif(infos, { totalLen, intersections, features }) {
 
   for (const c of circles) {
     const inner = infos.filter((i) => i !== c && i.L < c.L * 0.8 && inside(i.centroid, c.bb, 0.08));
+    if (!inner.length) continue;
+    const R = Math.max(c.bb.w, c.bb.h) / 2;
+    const center = { x: c.bb.cx, y: c.bb.cy };
+    const straight = inner.filter((i) => i.straightness > 0.85 && i.L > 0.15 * R);
+    // Skull: crossed-out (X) eyes.
+    for (let a = 0; a < straight.length; a++) {
+      for (let b = a + 1; b < straight.length; b++) {
+        const hit = lineCross(straight[a], straight[b]);
+        const ang = Math.abs(wrap(straight[a].orientation - straight[b].orientation)) % Math.PI;
+        if (hit && hit.t > 0.15 && hit.t < 0.85 && hit.u > 0.15 && hit.u < 0.85 && Math.min(ang, Math.PI - ang) > 0.7
+          && straight[a].L < 1.2 * R && straight[b].L < 1.2 * R) return 'skull';
+      }
+    }
+    // Globe: long lines or curves running right across it.
+    if (inner.filter((i) => i.L > 1.1 * R && i.diag > 1.0 * R).length >= 2) return 'globe';
+    // Clock: one or two short hands starting at the middle (tick marks round the edge are fine).
+    const hands = straight.filter((i) => i.L < 1.15 * R
+      && Math.min(Math.hypot(i.p0.x - center.x, i.p0.y - center.y), Math.hypot(i.p1.x - center.x, i.p1.y - center.y)) < 0.3 * R);
+    const ticks = inner.filter((i) => !hands.includes(i) && i.L < 0.35 * R && Math.hypot(i.centroid.x - center.x, i.centroid.y - center.y) > 0.55 * R);
+    const hub = inner.filter((i) => i.shape === 'dot' && Math.hypot(i.centroid.x - center.x, i.centroid.y - center.y) < 0.25 * R);
+    if (hands.length >= 1 && hands.length <= 2 && hands.length + ticks.length + hub.length === inner.length) return 'clock';
     // Face: a circle with marks inside it. A single mark inside makes an eye.
     if (c.diag > 0.15 && inner.length >= 2) return 'face';
     if (inner.length === 1 && infos.length <= 3 && inner[0].diag < c.diag * 0.6) return 'eye';
   }
+
+  // Car: a body riding on two wheels of about the same size.
+  const wheels = infos.filter((i) => (i.shape === 'circle' || i.shape === 'dot' && i.size > 0.02) && i.diag < 0.3);
+  for (let a = 0; a < wheels.length; a++) {
+    for (let b = a + 1; b < wheels.length; b++) {
+      const [w1, w2] = [wheels[a], wheels[b]].sort((p, q) => p.centroid.x - q.centroid.x);
+      const D = Math.max(w1.diag, w2.diag, 0.03);
+      const similar = Math.min(w1.diag, w2.diag) > 0.5 * Math.max(w1.diag, w2.diag) || (w1.shape === 'dot' && w2.shape === 'dot');
+      if (!similar || Math.abs(w1.centroid.y - w2.centroid.y) > 0.5 * D || w2.centroid.x - w1.centroid.x < 1.2 * D) continue;
+      const body = infos.find((i) => i !== w1 && i !== w2 && i.L > 2 * (w2.centroid.x - w1.centroid.x)
+        && i.bb.minX < w1.centroid.x && i.bb.maxX > w2.centroid.x && i.bb.cy < w1.centroid.y && i.bb.maxY > w1.centroid.y - D);
+      if (body) return 'car';
+    }
+  }
+
+  // Music note: a small head with a stem rising from its side.
+  const stems = infos.filter((i) => i.straightness > 0.85 && Math.abs(Math.sin(i.orientation)) > 0.85 && i.L > 0.1);
+  const heads = infos.filter((i) => !stems.includes(i) && i.diag < 0.2 && (i.closed || i.shape === 'dot' || i.shape === 'scribble' || i.shape === 'circle'));
+  const notes = stems.filter((st) => {
+    const bottom = st.p0.y > st.p1.y ? st.p0 : st.p1;
+    return heads.some((h) => {
+      const r = Math.max(h.diag / 2, 0.02);
+      return Math.abs(h.centroid.x - bottom.x) < 1.8 * r && Math.abs(h.centroid.y - bottom.y) < 1.8 * r && st.L > 2.2 * r && h.centroid.y > st.bb.cy;
+    });
+  });
+  if (notes.length && infos.filter((i) => i.L > 0.04).length <= 3 * notes.length + 2) return 'note';
+
+  // Dollar sign: an upright S with a line through it.
+  const sCurves = infos.filter((i) => i.shape === 'money');
+  if (sCurves.length && infos.every((i) => sCurves.includes(i) || (i.straightness > 0.85 && Math.abs(Math.sin(i.orientation)) > 0.8))) return 'money';
 
   // Stick figure: a small round head with a body hanging below it.
   for (const c of circles) {
@@ -604,7 +747,7 @@ function detectMotif(infos, { totalLen, intersections, features }) {
   }
 
   // House: a box with a roof on top (either can be one stroke).
-  for (const b of infos.filter((i) => i.shape === 'box')) if (hasRoofOver(b, infos)) return 'house';
+  for (const b of infos.filter((i) => ['box', 'phone', 'screen'].includes(i.shape))) if (hasRoofOver(b, infos)) return 'house';
 
   const lines = infos.filter((i) => i.straightness > 0.88 && i.L > 0.06);
 
@@ -653,7 +796,7 @@ function detectMotif(infos, { totalLen, intersections, features }) {
     const overhangY = Math.min(Math.min(...hy) - Math.min(...vy), Math.max(...vy) - Math.max(...hy)) / h;
     if (horiz.length === 2 && vert.length === 2 && overhangX < 0.1 && overhangY < 0.1) {
       const box = { bb: bbox([...horiz, ...vert].flatMap((l) => [l.p0, l.p1])) };
-      return hasRoofOver(box, infos) ? 'house' : 'box';
+      return hasRoofOver(box, infos) ? 'house' : boxKind(box.bb.h > 0 ? box.bb.w / box.bb.h : 99);
     }
     return 'grid';
   }

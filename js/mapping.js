@@ -32,6 +32,18 @@ export const MOTIF_WORDS = {
   figure: ['man', 'woman', 'girl', 'boy', 'people', 'body'],
   bird: ['bird', 'wings', 'fly', 'feather', 'dove', 'raven'],
   cloud: ['cloud', 'clouds', 'fog', 'mist', 'haze', 'smoke'],
+  crown: ['king', 'queen', 'crown', 'royal', 'throne', 'empire'],
+  diamond: ['diamond', 'ice', 'jewel', 'crystal', 'gem', 'pearl'],
+  drop: ['drip', 'drop', 'tears', 'drown', 'wet', 'sweat'],
+  flame: ['fire', 'flame', 'burn', 'blaze', 'hot', 'lit'],
+  money: ['money', 'cash', 'rich', 'bands', 'paid', 'dollar'],
+  note: ['music', 'song', 'melody', 'sing', 'tune', 'anthem'],
+  clock: ['time', 'clock', 'hour', 'minute', 'tonight', 'forever'],
+  globe: ['world', 'earth', 'planet', 'globe', 'universe', 'nation'],
+  skull: ['dead', 'death', 'skull', 'grave', 'ghost', 'bones'],
+  car: ['car', 'ride', 'drive', 'whip', 'wheels', 'highway'],
+  phone: ['phone', 'call', 'hotline', 'text', 'ring', 'dial'],
+  screen: ['tv', 'screen', 'video', 'movie', 'film', 'camera'],
   abstract: ['shape', 'form', 'abstract', 'gesture', 'figure', 'sketch'],
 };
 

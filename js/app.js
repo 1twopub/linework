@@ -173,7 +173,7 @@ function renderReading(a, p) {
 }
 
 function loadingHtml() {
-  return '<div class="loading"><span class="pen-line"></span><p>Flipping through the crates…</p></div>';
+  return '<div class="loading"><span class="pen-line"></span><p>Decyphering…</p></div>';
 }
 
 function noticeHtml({ message, action, actionId, link, error }) {

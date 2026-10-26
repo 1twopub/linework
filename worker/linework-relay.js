@@ -6,7 +6,8 @@
 //
 // Settings (Worker → Settings → Variables and Secrets):
 //   GITHUB_REPO       owner/repo                         (plain text)
-//   ALLOWED_ORIGIN    https://owner.github.io            (plain text; your site's origin, no path)
+//   ALLOWED_ORIGIN    https://owner.github.io            (plain text; your site's origin, no path;
+//                     several allowed, separated by commas, e.g. for testing locally)
 //   GITHUB_TOKEN      fine-grained token, this repo only, "Issues: Read and write"   (secret)
 //   TURNSTILE_SECRET  optional, enables Cloudflare Turnstile bot checks              (secret)
 
@@ -15,9 +16,17 @@ const MAX_CAPTION = 140;
 const LIMIT = { posts: 5, windowMs: 10 * 60 * 1000 }; // per visitor, best effort (per Worker instance)
 const recent = new Map();
 
+// Forgiving about stray spaces, a trailing slash, letter case, or a pasted path.
+const normOrigin = (s) => {
+  const t = String(s || '').trim().replace(/^['"]|['"]$/g, '');
+  try { return new URL(t).origin.toLowerCase(); } catch { return t.replace(/\/+$/, '').toLowerCase(); }
+};
+const allowedOrigins = (env) => String(env.ALLOWED_ORIGIN || '').split(',').map(normOrigin).filter(Boolean);
+const isAllowed = (env, origin) => allowedOrigins(env).includes(normOrigin(origin));
+
 function cors(env, origin) {
   return {
-    'Access-Control-Allow-Origin': origin === env.ALLOWED_ORIGIN ? origin : env.ALLOWED_ORIGIN,
+    'Access-Control-Allow-Origin': isAllowed(env, origin) ? origin : (allowedOrigins(env)[0] || 'null'),
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Max-Age': '86400',
@@ -76,7 +85,9 @@ export default {
     const origin = request.headers.get('Origin') || '';
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors(env, origin) });
     if (request.method !== 'POST') return reply(env, origin, 405, { error: 'Use POST.' });
-    if (origin !== env.ALLOWED_ORIGIN) return reply(env, origin, 403, { error: 'Posts are only accepted from the Linework site.' });
+    if (!isAllowed(env, origin)) {
+      return reply(env, origin, 403, { error: `Posts are only accepted from the Linework site. This request came from “${origin || 'unknown'}”; set ALLOWED_ORIGIN on the Worker to exactly that.` });
+    }
     if (!env.GITHUB_TOKEN || !env.GITHUB_REPO) return reply(env, origin, 500, { error: 'The relay is not configured yet.' });
 
     // Rate limit on a one-way hash of the address, kept only in memory.

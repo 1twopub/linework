@@ -15,10 +15,13 @@ function rdp(pts, eps) {
     const [a, b] = stack.pop();
     const A = pts[a], B = pts[b];
     const dx = B.x - A.x, dy = B.y - A.y;
-    const len = Math.hypot(dx, dy) || 1e-9;
+    const len2 = dx * dx + dy * dy;
     let far = -1, fd = 0;
     for (let i = a + 1; i < b; i++) {
-      const d = Math.abs(dy * (pts[i].x - A.x) - dx * (pts[i].y - A.y)) / len;
+      // Distance to the segment A–B (not the infinite line), so closed strokes whose ends meet
+      // (a neat circle starts and ends on the same spot) keep their shape.
+      const t = len2 > 1e-12 ? Math.max(0, Math.min(1, ((pts[i].x - A.x) * dx + (pts[i].y - A.y) * dy) / len2)) : 0;
+      const d = Math.hypot(pts[i].x - (A.x + t * dx), pts[i].y - (A.y + t * dy));
       if (d > fd) { fd = d; far = i; }
     }
     if (far > 0 && fd > eps) { keep[far] = 1; stack.push([a, far], [far, b]); }
