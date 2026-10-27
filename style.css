@@ -322,3 +322,29 @@ a.submit.small-btn { display: inline-flex; text-decoration: none; }
 .like-count:empty { display: none; }
 .like.pop svg { animation: pop .35s ease; }
 @keyframes pop { 40% { transform: scale(1.35); } }
+
+/* ---------- Live pairing while drawing ---------- */
+.paper { max-height: 56dvh; }
+.live {
+  display: flex; align-items: center; gap: 12px; width: 100%; min-height: 64px;
+  padding: 8px 14px 8px 8px; border-radius: 16px; border: 1px solid var(--rule);
+  background: var(--surface); color: var(--ink); text-align: left; cursor: pointer;
+  font: inherit;
+}
+.live[hidden] { display: none; }
+.live:active { transform: scale(.99); }
+.live:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.live-cover { width: 48px; height: 48px; flex: none; border-radius: 6px; object-fit: cover; background: var(--rule); }
+.live-text { display: grid; min-width: 0; flex: 1; gap: 1px; }
+.live-motif { font: 500 10px/1.3 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.live-title, .live-artist { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.live-title { font: 600 15px/1.25 var(--sans); }
+.live-artist { font: 400 13px/1.25 var(--sans); color: var(--ink-2); }
+.live.swap .live-cover, .live.swap .live-title, .live.swap .live-artist { animation: liveIn .35s ease both; }
+@keyframes liveIn { from { opacity: 0; transform: translateY(4px); } }
+.live-eq { display: flex; align-items: flex-end; gap: 2px; height: 16px; flex: none; }
+.live-eq i { width: 3px; height: 100%; border-radius: 1px; background: var(--accent); transform-origin: bottom; animation: eq 1s ease-in-out infinite; }
+.live-eq i:nth-child(2) { animation-delay: -.35s; }
+.live-eq i:nth-child(3) { animation-delay: -.7s; }
+@keyframes eq { 0%, 100% { transform: scaleY(.3); } 50% { transform: scaleY(1); } }
+@media (prefers-reduced-motion: reduce) { .live-eq i { animation: none; transform: scaleY(.6); } }

@@ -43,6 +43,16 @@
         </div>
       </div>
 
+      <button class="live" id="live" type="button" hidden aria-live="polite" aria-label="See the full result for this record">
+        <img class="live-cover" id="liveCover" alt="">
+        <span class="live-text">
+          <span class="live-motif" id="liveMotif"></span>
+          <span class="live-title" id="liveTitle"></span>
+          <span class="live-artist" id="liveArtist"></span>
+        </span>
+        <span class="live-eq" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+
       <div class="tools" role="toolbar" aria-label="Drawing tools">
         <div class="nibs" role="radiogroup" aria-label="Pen size">
           <button class="nib" role="radio" aria-checked="false" data-size="0.006" aria-label="Fine pen"><span style="--d:4px"></span></button>
