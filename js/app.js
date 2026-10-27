@@ -26,6 +26,8 @@ let activePointer = null;
 let penSize = 0.013;
 let cssSize = 0;
 let catalog = null; // set when catalog.json (or a builder preview) is available
+const homePost = document.getElementById('homePostBtn');
+let postedCode = null; // the last drawing posted from here, so it isn't posted twice
 let lastPost = null; // the drawing + record on the result screen, ready to post
 let preview = false;
 
@@ -100,6 +102,7 @@ function syncButtons() {
   els.undo.disabled = !has;
   els.clear.disabled = !has;
   els.submit.disabled = !has;
+  homePost.disabled = !has || homePost.dataset.busy === '1';
   els.paper.classList.toggle('inked', has || !!current);
 }
 
@@ -405,7 +408,7 @@ async function submit() {
 
   if (catalog) {
     const r = matchRelease(a, catalog);
-    const postable = !!(r && code && POST_URL && !preview);
+    const postable = !!(r && code && POST_URL && !preview && code !== postedCode);
     lastPost = postable ? { code, strokes: used, motif: a.motif, motifLabel: a.motifLabel, traits: a.traits, release: r } : null;
     els.release.innerHTML = r ? releaseHtml({ ...r, whyHtml: catalogWhy(r, a), postable }) : noticeHtml({ message: 'The catalog is empty.' });
     $('postBtn')?.addEventListener('click', openPost);
@@ -505,6 +508,7 @@ function withNet(ms) {
   if (!catalog || typeof Worker === 'undefined') withNet(0);
   if (catalog) {
     els.settingsBtn.hidden = true; // no Spotify login needed
+    homePost.hidden = !POST_URL || preview;
     $('feedLink').hidden = preview;
     if (preview) {
       els.prompt.insertAdjacentHTML('beforebegin', `<p class="preview-banner">Preview: ${catalog.releases.length} records from your builder draft</p>`);
@@ -604,6 +608,7 @@ post.send.addEventListener('click', async () => {
       release: (({ id, name, artists, year, image, url }) => ({ id, name, artists, year, image, url }))(lastPost.release),
       pending: true,
     });
+    postedCode = lastPost.code;
     lastPost = null;
     $('postBtn')?.remove();
     post.body.hidden = true;
@@ -616,6 +621,31 @@ post.send.addEventListener('click', async () => {
     if (window.turnstile && turnstileWidget !== null) { window.turnstile.reset(turnstileWidget); turnstileToken = ''; }
   }
 });
+// Post straight from the drawing screen: find the record the drawing pairs with, then open the sheet.
+homePost.addEventListener('click', async () => {
+  if (!strokes.length || !catalog || homePost.dataset.busy === '1') return;
+  const { code, used } = asStored(strokes);
+  if (!code) return;
+  if (code === postedCode) {
+    homePost.querySelector('span').textContent = 'Already posted';
+    setTimeout(() => { homePost.querySelector('span').textContent = 'Post'; }, 1600);
+    return;
+  }
+  homePost.dataset.busy = '1';
+  homePost.disabled = true;
+  try {
+    startLiveWorker();
+    const a = await analyzeDrawing(used);
+    const r = matchRelease(a, catalog);
+    if (!r) return;
+    lastPost = { code, strokes: used, motif: a.motif, motifLabel: a.motifLabel, traits: a.traits, release: r };
+    openPost();
+  } finally {
+    homePost.dataset.busy = '';
+    syncButtons();
+  }
+});
+
 $('postCancel').addEventListener('click', () => post.sheet.close());
 $('postClose').addEventListener('click', () => post.sheet.close());
 post.sheet.addEventListener('click', (e) => { if (e.target === post.sheet) post.sheet.close(); });
