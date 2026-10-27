@@ -72,7 +72,27 @@ function drawStroke(c, s, size) {
 function redraw() {
   ctx.clearRect(0, 0, cssSize, cssSize);
   for (const s of strokes) drawStroke(ctx, s, cssSize);
-  if (current) drawStroke(ctx, current, cssSize);
+  if (current) {
+    drawStroke(ctx, current, cssSize);
+    drawString(ctx, current, cssSize);
+  }
+}
+
+// A faint thread from the pen tip to the finger, so the pen's trailing feels deliberate.
+function drawString(c, s, size) {
+  const a = s.points[s.points.length - 1], b = s.reach;
+  if (!b || Math.hypot(b.x - a.x, b.y - a.y) < 0.004) return;
+  c.save();
+  c.strokeStyle = 'rgba(20, 19, 17, 0.22)';
+  c.lineWidth = 1;
+  c.beginPath();
+  c.moveTo(a.x * size, a.y * size);
+  c.lineTo(b.x * size, b.y * size);
+  c.stroke();
+  c.beginPath();
+  c.arc(b.x * size, b.y * size, 3, 0, Math.PI * 2);
+  c.stroke();
+  c.restore();
 }
 
 function syncButtons() {
@@ -92,13 +112,37 @@ function pointFrom(e) {
   };
 }
 
+// ---------- Steady pen ----------
+// The pen trails the finger on a short invisible string: it only moves once the finger is
+// further away than the string's length, then follows at that distance. Small wobbles are
+// absorbed, so lines feel heavier and steadier. Fingers get the longest string.
+const STRING = { touch: 0.016, pen: 0.006, mouse: 0.004 };
+let stringLen = STRING.touch;
+let pen = null; // where the pen tip is, while the finger moves
+
+function follow(p) {
+  const dx = p.x - pen.x, dy = p.y - pen.y;
+  const d = Math.hypot(dx, dy);
+  if (d <= stringLen) return false;
+  const k = (d - stringLen) / d;
+  pen = { x: pen.x + dx * k, y: pen.y + dy * k, t: p.t };
+  return true;
+}
+
+function addPoint(p) {
+  const last = current.points[current.points.length - 1];
+  if (Math.hypot(p.x - last.x, p.y - last.y) > 0.0015) current.points.push(p);
+}
+
 els.canvas.addEventListener('pointerdown', (e) => {
   if (activePointer !== null) return; // one finger draws; others are ignored
   if (e.button !== undefined && e.button > 0) return;
   e.preventDefault();
   activePointer = e.pointerId;
-  els.canvas.setPointerCapture(e.pointerId);
-  current = { size: penSize, points: [pointFrom(e)] };
+  try { els.canvas.setPointerCapture(e.pointerId); } catch { /* pointer already gone */ }
+  stringLen = STRING[e.pointerType] ?? STRING.touch;
+  pen = pointFrom(e);
+  current = { size: penSize, points: [pen], reach: pen };
   syncButtons();
   redraw();
 });
@@ -109,8 +153,8 @@ els.canvas.addEventListener('pointermove', (e) => {
   const events = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
   for (const ev of (events.length ? events : [e])) {
     const p = pointFrom(ev);
-    const last = current.points[current.points.length - 1];
-    if (Math.hypot(p.x - last.x, p.y - last.y) > 0.0015) current.points.push(p);
+    current.reach = p;
+    if (follow(p)) addPoint(pen);
   }
   redraw();
   scheduleLive();
@@ -119,8 +163,20 @@ els.canvas.addEventListener('pointermove', (e) => {
 function endStroke(e) {
   if (e.pointerId !== activePointer) return;
   activePointer = null;
-  if (current) strokes.push(current);
+  if (current) {
+    // Let the pen catch up, so the line ends where the finger lifted.
+    const end = current.reach;
+    const last = current.points[current.points.length - 1];
+    const gap = Math.hypot(end.x - last.x, end.y - last.y);
+    if (current.points.length > 1 ? gap > 0.0015 : gap > 0.006) {
+      const n = Math.ceil(gap / 0.004);
+      for (let i = 1; i <= n; i++) addPoint({ x: last.x + (end.x - last.x) * i / n, y: last.y + (end.y - last.y) * i / n, t: end.t });
+    }
+    delete current.reach;
+    strokes.push(current);
+  }
   current = null;
+  pen = null;
   syncButtons();
   redraw();
   updateLive(true);
