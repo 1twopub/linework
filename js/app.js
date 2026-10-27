@@ -112,6 +112,7 @@ els.canvas.addEventListener('pointermove', (e) => {
     if (Math.hypot(p.x - last.x, p.y - last.y) > 0.0015) current.points.push(p);
   }
   redraw();
+  scheduleLive();
 });
 
 function endStroke(e) {
@@ -121,6 +122,7 @@ function endStroke(e) {
   current = null;
   syncButtons();
   redraw();
+  updateLive(true);
 }
 els.canvas.addEventListener('pointerup', endStroke);
 els.canvas.addEventListener('pointercancel', endStroke);
@@ -132,8 +134,8 @@ document.querySelectorAll('.nib').forEach((b) => {
     document.querySelectorAll('.nib').forEach((n) => n.setAttribute('aria-checked', String(n === b)));
   });
 });
-els.undo.addEventListener('click', () => { strokes.pop(); syncButtons(); redraw(); });
-els.clear.addEventListener('click', () => { strokes = []; syncButtons(); redraw(); });
+els.undo.addEventListener('click', () => { strokes.pop(); syncButtons(); redraw(); updateLive(true); });
+els.clear.addEventListener('click', () => { strokes = []; syncButtons(); redraw(); updateLive(true); });
 
 new ResizeObserver(resize).observe(els.paper);
 
@@ -222,16 +224,105 @@ function catalogWhy(r, a) {
   return `${parts.join(', ')}.`;
 }
 
+// The drawing exactly as it would be posted (packed and unpacked), so the live preview, the result
+// and the feed always agree on the record.
+function asStored(list) {
+  const code = encodeDrawing(list);
+  return { code, used: code ? decodeDrawing(code) : list };
+}
+
+// ---------- Live pairing while drawing ----------
+// Matching runs in a background worker (js/live-worker.js) so the pen never stutters.
+// Requests are coalesced: while one is being worked out, only the newest drawing waits.
+
+const live = {
+  el: $('live'), cover: $('liveCover'), motif: $('liveMotif'), title: $('liveTitle'), artist: $('liveArtist'),
+  timer: null, id: null, motifKey: null, every: 120,
+  worker: null, busy: false, queued: null, seq: 0, shownSeq: 0, generation: 0,
+};
+
+function startLiveWorker() {
+  if (!catalog || live.worker || typeof Worker === 'undefined') return;
+  try {
+    live.worker = new Worker(new URL('./live-worker.js', import.meta.url), { type: 'module' });
+    live.worker.postMessage({ type: 'catalog', catalog });
+    live.worker.onmessage = (e) => {
+      live.busy = false;
+      const m = e.data;
+      if (m && m.type === 'match' && !m.error && m.id > live.shownSeq) showLive(m);
+      if (live.queued) { const q = live.queued; live.queued = null; sendLive(q); }
+    };
+    live.worker.onerror = () => { live.worker = null; live.busy = false; };
+  } catch { live.worker = null; }
+}
+
+function sendLive(list) {
+  const id = ++live.seq;
+  if (live.worker) {
+    if (live.busy) { live.queued = list; return; }
+    live.busy = true;
+    live.worker.postMessage({ type: 'match', id, strokes: list });
+    return;
+  }
+  // No worker support: work it out here instead.
+  const a = analyze(asStored(list).used);
+  const r = matchRelease(a, catalog);
+  showLive({ id, motif: a.motif, motifLabel: a.motifLabel, release: r });
+}
+
+function showLive(m) {
+  if (!strokes.length && !current) return; // cleared meanwhile
+  live.shownSeq = m.id;
+  const r = m.release;
+  if (!r) return;
+  live.el.hidden = false;
+  if (m.motif !== live.motifKey) {
+    live.motif.textContent = m.motifLabel;
+    live.motifKey = m.motif;
+  }
+  if (r.id !== live.id) {
+    live.id = r.id;
+    live.title.textContent = r.name;
+    live.artist.textContent = [r.artists, r.year].filter(Boolean).join(' · ');
+    if (r.image) { live.cover.src = r.image; live.cover.hidden = false; } else live.cover.hidden = true;
+    live.el.classList.remove('swap');
+    void live.el.offsetWidth;
+    live.el.classList.add('swap');
+  }
+}
+
+function updateLive(final = false) {
+  clearTimeout(live.timer);
+  live.timer = null;
+  if (!catalog) return;
+  startLiveWorker();
+  const list = !final && current && current.points.length > 1 ? [...strokes, current] : strokes;
+  if (!list.length) {
+    live.el.hidden = true;
+    live.id = null;
+    live.motifKey = null;
+    live.queued = null;
+    live.shownSeq = live.seq; // ignore anything still on its way
+    return;
+  }
+  // Copy just what the analysis needs, so the worker gets a clean snapshot.
+  sendLive(list.map((st) => ({ size: st.size, points: st.points.map((pt) => ({ x: pt.x, y: pt.y, t: pt.t })) })));
+}
+
+function scheduleLive() {
+  if (!catalog || live.timer) return;
+  live.timer = setTimeout(() => { live.timer = null; updateLive(false); }, live.every);
+}
+
+live.el.addEventListener('click', () => { if (strokes.length) submit(); });
+
 async function submit() {
   if (!strokes.length) return;
   // In catalog mode the drawing is matched exactly as it will be stored, so a post
   // shows the same record the person saw here (the feed recomputes it from the stored code).
   let code = null;
   let used = strokes;
-  if (catalog) {
-    code = encodeDrawing(strokes);
-    if (code) used = decodeDrawing(code);
-  }
+  if (catalog) ({ code, used } = asStored(strokes));
   const a = analyze(used);
   const p = plan(a);
   renderReading(a, p);
@@ -283,7 +374,7 @@ async function submit() {
 }
 
 els.submit.addEventListener('click', submit);
-els.again.addEventListener('click', () => { strokes = []; syncButtons(); show('draw'); });
+els.again.addEventListener('click', () => { strokes = []; syncButtons(); updateLive(true); show('draw'); });
 
 // ---------- Settings ----------
 
