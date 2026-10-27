@@ -362,3 +362,5 @@ a.submit.small-btn { display: inline-flex; text-decoration: none; }
 .about h2 + p::first-letter { float: left; font-size: 3.3em; line-height: .82; padding: 6px 8px 0 0; }
 .about em { font-style: italic; }
 .about-app > .submit { margin-top: 0; }
+.about-app > .tip-jar { margin-top: 10px; }
+.tip-note { text-align: center; margin: 10px 0 0; }
