@@ -302,6 +302,8 @@ a.submit.small-btn { display: inline-flex; text-decoration: none; }
 .feed-empty p { margin: 0; }
 .feed-empty .submit { width: auto; padding: 0 28px; margin: 0; }
 #more { margin-top: 4px; }
+.tip-wrap { margin-top: 10px; padding-bottom: 8px; }
+.tip-wrap .tip-jar { margin: 0; }
 @media (min-width: 640px) {
   .feed-app { max-width: 760px; }
   .feed { grid-template-columns: 1fr 1fr; }
