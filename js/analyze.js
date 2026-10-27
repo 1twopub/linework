@@ -470,8 +470,10 @@ function isFlame(s, aspect) {
 
 // Dollar sign: an upright S (one or two bends the other way), with or without a line through it.
 function isMoneyS(s, aspect) {
-  return aspect < 0.8 && s.L > 0.15 && s.inflections >= 1 && s.inflections <= 3 && s.sharpCorners <= 1
-    && s.straightness < 0.85 && s.abs > 3 && s.windings < 1.2;
+  // An S: upright, from the top to the bottom, bending one way then the other, about one full turn in all.
+  return aspect > 0.25 && aspect < 0.8 && s.L > 0.15 && s.inflections >= 1 && s.inflections <= 2 && s.sharpCorners <= 1
+    && s.straightness < 0.85 && s.abs > 3.5 && s.abs < 9 && s.windings < 1.2
+    && Math.abs(s.p1.y - s.p0.y) > 0.6 * s.bb.h;
 }
 
 // Heart: a point at the bottom middle and a notch dipping into the top middle.
@@ -691,7 +693,9 @@ function combine(rule, top) {
     if (LOCKED.has(rule.motif) || SHAPE_MOTIFS.has(m)) return keep;
     return p >= (OVERRULE[rule.motif] || 0.75) ? [m, named] : keep;
   }
-  const vague = rule.motif === 'abstract' || rule.motif === 'scribble';
+  // Nothing else to go on: the recognizer's best guess beats "an abstraction" even when it's unsure.
+  if (rule.motif === 'abstract') return p >= 0.12 ? [m, named] : keep;
+  const vague = rule.motif === 'scribble';
   if (SHAPE_MOTIFS.has(m)) return p >= (vague ? 0.6 : 0.8) ? [m, named] : keep;
   return p >= (vague ? 0.4 : 0.45) ? [m, named] : keep;
 }
@@ -853,7 +857,10 @@ function structuralMotif(infos, { totalLen }) {
 
   // Dollar sign: an upright S with a line through it.
   const sCurves = infos.filter((i) => i.shape === 'money');
-  if (sCurves.length && infos.every((i) => sCurves.includes(i) || (i.straightness > 0.85 && Math.abs(Math.sin(i.orientation)) > 0.8))) return 'money';
+  // Sure only with the stroke through it; a lone S is left to the vote, where the recognizer can overrule it.
+  const bars = infos.filter((i) => !sCurves.includes(i) && i.straightness > 0.85 && Math.abs(Math.sin(i.orientation)) > 0.8);
+  if (sCurves.length && bars.length && sCurves.length + bars.length === infos.length
+    && bars.some((b) => sCurves.some((c) => b.bb.minY < c.bb.cy && b.bb.maxY > c.bb.cy && Math.abs(b.bb.cx - c.bb.cx) < c.bb.w * 0.5))) return 'money';
 
   // Stick figure: a small round head with a body hanging below it.
   for (const c of circles) {
@@ -994,7 +1001,7 @@ function fallbackMotif(infos, { totalLen, features }) {
     }
     // Scribble is what's left when the ink really is scribbled, not just busy.
     if (best[0] === 'scribble') return weak('abstract');
-    return { motif: best[0], sure: best[1] >= totalLen * 0.6 && !VOTE_SHAPES.has(best[0]) };
+    return { motif: best[0], sure: best[1] >= totalLen * 0.6 && !VOTE_SHAPES.has(best[0]) && best[0] !== 'money' };
   }
   if (best && best[1] >= totalLen * 0.25 && best[0] !== 'scribble') return weak(best[0]);
   return weak('abstract');

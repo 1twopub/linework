@@ -305,6 +305,9 @@ export function matchRelease(analysis, catalog) {
   const releases = catalog?.releases || [];
   if (!releases.length) return null;
   const motif = analysis.motif;
+  // An abstraction has no subject, so no title is a better fit than another: the whole catalog
+  // competes on linework alone, with a wider, flatter pick so it doesn't keep landing on one record.
+  if (motif === 'abstract') return openMatch(analysis, releases);
   const related = RELATED[motif] || [];
 
   // Strength of each kind of link: the title names the drawing > hints at it > the record's sound suits it
@@ -334,6 +337,17 @@ export function matchRelease(analysis, catalog) {
   for (let i = 0; i < top.length; i++) { x -= weights[i]; if (x <= 0) { pick = top[i]; break; } }
 
   return { ...pick.r, via: pick.via, dist: pick.dist };
+}
+
+function openMatch(analysis, releases) {
+  const scored = releases.map((r) => ({ r, dist: distance(analysis.features, r.profile) })).sort((a, b) => a.dist - b.dist);
+  const top = scored.slice(0, Math.min(40, scored.length));
+  const rand = rng(analysis.hash || 1);
+  const weights = top.map((s) => Math.exp((top[0].dist - s.dist) * 4));
+  let x = rand() * weights.reduce((a, b) => a + b, 0);
+  let pick = top[0];
+  for (let i = 0; i < top.length; i++) { x -= weights[i]; if (x <= 0) { pick = top[i]; break; } }
+  return { ...pick.r, via: null, dist: pick.dist };
 }
 
 export async function loadCatalog(url = 'catalog.json') {
