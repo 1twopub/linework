@@ -15,6 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { analyze } from '../js/analyze.js';
 import { matchRelease } from '../js/catalog.js';
 import { decodeDrawing } from '../js/share.js';
+import { parseNet } from '../js/sketchnet.js';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const repo = process.env.GITHUB_REPOSITORY;
@@ -47,6 +48,8 @@ function captionOf(body) {
 }
 
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'catalog.json'), 'utf8'));
+const bin = fs.readFileSync(path.join(root, 'models', 'sketchnet.bin'));
+const net = parseNet(bin.buffer.slice(bin.byteOffset, bin.byteOffset + bin.length));
 const issues = await listIssues();
 const posts = [];
 const skipped = [];
@@ -59,7 +62,7 @@ for (const issue of issues) {
   if (!code) { skipped.push([issue.number, 'no drawing code']); continue; }
   try {
     const strokes = decodeDrawing(code);
-    const a = analyze(strokes);
+    const a = analyze(strokes, { net });
     const r = matchRelease(a, catalog);
     if (!r) throw new Error('no match');
     posts.push({

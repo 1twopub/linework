@@ -2,6 +2,9 @@
 // Everything works on normalized coordinates (0..1 on both axes, y grows downward).
 // A stroke is { size, points: [{x, y, t}] } where t is a timestamp in ms.
 
+import { OBJECTS, CLASS_MOTIFS, SHAPE_MOTIFS } from './objects.js';
+import { classify } from './sketchnet.js';
+
 const TAU = Math.PI * 2;
 const clamp = (v, lo = 0, hi = 1) => Math.max(lo, Math.min(hi, Number.isFinite(v) ? v : lo));
 const dist = (a, b) => Math.hypot(b.x - a.x, b.y - a.y);
@@ -77,6 +80,19 @@ export const MOTIF_LABELS = {
   bubble: 'A speech bubble',
   abstract: 'An abstraction',
 };
+for (const [m, o] of Object.entries(OBJECTS)) MOTIF_LABELS[m] = o.label;
+
+// What the result says when the sketch recognizer named a specific thing ("A zebra" rather than "A horse").
+const PLAIN = new Set(['yoga', 'animal_migration', 'grass', 'garden', 'pool', 'rain', 'face', 'line', 'square', 'triangle', 'circle',
+  'zigzag', 'spreadsheet', 'map', 'compass', 'tent', 'wheel', 'bottlecap', 'calendar', 'church', 'barn', 'cooler', 'bucket', 'basket',
+  'remote_control', 'calculator', 'keyboard', 'picture_frame', 'jail', 'diving_board', 'waterslide', 'power_outlet', 'mermaid',
+  'hospital', 'house_plant', 'traffic_light', 'paint_can', 'sleeping_bag', 'bandage', 'nail', 'feather', 'string_bean']);
+function classLabel(name, motif) {
+  if (PLAIN.has(name) || /s$/.test(name) || name === 'underwear') return MOTIF_LABELS[motif];
+  const words = name.replace(/_/g, ' ').replace(/-/g, ' ');
+  if (/^The /.test(words)) return words;
+  return `${/^[aeiou]/i.test(words) ? 'An' : 'A'} ${words.toLowerCase()}`;
+}
 
 export function pathLength(pts) {
   let L = 0;
@@ -521,22 +537,32 @@ function segmentsIntersect(a, b, c, d) {
   return ((d1 > 0) !== (d2 > 0)) && ((d3 > 0) !== (d4 > 0));
 }
 
+// Crossings between strokes and within each stroke. Returns { total, self: [per stroke] }.
+// Long drawings are sampled more coarsely, so heavy ink costs the same and is still counted honestly.
 function countIntersections(strokes) {
+  const total = strokes.reduce((t, s) => t + pathLength(s.points), 0);
+  const step = Math.max(0.02, total / 1500);
   const segs = [];
   strokes.forEach((s, si) => {
-    const pts = resample(s.points, 0.02);
-    for (let i = 1; i < pts.length; i++) segs.push({ a: pts[i - 1], b: pts[i], si, i });
+    const pts = resample(s.points, step);
+    for (let i = 1; i < pts.length; i++) {
+      const a = pts[i - 1], b = pts[i];
+      segs.push({ a, b, si, i, x0: Math.min(a.x, b.x), x1: Math.max(a.x, b.x), y0: Math.min(a.y, b.y), y1: Math.max(a.y, b.y) });
+    }
   });
-  if (segs.length > 1500) return 40; // so much ink it is definitely tangled
+  segs.sort((p, q) => p.x0 - q.x0);
+  const self = strokes.map(() => 0);
   let n = 0;
   for (let i = 0; i < segs.length; i++) {
-    for (let j = i + 1; j < segs.length; j++) {
-      const A = segs[i], B = segs[j];
+    const A = segs[i];
+    for (let j = i + 1; j < segs.length && segs[j].x0 <= A.x1; j++) {
+      const B = segs[j];
+      if (B.y0 > A.y1 || B.y1 < A.y0) continue;
       if (A.si === B.si && Math.abs(A.i - B.i) < 3) continue;
-      if (segmentsIntersect(A.a, A.b, B.a, B.b)) n++;
+      if (segmentsIntersect(A.a, A.b, B.a, B.b)) { n++; if (A.si === B.si) self[A.si]++; }
     }
   }
-  return n;
+  return { total: n, self };
 }
 
 function coverage(strokes, N = 48) {
@@ -572,7 +598,8 @@ function hashStrokes(strokes) {
   return h >>> 0;
 }
 
-export function analyze(strokes) {
+// `opts.net`: the sketch recognizer (sketchnet.js). Without it, only the shape rules read the drawing.
+export function analyze(strokes, opts = {}) {
   const live = strokes.filter((s) => s.points && s.points.length > 0);
   const infos = live.map(strokeInfo);
   const totalLen = infos.reduce((s, i) => s + i.L, 0);
@@ -603,7 +630,9 @@ export function analyze(strokes) {
   }
   const cov = filled / (N * N);
 
-  const intersections = countIntersections(live);
+  const crossings = countIntersections(live);
+  const intersections = crossings.total;
+  infos.forEach((i, k) => { i.selfX = crossings.self[k]; });
   const allCorners = infos.reduce((s, i) => s + i.corners, 0);
   const absTurn = infos.reduce((s, i) => s + i.abs, 0);
   const cornerTurn = infos.reduce((s, i) => s + i.cornerTurn, 0);
@@ -620,16 +649,108 @@ export function analyze(strokes) {
     symmetry: filled ? clamp(mirrored / filled) : 0.5,
   };
 
-  const motif = detectMotif(infos, { totalLen, intersections, features });
+  const rule = detectMotif(infos, { totalLen, intersections, features });
+  let motif = rule.motif;
+  let label = MOTIF_LABELS[motif];
+  let seen = null;
+  if (opts.net && totalLen >= 0.02) {
+    const top = classify(opts.net, live, 8);
+    seen = top.slice(0, 3).map((t) => ({ name: t.name, p: Math.round(t.p * 1000) / 1000 }));
+    const [pick, named] = combine(rule, top);
+    if (pick !== motif) { motif = pick; label = classLabel(named, pick); }
+  }
   const traits = describe(features);
   return {
     features,
     motif,
-    motifLabel: MOTIF_LABELS[motif],
+    motifLabel: label,
     traits,
     hash: hashStrokes(live),
-    stats: { strokes: live.length, totalLen, intersections, shapes: infos.map((i) => i.shape) },
+    stats: { strokes: live.length, totalLen, intersections, shapes: infos.map((i) => i.shape), rule: rule.motif, sure: rule.sure, seen },
   };
+}
+
+// Rules that read a construction so specific the recognizer is never allowed to overrule them.
+const LOCKED = new Set(['words', 'note', 'money', 'skull', 'clock', 'dots', 'rain', 'crown', 'diamond', 'spiral', 'drop', 'heart']);
+// How sure the recognizer must be to overrule other confident rules (default 0.75).
+const OVERRULE = { box: 0.9, phone: 0.9, screen: 0.9, car: 0.98, house: 0.85, figure: 0.85, flower: 0.95 };
+
+// Shape rules and the sketch recognizer, together. `rule` is { motif, sure }; `top` the recognizer's best guesses.
+// Returns [motif, the class that named it] or [rule motif, null].
+function combine(rule, top) {
+  // Add up classes that mean the same motif (cello + violin + harp), so near-misses still count.
+  const by = {};
+  for (const x of top) { const m = CLASS_MOTIFS[x.name]; if (m) by[m] = (by[m] || 0) + x.p; }
+  const [m, p] = Object.entries(by).sort((a, b) => b[1] - a[1])[0] || [];
+  const keep = [rule.motif, null];
+  if (!m || m === rule.motif) return keep;
+  const named = top.find((x) => CLASS_MOTIFS[x.name] === m).name;
+  // The recognizer also sees what the rules see: keep the rule.
+  if ((by[rule.motif] || 0) >= 0.15) return keep;
+  if (rule.sure) {
+    if (LOCKED.has(rule.motif) || SHAPE_MOTIFS.has(m)) return keep;
+    return p >= (OVERRULE[rule.motif] || 0.75) ? [m, named] : keep;
+  }
+  const vague = rule.motif === 'abstract' || rule.motif === 'scribble';
+  if (SHAPE_MOTIFS.has(m)) return p >= (vague ? 0.6 : 0.8) ? [m, named] : keep;
+  return p >= (vague ? 0.4 : 0.45) ? [m, named] : keep;
+}
+
+// Shading: four or more lines or scribbles filling a closed outline. They colour it in; they aren't the drawing.
+function unshade(infos) {
+  const outlines = infos.filter((i) => i.closed && i.diag > 0.15).sort((a, b) => b.L - a.L);
+  for (const o of outlines) {
+    const within = (i) => inside(i.p0, o.bb, -0.03) && inside(i.p1, o.bb, -0.03) && i.diag < o.diag * 0.9;
+    // Hatching: five or more parallel lines inside the outline.
+    const lines = infos.filter((i) => i !== o && i.shape !== 'dot' && i.L > 0.04 && i.straightness > 0.85 && within(i));
+    const dir = (i) => ((i.orientation % Math.PI) + Math.PI) % Math.PI;
+    let hatch = [];
+    for (const l of lines) {
+      const near = lines.filter((k) => { const d = Math.abs(dir(k) - dir(l)); return Math.min(d, Math.PI - d) < 0.35; });
+      if (near.length > hatch.length) hatch = near;
+    }
+    // Or scribbled in: scribbles inside the outline.
+    const scrawl = infos.filter((i) => i !== o && (i.shape === 'scribble' || i.shape === 'zigzag') && within(i));
+    const fill = hatch.length >= 5 ? hatch : scrawl.length && scrawl.reduce((t, i) => t + i.L, 0) > o.L * 0.8 ? scrawl : [];
+    if (fill.length) return infos.filter((i) => !fill.includes(i));
+  }
+  return infos;
+}
+
+// Writing: rows of small marks of a similar height, side by side (dots over i's are fine).
+function isWriting(infos, totalLen) {
+  const marks = infos.filter((i) => i.shape !== 'dot');
+  if (marks.length < 4) return false;
+  if (marks.filter((i) => i.straightness > 0.9).length > marks.length * 0.7) return false; // rain, hatching, grids
+  if (marks.filter((i) => i.closed).length > marks.length * 0.4) return false; // petals, bubbles, beads
+  const sorted = [...marks].sort((a, b) => a.bb.minY - b.bb.minY);
+  const rows = [];
+  for (const m of sorted) {
+    const row = rows.find((r) => {
+      const ov = Math.min(r.maxY, m.bb.maxY) - Math.max(r.minY, m.bb.minY);
+      return ov > 0.4 * Math.min(m.bb.h || 0.01, r.h);
+    });
+    if (row) { row.items.push(m); row.minY = Math.min(row.minY, m.bb.minY); row.maxY = Math.max(row.maxY, m.bb.maxY); }
+    else rows.push({ items: [m], minY: m.bb.minY, maxY: m.bb.maxY, h: m.bb.h || 0.01 });
+  }
+  let inRows = 0, ink = 0;
+  for (const r of rows) {
+    if (r.items.length < 4) continue;
+    const minX = Math.min(...r.items.map((i) => i.bb.minX)), maxX = Math.max(...r.items.map((i) => i.bb.maxX));
+    const W = maxX - minX, H = r.maxY - r.minY;
+    if (W < 2.5 * H) continue;
+    if (r.items.some((i) => i.bb.w > 0.45 * W)) continue;
+    const hs = r.items.map((i) => i.bb.h).sort((a, b) => a - b);
+    const med = hs[hs.length >> 1];
+    if (hs.filter((h) => h > 0.35 * med && h < 1.8 * med).length < 0.7 * hs.length) continue;
+    const xs = [...r.items].sort((a, b) => a.bb.minX - b.bb.minX);
+    let reach = xs[0].bb.maxX, gap = 0;
+    for (const i of xs.slice(1)) { gap = Math.max(gap, i.bb.minX - reach); reach = Math.max(reach, i.bb.maxX); }
+    if (gap > 1.6 * H) continue;
+    inRows += r.items.length;
+    ink += r.items.reduce((s, i) => s + i.L, 0);
+  }
+  return inRows >= 0.8 * marks.length && ink >= 0.75 * totalLen;
 }
 
 function inside(p, bb, shrink = 0.1) {
@@ -659,12 +780,20 @@ function hasRoofOver(box, infos) {
     && i.bb.cx > box.bb.minX && i.bb.cx < box.bb.maxX);
 }
 
-function detectMotif(infos, { totalLen, intersections, features }) {
+function detectMotif(infos, ctx) {
+  infos = unshade(infos);
+  ctx = { ...ctx, totalLen: infos.reduce((t, i) => t + i.L, 0) };
+  const sure = structuralMotif(infos, ctx);
+  return sure ? { motif: sure, sure: true } : fallbackMotif(infos, ctx);
+}
+
+// Readings built from how the strokes sit together (a face, a car, a grid). null when none fits.
+function structuralMotif(infos, { totalLen }) {
   if (!infos.length) return 'abstract';
   const dotCount = infos.filter((i) => i.shape === 'dot').length;
   if (dotCount >= 6 && dotCount >= infos.length * 0.5) return 'dots';
   if (totalLen < 0.02) return 'abstract';
-  const marks = infos.filter((i) => i.shape !== 'dot' || infos.length < 6);
+  if (isWriting(infos, totalLen)) return 'words';
   const byLen = [...infos].sort((a, b) => b.L - a.L);
   const circles = byLen.filter((i) => i.shape === 'circle' && i.diag > 0.06);
 
@@ -750,7 +879,15 @@ function detectMotif(infos, { totalLen, intersections, features }) {
     if (around.length < 4) continue;
     const curvy = around.filter((i) => i.closed || i.straightness < 0.75).length;
     if (curvy >= around.length * 0.6) return 'flower';
-    if (quadrants(around.map((i) => i.centroid), c.bb.cx, c.bb.cy) >= 3) return 'sun';
+    // Rays: straight, pointing away from the middle, starting near the rim.
+    const rays = around.filter((i) => {
+      if (i.straightness < 0.8) return false;
+      const dx = i.centroid.x - c.bb.cx, dy = i.centroid.y - c.bb.cy;
+      const along = Math.abs(Math.cos(Math.atan2(dy, dx) - i.orientation));
+      const near = Math.min(Math.hypot(i.p0.x - c.bb.cx, i.p0.y - c.bb.cy), Math.hypot(i.p1.x - c.bb.cx, i.p1.y - c.bb.cy));
+      return along > 0.8 && near < R * 1.3;
+    });
+    if (rays.length >= 4 && rays.length >= around.length * 0.6 && quadrants(rays.map((i) => i.centroid), c.bb.cx, c.bb.cy) >= 3) return 'sun';
   }
 
   // Eye: an almond outline with something inside.
@@ -810,7 +947,14 @@ function detectMotif(infos, { totalLen, intersections, features }) {
       const box = { bb: bbox([...horiz, ...vert].flatMap((l) => [l.p0, l.p1])) };
       return hasRoofOver(box, infos) ? 'house' : boxKind(box.bb.h > 0 ? box.bb.w / box.bb.h : 99);
     }
-    return 'grid';
+    // A grid only when the drawing is mostly those lines, and they really cross each other.
+    let crossings = 0;
+    for (const a of horiz) for (const b of vert) {
+      const hit = lineCross(a, b);
+      if (hit && hit.t > 0.06 && hit.t < 0.94 && hit.u > 0.06 && hit.u < 0.94) crossings++;
+    }
+    const lineInk = [...new Set([...horiz, ...vert])].reduce((t, l) => t + l.L, 0);
+    if (crossings >= 3 && lineInk >= 0.6 * totalLen && crossings >= 0.5 * Math.min(horiz.length, vert.length) ** 2) return 'grid';
   }
 
   // Rain: many short, near-vertical strokes.
@@ -819,6 +963,13 @@ function detectMotif(infos, { totalLen, intersections, features }) {
 
   // Stacked horizontals read as a horizon / landscape.
   if (horiz.length >= 3 && horiz.length >= infos.length * 0.7) return 'horizon';
+  return null;
+}
+
+// Things one kind of stroke dominates (a heart, a wave), or a best guess. Sure only when one specific shape owns the ink.
+const VOTE_SHAPES = new Set(['circle', 'line', 'horizon', 'zigzag', 'mountain', 'wave', 'loops', 'scribble', 'box', 'arrow']);
+function fallbackMotif(infos, { totalLen, features }) {
+  const marks = infos.filter((i) => i.shape !== 'dot' || infos.length < 6);
 
   // Otherwise vote by shape, weighted by ink length.
   const votes = {};
@@ -832,14 +983,21 @@ function detectMotif(infos, { totalLen, intersections, features }) {
     votes[shape] = (votes[shape] || 0) + i.L;
   }
   const best = Object.entries(votes).sort((a, b) => b[1] - a[1])[0];
+  const weak = (motif) => ({ motif, sure: false });
+  // A real scribble: strokes that keep crossing back over themselves own most of the ink.
+  const scrawl = infos.filter((i) => i.shape === 'scribble' || (i.selfX >= 10 && i.selfX / Math.max(i.L, 0.01) >= 5 && !['loops', 'spiral'].includes(i.shape)));
+  if (scrawl.reduce((t, i) => t + i.L, 0) >= totalLen * 0.55) return weak('scribble');
   if (best && best[1] >= totalLen * 0.4) {
-    if (best[0] === 'line' && infos.length > 3) return features.chaos > 0.5 ? 'scribble' : 'rain';
-    return best[0];
+    if (best[0] === 'line' && infos.length > 3) {
+      const upright = infos.filter((i) => i.straightness > 0.8 && Math.abs(Math.sin(i.orientation)) > 0.7).length;
+      return weak(upright >= infos.length * 0.6 ? 'rain' : 'abstract');
+    }
+    // Scribble is what's left when the ink really is scribbled, not just busy.
+    if (best[0] === 'scribble') return weak('abstract');
+    return { motif: best[0], sure: best[1] >= totalLen * 0.6 && !VOTE_SHAPES.has(best[0]) };
   }
-
-  if (features.chaos > 0.55 || intersections > 10) return 'scribble';
-  if (best && best[1] >= totalLen * 0.25) return best[0];
-  return 'abstract';
+  if (best && best[1] >= totalLen * 0.25 && best[0] !== 'scribble') return weak(best[0]);
+  return weak('abstract');
 }
 
 function describe(f) {

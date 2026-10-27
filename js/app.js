@@ -4,6 +4,7 @@ import * as spotify from './spotify.js';
 import { matchRelease, loadCatalog } from './catalog.js';
 import { MOTIF_LABELS } from './analyze.js';
 import { encodeDrawing, decodeDrawing, drawingSvg } from './share.js';
+import { loadNet } from './sketchnet.js';
 import { POST_URL, TURNSTILE_SITEKEY } from '../config.js';
 
 const $ = (id) => document.getElementById(id);
@@ -238,8 +239,23 @@ function asStored(list) {
 const live = {
   el: $('live'), cover: $('liveCover'), motif: $('liveMotif'), title: $('liveTitle'), artist: $('liveArtist'),
   timer: null, id: null, motifKey: null, every: 120,
-  worker: null, busy: false, queued: null, seq: 0, shownSeq: 0, generation: 0,
+  worker: null, busy: false, queued: null, seq: 0, shownSeq: 0, generation: 0, pending: new Map(),
 };
+
+// The result's reading, worked out in the worker when there is one (the recognizer is warm there),
+// otherwise here. Same code and same inputs either way.
+async function analyzeDrawing(used) {
+  if (live.worker) {
+    const id = ++live.seq;
+    const a = await new Promise((done) => {
+      live.pending.set(id, done);
+      live.worker.postMessage({ type: 'analyze', id, strokes: used.map((st) => ({ size: st.size, points: st.points.map((pt) => ({ x: pt.x, y: pt.y, t: pt.t })) })) });
+      setTimeout(() => { if (live.pending.delete(id)) done(null); }, 6000);
+    });
+    if (a) return a;
+  }
+  return analyze(used, { net: net || await withNet(4000) });
+}
 
 function startLiveWorker() {
   if (!catalog || live.worker || typeof Worker === 'undefined') return;
@@ -247,12 +263,13 @@ function startLiveWorker() {
     live.worker = new Worker(new URL('./live-worker.js', import.meta.url), { type: 'module' });
     live.worker.postMessage({ type: 'catalog', catalog });
     live.worker.onmessage = (e) => {
-      live.busy = false;
       const m = e.data;
+      if (m?.type === 'analysis') { const done = live.pending.get(m.id); live.pending.delete(m.id); done?.(m.error ? null : m.analysis); return; }
+      live.busy = false;
       if (m && m.type === 'match' && !m.error && m.id > live.shownSeq) showLive(m);
       if (live.queued) { const q = live.queued; live.queued = null; sendLive(q); }
     };
-    live.worker.onerror = () => { live.worker = null; live.busy = false; };
+    live.worker.onerror = () => { live.worker = null; live.busy = false; for (const done of live.pending.values()) done(null); live.pending.clear(); };
   } catch { live.worker = null; }
 }
 
@@ -265,7 +282,8 @@ function sendLive(list) {
     return;
   }
   // No worker support: work it out here instead.
-  const a = analyze(asStored(list).used);
+  if (!net) withNet(0);
+  const a = analyze(asStored(list).used, { net });
   const r = matchRelease(a, catalog);
   showLive({ id, motif: a.motif, motifLabel: a.motifLabel, release: r });
 }
@@ -323,7 +341,8 @@ async function submit() {
   let code = null;
   let used = strokes;
   if (catalog) ({ code, used } = asStored(strokes));
-  const a = analyze(used);
+  if (catalog) startLiveWorker();
+  const a = await analyzeDrawing(used);
   const p = plan(a);
   renderReading(a, p);
   show('result');
@@ -402,6 +421,18 @@ els.copy.addEventListener('click', async () => {
   setTimeout(() => { els.copy.textContent = 'Copy'; }, 1600);
 });
 
+// ---------- Sketch recognizer ----------
+// About 0.5 MB. In catalog mode it runs in the live worker; this copy is only loaded when there is
+// no worker (or in Spotify mode). The result waits briefly for it, so a drawing reads the same
+// here, in the live strip and in the feed.
+
+let net = null;
+let netReady = null;
+function withNet(ms) {
+  netReady ||= loadNet().then((n) => { net = n; }).catch(() => { netReady = null; });
+  return Promise.race([netReady, new Promise((res) => setTimeout(res, ms))]).then(() => net);
+}
+
 // ---------- Boot ----------
 
 (async function boot() {
@@ -415,6 +446,7 @@ els.copy.addEventListener('click', async () => {
     if (!catalog?.releases?.length) catalog = null;
   }
   if (!catalog) catalog = await loadCatalog();
+  if (!catalog || typeof Worker === 'undefined') withNet(0);
   if (catalog) {
     els.settingsBtn.hidden = true; // no Spotify login needed
     $('feedLink').hidden = preview;

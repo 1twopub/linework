@@ -199,6 +199,8 @@ a { color: inherit; }
 .sheet-actions { display: flex; gap: 10px; justify-content: flex-end; align-items: center; flex-wrap: wrap; }
 .small { font-size: 13px; }
 .muted { color: var(--ink-3); }
+.credit { text-align: center; margin: 14px 0 0; font-size: 11.5px; }
+.credit a { color: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }

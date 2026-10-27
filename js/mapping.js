@@ -3,6 +3,7 @@
 // The linework (how it was drawn) chooses the genre and the era.
 
 import { DIMS } from './analyze.js';
+import { OBJECTS } from './objects.js';
 
 // Keywords searched in track and album titles, one list per motif.
 export const MOTIF_WORDS = {
@@ -44,8 +45,10 @@ export const MOTIF_WORDS = {
   car: ['car', 'ride', 'drive', 'whip', 'wheels', 'highway'],
   phone: ['phone', 'call', 'hotline', 'text', 'ring', 'dial'],
   screen: ['tv', 'screen', 'video', 'movie', 'film', 'camera'],
+  bubble: ['talk', 'words', 'say', 'conversation', 'whisper', 'voices'],
   abstract: ['shape', 'form', 'abstract', 'gesture', 'figure', 'sketch'],
 };
+for (const [m, o] of Object.entries(OBJECTS)) MOTIF_WORDS[m] = o.words;
 
 // Each genre has a linework profile (0..1 on every dimension; omitted dims are 0.5)
 // and the span of years its records come from.

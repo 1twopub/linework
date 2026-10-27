@@ -6,7 +6,10 @@ A static site: no build step, no server, no dependencies. It runs from GitHub Pa
 
 ## How a drawing becomes a record
 
-1. **Content (the motif).** Each stroke is classified (circle, spiral, star, zigzag, wave, peak, line, box, heart, crescent, almond, cloud, flower, bird, arrow, crown, diamond, drop, flame, S-curve, scribble, dot…), then the whole drawing is read as one of 40 motifs: a face, sun, circle, spiral, star, grid, rainfall, field of dots, zigzag, peak, wave, loops, horizon, single line, scribble, heart, house, flower, crescent moon, eye, cross, box, arrow, stick figure, bird, cloud, crown, diamond, drop, flame, dollar sign, music note, clock, globe, skull (a face with X eyes), car, phone (a tall rectangle), screen (a wide rectangle), speech bubble, or an abstraction. The motif picks the search keyword, e.g. a spiral searches for *spiral*, *vertigo*, *galaxy*, *hypnotic*.
+1. **Content (the motif).** Each stroke is classified (circle, spiral, star, zigzag, wave, peak, line, box, heart, crescent, almond, cloud, flower, bird, arrow, crown, diamond, drop, flame, S-curve, scribble, dot…), then the whole drawing is read as one of 130 motifs. Shape rules read 40 of them from how the strokes sit together: a face, sun, circle, spiral, star, grid, rainfall, field of dots, zigzag, peak, wave, loops, horizon, single line, scribble, heart, house, flower, crescent moon, eye, cross, box, arrow, stick figure, bird, cloud, crown, diamond, drop, flame, dollar sign, music note, clock, globe, skull (a face with X eyes), car, phone (a tall rectangle), screen (a wide rectangle), speech bubble, or an abstraction, plus **words** (rows of handwriting).
+   A sketch recognizer reads everything else: 90 object motifs covering animals (cat, dog, horse, fish, snake, butterfly, bear, lion…), the body (hand, foot, mouth, ear, nose, beard, brain), clothing (shirt, pants, shoe, hat, glasses, bag), household things (chair, bed, lamp, cup, bottle, key, door, umbrella, book, camera…), music gear (guitar, piano, drum, violin, horn, microphone, headphones, radio), nature (tree, leaf, mushroom, rainbow, snow, lightning), food (fruit, vegetables, sweets, meals) and vehicles (bike, train, plane, boat, balloon, flying saucer). They're defined in `js/objects.js`.
+   The recognizer is [DoodleNet](https://github.com/ml5js/ml5-library) (ml5.js, MIT licence), trained on Google's [Quick, Draw!](https://quickdraw.withgoogle.com/data) dataset (CC BY 4.0). It runs in plain JavaScript (`js/sketchnet.js`, weights in `models/sketchnet.bin`, 0.55 MB) in the page, the live worker and the feed builder, so a drawing reads the same everywhere. Specific constructions the rules are sure of (a note, a dollar sign, a skull, a clock, writing, a heart) are never overruled; looser readings give way when the recognizer is confident.
+   Scribble and grid are strict: a scribble needs strokes that keep crossing back over themselves to own most of the ink, and a grid needs crossing horizontals and verticals to be most of the drawing. Shading (parallel hatching or scribbling inside an outline) is set aside, so a shaded heart is still a heart. The motif picks the search keyword, e.g. a spiral searches for *spiral*, *vertigo*, *galaxy*, *hypnotic*.
 2. **Linework (the character).** Seven measurements, each 0–1:
    speed of drawing, angularity (corners), curvature, ink density, chaos (strokes, jitter, crossings), lift (how high on the page), and symmetry.
    These are matched against profiles for 44 genres (including trap, cloud rap, drill, grime, R&B, dancehall, Latin and comedy) (jagged + fast + dense → punk or metal; slow, flowing, sparse → ambient or bossa nova) and choose an era.
@@ -60,6 +63,8 @@ How it works without a database:
 1. The site sends the drawing (a compact code) to a small **Cloudflare Worker**, `worker/linework-relay.js`.
 2. The Worker holds a GitHub token as a secret and files the post as an **issue** in this repo, under your account, so posters need no account and nothing about them is stored.
 3. Each new or closed issue triggers `.github/workflows/pages.yml`, which runs `scripts/build-feed.mjs`. It recomputes every post's motif and record from the drawing itself (so a tampered issue can't fake a match), writes `feed.json` and redeploys the site. Posts appear about a minute or two after posting.
+
+**Likes:** each post has a heart. The relay keeps the count in a hidden line in the post's issue (`<!-- linework-likes:N -->`), which only your token can change, and serves live counts to the feed (cached for 20 seconds). One like per post per visitor: the browser remembers it, and the relay also ignores repeats and rate-limits by address (best effort, since there are no accounts). Only the visitor who gave a like can take it back. Likes don't redeploy the site.
 
 **Moderation:** close an issue to remove that post (reopen to restore). Only issues filed by the relay's account count, so nobody else can add posts by opening issues. The feed keeps the newest 300.
 
@@ -141,6 +146,9 @@ js/build.js              catalog builder logic
 js/catalog.js            title motifs, genre mapping, drawing → record matching
 js/musicbrainz.js        MusicBrainz genre lookups (throttled and cached)
 js/analyze.js            stroke geometry, motif detection, linework features
+js/objects.js            object motifs (labels, title words, search words) and sketch classes
+js/sketchnet.js          sketch recognizer (DoodleNet forward pass + stroke rasterizer)
+models/sketchnet.bin     recognizer weights (int8)
 js/mapping.js            motif keywords, genre profiles, search plan
 js/spotify.js            PKCE login, token refresh, search
 manifest.webmanifest     add-to-home-screen support
