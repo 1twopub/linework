@@ -31,16 +31,33 @@ jobs:
       - uses: actions/setup-node@v4
         if: env.HAS_TOKEN == 'true'
         with:
-          node-version: 20
+          node-version: 22
+      - name: Check Cloudflare access
+        if: env.HAS_TOKEN == 'true'
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set +e
+          ACCOUNT=$(printf '%s' "$CF_ACCOUNT" | tr -d '[:space:]')
+          if [ "$ACCOUNT" != "$CF_ACCOUNT" ]; then echo "::warning::CLOUDFLARE_ACCOUNT_ID has spaces or line breaks in it. Re-paste it without them."; fi
+          if ! printf '%s' "$ACCOUNT" | grep -Eq '^[0-9a-f]{32}$'; then
+            echo "::error::CLOUDFLARE_ACCOUNT_ID doesn't look like an account ID (32 letters/numbers, from Workers & Pages → Account ID on the right). It isn't your email or a token."; exit 1; fi
+          V=$(curl -s -H "Authorization: Bearer $CF_TOKEN" https://api.cloudflare.com/client/v4/user/tokens/verify)
+          echo "$V" | grep -q '"status":"active"' || { echo "::error::Cloudflare didn't accept CLOUDFLARE_API_TOKEN (wrong, expired or pasted with extra characters). Create a new one from the 'Edit Cloudflare Workers' template and update the secret."; echo "$V"; exit 1; }
+          W=$(curl -s -o /dev/null -w '%{http_code}' -H "Authorization: Bearer $CF_TOKEN" "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT/workers/scripts")
+          if [ "$W" != "200" ]; then
+            echo "::error::The token works, but can't manage Workers on account $ACCOUNT (HTTP $W). Either the account ID is for a different account, or the token wasn't given that account: edit the token → Account Resources → Include → your account."; exit 1; fi
+          echo "Cloudflare token and account look good."
       - name: Set the allowed site
         if: env.HAS_TOKEN == 'true'
         run: printf '\n[vars]\nALLOWED_ORIGIN = "%s"\n' "$ALLOWED_ORIGIN" >> chess-worker/wrangler.toml && cat chess-worker/wrangler.toml
       - name: Deploy
         if: env.HAS_TOKEN == 'true'
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: chess-worker
-          command: deploy
-
+        working-directory: chess-worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: 'false'
+          CI: 'true'
+        run: npx --yes wrangler@4 deploy
