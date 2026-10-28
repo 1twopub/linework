@@ -46,7 +46,7 @@
     <!-- Lobby -->
     <main class="lobby" id="lobby">
       <p class="label">Chess</p>
-      <h2>Play a friend. The board picks the music.</h2>
+      <h2>Play a friend or the computer. The board picks the music.</h2>
       <p class="lede">Every move turns the position into a record. When the game ends, the final position gets its song.</p>
 
       <div class="side-pick" role="radiogroup" aria-label="Your side">
@@ -60,8 +60,22 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
       <button class="submit ghost" id="resumeBtn" hidden><span>Rejoin your last game</span></button>
+
+      <div class="or-rule" role="separator"><span>or</span></div>
+
+      <div class="side-pick" role="radiogroup" aria-label="Computer level">
+        <span class="small muted">Computer</span>
+        <button class="chip level" role="radio" aria-checked="false" data-level="easy">Easy</button>
+        <button class="chip level" role="radio" aria-checked="true" data-level="medium">Medium</button>
+        <button class="chip level" role="radio" aria-checked="false" data-level="hard">Hard</button>
+      </div>
+      <button class="submit ghost" id="cpuBtn">
+        <span>Play the computer</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="7" width="14" height="11" rx="2.5"/><path d="M12 7V4M9.5 12h.01M14.5 12h.01M9.5 15h5"/></svg>
+      </button>
+      <button class="submit ghost" id="resumeCpuBtn" hidden><span>Continue your game against the computer</span></button>
       <p class="small muted" id="lobbyNote">You'll get a link to send to your opponent. No accounts, nothing to install.</p>
-      <p class="small error" id="notReady" hidden>Chess rooms aren't switched on for this site yet. Site owner: see “Chess” in the README.</p>
+      <p class="small error" id="notReady" hidden>Playing a friend isn't switched on for this site yet (site owner: see “Chess” in the README). You can still play the computer.</p>
     </main>
 
     <!-- Game -->

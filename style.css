@@ -376,7 +376,7 @@ a.submit.small-btn { display: inline-flex; text-decoration: none; }
 .lobby h2 { margin: 0; font: 400 34px/1.08 var(--serif); text-wrap: balance; }
 .lobby .submit { margin-top: 4px; }
 .side-pick { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-.side[aria-checked="true"] { background: var(--ink); color: var(--on-ink); }
+.side[aria-checked="true"], .level[aria-checked="true"] { background: var(--ink); color: var(--on-ink); }
 
 .game { display: grid; gap: 10px; margin-top: 8px; align-content: start; }
 .invite { padding: 14px; border-radius: 14px; border: 1px dashed var(--ink-3); background: var(--surface); }
@@ -465,3 +465,9 @@ a.submit.small-btn { display: inline-flex; text-decoration: none; }
   .top .feed-link { padding: 0 10px; font-size: 13px; }
   .top .feed-link svg { display: none; }
 }
+
+/* Chess: playing the computer */
+.or-rule { display: flex; align-items: center; gap: 12px; color: var(--ink-3); font: italic 400 18px var(--serif); margin: 6px 0 0; }
+.or-rule::before, .or-rule::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+.dot.thinking { animation: thinkPulse 1s ease-in-out infinite; }
+@keyframes thinkPulse { 50% { opacity: .25; transform: scale(.7); } }

@@ -1,12 +1,16 @@
 // Linework Chess — the page: create or join a game by link, play on a tap-to-move board,
 // and watch the position turn into a record after every move.
 
-import { Game, sqName, colorOf, encodeGame } from './chess.js';
+import { Game, sqName, colorOf, encodeGame, toFen } from './chess.js';
+
+const fenOf = (pos, counters = true) => toFen(pos, { counters });
 import { analyzeGame, CHESS_DIM_LABELS } from './chess-read.js';
 import { pieceSvg, boardSvg } from './chess-board.js';
 import { DIMS, MOTIF_LABELS } from './analyze.js';
 import { matchRelease, loadCatalog } from './catalog.js';
 import * as config from '../config.js';
+import { RoomCore } from './chess-room.js';
+import { LEVELS } from './chess-engine.js';
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -73,6 +77,20 @@ $('createBtn').addEventListener('click', () => {
   store.set(LAST_KEY, { id, want });
   location.hash = `g=${id}&as=${want}`;
 });
+document.querySelectorAll('.level').forEach((b) => b.addEventListener('click', () => {
+  document.querySelectorAll('.level').forEach((x) => x.setAttribute('aria-checked', String(x === b)));
+}));
+$('cpuBtn').addEventListener('click', () => {
+  const pick = document.querySelector('.side[aria-checked="true"]')?.dataset.side || 'w';
+  const as = pick === 'r' ? (Math.random() < 0.5 ? 'w' : 'b') : pick;
+  const level = document.querySelector('.level[aria-checked="true"]')?.dataset.level || 'medium';
+  store.set(CPU_KEY, null); // a fresh game
+  location.hash = `cpu=${level}&as=${as}`;
+});
+$('resumeCpuBtn').addEventListener('click', () => {
+  const saved = store.get(CPU_KEY, null);
+  if (saved) location.hash = `cpu=${saved.level}`;
+});
 $('resumeBtn').addEventListener('click', () => {
   const last = store.get(LAST_KEY, null);
   if (last?.id) location.hash = `g=${last.id}`;
@@ -82,11 +100,15 @@ function route() {
   const h = new URLSearchParams(location.hash.slice(1));
   const id = h.get('g');
   if (id && /^[A-Za-z0-9]{6,16}$/.test(id)) { enterGame(id, h.get('as')); return; }
+  if (LEVELS[h.get('cpu')]) { enterComputer(h.get('cpu'), h.get('as')); return; }
   leaveGame();
+  leaveComputer();
   $('lobby').hidden = false;
   $('game').hidden = true;
   const last = store.get(LAST_KEY, null);
   $('resumeBtn').hidden = !(last?.id && seatToken(last.id));
+  const savedCpu = store.get(CPU_KEY, null);
+  $('resumeCpuBtn').hidden = !(savedCpu?.room?.moves?.length && !new RoomCore(savedCpu.room).over());
   if (!BASE) {
     $('notReady').hidden = false;
     $('createBtn').disabled = true;
@@ -99,6 +121,7 @@ window.addEventListener('hashchange', route);
 function enterGame(id, want) {
   if (S.id === id && S.ws) return;
   leaveGame();
+  leaveComputer();
   S.id = id;
   S.want = want === 'b' ? 'b' : 'w';
   S.server = null;
@@ -108,11 +131,17 @@ function enterGame(id, want) {
   S.showReading = false;
   S.round = null;
   S.wasOver = false;
+  S.connected = false;
+  S.diagnosed = false;
+  $('connError').hidden = true;
   $('lobby').hidden = true;
   $('game').hidden = false;
   $('reading').hidden = true;
   const last = store.get(LAST_KEY, null);
   if (!last || last.id !== id) store.set(LAST_KEY, { id, want: S.want });
+  // The invite link is just this page's address: show it straight away to whoever created the game.
+  $('inviteLink').textContent = `${location.origin}${location.pathname}#g=${id}`;
+  $('invite').hidden = !want;
   if (!BASE) { setTurn('Chess rooms aren’t switched on for this site yet.'); return; }
   renderAll();
   connect();
@@ -149,6 +178,8 @@ function connect() {
       S.me = m.color;
       if (m.token) saveSeat(id, m.token);
     } else if (m.t === 'state') {
+      S.connected = true;
+      $('connError').hidden = true;
       S.server = m;
       S.pending = null;
       adopt(m);
@@ -168,16 +199,35 @@ function connect() {
 
 function scheduleReconnect() {
   const wait = Math.min(15000, 600 * 2 ** S.retry++);
-  setTurn(navigator.onLine === false ? 'Offline. Reconnecting when you’re back…' : 'Reconnecting…');
+  setTurn(navigator.onLine === false ? 'Offline. Reconnecting when you’re back…' : S.connected ? 'Reconnecting…' : 'Can’t reach the game server yet. Retrying…');
+  if (!S.connected && S.retry >= 2 && navigator.onLine !== false) diagnose();
   clearTimeout(S.reconnectTimer);
   S.reconnectTimer = setTimeout(() => { if (S.id && !S.ws) connect(); }, wait);
 }
+// Never got in: work out why, and say so (instead of “Connecting…” forever).
+async function diagnose() {
+  if (S.diagnosed) return;
+  S.diagnosed = true;
+  const host = BASE.host;
+  let reachable = false;
+  try {
+    await fetch(new URL('/health', BASE), { mode: 'no-cors', cache: 'no-store' });
+    reachable = true;
+  } catch { /* nothing answered */ }
+  const el = $('connError');
+  el.innerHTML = reachable
+    ? `The game server (<b>${esc(host)}</b>) is running but won’t accept games from this page (<b>${esc(location.origin)}</b>). Site owner: set the repository variable <code>CHESS_ALLOWED_ORIGIN</code> to this address and run “Deploy chess rooms” again.`
+    : `Can’t reach the game server at <b>${esc(host)}</b>. Site owner: run <b>Actions → Deploy chess rooms</b> in GitHub (it needs the two Cloudflare secrets), then reload. If your rooms live at a different address, set <code>CHESS_URL</code> in config.js.`;
+  el.hidden = false;
+}
+
 window.addEventListener('online', () => { if (S.id && !S.ws) connect(); });
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'visible' && S.id && !S.ws) connect();
 });
 
 function send(msg) {
+  if (S.cpu) { setTimeout(() => cpuReceive(msg), 0); return true; } // answered like a server, a moment later
   if (S.ws && S.ws.readyState === 1) { S.ws.send(JSON.stringify(msg)); return true; }
   flash('Not connected. Trying again…');
   return false;
@@ -203,6 +253,124 @@ function adopt(state) {
   renderAll();
 }
 
+// ---------- Playing the computer ----------
+// Same room rules as an online game (chess-room.js), run here; the engine thinks in a worker.
+const CPU_KEY = 'linework.chess.cpu';
+let engine = null;
+let engineSeq = 0;
+const engineWaiting = new Map();
+
+function askEngine(msg) {
+  if (!engine) {
+    engine = new Worker(new URL('./chess-engine-worker.js', import.meta.url), { type: 'module' });
+    engine.onmessage = (e) => { const done = engineWaiting.get(e.data.id); engineWaiting.delete(e.data.id); done?.(e.data); };
+    engine.onerror = () => { for (const done of engineWaiting.values()) done({ t: 'error' }); engineWaiting.clear(); engine = null; };
+  }
+  const id = ++engineSeq;
+  return new Promise((done) => { engineWaiting.set(id, done); engine.postMessage({ ...msg, id }); });
+}
+
+function cpuColor() {
+  const c = S.cpu;
+  return c.room.seats.w === c.botToken ? 'w' : 'b';
+}
+
+function enterComputer(level, as) {
+  leaveGame();
+  const saved = store.get(CPU_KEY, null);
+  let c;
+  if (saved?.room && saved.level === level && (!as || saved.as === as)) {
+    c = { level, as: saved.as, room: new RoomCore(saved.room), myToken: saved.myToken, botToken: saved.botToken };
+  } else {
+    const room = new RoomCore();
+    const me = room.join({ want: as === 'b' ? 'b' : 'w' });
+    const bot = room.join({});
+    c = { level, as: me.color, room, myToken: me.token, botToken: bot.token };
+  }
+  S.cpu = c;
+  S.id = null;
+  S.server = null;
+  S.game = new Game();
+  S.selected = null;
+  S.pending = null;
+  S.showReading = false;
+  S.round = null;
+  S.wasOver = false;
+  S.thinking = false;
+  $('connError').hidden = true;
+  $('invite').hidden = true;
+  $('lobby').hidden = true;
+  $('game').hidden = false;
+  $('reading').hidden = true;
+  cpuPublish();
+}
+
+function leaveComputer() {
+  if (!S.cpu) return;
+  S.cpu = null;
+  S.thinking = false;
+  engineSeq++; // ignore a reply still on its way
+}
+
+function cpuSave() {
+  const c = S.cpu;
+  store.set(CPU_KEY, { level: c.level, as: c.as, room: c.room.toJSON(), myToken: c.myToken, botToken: c.botToken });
+}
+
+// Shows the local room as if a server had sent it, then lets the computer move if it's its turn.
+function cpuPublish() {
+  const c = S.cpu;
+  S.me = c.room.seats.w === c.myToken ? 'w' : 'b';
+  S.server = c.room.snapshot({ w: true, b: true });
+  S.pending = null;
+  adopt(S.server);
+  cpuSave();
+  cpuMaybeMove();
+}
+
+function cpuReceive(msg) {
+  const c = S.cpu;
+  if (!c) return;
+  const me = S.me;
+  const res = c.room.handle(me, msg);
+  if (res.error) { flash(res.error); S.pending = null; adopt(S.server); return; }
+  if (msg.t === 'rematch' && !res.swapped) c.room.handle(cpuColor(), { t: 'rematch' }); // the computer always says yes
+  if (msg.t === 'draw' && c.room.offer === me) {
+    // Ask the computer about the offer.
+    cpuPublish();
+    const asked = c.room;
+    askEngine({ t: 'draw', fen: toFenOf(S.game), level: c.level, cpu: cpuColor() }).then((r) => {
+      if (S.cpu !== c || c.room !== asked || c.room.offer !== me) return;
+      c.room.handle(cpuColor(), { t: r.accept ? 'draw' : 'decline' });
+      cpuPublish();
+      if (!r.accept) flash('The computer declines the draw.');
+    });
+    return;
+  }
+  cpuPublish();
+}
+
+const toFenOf = (game) => fenOf(game.pos);
+
+async function cpuMaybeMove() {
+  const c = S.cpu;
+  if (!c || S.thinking || c.room.over()) return;
+  const bot = cpuColor();
+  if (c.room.game.turn !== bot) return;
+  S.thinking = true;
+  renderStatus();
+  const ply = c.room.moves.length;
+  const history = c.room.game.history.map((h) => fenOf(h.before, false)).concat(fenOf(c.room.game.pos, false));
+  const started = Date.now();
+  const r = await askEngine({ t: 'move', fen: fenOf(c.room.game.pos), level: c.level, history });
+  await new Promise((res) => setTimeout(res, Math.max(0, 450 - (Date.now() - started)))); // don't answer instantly
+  if (S.cpu !== c || c.room.moves.length !== ply) { if (S.cpu === c) S.thinking = false; return; }
+  S.thinking = false;
+  if (r?.uci) c.room.handle(bot, { t: 'move', uci: r.uci, ply });
+  else if (!c.room.over()) c.room.handle(bot, { t: 'resign' }); // the engine failed: concede rather than hang
+  cpuPublish();
+}
+
 // ---------- Board ----------
 const boardEl = $('board');
 let flipped = false;
@@ -218,7 +386,7 @@ function squaresInOrder() {
 
 function myTurn() {
   const st = S.server;
-  return !!(st && S.me && !st.over && st.seated.w && st.seated.b && S.game.turn === S.me && !S.pending);
+  return !!(st && S.me && !st.over && st.seated.w && st.seated.b && S.game.turn === S.me && !S.pending && !S.thinking);
 }
 
 function renderBoard() {
@@ -326,7 +494,12 @@ function renderStatus() {
   // Players
   $('meSide').textContent = S.me ? SIDE_NAME[S.me] : 'Watching';
   $('meName').textContent = S.me ? 'You' : 'Spectator';
-  if (opp) {
+  if (opp && S.cpu) {
+    $('oppSide').textContent = SIDE_NAME[opp];
+    $('oppName').textContent = `Computer · ${LEVELS[S.cpu.level].label}`;
+    $('oppDot').className = `dot on${S.thinking ? ' thinking' : ''}`;
+    $('oppDot').title = S.thinking ? 'Thinking' : '';
+  } else if (opp) {
     $('oppSide').textContent = SIDE_NAME[opp];
     $('oppName').textContent = st.seated[opp] ? 'Opponent' : 'Waiting for opponent';
     $('oppDot').className = `dot${st.online[opp] ? ' on' : ''}`;
@@ -337,9 +510,10 @@ function renderStatus() {
     $('oppDot').className = 'dot';
   }
   // Invite
-  const link = `${location.origin}${location.pathname}#g=${S.id}`;
-  $('invite').hidden = !(S.me && opp && !st.seated[opp]);
-  $('inviteLink').textContent = link;
+  if (!S.cpu) {
+    $('invite').hidden = !(S.me && opp && !st.seated[opp]);
+    $('inviteLink').textContent = `${location.origin}${location.pathname}#g=${S.id}`;
+  }
   // Turn line
   if (flashTimer && $('turn').classList.contains('flash')) return;
   if (st.over) setTurn(resultText(st));
@@ -347,6 +521,7 @@ function renderStatus() {
   else if (!st.seated[opp]) setTurn('Waiting for your opponent to join…');
   else if (S.pending) setTurn('Sending…');
   else if (S.game.turn === S.me) setTurn(S.game.status().check ? 'Check! Your move.' : 'Your move.');
+  else if (S.cpu) setTurn('The computer is thinking…');
   else setTurn(st.online[opp] ? 'Their move.' : 'Their move. They’re offline right now.');
   // Draw offer
   const offerFromThem = st.offer && st.offer !== S.me && S.me;
@@ -360,7 +535,7 @@ function renderStatus() {
   const rm = st.rematch || {};
   $('rematchBtn').hidden = !S.me;
   $('rematchBtn').disabled = !!(S.me && rm[S.me]);
-  $('rematchBtn').querySelector('span').textContent = S.me && rm[S.me] ? 'Rematch asked, waiting…' : rm[opp] ? 'Accept rematch' : 'Rematch';
+  $('rematchBtn').querySelector('span').textContent = S.cpu ? 'Play again (swap sides)' : S.me && rm[S.me] ? 'Rematch asked, waiting…' : rm[opp] ? 'Accept rematch' : 'Rematch';
 }
 
 function renderMoves() {

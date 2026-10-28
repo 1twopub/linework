@@ -92,6 +92,8 @@ Built-in limits: captions up to 140 characters with no links; each visitor can p
 
 `chess.html` (linked from the home page) lets two people play chess by link. One player taps **Create a game** and sends the link; the game starts when the other opens it. After every move the position is read like a drawing and matched to a record (shown live under the board); when the game ends, the final position gets the full reading, and finished games can be posted to the feed.
 
+**Playing the computer** works without any setup (no Cloudflare needed): pick Easy, Medium or Hard. The opponent (`js/chess-engine.js`) is a small alpha-beta search with piece-square scoring that runs in a background thread on the player's device; Easy looks one move ahead and sometimes slips, Medium looks about three moves ahead, Hard searches as deep as about 1.5 seconds allows. It accepts a draw offer only when it's worse off (or the game is long and level), and "Play again" swaps sides. An unfinished game is remembered on the device and can be continued from the lobby.
+
 **How a position becomes a record** (`js/chess-read.js`). The same seven dimensions as drawings, in chess terms: Tension (captures, checks, hanging pieces), Diagonals, Leaps (knight activity), Crowd (pieces left), Chaos (material imbalance, threats), Advance and Symmetry. The motif comes from, in order: how the game ended (checkmate → skull, resignation → drop, agreed draw → hand, stalemate → box, repetition → loops…), what just happened (promotion → crown, castling → castle, check → lightning), the opening (about 50, e.g. the Sicilian Dragon → dragon, the Italian Game → piano, the Scotch → bottle) or the piece doing the most (knights → horse, bishops → cross, rooks → castle, the queen → crown).
 
 **How the game is played online.** Each game is a Cloudflare Durable Object (`chess-worker/`): it holds the moves, checks every move is legal with the same rules file the page uses (`js/chess.js`), and passes moves between the two players over WebSockets. Your seat is remembered on your device, so a reload or a dropped connection puts you back in the game. Anyone else with the link watches. Rooms delete themselves two weeks after the last move. This runs on Cloudflare's free plan.
@@ -172,6 +174,8 @@ chess.html               chess: create/join by link, board, live record, result
 js/chess.js              chess rules (legal moves, endings, notation, game codes)
 js/chess-read.js         chess position → dimensions + motif (openings, endings, pieces)
 js/chess-room.js         one game room's rules (seats, turns, resign/draw/rematch)
+js/chess-engine.js       the computer opponent (search + evaluation, three levels)
+js/chess-engine-worker.js  runs the computer off the main thread
 js/chess-board.js        line-drawn pieces and board pictures
 js/chess-app.js          the chess page
 chess-worker/            Cloudflare Worker + Durable Object for game rooms (wrangler.toml)
