@@ -18,7 +18,19 @@
 <body>
   <div class="app feed-app">
     <header class="top">
-      <h1 class="wordmark"><a href="./">Line<em>work</em></a></h1>
+      <details class="mode-menu" id="modeMenu">
+        <summary class="wordmark" aria-label="Linework: switch between Draw and Chess"><span>Line<em>work</em></span><svg class="mode-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <nav class="mode-list" aria-label="Linework apps">
+          <a class="mode-item" href="./">
+            <span class="mode-title">Draw</span>
+            <span class="mode-sub">Draw something, music follows</span>
+          </a>
+          <a class="mode-item" href="chess.html">
+            <span class="mode-title">Chess</span>
+            <span class="mode-sub">Play a friend, the board picks the music</span>
+          </a>
+        </nav>
+      </details>
       <div class="top-actions">
         <a class="feed-link about-link" href="about.html">About</a>
         <a class="feed-link" href="./">
@@ -50,5 +62,6 @@
     </div>
   </div>
   <script type="module" src="js/feed.js"></script>
+  <script type="module" src="js/modes.js"></script>
 </body>
 </html>

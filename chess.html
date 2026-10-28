@@ -18,7 +18,19 @@
 <body>
   <div class="app chess-app">
     <header class="top">
-      <h1 class="wordmark"><a href="./">Line<em>work</em></a></h1>
+      <details class="mode-menu" id="modeMenu">
+        <summary class="wordmark" aria-label="Linework: switch between Draw and Chess"><span>Line<em>work</em></span><svg class="mode-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <nav class="mode-list" aria-label="Linework apps">
+          <a class="mode-item" href="./">
+            <span class="mode-title">Draw</span>
+            <span class="mode-sub">Draw something, music follows</span>
+          </a>
+          <a class="mode-item" href="chess.html" aria-current="page">
+            <span class="mode-title">Chess</span>
+            <span class="mode-sub">Play a friend, the board picks the music</span>
+          </a>
+        </nav>
+      </details>
       <div class="top-actions">
         <a class="feed-link" href="feed.html">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>
@@ -71,6 +83,7 @@
       <div class="player" id="meRow"><span class="dot on"></span><span class="player-name" id="meName">You</span><span class="player-side" id="meSide"></span></div>
 
       <p class="turn" id="turn" aria-live="polite">Connecting…</p>
+      <p class="small error conn-error" id="connError" hidden></p>
 
       <div class="offer" id="offer" hidden>
         <span id="offerText">Your opponent offers a draw.</span>
@@ -153,5 +166,6 @@
   </dialog>
 
   <script type="module" src="js/chess-app.js"></script>
+  <script type="module" src="js/modes.js"></script>
 </body>
 </html>

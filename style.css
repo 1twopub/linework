@@ -433,6 +433,35 @@ a.submit.small-btn { display: inline-flex; text-decoration: none; }
 
 .chess-link svg { width: 18px; height: 18px; }
 
-/* Home → chess */
-.mode-link { display: block; text-align: center; margin-top: 12px; font: italic 400 18px/1.2 var(--serif); color: var(--ink-2); text-decoration: none; }
-.mode-link:hover, .mode-link:focus-visible { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+/* Wordmark menu: Draw / Chess */
+.top { position: relative; z-index: 20; }
+.mode-menu { position: relative; }
+.mode-menu > summary { list-style: none; display: inline-flex; align-items: center; gap: 4px; cursor: pointer; user-select: none; -webkit-user-select: none; border-radius: 10px; }
+.mode-menu > summary::-webkit-details-marker { display: none; }
+.mode-menu > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.mode-chev { width: 20px; height: 20px; margin-top: 4px; fill: none; stroke: var(--ink-2); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
+.mode-menu[open] .mode-chev { transform: rotate(180deg); }
+.mode-list {
+  position: absolute; top: calc(100% + 8px); left: -6px; min-width: 248px; padding: 6px;
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 16px; box-shadow: var(--shadow);
+  display: grid; gap: 2px; animation: menuIn .16s ease-out;
+}
+@keyframes menuIn { from { opacity: 0; transform: translateY(-4px); } }
+.mode-item { display: grid; gap: 1px; padding: 10px 12px; border-radius: 11px; text-decoration: none; color: var(--ink); }
+.mode-item:hover, .mode-item:focus-visible { background: var(--bg); outline: none; }
+.mode-item[aria-current="page"] { background: var(--bg); }
+.mode-item[aria-current="page"] .mode-title::after { content: ' ✓'; color: var(--accent); font: 500 15px var(--sans); }
+.mode-title { font: 400 24px/1.1 var(--serif); }
+.mode-sub { font-size: 13px; color: var(--ink-2); }
+
+.conn-error { margin: 0; text-align: center; line-height: 1.45; }
+.conn-error code { font: 400 12px var(--mono); }
+
+/* Narrow phones: keep the wordmark menu and header buttons on one line. */
+@media (max-width: 370px) {
+  .top .wordmark { font-size: 29px; }
+  .mode-chev { width: 17px; height: 17px; }
+  .top-actions { gap: 3px; }
+  .top .feed-link { padding: 0 10px; font-size: 13px; }
+  .top .feed-link svg { display: none; }
+}
