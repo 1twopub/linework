@@ -43,3 +43,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: chess-worker
           command: deploy
+
