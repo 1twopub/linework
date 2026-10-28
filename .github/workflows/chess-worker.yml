@@ -1,0 +1,45 @@
+# Deploys the chess game rooms (chess-worker/) to your Cloudflare account.
+# One-time setup, in the repo: Settings → Secrets and variables → Actions → New repository secret:
+#   CLOUDFLARE_API_TOKEN   a Cloudflare API token made from the "Edit Cloudflare Workers" template
+#   CLOUDFLARE_ACCOUNT_ID  your Cloudflare account ID (Workers & Pages overview, right-hand side)
+# Then run it once from the Actions tab (Deploy chess rooms → Run workflow). It also runs whenever
+# the room code changes. Until the secrets exist it does nothing.
+name: Deploy chess rooms
+
+on:
+  push:
+    branches: [main]
+    paths: ['chess-worker/**', 'js/chess.js', 'js/chess-room.js', '.github/workflows/chess-worker.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HAS_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
+      # Who may open games: your Pages site. Override with a repository variable CHESS_ALLOWED_ORIGIN.
+      ALLOWED_ORIGIN: ${{ vars.CHESS_ALLOWED_ORIGIN || format('https://{0}.github.io', github.repository_owner) }}
+    steps:
+      - name: Waiting for Cloudflare secrets
+        if: env.HAS_TOKEN != 'true'
+        run: echo "::notice::Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID repository secrets to deploy the chess rooms."
+      - uses: actions/checkout@v4
+        if: env.HAS_TOKEN == 'true'
+      - uses: actions/setup-node@v4
+        if: env.HAS_TOKEN == 'true'
+        with:
+          node-version: 20
+      - name: Set the allowed site
+        if: env.HAS_TOKEN == 'true'
+        run: printf '\n[vars]\nALLOWED_ORIGIN = "%s"\n' "$ALLOWED_ORIGIN" >> chess-worker/wrangler.toml && cat chess-worker/wrangler.toml
+      - name: Deploy
+        if: env.HAS_TOKEN == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: chess-worker
+          command: deploy
