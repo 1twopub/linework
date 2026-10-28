@@ -81,7 +81,17 @@ for (const issue of issues) {
   }
 }
 
-const feed = { updated: new Date().toISOString(), count: posts.length, posts };
-fs.writeFileSync(path.join(root, 'feed.json'), JSON.stringify(feed));
-console.log(`feed.json: ${posts.length} posts from ${issues.length} open issues`);
+// Written in pages, so the feed page only downloads what it shows: feed.json holds the newest
+// PAGE posts plus the page count; older posts are in feed/2.json, feed/3.json, …
+const PAGE = 24;
+const pages = Math.max(1, Math.ceil(posts.length / PAGE));
+const updated = new Date().toISOString();
+const dir = path.join(root, 'feed');
+fs.rmSync(dir, { recursive: true, force: true });
+fs.mkdirSync(dir, { recursive: true });
+for (let i = 0; i < pages; i++) {
+  const page = { updated, count: posts.length, page: i + 1, pages, posts: posts.slice(i * PAGE, (i + 1) * PAGE) };
+  fs.writeFileSync(i === 0 ? path.join(root, 'feed.json') : path.join(dir, `${i + 1}.json`), JSON.stringify(page));
+}
+console.log(`feed.json + ${pages - 1} more page(s): ${posts.length} posts from ${issues.length} open issues`);
 for (const [n, why] of skipped) console.log(`  skipped #${n}: ${why}`);
