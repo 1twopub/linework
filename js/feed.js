@@ -4,12 +4,15 @@ import { decodeDrawing, drawingSvg } from './share.js';
 import { POST_URL } from '../config.js';
 
 const $ = (id) => document.getElementById(id);
-const PAGE = 30;
+const PAGE = 24; // posts per page (feed.json, then feed/2.json, feed/3.json, …)
 const PENDING_KEY = 'linework.pending';
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 let posts = [];
 let shown = 0;
+let pagesLoaded = 1;
+let pagesTotal = 1;
+let liveLikes = null; // like counts from the relay, once they arrive
 const LIKED_KEY = 'linework.liked';
 const relay = POST_URL ? (POST_URL.endsWith('/') ? POST_URL : `${POST_URL}/`) : '';
 let liked = new Set();
@@ -35,14 +38,34 @@ function ago(iso) {
   return new Date(iso).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
-function card(p) {
+// Drawings are drawn only as they come near the screen, and as images (painted once)
+// rather than live vector shapes, so long feeds stay smooth.
+const drawn = new WeakSet();
+function drawArt(el) {
+  if (drawn.has(el)) return;
+  drawn.add(el);
   let svg = '';
-  try { svg = drawingSvg(decodeDrawing(p.code), 300); } catch { return ''; }
+  try { svg = drawingSvg(decodeDrawing(el.dataset.code), 300); } catch { return; }
+  const img = new Image();
+  img.decoding = 'async';
+  img.alt = '';
+  img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+  el.append(img);
+  el.removeAttribute('data-code');
+}
+const artObserver = 'IntersectionObserver' in window
+  ? new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) { artObserver.unobserve(e.target); drawArt(e.target); }
+  }, { rootMargin: '600px 0px' })
+  : null;
+
+function card(p) {
+  if (!/^LW1\.[A-Za-z0-9_-]+$/.test(p.code || '')) return '';
   const r = p.release || {};
   const safeUrl = /^https:\/\/open\.spotify\.com\//.test(r.url || '') ? r.url : `https://open.spotify.com/album/${encodeURIComponent(r.id || '')}`;
   const img = /^https:\/\/i\.scdn\.co\//.test(r.image || '') ? r.image : '';
   return `<li class="post${p.pending ? ' pending' : ''}">
-    <div class="post-art" role="img" aria-label="Drawing read as ${esc((p.motifLabel || '').toLowerCase())}">${svg}</div>
+    <div class="post-art" role="img" data-code="${esc(p.code)}" aria-label="Drawing read as ${esc((p.motifLabel || '').toLowerCase())}"></div>
     <div class="post-info">
       <p class="label">${esc(p.motifLabel)}${p.pending ? ' · <span class="badge">Publishing…</span>' : ''}</p>
       ${p.caption ? `<p class="post-caption">${esc(p.caption)}</p>` : ''}
@@ -58,11 +81,54 @@ function card(p) {
   </li>`;
 }
 
-function renderMore() {
+function render(list) {
+  const feed = $('feed');
+  const before = feed.children.length;
+  feed.insertAdjacentHTML('beforeend', list.map(card).join(''));
+  for (const li of [...feed.children].slice(before)) {
+    const art = li.querySelector('.post-art[data-code]');
+    if (art) { if (artObserver) artObserver.observe(art); else drawArt(art); }
+  }
+}
+
+async function renderMore() {
+  const more = $('more');
+  // Older posts live in their own files; fetch the next one when the ones in hand run out.
+  if (shown >= posts.length && pagesLoaded < pagesTotal) {
+    more.disabled = true;
+    more.textContent = 'Loading…';
+    try {
+      const res = await fetch(`feed/${pagesLoaded + 1}.json`, { cache: 'no-cache' });
+      if (!res.ok) throw new Error(String(res.status));
+      const page = await res.json();
+      const have = new Set(posts.map((p) => p.n));
+      const fresh = (page.posts || []).filter((p) => !have.has(p.n));
+      if (liveLikes) for (const p of fresh) if (liveLikes[p.n] !== undefined) p.likes = liveLikes[p.n];
+      posts.push(...fresh);
+      pagesLoaded++;
+    } catch {
+      more.disabled = false;
+      more.textContent = 'Couldn’t load more. Try again';
+      return;
+    }
+    more.disabled = false;
+    more.textContent = 'Show more';
+  }
   const next = posts.slice(shown, shown + PAGE);
-  $('feed').insertAdjacentHTML('beforeend', next.map(card).join(''));
+  render(next);
   shown += next.length;
-  $('more').hidden = shown >= posts.length;
+  more.hidden = shown >= posts.length && pagesLoaded >= pagesTotal;
+}
+
+function applyLikes(likes) {
+  liveLikes = likes;
+  for (const p of posts) if (likes[p.n] !== undefined) p.likes = likes[p.n];
+  for (const btn of document.querySelectorAll('.like')) {
+    const n = Number(btn.dataset.n);
+    if (likes[n] === undefined || btn.disabled) continue;
+    const count = Math.max(Number(likes[n]) || 0, liked.has(n) ? 1 : 0);
+    btn.querySelector('.like-count').textContent = count > 0 ? String(count) : '';
+  }
 }
 
 // Your own recent posts show immediately, until the rebuilt feed includes them.
@@ -82,20 +148,20 @@ function pendingNotIn(feedPosts) {
     if (res.ok) feed = await res.json();
   } catch { /* offline or not built yet */ }
   const published = Array.isArray(feed.posts) ? feed.posts : [];
+  pagesTotal = Math.max(1, Number(feed.pages) || 1);
   posts = [...pendingNotIn(published), ...published];
 
   // Live like counts from the relay (feed.json's counts can be a few minutes old).
+  // Fetched alongside, never waited for: the drawings show first, the counts update when they arrive.
   if (relay) {
-    try {
-      const res = await fetch(`${relay}likes`, { cache: 'no-store' });
-      if (res.ok) {
-        const { likes } = await res.json();
-        for (const p of posts) if (likes && likes[p.n] !== undefined) p.likes = likes[p.n];
-      }
-    } catch { /* show feed.json's counts */ }
+    fetch(`${relay}likes`, { cache: 'no-store' })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => { if (data?.likes) applyLikes(data.likes); })
+      .catch(() => { /* keep feed.json's counts */ });
   }
   if (!posts.length) { $('empty').hidden = false; return; }
-  $('feedSub').textContent = `${published.length} drawing${published.length === 1 ? '' : 's'}, and the records their lines picked.`;
+  const total = Number(feed.count) || published.length;
+  $('feedSub').textContent = `${total} drawing${total === 1 ? '' : 's'}, and the records their lines picked.`;
   renderMore();
 })();
 
