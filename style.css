@@ -369,3 +369,70 @@ a.submit.small-btn { display: inline-flex; text-decoration: none; }
 
 /* Long feeds: cards off screen aren't laid out or painted until they come near. */
 .post { content-visibility: auto; contain-intrinsic-size: auto 150px; }
+
+/* ---------- Chess ---------- */
+.chess-app { gap: 0; }
+.lobby { display: grid; gap: 14px; margin-top: 14px; align-content: start; }
+.lobby h2 { margin: 0; font: 400 34px/1.08 var(--serif); text-wrap: balance; }
+.lobby .submit { margin-top: 4px; }
+.side-pick { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.side[aria-checked="true"] { background: var(--ink); color: var(--on-ink); }
+
+.game { display: grid; gap: 10px; margin-top: 8px; align-content: start; }
+.invite { padding: 14px; border-radius: 14px; border: 1px dashed var(--ink-3); background: var(--surface); }
+.invite-text { margin: 4px 0 0; color: var(--ink-2); font-size: 15px; }
+.invite .label { color: var(--accent); }
+
+.player { display: flex; align-items: center; gap: 8px; min-height: 26px; font-size: 14px; }
+.player-name { font-weight: 600; }
+.player-side { font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-left: auto; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--rule); flex: none; }
+.dot.on { background: #3aa76d; }
+
+.board-wrap { width: 100%; max-width: min(100%, 72dvh); margin: 0 auto; }
+.board {
+  display: grid; grid-template-columns: repeat(8, 1fr); grid-template-rows: repeat(8, 1fr); aspect-ratio: 1; width: 100%;
+  border-radius: 12px; overflow: hidden; box-shadow: var(--shadow);
+  user-select: none; -webkit-user-select: none; touch-action: manipulation;
+}
+.sq { position: relative; border: 0; padding: 0; margin: 0; width: 100%; height: 100%; min-height: 0; cursor: default; display: block; border-radius: 0; }
+.board.active .sq { cursor: pointer; }
+.sq.light { background: #efe6d2; }
+.sq.dark { background: #c4ad84; }
+.sq svg { position: absolute; inset: 5%; width: 90%; height: 90%; pointer-events: none; }
+.sq.last::before { content: ''; position: absolute; inset: 0; background: rgba(224, 71, 43, .26); }
+.sq.sel::before { content: ''; position: absolute; inset: 0; background: rgba(20, 19, 17, .22); }
+.sq.can-move::after { content: ''; position: absolute; left: 50%; top: 50%; width: 26%; height: 26%; transform: translate(-50%, -50%); border-radius: 50%; background: rgba(20, 19, 17, .32); }
+.sq.can-take::after { content: ''; position: absolute; inset: 4%; border-radius: 50%; border: 4px solid rgba(20, 19, 17, .32); }
+.sq.check { background-image: radial-gradient(circle, rgba(224, 71, 43, .95) 0, rgba(224, 71, 43, .55) 40%, transparent 72%); }
+.coord { position: absolute; font: 600 9px/1 var(--mono); color: rgba(20, 19, 17, .5); pointer-events: none; z-index: 1; }
+.coord.f { right: 3px; bottom: 2px; }
+.coord.r { left: 3px; top: 3px; }
+
+.turn { margin: 2px 0 0; text-align: center; font: italic 400 21px/1.2 var(--serif); color: var(--ink); min-height: 1.2em; }
+.turn.flash { color: var(--accent); }
+.offer { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 14px; background: var(--surface); border: 1px solid var(--accent); font-size: 15px; }
+.offer span { flex: 1 1 100%; }
+
+.moves { list-style: none; margin: 0; padding: 2px 0 4px; display: flex; gap: 12px; overflow-x: auto; white-space: nowrap; font: 400 13px var(--mono); color: var(--ink-2); scrollbar-width: none; }
+.moves::-webkit-scrollbar { display: none; }
+.moves .mn { color: var(--ink-3); }
+
+.game-actions { display: flex; gap: 8px; justify-content: center; }
+.chip.danger { border-color: var(--accent); color: var(--accent); }
+.chip:disabled { opacity: .45; cursor: default; }
+
+.reading-panel { display: grid; gap: 12px; margin-top: 14px; padding-top: 16px; border-top: 1px solid var(--rule); scroll-margin-top: 12px; }
+.end-actions { display: grid; gap: 10px; }
+.end-actions .submit { margin: 0; }
+
+.promo .sheet-body { gap: 12px; }
+.promo-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.promo-btn { aspect-ratio: 1; border-radius: 12px; border: 1px solid var(--rule); background: #efe6d2; cursor: pointer; padding: 6px; }
+.promo-btn svg { width: 100%; height: 100%; display: block; }
+
+.chess-link svg { width: 18px; height: 18px; }
+
+/* Home → chess */
+.mode-link { display: block; text-align: center; margin-top: 12px; font: italic 400 18px/1.2 var(--serif); color: var(--ink-2); text-decoration: none; }
+.mode-link:hover, .mode-link:focus-visible { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }

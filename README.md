@@ -88,6 +88,28 @@ If the token belongs to a different account than the repo owner (a bot account, 
 
 Built-in limits: captions up to 140 characters with no links; each visitor can post 5 times per 10 minutes (best effort); very detailed drawings are simplified, and extremely detailed ones are refused. Cloudflare's free plan allows 100,000 requests a day.
 
+## Chess (play a friend, the board picks the music)
+
+`chess.html` (linked from the home page) lets two people play chess by link. One player taps **Create a game** and sends the link; the game starts when the other opens it. After every move the position is read like a drawing and matched to a record (shown live under the board); when the game ends, the final position gets the full reading, and finished games can be posted to the feed.
+
+**How a position becomes a record** (`js/chess-read.js`). The same seven dimensions as drawings, in chess terms: Tension (captures, checks, hanging pieces), Diagonals, Leaps (knight activity), Crowd (pieces left), Chaos (material imbalance, threats), Advance and Symmetry. The motif comes from, in order: how the game ended (checkmate → skull, resignation → drop, agreed draw → hand, stalemate → box, repetition → loops…), what just happened (promotion → crown, castling → castle, check → lightning), the opening (about 50, e.g. the Sicilian Dragon → dragon, the Italian Game → piano, the Scotch → bottle) or the piece doing the most (knights → horse, bishops → cross, rooks → castle, the queen → crown).
+
+**How the game is played online.** Each game is a Cloudflare Durable Object (`chess-worker/`): it holds the moves, checks every move is legal with the same rules file the page uses (`js/chess.js`), and passes moves between the two players over WebSockets. Your seat is remembered on your device, so a reload or a dropped connection puts you back in the game. Anyone else with the link watches. Rooms delete themselves two weeks after the last move. This runs on Cloudflare's free plan.
+
+### Setting up chess rooms (once, about 10 minutes)
+
+Durable Objects can only be deployed with Cloudflare's command-line tool, so a GitHub Action does it for you:
+
+1. **Cloudflare API token.** Cloudflare dashboard → your profile icon → **My Profile → API Tokens → Create Token** → use the **Edit Cloudflare Workers** template → Continue → Create. Copy the token.
+2. **Account ID.** Cloudflare dashboard → **Workers & Pages**; the Account ID is on the right. Copy it.
+3. **Add both to GitHub.** Repo → **Settings → Secrets and variables → Actions → New repository secret**: `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
+4. **Deploy.** Repo → **Actions → Deploy chess rooms → Run workflow**. It creates a Worker called `linework-chess` (separate from your posting relay, which isn't touched).
+5. **Done, if your relay is on workers.dev.** The page finds the rooms automatically from `POST_URL` (it swaps the relay's name for `linework-chess`). Otherwise add one line to `config.js`: `export const CHESS_URL = 'https://linework-chess.<your-subdomain>.workers.dev';` (the address is on the Worker's page in Cloudflare).
+
+Only your site may open games: the Action sets `ALLOWED_ORIGIN` to `https://<owner>.github.io`. If you use a custom domain, add a repository **variable** `CHESS_ALLOWED_ORIGIN` with your site's address and run the Action again.
+
+**Posting games** needs the updated relay (`worker/linework-relay.js` now also accepts chess game codes): paste it into your relay Worker in Cloudflare and deploy, as when you first set it up. The feed builder replays every posted game and drops any that aren't legal.
+
 ## Deploy to GitHub Pages
 
 1. Create a repository and push the contents of this folder to the `main` branch (the files should sit at the repo root).
@@ -146,6 +168,14 @@ js/build.js              catalog builder logic
 js/catalog.js            title motifs, genre mapping, drawing → record matching
 js/musicbrainz.js        MusicBrainz genre lookups (throttled and cached)
 js/analyze.js            stroke geometry, motif detection, linework features
+chess.html               chess: create/join by link, board, live record, result
+js/chess.js              chess rules (legal moves, endings, notation, game codes)
+js/chess-read.js         chess position → dimensions + motif (openings, endings, pieces)
+js/chess-room.js         one game room's rules (seats, turns, resign/draw/rematch)
+js/chess-board.js        line-drawn pieces and board pictures
+js/chess-app.js          the chess page
+chess-worker/            Cloudflare Worker + Durable Object for game rooms (wrangler.toml)
+.github/workflows/chess-worker.yml   deploys chess-worker/ to Cloudflare
 js/objects.js            object motifs (labels, title words, search words) and sketch classes
 js/sketchnet.js          sketch recognizer (DoodleNet forward pass + stroke rasterizer)
 models/sketchnet.bin     recognizer weights (int8)

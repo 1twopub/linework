@@ -48,8 +48,25 @@ function reply(env, origin, status, body) {
   return new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json', ...cors(env, origin) } });
 }
 
+// Structural check of a chess game code (js/chess.js: two bytes per move, optional end marker).
+// Whether the moves are legal is checked by the feed builder, which replays every game.
+function validGame(code) {
+  if (typeof code !== 'string' || code.length > 2000 || !/^LWC1\.[A-Za-z0-9_-]+$/.test(code)) return false;
+  let bin;
+  try { bin = atob(code.slice(5).replace(/-/g, '+').replace(/_/g, '/')); } catch { return false; }
+  if (bin.length < 2 || bin.length % 2) return false;
+  for (let i = 0; i < bin.length; i += 2) {
+    const v = (bin.charCodeAt(i) << 8) | bin.charCodeAt(i + 1);
+    const end = v >= 0xfff0 && v <= 0xfff2;
+    if (end && i !== bin.length - 2) return false;
+    if (!end && ((v & 7) > 4 || v > 0x7fff)) return false;
+  }
+  return true;
+}
+
 // Structural check of a drawing code (same format as js/share.js), without drawing it.
 function validCode(code) {
+  if (typeof code === 'string' && code.startsWith('LWC1.')) return validGame(code);
   if (typeof code !== 'string' || code.length > MAX_CODE || !/^LW1\.[A-Za-z0-9_-]+$/.test(code)) return false;
   let bin;
   try { bin = atob(code.slice(4).replace(/-/g, '+').replace(/_/g, '/')); } catch { return false; }
@@ -222,7 +239,7 @@ export default {
 
     const created = await gh(env, `/repos/${env.GITHUB_REPO}/issues`, {
       method: 'POST',
-      body: JSON.stringify({ title: `Drawing${shown ? `: ${shown.slice(0, 60)}` : ''}`, body: `${body}\n<!-- linework-likes:0 -->`, labels: ['linework-post'] }),
+      body: JSON.stringify({ title: `${data.code.startsWith('LWC1.') ? 'Chess game' : 'Drawing'}${shown ? `: ${shown.slice(0, 60)}` : ''}`, body: `${body}\n<!-- linework-likes:0 -->`, labels: ['linework-post'] }),
     });
     if (!created.ok) return reply(env, origin, 502, { error: 'Posting failed on GitHub’s side. Try again later.' });
     const issue = await created.json();

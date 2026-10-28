@@ -16,6 +16,8 @@ import { analyze } from '../js/analyze.js';
 import { matchRelease } from '../js/catalog.js';
 import { decodeDrawing } from '../js/share.js';
 import { parseNet } from '../js/sketchnet.js';
+import { decodeGame } from '../js/chess.js';
+import { analyzeGame } from '../js/chess-read.js';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const repo = process.env.GITHUB_REPOSITORY;
@@ -58,11 +60,13 @@ for (const issue of issues) {
   if (posts.length >= max) break;
   if (author && issue.user?.login?.toLowerCase() !== author) { skipped.push([issue.number, 'not filed by the relay']); continue; }
   const body = issue.body || '';
-  const code = body.match(/LW1\.[A-Za-z0-9_-]+/)?.[0];
+  const code = body.match(/LWC?1\.[A-Za-z0-9_-]+/)?.[0];
   if (!code) { skipped.push([issue.number, 'no drawing code']); continue; }
   try {
-    const strokes = decodeDrawing(code);
-    const a = analyze(strokes, { net });
+    // A chess game is replayed move by move (an illegal game throws and is skipped); a drawing is read.
+    const a = code.startsWith('LWC1.')
+      ? (({ moves, end }) => analyzeGame(moves, end))(decodeGame(code))
+      : analyze(decodeDrawing(code), { net });
     const r = matchRelease(a, catalog);
     if (!r) throw new Error('no match');
     posts.push({

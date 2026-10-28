@@ -1,6 +1,8 @@
 // Linework — the public feed. Reads feed.json (built by the GitHub Action from post issues).
 
 import { decodeDrawing, drawingSvg } from './share.js';
+import { Game, decodeGame } from './chess.js';
+import { boardSvg } from './chess-board.js';
 import { POST_URL } from '../config.js';
 
 const $ = (id) => document.getElementById(id);
@@ -45,7 +47,7 @@ function drawArt(el) {
   if (drawn.has(el)) return;
   drawn.add(el);
   let svg = '';
-  try { svg = drawingSvg(decodeDrawing(el.dataset.code), 300); } catch { return; }
+  try { svg = artSvg(el.dataset.code); } catch { return; }
   const img = new Image();
   img.decoding = 'async';
   img.alt = '';
@@ -59,13 +61,24 @@ const artObserver = 'IntersectionObserver' in window
   }, { rootMargin: '600px 0px' })
   : null;
 
+// A drawing, or a chess game's final position (last move tinted).
+function artSvg(code) {
+  if (code.startsWith('LWC1.')) {
+    const g = new Game(decodeGame(code).moves);
+    const last = g.history[g.history.length - 1]?.move;
+    return boardSvg(g.pos.board, 300, { marks: last ? { from: last.from, to: last.to } : null });
+  }
+  return drawingSvg(decodeDrawing(code), 300);
+}
+
 function card(p) {
-  if (!/^LW1\.[A-Za-z0-9_-]+$/.test(p.code || '')) return '';
+  if (!/^LWC?1\.[A-Za-z0-9_-]+$/.test(p.code || '')) return '';
+  const isGame = p.code.startsWith('LWC1.');
   const r = p.release || {};
   const safeUrl = /^https:\/\/open\.spotify\.com\//.test(r.url || '') ? r.url : `https://open.spotify.com/album/${encodeURIComponent(r.id || '')}`;
   const img = /^https:\/\/i\.scdn\.co\//.test(r.image || '') ? r.image : '';
   return `<li class="post${p.pending ? ' pending' : ''}">
-    <div class="post-art" role="img" data-code="${esc(p.code)}" aria-label="Drawing read as ${esc((p.motifLabel || '').toLowerCase())}"></div>
+    <div class="post-art" role="img" data-code="${esc(p.code)}" aria-label="${isGame ? 'Chess game' : 'Drawing'} read as ${esc((p.motifLabel || '').toLowerCase())}"></div>
     <div class="post-info">
       <p class="label">${esc(p.motifLabel)}${p.pending ? ' · <span class="badge">Publishing…</span>' : ''}</p>
       ${p.caption ? `<p class="post-caption">${esc(p.caption)}</p>` : ''}
@@ -161,7 +174,7 @@ function pendingNotIn(feedPosts) {
   }
   if (!posts.length) { $('empty').hidden = false; return; }
   const total = Number(feed.count) || published.length;
-  $('feedSub').textContent = `${total} drawing${total === 1 ? '' : 's'}, and the records their lines picked.`;
+  $('feedSub').textContent = `${total} post${total === 1 ? '' : 's'}, and the records they picked.`;
   renderMore();
 })();
 
